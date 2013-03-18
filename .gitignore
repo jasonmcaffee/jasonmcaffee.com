@@ -1,3 +1,5 @@
 /node-server/logs/node.log
 .sass-cache/
 node_modules/
+node_modules
+.sass-cache
