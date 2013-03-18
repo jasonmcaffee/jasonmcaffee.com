@@ -1,0 +1,181 @@
+
+%resume-content-section{
+    //background-color: rgb(251, 251, 251);
+    margin:1%;
+    padding:1%;
+    @extend .round-all-by-3;
+
+    //title (employment, projects, education,etc)
+    h2{
+
+    }
+}
+
+%resume-content-section-item{
+    background-color: rgb(251, 251, 251);
+    padding-top:3%;
+    margin-bottom:1%;
+}
+
+%employment-section{
+    @extend %resume-content-section;
+
+}
+
+%employment-section-item{
+    @extend %resume-content-section-item;
+     //title, company, date
+     ul{
+        @extend .inline-block-grid;
+        li{
+            @extend .inline-block-grid-cell;
+            width:33%;
+            font-size:140%;
+        }
+        //title
+        li:nth-child(1){
+            font-family: 'Quicksand_Book_Oblique', sans-serif;
+        }
+        //employer
+        li:nth-child(2){
+            text-align: center;
+        }
+        //date
+        li:nth-child(3){
+            text-align: right;
+        }
+     }
+     //summary p tags.
+     p{
+
+     }
+
+     //tags (primary and libs)
+     dl{
+        @extend .inline-block-grid;
+        padding:1%;
+        dt{
+            @extend .inline-block-grid-cell;
+            margin-right:15px;
+            padding:.5%;
+            @extend .round-all-by-3;
+        }
+
+     }
+
+     //primary skills tags
+     dl:nth-of-type(1){
+        dt{
+            background-color: rgb(163,219,255);;
+        }
+     }
+
+     //libs and tools tags
+     dl:nth-of-type(2){
+         dt{
+             background-color: rgb(209,211, 212);
+         }
+     }
+}
+
+%projects-section{
+     @extend %resume-content-section;
+}
+
+%education-section{
+     @extend %resume-content-section;
+}
+
+%certifications-section{
+     @extend %resume-content-section;
+
+}
+
+#resume-page{
+    //sizing
+    height:100%;
+    width: 100%;
+    //positioning
+    padding-top:3%;
+    //font
+    font-family: 'Quicksand_Book', sans-serif;
+    background-color:white;
+    .header{
+        //size
+        height:15%;
+        //layout
+        @extend .inline-block-grid;
+
+        //my face picture
+        div:first-child {
+            //layout
+            @extend .inline-block-grid-cell;
+            height:100%;
+            //sizing
+            width:15%;
+            //move the image over to the right
+            padding-left: 3%;
+            vertical-align: middle;
+            //background-color:red;
+            img{
+                width:100%;
+                height:auto;
+                max-height: 101px;
+                max-width:100px;
+                min-height: 50px;
+                min-width:50px;
+            }
+        }
+
+        //Name and contact info
+        div:nth-child(2) {
+            //layout
+            @extend .inline-block-grid-cell;
+            vertical-align: middle;
+            //background-color: blue;
+            //sizing
+            width: 85%;
+            height:100%;
+            text-align:center;
+            //header JASON MCAFFEE
+            h1{
+                //font
+                font-size: 72px;
+                color: rgb(65, 64, 66);
+                margin-top:2%;
+                margin-bottom:0px;
+                font-weight: normal;
+            }
+
+            //contact info
+            ul{
+                //email, phone
+                li{
+                    //font
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    //employment, projects, education, certifications
+    .employment-section{
+        @extend %employment-section;
+
+        .employment-section-item{
+            @extend %employment-section-item;
+        }
+    }
+
+    .projects-section{
+        @extend %projects-section;
+    }
+
+    .education-section{
+        @extend %education-section;
+    }
+
+    .certifications-section{
+        @extend %certifications-section;
+    }
+}

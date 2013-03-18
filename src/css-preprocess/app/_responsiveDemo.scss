@@ -1,0 +1,218 @@
+
+//@import "src/css-preprocess/media-queries";
+@import "src/css-preprocess/core/colors";
+@import "src/css-preprocess/core/rounded-corners";
+@import "src/css-preprocess/core/lists";
+@import "src/css-preprocess/util/position-fixes";
+@import "src/css-preprocess/core/grids";
+
+/*
+as a general rule, using unobtrusive css is a bad practice, as the selectors end up not being efficient.
+https://developers.google.com/speed/docs/best-practices/rendering?hl=de-DE#UseEfficientCSSSelectors
+http://snook.ca/archives/html_and_css/css-parent-selectors
+
+However, these rules don't seem to apply to modern browsers, and the rendering of this page takes less than 1 ms in chrome.
+If performance or maintenance becomes a problem, simply change the selector.
+
+*/
+.money{
+  &:before{
+    content:'$'
+  }
+}
+
+.master-item-text{
+  @extend .inline-block-grid-cell;
+  width:49%;
+}
+
+#accountDetailLinks{ //dl
+  //@extend .list-type-2;
+  padding: 0px;//causes weird push down of content but not styles.
+  @extend .inline-block-grid-cell;
+  @extend .inline-block-grid;
+  text-align: right;
+  width:49%;
+  li{
+    @extend .inline-block-grid-cell;
+    //padding: 5px;
+    width:100%;
+    //text-overflow: ellipsis;
+    a{
+      text-decoration: none;
+      color: blue;
+
+    }
+  }
+
+
+}
+
+//layout & base styling for all form factors
+#responsive-page{
+   //background-color: blue;
+   width:100%;
+  height:100%;
+  #masterDetailListsGrid{
+    @extend .inline-block-grid;//
+
+    //cell 1
+    #masterList{  //ul
+      //base type
+      @extend .list-type-1;
+      @extend .inline-block-grid-cell; //this and detailList are sibling cells
+
+      @extend .inline-block-grid;//this is a grid for masterText and accountDetailLinks
+
+      //mouse devices
+      cursor: pointer;
+
+    }//#masterList
+
+    //cell 2
+    #detailList{  //ul
+      //base type
+      @extend .list-type-1;
+      @extend .inline-block-grid-cell;
+
+      //mouse devices
+      cursor: pointer;
+
+      //li has several items in it, represented as dl dt, as to avoid confusion
+      li{
+
+        //each dl is considered a flexible grid, with each dt being a grid cell
+        dl{ //grid
+          @extend .inline-block-grid;
+
+          dt{ //grid cell
+            @extend .inline-block-grid-cell;
+
+          }
+
+          //cell 1
+          dt:nth-child(1){
+            font-style: italic;
+          }
+
+          //cell 2
+          dt:nth-child(2){
+            @extend .money; //this cell
+
+          }
+
+          //cell 3
+          dt:nth-child(3){
+          }
+        }
+      }//li
+    }//#detailList
+  }//masterDetailListGrid
+}//end responsive-page
+
+
+//===================================================================== media queries ==================================
+//small
+@include mq(small){
+  .master-item-text{
+    width:100%;
+  }
+  #accountDetailLinks{ //dl
+    text-align: left;
+    width:100%;
+    li{
+      @extend .inline-block-grid-cell;
+      padding: 5px;
+      width:100%;
+      a{
+      }
+    }
+  }
+
+  #responsive-page{
+
+    #masterDetailListsGrid{
+
+      #masterList{
+        //sizing
+        width:100%;
+
+        //font
+        font-size: 150%;
+
+        //further extend .list-type-1
+        li{
+          padding:7px;
+        }
+      }
+
+      #detailList{  //ul
+        width:100%;
+        li{
+
+          dl{
+            dt{
+
+            }
+
+            dt:nth-child(1){
+              width:100%;
+            }
+
+            dt:nth-child(2){
+              width:50%;
+            }
+
+            dt:nth-child(3){
+              width:50%;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+//medium
+@include mq(medium-and-above){
+  #responsive-page{
+
+    #masterDetailListsGrid{
+      width:100%;
+      #masterList{
+        width: 30%;
+
+      }
+
+      #detailList{  //ul
+        width: 70%;
+        li{
+
+          dl{
+            dt{
+
+            }
+
+            dt:nth-child(1){
+              width:50%;
+            }
+
+            dt:nth-child(2){
+              text-align: right;
+              width:20%;
+            }
+
+            dt:nth-child(3){
+              text-align: right;
+              width:30%;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,184 @@
+//@import "src/css-preprocess/_variables";
+@import "src/css-preprocess/core/media-queries";
+@import "src/css-preprocess/core/colors";
+@import "src/css-preprocess/core/rounded-corners";
+@import "src/css-preprocess/core/lists";
+@import "src/css-preprocess/util/position-fixes";
+@import "src/css-preprocess/core/grids";
+
+
+//layout & base styling for all form factors
+#responsive-page-flex-box{
+  //background-color: blue;
+  width:100%;
+  height:100%;
+
+  #masterDetailListsGrid2{
+    @extend .flex-box-grid;//the masterList and detailList are considered cells in this grid
+    //height:30%;
+    width:100%;
+    //cell 1
+    #masterList2{  //ul
+      //base type
+      @extend .list-type-1;
+
+      //height:100%; //removes padding. cells aren't equal
+      //flex box
+      @include box-ordinal-group(2);//demo changing order of elements. puts details in front of master, even though master html comes first.
+
+      //mouse devices
+      cursor: pointer;
+
+      ul{
+        //height:100%;
+
+        li{
+          //height:100%;
+        }
+      }
+
+    }//#masterList
+
+    //cell 2
+    #detailList2{  //ul
+      //base type
+      @extend .list-type-1;
+
+      //flex box
+      @include box-ordinal-group(1);//demo changing order of elements. puts details in front of master, even though master html comes first.
+
+      //mouse devices
+      cursor: pointer;
+
+      //li has several items in it, represented as dl dt, as to avoid confusion
+      li{
+
+        //each dl is considered a flexible grid, with each dt being a grid cell
+        dl{ //grid
+          @extend .flex-box-grid;
+          //@extend .inline-block-grid; //extending both causes flex box ordinal to stop working.
+
+          dt{ //grid cell
+            //@extend .inline-block-grid-cell;
+          }
+
+          //cell 1
+          dt:nth-child(1){ //item description
+            font-style: italic;
+
+          }
+
+          //cell 2
+          dt:nth-child(2){ //amount
+
+          }
+
+          //cell 3
+          dt:nth-child(3){  //date
+
+          }
+        }
+      }//li
+    }//#detailList
+  }//masterDetailListGrid2
+}
+
+
+//media queries
+@include mq(small){
+  #masterDetailListsGrid2{
+    @include box-orient(vertical);//stack cells top to bottom
+
+    #masterList2{
+
+      //sizing
+      width:100%;
+      //font
+      font-size: 150%;
+
+      li{
+        padding: 7px;
+      }
+    }
+
+    #detailList2{
+      width: 100%;
+      li{
+        dl{
+          @include box-orient(vertical);//limitation of flex box.
+          dt{
+
+          }
+
+          dt:nth-child(1){
+            @include box-ordinal-group(1);
+          }
+
+          dt:nth-child(2){
+            @include box-ordinal-group(3);
+            text-align: right;
+          }
+
+          dt:nth-child(3){
+            text-align: right;
+            @include box-ordinal-group(2);
+          }
+
+        }
+      }
+
+    }
+
+  }
+}
+
+@include mq(medium-and-above){
+  #masterDetailListsGrid2{
+
+    #masterList2{
+      width:30%;
+      //@extend flex-box-grid;
+      //@include box-orient(vertical);
+      //width:30%;
+
+      li{
+        // @include box-flex(1);
+      }
+      li:first-child{
+        //@include box-flex(3);
+      }
+    }
+
+    #detailList2{
+      width:70%;
+      li{
+        dl{
+          dt{
+
+          }
+
+          dt:nth-child(1){
+            width:50%;
+            text-align: right;
+            @include box-ordinal-group(3);
+          }
+
+          dt:nth-child(2){
+            width:30%;
+            @include box-ordinal-group(1);
+          }
+
+          dt:nth-child(3){
+            text-align: right;
+            width:20%;
+            @include box-ordinal-group(2);
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+}

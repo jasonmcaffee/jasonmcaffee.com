@@ -1,0 +1,118 @@
+.buttons-demo{
+
+}
+
+
+
+.on-click-buttons-container{
+    padding:.5%;
+    background-color:blue;
+}
+
+.active-pseudo-selector-container{
+    padding:.5%;
+    background-color:grey;
+}
+
+
+//container for an individual button demonstration
+.button-demo:nth-child(odd){
+    background-color: #f7f7f7;
+
+}
+
+.demo-notes{
+    font-size: 80%;
+}
+
+.button-base{
+    font-size:24px;
+
+    margin: .5%;
+    width: 150px;
+
+    text-align: center;
+
+    //color
+    background: rgb(169,228,247);
+    background: -moz-linear-gradient(left,  rgba(169,228,247,1) 0%, rgba(15,180,231,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(169,228,247,1)), color-stop(100%,rgba(15,180,231,1)));
+    background: -webkit-linear-gradient(left,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);
+    background: -o-linear-gradient(left,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);
+    background: linear-gradient(left,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);
+
+    //corners
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+
+}
+
+.button-type-on-click{
+    @extends .button-base;
+    color:black;
+}
+
+.button-type-on-click-with-gpu{
+    @extends .button-type-on-click;
+    -webkit-backface-visibility: hidden;
+}
+
+.button-type-on-click-pressed{
+    background: rgb(242,130,91);
+    background: -moz-linear-gradient(left,  rgba(242,130,91,1) 0%, rgba(229,91,43,1) 50%, rgba(240,113,70,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(242,130,91,1)), color-stop(50%,rgba(229,91,43,1)), color-stop(100%,rgba(240,113,70,1)));
+    background: -webkit-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+    background: -o-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+    background: linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+}
+
+.button-type-active{
+    @extends .button-base;
+    //pseudo selectors
+    &:active {
+        background: rgb(242,130,91);
+        background: -moz-linear-gradient(left,  rgba(242,130,91,1) 0%, rgba(229,91,43,1) 50%, rgba(240,113,70,1) 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(242,130,91,1)), color-stop(50%,rgba(229,91,43,1)), color-stop(100%,rgba(240,113,70,1)));
+        background: -webkit-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+        background: -o-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+        background: -ms-linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+        background: linear-gradient(left,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+    }
+}
+
+.button-type-active-with-gpu{
+    @extends .button-type-active;
+    //kick in the gpu. EXTREME improvement in responsiveness on android galaxy tab and nexus.
+    -webkit-backface-visibility: hidden;
+}
+
+.button-type-1{
+    @extends .button-type-active-with-gpu;
+
+}
+
+
+.button-type-2{
+    @extends .button-type-active;
+}
+.button-type-3{
+    @extends .button-type-active;
+}
+
+.button-type-4{
+    @extends .button-type-active;
+    background-color:green;
+}
+
+.button-type-5{
+    @extends .button-type-active;
+}
+
+.button-type-6{
+    @extends .button-type-active;
+}
+

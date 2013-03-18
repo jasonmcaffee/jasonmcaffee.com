@@ -1,0 +1,96 @@
+//http://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+//http://thesassway.com/intermediate/responsive-web-design-part-2#the_future_of_media_queries_in_sass
+//http://cssmediaqueries.com/
+$small-max-width: 325px;
+$medium-max-width: 989px;
+$large-min-width:1224px;
+$giant-min-width:1824px;
+
+@mixin mq($type){
+  @if $type == small {
+    ///* Smartphones (portrait and landscape) ----------- */
+    @media only screen
+    and (max-width : $small-max-width) {
+      @content;
+    }
+  }@else if $type == small-landscape {
+      /* Smartphones (landscape) ----------- */
+    @media only screen
+    and (min-width : 321px) {
+      @content;
+    }
+  }@else if $type == small-portrait {
+    /* Smartphones (portrait) ----------- */
+    @media only screen
+    and (max-width : 320px) {
+      @content;
+    }
+  }@else if $type == medium {    //limited range of effect min width means that nothing will affect small
+    @media only screen
+    and (min-width: $small-max-width)
+    and (max-width: $medium-max-width){
+      @content;
+    }
+  }@else if $type == medium-and-below { //affects all things at medium screen width and below (including small)
+    @media only screen
+    and (max-width: $medium-max-width){
+      @content;
+    }
+  }@else if $type == medium-and-above{
+    @media only screen
+    and (min-width: $small-max-width){
+      @content;
+    }
+  } @else if $type == medium-landscape {
+    /* medium (landscape) ----------- */
+    @media only screen
+    and (max-device-width : $medium-max-width)
+    and (orientation : landscape) {
+      @content;
+    }
+  }@else if $type == medium-portrait {
+    /* medium (portrait) ----------- */
+    @media only screen
+    and (max-device-width : $medium-max-width)
+    and (orientation : portrait) {
+      @content;
+    }
+  }@else if $type == large {
+    /* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : $large-min-width) {
+      @content;
+    }
+  }@else if $type == giant {
+    /* Large screens ----------- */
+    @media only screen
+    and (min-width : $giant-min-width) {
+      @content;
+    }
+  }
+  //Vendor specific
+  @else if $type == ipad {
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px) {
+      @content;
+    }
+  }@else if $type == ipad-landscape {
+    /* iPads (landscape) ----------- */
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (orientation : landscape) {
+      @content;
+    }
+  }@else if $type == ipad-portrait {
+    /* iPads (portrait) ----------- */
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (orientation : portrait) {
+      @content;
+    }
+  }
+}

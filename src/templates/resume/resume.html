@@ -1,0 +1,94 @@
+<div id="resume-page">
+
+    <div class="header">
+
+        {{!face picture}}
+        <div>
+            <img src="images/face-with-blue-dot.png">
+            &nbsp;
+        </div>
+
+        {{!name and contact info}}
+        <div>
+            <h1>Jason McAffee </h1>
+            <ul>
+                <li>jasonlmcaffee@gmail.com</li>
+                <li>614 915 8198</li>
+            </ul>
+        </div>
+    </div>
+
+    {{!employment =========================================================== }}
+    <div class="employment-section">
+        <h2>Employment</h2>
+        <hr/>
+
+        {{#each employment.items}}
+        <div class="employment-section-item">
+            {{!job title, company, date}}
+            <ul>
+                <li>{{title}}</li>
+                <li>{{employer}}</li>
+                <li>{{date}}</li>
+            </ul>
+
+            {{#each summary.paragraphs}}
+            <p>
+                {{this}}
+            </p>
+            {{/each}}
+
+            {{!primary skills}}
+            <dl>
+                {{#each primarySkills}}
+                    <dt>{{this}}</dt>
+                {{/each}}
+            </dl>
+
+            {{!libraries used}}
+            <dl>
+                {{#each toolsAndLibs}}
+                <dt>{{this}}</dt>
+                {{/each}}
+            </dl>
+
+        </div>
+        {{/each}}
+    </div>
+
+    {{!projects ================================================================ }}
+    <div class="projects-section">
+        <h2>Projects</h2>
+        <hr/>
+
+        {{!project section item }}
+        {{#each projects}}
+        <div>
+            <h3>{{name}}</h3>
+            {{#each summary.paragraphs}}
+                <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+
+    {{!education =============================================================== }}
+    <div class="education-section">
+        <h2>Education</h2>
+        <hr/>
+        <div>{{education.degree}}</div>
+        <div>
+            <div>{{education.gpa}}</div>
+            <div>{{education.school}}</div>
+        </div>
+    </div>
+
+    {{!certifications ========================================================== }}
+    <div class="certifications-section">
+        <h2>Certifications</h2>
+        <hr/>
+        {{#each certifications}}
+        <div>{{this}}</div>
+        {{/each}}
+    </div>
+</div>

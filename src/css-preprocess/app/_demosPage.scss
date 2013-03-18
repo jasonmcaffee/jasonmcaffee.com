@@ -1,0 +1,12 @@
+@import "src/css-preprocess/core/lists";
+
+#demos-page{
+
+  #demoLinksList{
+    @extend .list-type-1;
+
+    li{
+      padding: 7px;
+    }
+  }
+}

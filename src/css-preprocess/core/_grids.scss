@@ -1,0 +1,136 @@
+/*
+*   The inline block grid provides the ability to use display:inline-block, without the negative side effects that occur
+*   when applying to a ul, dl, etc. (Typically there is spacing that occurs between lis when displayed side by side)
+*   after trying each possibility proposed in the below article, we have found that the YUI Grid System is the best.
+*
+*   Each direct child element of the grid should have the .inline-block-grid-item class applied.
+*
+*   All you have to do to control positioning is adjust the widths of the inline-block-grid-cells.
+*   The display:block will trigger when items are pushed over more than 100%.
+*   e.g. if you have 3 cells in your grid, and you set cell 1 width to 50%, and cell 2's width to 50%, cell 3 will get
+*   pushed down to a new row.
+*
+*   Limits:
+*   - rearranging of cells is restricted to stacking on top of each other. (e.g. you can't move cell 5 to be on top of cell 1)
+*   - media queries are intentionally left out so you can compose your own using the mq mixin
+*
+*   Sources:
+*   http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+*   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
+*   http://yuilibrary.com/yui/docs/cssgrids/
+*/
+.inline-block-grid{
+  letter-spacing: -0.31em; /* webkit: collapse white-space between units */
+  *letter-spacing: normal; /* reset IE < 8 */
+  word-spacing: -0.43em; /* IE < 8 && gecko: collapse white-space between units */
+}
+.inline-block-grid-cell{
+  display: inline-block;
+  zoom: 1; *display: inline; /* IE < 8: fake inline-block */
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+}
+
+
+/*
+* Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.
+* e.g. if you have 3 cells in your grid, you could use a media-query for small devices, and have the order rearranged so
+* that cell 3 was stacked on top of cell 1, and cell 1 stacked on cell 2.
+*
+* Equal column heights - all flexbox elements inherit a default value of box-align: stretch. This means they will all stretch to fill their container.
+*
+* Limits:
+* - ie9 and Opera not supported. may need polyfill if possible. todo: research polyfill...
+*
+* Sources:
+* - http://caniuse.com/#search=flexbox
+* - http://www.html5rocks.com/en/tutorials/flexbox/quick/
+* - http://www.w3.org/TR/css3-flexbox/
+* - http://blog.isotoma.com/2010/08/css3-flexbox/
+* - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
+*/
+.flex-box-grid{
+  //todo: add ms-box prefix for ie10 support.
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
+
+.flex-box-grid-cell{
+
+}
+
+/**
+* Simply put, it tells the browser how to resize an element when the element is too big or small for its parent.
+* box-flex mixin for vendor prefixes.
+* @param - $flex - what you want to set for box-flex: $flex;
+*/
+@mixin box-flex($flex){
+  -webkit-box-flex: $flex;
+  -moz-box-flex: $flex;
+  box-flex: $flex;
+}
+
+/**
+* The box-orient property defines how boxes align within their parent. The default state is horizontal or, more specifically,
+* inline-axis, which is horizontal and left-to-right in most Western cultures. Likewise, vertical is the same as block-axis.
+* This will make sense if you think about how the browser lays out inline and block elements.
+* You can change the box-orient value to vertical to make boxes stack on top of each other.
+* @param - $orientation - horizontal, vertical
+*/
+@mixin box-orient($orientation){
+  -moz-box-orient: $orientation;
+  -webkit-box-orient: $orientation;
+  box-orient: $orientation;
+
+}
+
+/**
+* box-pack mixin for vendor prefixes.
+* @param - $pack - center
+*/
+@mixin box-pack($pack){
+  -moz-box-pack: $pack;
+  -webkit-box-pack: $pack;
+  -box-pack: $pack;
+}
+
+//The value of box-ordinal-group is set as a positive integer.
+//The lower the number (1 being the lowest), the higher the layout priority.
+//So, an element with box-ordinal-group: 1 will be rendered before one with box-ordinal-group: 2.
+//If elements share the same box-ordinal-group, then they will be rendered in the order that they appear in the HTML.
+@mixin box-ordinal-group($ordinal-group){
+  -moz-box-ordinal-group: $ordinal-group;
+  -webkit-box-ordinal-group: $ordinal-group;
+  box-ordinal-group: $ordinal-group;
+}
+
+/**
+*  box-align: center;
+*/
+@mixin box-align($align){
+  -moz-box-align: $align;
+  -webkit-box-align: $align;
+  box-align: $align;
+}
+
+//box-orient,
+//box-pack,
+//box-align,
+//box-flex,
+//box-flex-group,
+//box-ordinal-group,
+
+//A related property is box-direction, which specifies the direction in which the boxes are displayed.
+//The default value is normal, which means the boxes will display as they appear in the code. But if you change
+//this value to reverse, it will reverse the order, and so the last element in the code will appear first, and the first last.
+//While box-orient and box-direction are essential parts of the model, they will not likely appear in the final specification,
+//because they are being merged into the flex-direction property, which will take the following values: lr, rl, tb, bt, inline,
+//inline-reverse, block and block-reverse. Most of these are self-explanatory,
+//but as yet they don’t work in any browser.
+//box-direction,
+
+
+//box-lines.

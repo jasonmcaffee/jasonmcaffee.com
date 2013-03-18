@@ -1,0 +1,77 @@
+//@import "src/css-preprocess/_variables";
+@import "src/css-preprocess/core/media-queries";
+@import "src/css-preprocess/core/colors";
+@import "src/css-preprocess/core/rounded-corners";
+@import "src/css-preprocess/util/position-fixes";
+
+.ul-base{
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  //-webkit-margin-start: 0px;
+  //-webkit-margin-end: 0px;
+  //-webkit-padding-start: 0px;
+
+}
+
+
+
+//
+.list-type-1{
+  @extend .ul-base;
+
+  //positioning
+
+  //sizing
+  padding:5px;
+
+  //color
+  @extend .grey-subtle-gradient;
+
+  //border
+  @extend .round-all-by-3;
+
+
+  li{
+    @extend .list-item-white;
+  }
+
+  li:first-child{
+   // @extend .round-top-left-right-by-5;
+  }
+
+  li:last-child{
+    //@extend .round-bottom-left-right-by-5;
+  }
+
+  li:nth-child(even){
+    @extend .list-item-grey;
+  }
+}
+
+.list-type-2{
+  //sizing
+  //padding:5px;
+
+  //color
+  @extend .grey-subtle-gradient;
+
+  //border
+  @extend .round-all-by-3;
+
+
+  dt{
+    @extend .list-item-white;
+  }
+
+  dt:first-child{
+    @extend .round-top-left-right-by-5;
+  }
+
+  dt:last-child{
+    @extend .round-bottom-left-right-by-5;
+  }
+
+  dt:nth-child(even){
+    @extend .list-item-grey;
+  }
+}

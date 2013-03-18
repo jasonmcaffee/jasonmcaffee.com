@@ -1,0 +1,10 @@
+//http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+//http://dabblet.com/gist/2422174
+.fix-inline-block-spacing{
+  margin-left: -4px;
+}
+
+//for when applying within a media query
+@mixin fix-inline-block-spacing{
+  margin-left: -4px;
+}

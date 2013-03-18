@@ -1,0 +1,233 @@
+//@import "src/css-preprocess/_variables";
+//@import "src/css-preprocess/core/media-queries";
+//@import "src/css-preprocess/core/colors";
+//@import "src/css-preprocess/core/rounded-corners";
+
+//dont use visibility:hidden on menuExpanded. on android 4 there is an issue: menu won't completely dissapear on click. fragment at bottom still remains visible.
+#navbar{
+    display: none; //for now..todo:re-enable nav bar if needed.
+  position:fixed;
+  height: 50px;
+  z-index: 5;
+  top:0; //needed for android 2.3
+  left:0; //needed for android 2.3
+  width:100%;
+
+  //border
+  border:none 5px #000000;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright:0px;
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -webkit-border-top-left-radius:0px;
+  -webkit-border-top-right-radius:0px;
+  -webkit-border-bottom-left-radius:5px;
+  -webkit-border-bottom-right-radius:5px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+
+  //shadow
+  -moz-box-shadow: 0 4px 8px rgba(0,0,0,.52);
+  -webkit-box-shadow: 0 4px 8px rgba(0,0,0,.52);
+  box-shadow: 0 4px 8px rgba(0,0,0,.52);
+
+  @extend .dark-blue-gradient;
+}
+
+#menuCollapsed{
+  display: none;
+  //visibility: hidden;
+}
+
+#menuExpanded{
+  //margin-top:-50px;
+  top:0;
+  left:0;
+  z-index: 6;
+  position:fixed; //this breaks android 2.3 transform on this element.
+
+}
+
+//menu container - general (there are 2 uls in nav bar currently)
+#menuExpanded ul{
+    height:100%;
+    list-style:none;
+    padding:0;
+    margin-top:7px;
+    margin-left:5px;
+
+}
+
+//menu items
+#menuExpanded ul li{
+    display: inline-block;
+    //height: 90%;
+    margin-left: 0px;
+    margin-right: -3px; //ul makes us have this spacing that i can't get rid of without doing this
+
+    padding: 0px 3px 0px 3px;
+
+  -moz-box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 0 0 1px rgba(49,49,49,.2),
+    inset 0 0 3px rgba(255,255,255,.63);
+  -webkit-box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 0 0 1px rgba(49,49,49,.2),
+    inset 0 0 3px rgba(255,255,255,.63);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 0 0 1px rgba(49,49,49,.2),
+    inset 0 0 3px rgba(255,255,255,.63);
+
+  //white
+  @extend .white-menu-item;
+
+
+}
+
+
+#menuExpanded ul li:first-child{
+  -moz-border-radius-topleft: 7px;
+  -webkit-border-top-left-radius: 7px;
+  border-top-left-radius: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+#menuExpanded ul li a {
+  text-decoration: none;
+  //text-shadow: 0px 0px 2px #C0C0C0,
+  //              0 2px 1px rgba(3,70,95,.1),
+  //              2px 1px 2px #000000;
+  //color: #0b4580;
+  text-shadow: 0 1px 5.7px 0 rgba(0,0,0,.58);
+
+
+  font-weight: bold;
+  font-size: 30px;
+  //color: rgb(122,188,255);
+  color: rgb(80,125,175);
+  padding-right: 20px;
+  padding-left:20px;
+  //width:100%;
+
+}
+
+/* tablet portrait and below //@media (max-width:989px){ */
+
+@include mq(medium-and-below) {
+    #menuCollapsed{
+        display: block;
+        //visibility: visible;
+        //float:right;
+        height:100%;
+        //vertical-align: top;
+    }
+    .menu-expanded-shown{
+      display: block !important; //must override #menu... id selector as it has priority
+      margin-left:-5px;//fix android 2.3
+      //margin-top: 100px;
+      //margin-top: 10px !important;//for android 2.3
+      //
+      //transform: translate(0px,35px) !important;
+      //-ms-transform: translate(0px,35px) !important; /* IE 9 */
+      //-webkit-transform: translateY(35px) !important; /* Safari and Chrome */
+      //-o-transform: translate(0px,35px) !important; /* Opera */
+      //-moz-transform: translate(0px,35px) !important; /* Firefox */
+
+    }
+
+    #menuExpanded{  //container for menu items (blue)
+      display: none; //todo: only do this in android 2.3 as it negates transforms.
+      margin-top:20px;
+      //-webkit-transition:All .1s ease;
+      //-moz-transition:All .1s ease;
+      //-o-transition:All .1s ease;
+      //
+      //transform: translate(0px,-200px);
+      //-ms-transform: translate(0px,-200px); /* IE 9 */
+      //-webkit-transform: translateY(-200px); /* Safari and Chrome */
+      //-o-transform: translate(0px,-200px); /* Opera */
+      //-moz-transform: translate(0px,-200px); /* Firefox */
+
+      z-index:3;
+
+      //size
+      width:50%;
+      //height:90px;
+
+      padding:5px 5px 5px 5px;
+
+      -moz-box-shadow:
+        0 1px 5px rgba(0,0,0,.99),
+        inset 0 0 18px rgba(27,27,27,.15);
+      -webkit-box-shadow:
+        0 1px 5px rgba(0,0,0,.99),
+        inset 0 0 18px rgba(27,27,27,.15);
+      box-shadow:
+        0 1px 5px rgba(0,0,0,.99),
+        inset 0 0 18px rgba(27,27,27,.15);
+
+      @include black-transparent-gradient; //todo: this doesn't work with inheritance(extend). something to think about.
+
+    }
+
+    #menuExpanded ul{  //menu items
+       height:100%;
+       //padding: 10px 7px 7px 7px;
+       margin-top: 30px;
+    }
+    #menuExpanded ul li{   //menu item
+      display:block;
+
+      margin-right: 0px;//undo initial fix to push lis together
+      //give the menu items some space so its easier to click.
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      //box shadow
+      -moz-box-shadow: inset 0 0 2px #0f0f0f;
+      -webkit-box-shadow: inset 0 0 2px #0f0f0f;
+      box-shadow: inset 0 0 2px #0f0f0f;
+    }
+
+
+    #menuExpanded ul li a{
+
+    }
+
+    #menuExpanded ul li:first-child{
+      border:none 0px #000000;
+      //@extending an outer selector from within @media is deprecated.
+      //You may only @extend selectors within the same directive.
+      //This will be an error in Sass 3.3.
+      //It can only work once @extend is supported natively in the browser.
+
+      @include round-top-left-right-by-7;
+    }
+
+    #menuExpanded ul li:last-child{
+      border:none 0px #000000;
+      -moz-border-radius-topleft: 0px;
+      -moz-border-radius-topright:0px;
+      -moz-border-radius-bottomleft:7px;
+      -moz-border-radius-bottomright:7px;
+      -webkit-border-top-left-radius:0px;
+      -webkit-border-top-right-radius:0px;
+      -webkit-border-bottom-left-radius:7px;
+      -webkit-border-bottom-right-radius:7px;
+      border-top-left-radius:0px;
+      border-top-right-radius:0px;
+      border-bottom-left-radius:7px;
+      border-bottom-right-radius:7px;
+    }
+
+
+    #menuCollapsed #menuButton{
+      height:100%;
+    }
+}

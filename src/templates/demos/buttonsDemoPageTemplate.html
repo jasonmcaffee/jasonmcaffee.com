@@ -1,0 +1,108 @@
+<div id="buttonsDemo" class="buttons-demo">
+    <h2>Buttons Demo</h2>
+
+    <h3>Using input type="submit" and onclick handlers to add css class</h3>
+    <div class="on-click-buttons-container">
+        <div class="button-demo">
+            <label>with gpu:abcd</label>
+            <input type="submit" class="button-type-on-click-with-gpu" value="1">
+            <div class="demo-notes">here we use a css3 3d property to get gpu to render</div>
+            <table class="compatibility-table">
+                <thead>
+                <tr>
+                    <th>OS</th>
+                    <th>Compatibility</th>
+                </tr>
+                </thead>
+                <tr><td>Android 4.0</td><td>Slower than :active</td></tr>
+                <tr><td>Android 2.3.7</td><td>Slow responsiveness</td></tr>
+            </table>
+        </div>
+
+        <div class="button-demo">
+            <label>without gpu:</label>
+            <input type="submit" class="button-type-on-click" value="2">
+            <div class="demo-notes">no css for gpu</div>
+            <table class="compatibility-table">
+                <thead>
+                <tr>
+                    <th>OS</th>
+                    <th>Compatibility</th>
+                </tr>
+                </thead>
+                <tr><td>Android 4.0</td><td>Slower than :active</td></tr>
+                <tr><td>Android 2.3.7</td><td>Slow responsiveness. No difference between not having css3 3d property</td></tr>
+            </table>
+        </div>
+    </div>
+
+
+    <h3>Using input type="submit" and the :active pseudo selector to transform button on press.</h3>
+    <div>Don't use the :active selector, as it does not work well on android 2.3.7 or honeycomb</div>
+    <hr>
+    <div class="active-pseudo-selector-container">
+        <div class="button-demo">
+            <label>with gpu:</label>
+            <input type="submit" class="button-type-1" value="1">
+            <div class="demo-notes">here we use a css3 3d property to get gpu to render</div>
+            <table class="compatibility-table">
+                <thead>
+                <tr>
+                    <th>OS</th>
+                    <th>Compatibility</th>
+                </tr>
+                </thead>
+                <tr><td>Android 4.0</td><td>Works best so far. Very smooth, responsive experience.</td></tr>
+            </table>
+        </div>
+
+        <div class="button-demo">
+            <label>without gpu:</label>
+            <input type="submit" class="button-type-2" value="2">
+            <div class="demo-notes"></div>
+            <table class="compatibility-table">
+                <thead>
+                    <tr>
+                        <th>OS</th>
+                        <th>Compatibility</th>
+                    </tr>
+                </thead>
+                <tr><td>Android 4.0</td><td></td></tr>
+            </table>
+        </div>
+
+        <div class="button-demo" ontouchstart="">
+            <label>ontouchstart=""</label>
+            <input type="submit" class="button-type-3" value="3">
+            <div class="demo-notes">
+                try to improve android performance by using ontouchstart="" on the containing element of the button
+            </div>
+        </div>
+
+        <h4>Using FastButton.js</h4>
+
+        <div id="fastButtons">
+            <div class="button-demo">
+                <label>Fast Button:</label>
+                <input type="submit" class="button-type-4 fast-button" value="4">
+                <div class="demo-notes">
+                    javascript hack for android and iphone. make buttons faster.
+                </div>
+            </div>
+
+            <div class="button-demo">
+                <label>Fast Button with gpu:</label>
+                <input type="submit" class="button-type-1 fast-button" value="5">
+                <div class="demo-notes">
+                    javascript hack
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--<input type="submit" class="button-type-4" value="4">-->
+    <!--<input type="submit" class="button-type-5" value="5">-->
+    <!--<input type="submit" class="button-type-6" value="6">-->
+
+</div>

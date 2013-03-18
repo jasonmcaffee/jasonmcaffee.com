@@ -1,0 +1,40 @@
+<div id="responsive-page">
+
+    <h1>Master Detail List</h1>
+
+    <h2>Inline Block Grid</h2>
+    {{! each child element in the grid will have side effects unless inline-block-grid-cell is applied to it}}
+    <div id="masterDetailListsGrid">
+        <ul id="masterList">
+        {{#each_with_index masterListItems}}
+            <li>
+                <label class="master-item-text" data-index="{{index}}">{{this.itemText}}</label>
+
+                <dl id="accountDetailLinks">
+                    {{#each links}}
+                        <dt>
+                            <a href="{{this.linkHref}}">{{this.linkText}}</a>
+                        </dt>
+                    {{/each}}
+                </dl>
+            </li>
+        {{/each_with_index}}
+        </ul>
+
+        <ul id="detailList">
+            {{#each selectedMasterListItem.detailListItems}}
+            <li>
+                <dl>
+                    <dt>{{this.itemText}}</dt>
+                    <dt>{{this.itemText2}}</dt>
+                    <dt>{{this.itemText3}}</dt>
+                </dl>
+
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+
+</div>
