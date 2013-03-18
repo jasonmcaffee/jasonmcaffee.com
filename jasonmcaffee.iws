@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="commit - ignoring modules?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/fonts/fonts.css" afterPath="$PROJECT_DIR$/design/fonts/fonts.css" />
+    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
     </list>
     <ignored path="jasonmcaffee.iws" />
@@ -893,7 +892,11 @@
       <created>1363641837399</created>
       <updated>1363641837399</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commit - ignoring modules?">
+      <created>1363641874326</created>
+      <updated>1363641874326</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
