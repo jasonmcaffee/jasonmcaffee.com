@@ -2290,7 +2290,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/handlebars/node_modules/uglify-js/test/unit/compress/test/array2.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/handlebars/node_modules/uglify-js/test/unit/compress/test/array3.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/handlebars/node_modules/uglify-js/test/unit/compress/test/array4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
     </list>
     <ignored path="jasonmcaffee.iws" />
@@ -3168,7 +3167,11 @@
       <created>1363640250989</created>
       <updated>1363640250989</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="first commit 2">
+      <created>1363640326383</created>
+      <updated>1363640326383</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
