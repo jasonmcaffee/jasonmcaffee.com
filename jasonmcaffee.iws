@@ -2370,7 +2370,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="12" selection-start="51" selection-end="51" vertical-scroll-proportion="0.03041825">
+            <state line="1" column="12" selection-start="39" selection-end="39" vertical-scroll-proportion="0.015209125">
               <folding />
             </state>
           </provider>
@@ -3164,7 +3164,11 @@
       <created>1363640186211</created>
       <updated>1363640186211</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit 2">
+      <created>1363640250989</created>
+      <updated>1363640250989</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3356,7 +3360,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="12" selection-start="51" selection-end="51" vertical-scroll-proportion="0.03041825">
+        <state line="1" column="12" selection-start="39" selection-end="39" vertical-scroll-proportion="0.015209125">
           <folding />
         </state>
       </provider>
