@@ -9,8 +9,9 @@ define([
     'core/device/deviceInfo',
     'modernizer',
     'lib-third-party/FastButton2',
-    'core/ui/hideAddressBar'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar){
+    'core/ui/hideAddressBar',
+    'core/modernizrTests/tests'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests){
     log('core module loaded');
 
     var core = {

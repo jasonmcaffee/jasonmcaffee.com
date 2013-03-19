@@ -1,7 +1,8 @@
 define([
     'core/util/log',
-    'jquery'
-], function(log, $){
+    'jquery',
+    'underscore'
+], function(log, $, _){
     log('DeviceInfo module loaded');
 
     /**
@@ -303,6 +304,9 @@ define([
     }
 
     var deviceInfo = detect(navigator.userAgent, navigator.vendor, window.opera, navigator.platform);
+
+    //make the compare function available so other modules can use.
+    deviceInfo.compareOSVersions = _.bind(compareOSVersions, null, deviceInfo.browserVersion);//prepopulate first param (curry)
 
     log('deviceInfo is : ' + deviceInfo.browser + ' : ' + deviceInfo.browserVersion + ' : ' + deviceInfo.os);
     log('css class names : ' + generateCssClassNames(deviceInfo));

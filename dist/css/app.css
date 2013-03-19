@@ -432,15 +432,13 @@ html, body {
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2;
-  /*color*/
-  background: white;
-  background: -moz-radial-gradient(center, ellipse cover, white 0%, #f6f6f6 47%, #ededed 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
-  background: -webkit-radial-gradient(center, ellipse cover, white 0%, #f6f6f6 47%, #ededed 100%);
-  background: -o-radial-gradient(center, ellipse cover, white 0%, #f6f6f6 47%, #ededed 100%);
-  background: -ms-radial-gradient(center, ellipse cover, white 0%, #f6f6f6 47%, #ededed 100%);
-  background: radial-gradient(ellipse at center, white 0%, #f6f6f6 47%, #ededed 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed',GradientType=1 ); }
+  /*color*/ }
+
+.enhancedscrolling .pages {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  min-height: 100px; }
 
 #resume-page .header {
   height: 15%; }
