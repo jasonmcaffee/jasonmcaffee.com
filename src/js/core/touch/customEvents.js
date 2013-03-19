@@ -1,11 +1,12 @@
 /**
- * todo: this might interfere with fastbutton. seems to work on desktop. need to check mobile.
+ * todo: this might interfere with fastbutton. seems to work on desktop. need to check mobile.    a
  */
 
 define([
     'core/util/log',
-    'jquery'
-], function(log, $){
+    'jquery',
+    'underscore'
+], function(log, $, _){
     log('touch customEvents module loaded');
     //stolen from zepto
     var customEvents = {
@@ -26,7 +27,7 @@ define([
             function longTap(){
                 longTapTimeout = null
                 if (touch.last) {
-                    console.log('triggering longTap');
+                    //console.log('triggering longTap');
                     touch.el.trigger('longTap')
                     touch = {}
                 }
@@ -38,7 +39,7 @@ define([
             }
 
             $(document).ready(function(){
-                console.log('adding custom events like longTap, tap, singleTap, etc');
+                //console.log('adding custom events like longTap, tap, singleTap, etc');
                 var now, delta
 
                 $(document.body).bind('touchstart', function(jqueryEvent){
@@ -69,18 +70,18 @@ define([
                             // swipe
                         } else if ((touch.x2 && Math.abs(touch.x1 - touch.x2) > 30) ||
                             (touch.y2 && Math.abs(touch.y1 - touch.y2) > 30)) {
-                            console.log('triggering swipe');
+                            //console.log('triggering swipe');
                             touch.el.trigger('swipe') &&
                             touch.el.trigger('swipe' + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)))
                             touch = {}
 
                             // normal tap
                         } else if ('last' in touch) {
-                            console.log('triggering tap');
+                            //console.log('triggering tap');
                             touch.el.trigger('tap')
 
                             touchTimeout = setTimeout(function(){
-                                console.log('triggering singleTap')
+                                //console.log('triggering singleTap')
                                 touchTimeout = null
                                 touch.el.trigger('singleTap')
                                 touch = {}
@@ -94,9 +95,15 @@ define([
                     })
             })
 
-            ;['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'singleTap', 'longTap'].forEach(function(m){
+            //this breaks ie9, as ['a'].forEach is not supported.
+//            ;['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'singleTap', 'longTap'].forEach(function(m){
+//                $.fn[m] = function(callback){ return this.bind(m, callback) }
+//            })
+
+            ;_.each(['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'singleTap', 'longTap'], function(m){
                 $.fn[m] = function(callback){ return this.bind(m, callback) }
-            })
+            });
+
         }
     };
 

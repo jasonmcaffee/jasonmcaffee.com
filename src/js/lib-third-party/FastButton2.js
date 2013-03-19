@@ -7,8 +7,12 @@ define([
     function FastButton(element, handler) {
         this.element = element;
         this.handler = handler;
-        element.addEventListener('touchstart', this, false);
+        //ie9 doesn't support addEventListener
+        if(element.addEventListener){
+            element.addEventListener('touchstart', this, false);
+        }
     }
+
     FastButton.prototype.handleEvent = function(event) {
 
         switch (event.type) {
@@ -61,7 +65,10 @@ define([
             }
         }
     }
-    document.addEventListener('click', gonClick, true);
+    //ie doesn't support addEventListener on document
+    if(document.addEventListener){
+        document.addEventListener('click', gonClick, true);
+    }
     var coordinates = [];
 
 //    function initFastButtons() {
@@ -69,7 +76,7 @@ define([
 //    }
 
     function goSomewhere() {
-        console.log('goSomewhere emitting click');
+        //console.log('goSomewhere emitting click');
         var theTarget = document.elementFromPoint(this.startX, this.startY);
         if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
 
@@ -81,7 +88,7 @@ define([
         //anchor hrefs dont get navigated to with just $theTarget.trigger('click');
         //http://stackoverflow.com/questions/9904170/trigger-a-click-on-a-anchor-link
         if(theTarget.nodeType == 1 && theTarget.nodeName == "A"){
-            console.log('triggering click for anchor tag');
+            //console.log('triggering click for anchor tag');
             $(theTarget).get(0).click();
         }else{
             $(theTarget).trigger('click');
@@ -99,7 +106,7 @@ define([
          */
         init : function(selector){
             $(function(){
-                console.log('initializing fastbutton2');
+                //console.log('initializing fastbutton2');
                 new FastButton($('body')[0], goSomewhere);
             });
         }

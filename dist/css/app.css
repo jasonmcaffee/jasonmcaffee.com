@@ -431,7 +431,6 @@ html, body {
 
 .pages {
   min-height: 500px;
-  height: 100%;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2;

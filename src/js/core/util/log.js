@@ -11,15 +11,19 @@ define([], function(){
      * @param message
      */
     function log(message){
-        if(console && console.log){
-            var formattedMessage = message;
-            for (var i = 0; i < arguments.length; i++) {
-                var regexp = new RegExp('\\{'+i+'\\}', 'gi');
-                formattedMessage = formattedMessage.replace(regexp, arguments[i+1]);
-            }
+        //ie 9 blows up if you try to access console in an if statement. eg. if(console)
+        try{
+            if(console && console.log){
+                var formattedMessage = message;
+                for (var i = 0; i < arguments.length; i++) {
+                    var regexp = new RegExp('\\{'+i+'\\}', 'gi');
+                    formattedMessage = formattedMessage.replace(regexp, arguments[i+1]);
+                }
 
-            console.log(formattedMessage);
-        }
+                console.log(formattedMessage);
+            }
+        }catch(ex){}
+
     }
 
     return log;
