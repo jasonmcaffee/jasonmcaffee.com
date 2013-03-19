@@ -1,20 +1,87 @@
 
+//sections =========================================================
+%header{
+    //size
+    height:15%;  //fixes so that face image has vertical-align.
+    //layout
+    @extend .inline-block-grid;
+
+    //my face picture
+    div:first-child {
+        //layout
+        @extend .inline-block-grid-cell;
+        height:100%;
+        //sizing
+        width:15%;
+        //move the image over to the right
+        padding-left: 3%;
+        vertical-align: middle;
+        //background-color:red;
+        img{
+            width:100%;
+            height:auto;
+            max-height: 101px;
+            max-width:100px;
+            min-height: 50px;
+            min-width:50px;
+        }
+    }
+
+    //Name and contact info
+    div:nth-child(2) {
+        //layout
+        @extend .inline-block-grid-cell;
+        vertical-align: middle;
+        //background-color: blue;
+        //sizing
+        width: 85%;
+        height:100%;
+        text-align:center;
+        //header JASON MCAFFEE
+        h1{
+            //font
+            font-size: 72px;
+            color: rgb(65, 64, 66);
+            margin-top:2%;
+            margin-bottom:0px;
+            font-weight: normal;
+        }
+
+        //contact info
+        ul{
+            //email, phone
+            li{
+                //font
+                text-align: center;
+            }
+        }
+    }
+}
+
 %resume-content-section{
     //background-color: rgb(251, 251, 251);
     margin:1%;
     padding:1%;
-    @extend .round-all-by-3;
+
 
     //title (employment, projects, education,etc)
     h2{
 
     }
+
+    > div{
+        @extend %resume-content-section-item;
+        padding-left:.5%;
+        padding-right:.5%;
+    }
 }
 
 %resume-content-section-item{
     background-color: rgb(251, 251, 251);
-    padding-top:3%;
+    padding-top:1%;
+    padding-bottom:1%;
     margin-bottom:1%;
+    @extend %round-all-by-3;
 }
 
 %employment-section{
@@ -23,7 +90,8 @@
 }
 
 %employment-section-item{
-    @extend %resume-content-section-item;
+    //@extend %resume-content-section-item;
+    padding-top:3%;
      //title, company, date
      ul{
         @extend .inline-block-grid;
@@ -58,7 +126,7 @@
             @extend .inline-block-grid-cell;
             margin-right:15px;
             padding:.5%;
-            @extend .round-all-by-3;
+            @extend %round-all-by-3;
         }
 
      }
@@ -91,6 +159,7 @@
 
 }
 
+ //page ==================================================================
 #resume-page{
     //sizing
     height:100%;
@@ -100,64 +169,14 @@
     //font
     font-family: 'Quicksand_Book', sans-serif;
     background-color:white;
+
     .header{
-        //size
-        height:15%;
-        //layout
-        @extend .inline-block-grid;
-
-        //my face picture
-        div:first-child {
-            //layout
-            @extend .inline-block-grid-cell;
-            height:100%;
-            //sizing
-            width:15%;
-            //move the image over to the right
-            padding-left: 3%;
-            vertical-align: middle;
-            //background-color:red;
-            img{
-                width:100%;
-                height:auto;
-                max-height: 101px;
-                max-width:100px;
-                min-height: 50px;
-                min-width:50px;
-            }
-        }
-
-        //Name and contact info
-        div:nth-child(2) {
-            //layout
-            @extend .inline-block-grid-cell;
-            vertical-align: middle;
-            //background-color: blue;
-            //sizing
-            width: 85%;
-            height:100%;
-            text-align:center;
-            //header JASON MCAFFEE
-            h1{
-                //font
-                font-size: 72px;
-                color: rgb(65, 64, 66);
-                margin-top:2%;
-                margin-bottom:0px;
-                font-weight: normal;
-            }
-
-            //contact info
-            ul{
-                //email, phone
-                li{
-                    //font
-                    text-align: center;
-                }
-            }
-        }
+       @extend %header;
     }
 
+    .summary-section{
+        @extend %resume-content-section;
+    }
     //employment, projects, education, certifications
     .employment-section{
         @extend %employment-section;
@@ -167,7 +186,11 @@
         }
     }
 
-    .projects-section{
+    .work-projects-section{
+        @extend %projects-section;
+    }
+
+    .personal-projects-section{
         @extend %projects-section;
     }
 
@@ -177,5 +200,47 @@
 
     .certifications-section{
         @extend %certifications-section;
+    }
+}
+
+
+//=============================== media queries ================================================
+@include mq(medium-and-below){
+
+    //stack the face image and name on top of each other
+    %header{
+        height:auto; //no need for height fix for v align of face image.
+         //face
+         div:first-child {
+             width:100%;
+             text-align: center;
+         }
+         div:nth-child(2){
+             width:100%;
+
+         }
+    }
+    //stack the job title, employer, and date on top of each other.
+    %employment-section-item{
+        ul{
+            li{
+                width:100%;
+                font-size:110%;
+            }
+            //title
+            li:nth-child(1){
+                text-align: left;
+            }
+            //employer
+            li:nth-child(2){
+                text-align: right;
+                font-size:90%;
+            }
+            //date
+            li:nth-child(3){
+                text-align: right;
+                font-size:90%;
+            }
+        }
     }
 }

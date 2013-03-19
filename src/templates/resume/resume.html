@@ -18,6 +18,16 @@
         </div>
     </div>
 
+    {{!summary ============================================================== }}
+    <div class="summary-section">
+        <h2>Summary</h2>
+        <hr/>
+        <div>
+            {{#each summary.paragraphs}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+    </div>
     {{!employment =========================================================== }}
     <div class="employment-section">
         <h2>Employment</h2>
@@ -56,13 +66,13 @@
         {{/each}}
     </div>
 
-    {{!projects ================================================================ }}
-    <div class="projects-section">
-        <h2>Projects</h2>
+    {{!work projects ================================================================ }}
+    <div class="work-projects-section">
+        <h2>Work Projects</h2>
         <hr/>
 
         {{!project section item }}
-        {{#each projects}}
+        {{#each workProjects}}
         <div>
             <h3>{{name}}</h3>
             {{#each summary.paragraphs}}
@@ -72,14 +82,35 @@
         {{/each}}
     </div>
 
+    {{!personal projects ================================================================ }}
+    <div class="personal-projects-section">
+        <h2>Personal Projects</h2>
+        <hr/>
+
+        {{!project section item }}
+        {{#each personalProjects}}
+        <div>
+            <h3>{{name}}</h3>
+            {{#each summary.links}}
+            <a href="{{this}}">{{this}}</a>
+            {{/each}}
+            {{#each summary.paragraphs}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+
     {{!education =============================================================== }}
     <div class="education-section">
         <h2>Education</h2>
         <hr/>
-        <div>{{education.degree}}</div>
         <div>
-            <div>{{education.gpa}}</div>
-            <div>{{education.school}}</div>
+            <div>{{education.degree}}</div>
+            <div>
+                <div>{{education.gpa}}</div>
+                <div>{{education.school}}</div>
+            </div>
         </div>
     </div>
 
@@ -87,8 +118,10 @@
     <div class="certifications-section">
         <h2>Certifications</h2>
         <hr/>
-        {{#each certifications}}
-        <div>{{this}}</div>
-        {{/each}}
+        <div>
+            {{#each certifications}}
+            <div>{{this}}</div>
+            {{/each}}
+        </div>
     </div>
 </div>

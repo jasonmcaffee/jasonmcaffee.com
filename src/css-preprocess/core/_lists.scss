@@ -1,8 +1,8 @@
 //@import "src/css-preprocess/_variables";
-@import "src/css-preprocess/core/media-queries";
-@import "src/css-preprocess/core/colors";
-@import "src/css-preprocess/core/rounded-corners";
-@import "src/css-preprocess/util/position-fixes";
+//@import "src/css-preprocess/core/media-queries";
+//@import "src/css-preprocess/core/colors";
+//@import "src/css-preprocess/core/rounded-corners";
+//@import "src/css-preprocess/util/position-fixes";
 
 .ul-base{
   -webkit-margin-before: 0em;
@@ -28,7 +28,7 @@
   @extend .grey-subtle-gradient;
 
   //border
-  @extend .round-all-by-3;
+  @extend %round-all-by-3;
 
 
   li{
@@ -56,7 +56,7 @@
   @extend .grey-subtle-gradient;
 
   //border
-  @extend .round-all-by-3;
+  @extend %round-all-by-3;
 
 
   dt{

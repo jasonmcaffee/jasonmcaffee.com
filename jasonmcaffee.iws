@@ -3,7 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/grunt.js" afterPath="$PROJECT_DIR$/build/grunt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/test.html" afterPath="$PROJECT_DIR$/node-server/views/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_demosPage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_demosPage.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_responsiveFlexBoxDemo.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_responsiveFlexBoxDemo.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_lists.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_lists.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/Resume.js" afterPath="$PROJECT_DIR$/src/js/lib/models/Resume.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/resume/resume.html" afterPath="$PROJECT_DIR$/src/templates/resume/resume.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,28 +77,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="_media-queries.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="11" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+            <state line="11" column="64" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="_navigationBar.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="5" selection-start="120" selection-end="120" vertical-scroll-proportion="0.13793103">
+            <state line="7" column="5" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fonts.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/design/fonts/fonts.css">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="37" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
+            <state line="28" column="124" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grunt.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/grunt.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="23" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,55 +116,7 @@
       <file leaf-file-name="Resume.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/Resume.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="45" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_resume.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_rounded-corners.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="0" selection-start="3442" selection-end="3457" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/css/app.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1840" column="26" selection-start="115620" selection-end="115620" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1363571217000" expanded="true" signature="106505:107943" placeholder="/*...*/" />
-                <marker date="1363571217000" expanded="true" signature="108048:108096" placeholder="/*...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_fonts.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="16" selection-start="655" selection-end="677" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_strapkit.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+            <state line="9" column="21" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +125,16 @@
       <file leaf-file-name="_responsiveDemo.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="36" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0">
+            <state line="179" column="12" selection-start="3610" selection-end="3626" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_resume.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="207" column="28" selection-start="4197" selection-end="4197" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -170,22 +156,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/views/Resume.js" />
-        <option value="$PROJECT_DIR$/src/js/core/mvc/Controller.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
-        <option value="$PROJECT_DIR$/src/js/lib/controllers/Resume.js" />
-        <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/Resume.js" />
-        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/design/fonts/fonts.css" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_responsiveFlexBoxDemo.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_demosPage.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss" />
+        <option value="$PROJECT_DIR$/node-server/views/test.html" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
+        <option value="$PROJECT_DIR$/build/grunt.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/Resume.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/core/_lists.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
       </list>
     </option>
   </component>
@@ -642,7 +628,83 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handlebars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handlebars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uglify-js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="node-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -710,24 +772,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasonmcaffee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasonmcaffee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -742,25 +786,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasonmcaffee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasonmcaffee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -908,7 +934,11 @@
       <created>1363646611316</created>
       <updated>1363646611316</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test">
+      <created>1363646933368</created>
+      <updated>1363646933368</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -972,7 +1002,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -989,120 +1019,126 @@
     <MESSAGE value="first commit 2" />
     <MESSAGE value="commit - ignoring modules?" />
     <MESSAGE value="updated readme.md" />
+    <MESSAGE value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_demosPage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="82" selection-start="309" selection-end="309" vertical-scroll-proportion="0.11494253">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_colors.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.3605442" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="66" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
+        <state line="11" column="64" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_navigationBar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="191" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
+        <state line="7" column="5" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="7" selection-start="1693" selection-end="1970" vertical-scroll-proportion="-8.92">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/app-built.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1363714211000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1363714211000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1363714211000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1363714211000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1363714211000" expanded="true" signature="-1:-1" placeholder="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/grunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="23" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="124" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/models/Resume.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="45" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
+        <state line="9" column="21" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="3442" selection-end="3457" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/css/app.css">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_lists.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1840" column="26" selection-start="115620" selection-end="115620" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1363571217000" expanded="true" signature="106505:107943" placeholder="/*...*/" />
-            <marker date="1363571217000" expanded="true" signature="108048:108096" placeholder="/*...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="16" selection-start="655" selection-end="677" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+        <state line="63" column="171" selection-start="974" selection-end="974" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="36" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0">
+        <state line="179" column="12" selection-start="3610" selection-end="3626" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/design/fonts/fonts.css">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="37" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="11" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="5" selection-start="120" selection-end="120" vertical-scroll-proportion="0.13793103">
+        <state line="207" column="28" selection-start="4197" selection-end="4197" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>

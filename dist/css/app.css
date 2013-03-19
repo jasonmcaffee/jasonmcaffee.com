@@ -1,167 +1,9 @@
 @charset "UTF-8";
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-.ul-base, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
+.ul-base, .list-type-1 {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em; }
 
-.list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
+.list-type-1 {
   padding: 5px; }
 
 /*
@@ -185,7 +27,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #resume-page .header {
+.inline-block-grid, #resume-page .header, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -193,7 +35,7 @@
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #resume-page .header div:first-child, #resume-page .header div:nth-child(2) {
+.inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -219,7 +61,7 @@
 * - http://blog.isotoma.com/2010/08/css3-flexbox/
 * - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
 */
-.flex-box-grid, #responsive-page-flex-box #masterDetailListsGrid2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl {
+.flex-box-grid {
   display: -webkit-box;
   display: -moz-box;
   display: box; }
@@ -254,7 +96,7 @@
   background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
 
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
+.grey-subtle-gradient, .list-type-1, .list-type-2 {
   background: #282828;
   background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
@@ -283,7 +125,7 @@
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
 
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
+.list-item-white, .list-type-1 li, .list-type-2 dt {
   background: #fcfcfc;
   background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
@@ -293,7 +135,7 @@
   background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
 
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
+.list-item-grey, .list-type-1 li:nth-child(even), .list-type-2 dt:nth-child(even) {
   background: #f4f4f4;
   background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
@@ -401,7 +243,7 @@ dl {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
+.list-type-1, .list-type-2, #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div, #resume-page .employment-section .employment-section-item dl dt {
   -moz-border-radius-topleft: 3px;
   -moz-border-radius-topright: 3px;
   -moz-border-radius-bottomleft: 3px;
@@ -439,260 +281,10 @@ dl {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
-.on-click-buttons-container {
-  padding: .5%;
-  background-color: blue; }
-
-.active-pseudo-selector-container {
-  padding: .5%;
-  background-color: grey; }
-
-.button-demo:nth-child(odd) {
-  background-color: #f7f7f7; }
-
-.demo-notes {
-  font-size: 80%; }
-
-.button-base {
-  font-size: 24px;
-  margin: .5%;
-  width: 150px;
-  text-align: center;
-  background: #a9e4f7;
-  background: -moz-linear-gradient(left, #a9e4f7 0%, #0fb4e7 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #a9e4f7), color-stop(100%, #0fb4e7));
-  background: -webkit-linear-gradient(left, #a9e4f7 0%, #0fb4e7 100%);
-  background: -o-linear-gradient(left, #a9e4f7 0%, #0fb4e7 100%);
-  background: -ms-linear-gradient(left, #a9e4f7 0%, #0fb4e7 100%);
-  background: linear-gradient(left, #a9e4f7 0%, #0fb4e7 100%);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
-
-.button-type-on-click {
-  @extends .button-base;
-  color: black; }
-
-.button-type-on-click-with-gpu {
-  @extends .button-type-on-click;
-  -webkit-backface-visibility: hidden; }
-
-.button-type-on-click-pressed {
-  background: #f2825b;
-  background: -moz-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #f2825b), color-stop(50%, #e55b2b), color-stop(100%, #f07146));
-  background: -webkit-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-  background: -o-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-  background: -ms-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-  background: linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%); }
-
-.button-type-active {
-  @extends .button-base; }
-  .button-type-active:active {
-    background: #f2825b;
-    background: -moz-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #f2825b), color-stop(50%, #e55b2b), color-stop(100%, #f07146));
-    background: -webkit-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-    background: -o-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-    background: -ms-linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%);
-    background: linear-gradient(left, #f2825b 0%, #e55b2b 50%, #f07146 100%); }
-
-.button-type-active-with-gpu {
-  @extends .button-type-active;
-  -webkit-backface-visibility: hidden; }
-
-.button-type-1 {
-  @extends .button-type-active-with-gpu; }
-
-.button-type-2 {
-  @extends .button-type-active; }
-
-.button-type-3 {
-  @extends .button-type-active; }
-
-.button-type-4 {
-  @extends .button-type-active;
-  background-color: green; }
-
-.button-type-5 {
-  @extends .button-type-active; }
-
-.button-type-6 {
-  @extends .button-type-active; }
-
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-.ul-base, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em; }
-
-.list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  padding: 5px; }
-
-#demos-page #demoLinksList li {
-  padding: 7px; }
-
 .home-page h1 {
   color: black; }
 
 #navbar {
-  display: none;
   position: fixed;
   height: 50px;
   z-index: 5;
@@ -830,955 +422,6 @@ dl {
 
   #menuCollapsed #menuButton {
     height: 100%; } }
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-.ul-base, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em; }
-
-.list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  padding: 5px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-/*
-*   The inline block grid provides the ability to use display:inline-block, without the negative side effects that occur
-*   when applying to a ul, dl, etc. (Typically there is spacing that occurs between lis when displayed side by side)
-*   after trying each possibility proposed in the below article, we have found that the YUI Grid System is the best.
-*
-*   Each direct child element of the grid should have the .inline-block-grid-item class applied.
-*
-*   All you have to do to control positioning is adjust the widths of the inline-block-grid-cells.
-*   The display:block will trigger when items are pushed over more than 100%.
-*   e.g. if you have 3 cells in your grid, and you set cell 1 width to 50%, and cell 2's width to 50%, cell 3 will get
-*   pushed down to a new row.
-*
-*   Limits:
-*   - rearranging of cells is restricted to stacking on top of each other. (e.g. you can't move cell 5 to be on top of cell 1)
-*   - media queries are intentionally left out so you can compose your own using the mq mixin
-*
-*   Sources:
-*   http://css-tricks.com/fighting-the-space-between-inline-block-elements/
-*   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
-*   http://yuilibrary.com/yui/docs/cssgrids/
-*/
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #resume-page .header {
-  letter-spacing: -0.31em;
-  /* webkit: collapse white-space between units */
-  *letter-spacing: normal;
-  /* reset IE < 8 */
-  word-spacing: -0.43em;
-  /* IE < 8 && gecko: collapse white-space between units */ }
-
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #resume-page .header div:first-child, #resume-page .header div:nth-child(2) {
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  /* IE < 8: fake inline-block */
-  letter-spacing: normal;
-  word-spacing: normal;
-  vertical-align: top; }
-
-/*
-* Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.
-* e.g. if you have 3 cells in your grid, you could use a media-query for small devices, and have the order rearranged so
-* that cell 3 was stacked on top of cell 1, and cell 1 stacked on cell 2.
-*
-* Equal column heights - all flexbox elements inherit a default value of box-align: stretch. This means they will all stretch to fill their container.
-*
-* Limits:
-* - ie9 and Opera not supported. may need polyfill if possible. todo: research polyfill...
-*
-* Sources:
-* - http://caniuse.com/#search=flexbox
-* - http://www.html5rocks.com/en/tutorials/flexbox/quick/
-* - http://www.w3.org/TR/css3-flexbox/
-* - http://blog.isotoma.com/2010/08/css3-flexbox/
-* - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
-*/
-.flex-box-grid, #responsive-page-flex-box #masterDetailListsGrid2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box; }
-
-/**
-* Simply put, it tells the browser how to resize an element when the element is too big or small for its parent.
-* box-flex mixin for vendor prefixes.
-* @param - $flex - what you want to set for box-flex: $flex;
-*/
-/**
-* The box-orient property defines how boxes align within their parent. The default state is horizontal or, more specifically,
-* inline-axis, which is horizontal and left-to-right in most Western cultures. Likewise, vertical is the same as block-axis.
-* This will make sense if you think about how the browser lays out inline and block elements.
-* You can change the box-orient value to vertical to make boxes stack on top of each other.
-* @param - $orientation - horizontal, vertical
-*/
-/**
-* box-pack mixin for vendor prefixes.
-* @param - $pack - center
-*/
-/**
-*  box-align: center;
-*/
-/*
-as a general rule, using unobtrusive css is a bad practice, as the selectors end up not being efficient.
-https://developers.google.com/speed/docs/best-practices/rendering?hl=de-DE#UseEfficientCSSSelectors
-http://snook.ca/archives/html_and_css/css-parent-selectors
-
-However, these rules don't seem to apply to modern browsers, and the rendering of this page takes less than 1 ms in chrome.
-If performance or maintenance becomes a problem, simply change the selector.
-
-*/
-.money:before, #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(2):before {
-  content: "$"; }
-
-.master-item-text {
-  width: 49%; }
-
-#accountDetailLinks {
-  padding: 0px;
-  text-align: right;
-  width: 49%; }
-  #accountDetailLinks li {
-    width: 100%; }
-    #accountDetailLinks li a {
-      text-decoration: none;
-      color: blue; }
-
-#responsive-page {
-  width: 100%;
-  height: 100%; }
-  #responsive-page #masterDetailListsGrid #masterList {
-    cursor: pointer; }
-  #responsive-page #masterDetailListsGrid #detailList {
-    cursor: pointer; }
-    #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(1) {
-      font-style: italic; }
-
-@media only screen and (max-width: 325px) {
-  .master-item-text {
-    width: 100%; }
-
-  #accountDetailLinks {
-    text-align: left;
-    width: 100%; }
-    #accountDetailLinks li {
-      padding: 5px;
-      width: 100%; }
-
-  #responsive-page #masterDetailListsGrid #masterList {
-    width: 100%;
-    font-size: 150%; }
-    #responsive-page #masterDetailListsGrid #masterList li {
-      padding: 7px; }
-  #responsive-page #masterDetailListsGrid #detailList {
-    width: 100%; }
-    #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(1) {
-      width: 100%; }
-    #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(2) {
-      width: 50%; }
-    #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(3) {
-      width: 50%;
-      text-align: right; } }
-@media only screen and (min-width: 325px) {
-  #responsive-page #masterDetailListsGrid {
-    width: 100%; }
-    #responsive-page #masterDetailListsGrid #masterList {
-      width: 30%; }
-    #responsive-page #masterDetailListsGrid #detailList {
-      width: 70%; }
-      #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(1) {
-        width: 50%; }
-      #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(2) {
-        text-align: right;
-        width: 20%; }
-      #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(3) {
-        text-align: right;
-        width: 30%; } }
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.light-grey-gradient {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhYmFhYTciIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjY2VkMGQzIiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiNkZmUwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2QwY2VjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU1NTU1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #abaaa7;
-  background: -moz-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abaaa7), color-stop(5.76%, #ced0d3), color-stop(18.04%, #dfe0e1), color-stop(93.99%, #d0cece), color-stop(100%, #555556));
-  background: -webkit-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -o-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: -ms-linear-gradient(top, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  background: linear-gradient(to bottom, #abaaa7 0%, #ced0d3 5.76%, #dfe0e1 18.04%, #d0cece 93.99%, #555556 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abaaa7', endColorstr='#555556',GradientType=0 ); }
-
-.grey-subtle-gradient, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2 {
-  background: #282828;
-  background: -moz-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(7%, #333333), color-stop(12%, #333333), color-stop(86%, #3d3d3d), color-stop(93%, #333333), color-stop(100%, #3f3f3f));
-  background: -webkit-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -o-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: -ms-linear-gradient(top, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  background: linear-gradient(to bottom, #282828 0%, #333333 7%, #333333 12%, #3d3d3d 86%, #333333 93%, #3f3f3f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828', endColorstr='#3f3f3f',GradientType=0 ); }
-
-.dark-blue-gradient, #navbar {
-  background: #4096ee;
-  background: -moz-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4096ee), color-stop(100%, #1b3d66));
-  background: -webkit-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -o-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: -ms-linear-gradient(top, #4096ee 0%, #1b3d66 100%);
-  background: linear-gradient(to bottom, #4096ee 0%, #1b3d66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4096ee', endColorstr='#1b3d66',GradientType=0 ); }
-
-.white-transparent-gradient {
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(47%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(237, 237, 237, 0.49)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 47%, rgba(237, 237, 237, 0.49) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff', endColorstr='#7dededed',GradientType=0 ); }
-
-.list-item-white, .list-type-1 li, #demos-page #demoLinksList li, #responsive-page #masterDetailListsGrid #masterList li, #responsive-page #masterDetailListsGrid #detailList li, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li, .list-type-2 dt {
-  background: #fcfcfc;
-  background: -moz-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcfcfc), color-stop(54%, #f9f9f9), color-stop(100%, #f7f7f7));
-  background: -webkit-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -o-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  background: radial-gradient(ellipse at center, #fcfcfc 0%, #f9f9f9 54%, #f7f7f7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=1 ); }
-
-.list-item-grey, .list-type-1 li:nth-child(even), #demos-page #demoLinksList li:nth-child(even), #responsive-page #masterDetailListsGrid #masterList li:nth-child(even), #responsive-page #masterDetailListsGrid #detailList li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 li:nth-child(even), #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li:nth-child(even), .list-type-2 dt:nth-child(even) {
-  background: #f4f4f4;
-  background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f4f4f4), color-stop(54%, #f2f2f2), color-stop(100%, #eaeaea));
-  background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
-
-.white-menu-item, #menuExpanded ul li {
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
-  background: #edeef0;
-  background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edeef0), color-stop(50.12%, #f9f9f9), color-stop(100%, #f7f7f8));
-  background: -webkit-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -o-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: -ms-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
-
-.round-top-left-right-by-7 {
-  -moz-border-radius-topleft: 7px;
-  -moz-border-radius-topright: 7px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-7 {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
-
-.round-top-left-right-by-5, .list-type-2 dt:first-child {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
-.round-bottom-left-right-by-5, .list-type-2 dt:last-child {
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-5 {
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-.round-all-by-3, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2, .list-type-2, #resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .employment-section .employment-section-item dl dt {
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-.ul-base, .list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em; }
-
-.list-type-1, #demos-page #demoLinksList, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page-flex-box #masterDetailListsGrid2 #masterList2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-  padding: 5px; }
-
-.fix-inline-block-spacing {
-  margin-left: -4px; }
-
-/*
-*   The inline block grid provides the ability to use display:inline-block, without the negative side effects that occur
-*   when applying to a ul, dl, etc. (Typically there is spacing that occurs between lis when displayed side by side)
-*   after trying each possibility proposed in the below article, we have found that the YUI Grid System is the best.
-*
-*   Each direct child element of the grid should have the .inline-block-grid-item class applied.
-*
-*   All you have to do to control positioning is adjust the widths of the inline-block-grid-cells.
-*   The display:block will trigger when items are pushed over more than 100%.
-*   e.g. if you have 3 cells in your grid, and you set cell 1 width to 50%, and cell 2's width to 50%, cell 3 will get
-*   pushed down to a new row.
-*
-*   Limits:
-*   - rearranging of cells is restricted to stacking on top of each other. (e.g. you can't move cell 5 to be on top of cell 1)
-*   - media queries are intentionally left out so you can compose your own using the mq mixin
-*
-*   Sources:
-*   http://css-tricks.com/fighting-the-space-between-inline-block-elements/
-*   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
-*   http://yuilibrary.com/yui/docs/cssgrids/
-*/
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #resume-page .header {
-  letter-spacing: -0.31em;
-  /* webkit: collapse white-space between units */
-  *letter-spacing: normal;
-  /* reset IE < 8 */
-  word-spacing: -0.43em;
-  /* IE < 8 && gecko: collapse white-space between units */ }
-
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #resume-page .header div:first-child, #resume-page .header div:nth-child(2) {
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  /* IE < 8: fake inline-block */
-  letter-spacing: normal;
-  word-spacing: normal;
-  vertical-align: top; }
-
-/*
-* Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.
-* e.g. if you have 3 cells in your grid, you could use a media-query for small devices, and have the order rearranged so
-* that cell 3 was stacked on top of cell 1, and cell 1 stacked on cell 2.
-*
-* Equal column heights - all flexbox elements inherit a default value of box-align: stretch. This means they will all stretch to fill their container.
-*
-* Limits:
-* - ie9 and Opera not supported. may need polyfill if possible. todo: research polyfill...
-*
-* Sources:
-* - http://caniuse.com/#search=flexbox
-* - http://www.html5rocks.com/en/tutorials/flexbox/quick/
-* - http://www.w3.org/TR/css3-flexbox/
-* - http://blog.isotoma.com/2010/08/css3-flexbox/
-* - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
-*/
-.flex-box-grid, #responsive-page-flex-box #masterDetailListsGrid2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box; }
-
-/**
-* Simply put, it tells the browser how to resize an element when the element is too big or small for its parent.
-* box-flex mixin for vendor prefixes.
-* @param - $flex - what you want to set for box-flex: $flex;
-*/
-/**
-* The box-orient property defines how boxes align within their parent. The default state is horizontal or, more specifically,
-* inline-axis, which is horizontal and left-to-right in most Western cultures. Likewise, vertical is the same as block-axis.
-* This will make sense if you think about how the browser lays out inline and block elements.
-* You can change the box-orient value to vertical to make boxes stack on top of each other.
-* @param - $orientation - horizontal, vertical
-*/
-/**
-* box-pack mixin for vendor prefixes.
-* @param - $pack - center
-*/
-/**
-*  box-align: center;
-*/
-#responsive-page-flex-box {
-  width: 100%;
-  height: 100%; }
-  #responsive-page-flex-box #masterDetailListsGrid2 {
-    width: 100%; }
-    #responsive-page-flex-box #masterDetailListsGrid2 #masterList2 {
-      -moz-box-ordinal-group: 2;
-      -webkit-box-ordinal-group: 2;
-      box-ordinal-group: 2;
-      cursor: pointer; }
-    #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 {
-      -moz-box-ordinal-group: 1;
-      -webkit-box-ordinal-group: 1;
-      box-ordinal-group: 1;
-      cursor: pointer; }
-      #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(1) {
-        font-style: italic; }
-
-@media only screen and (max-width: 325px) {
-  #masterDetailListsGrid2 {
-    -moz-box-orient: vertical;
-    -webkit-box-orient: vertical;
-    box-orient: vertical; }
-    #masterDetailListsGrid2 #masterList2 {
-      width: 100%;
-      font-size: 150%; }
-      #masterDetailListsGrid2 #masterList2 li {
-        padding: 7px; }
-    #masterDetailListsGrid2 #detailList2 {
-      width: 100%; }
-      #masterDetailListsGrid2 #detailList2 li dl {
-        -moz-box-orient: vertical;
-        -webkit-box-orient: vertical;
-        box-orient: vertical; }
-        #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(1) {
-          -moz-box-ordinal-group: 1;
-          -webkit-box-ordinal-group: 1;
-          box-ordinal-group: 1; }
-        #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(2) {
-          -moz-box-ordinal-group: 3;
-          -webkit-box-ordinal-group: 3;
-          box-ordinal-group: 3;
-          text-align: right; }
-        #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(3) {
-          text-align: right;
-          -moz-box-ordinal-group: 2;
-          -webkit-box-ordinal-group: 2;
-          box-ordinal-group: 2; } }
-@media only screen and (min-width: 325px) {
-  #masterDetailListsGrid2 #masterList2 {
-    width: 30%; }
-  #masterDetailListsGrid2 #detailList2 {
-    width: 70%; }
-    #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(1) {
-      width: 50%;
-      text-align: right;
-      -moz-box-ordinal-group: 3;
-      -webkit-box-ordinal-group: 3;
-      box-ordinal-group: 3; }
-    #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(2) {
-      width: 30%;
-      -moz-box-ordinal-group: 1;
-      -webkit-box-ordinal-group: 1;
-      box-ordinal-group: 1; }
-    #masterDetailListsGrid2 #detailList2 li dl dt:nth-child(3) {
-      text-align: right;
-      width: 20%;
-      -moz-box-ordinal-group: 2;
-      -webkit-box-ordinal-group: 2;
-      box-ordinal-group: 2; } }
 html, body {
   height: 100%;
   width: 100%;
@@ -1802,33 +445,67 @@ html, body {
   background: radial-gradient(ellipse at center, white 0%, #f6f6f6 47%, #ededed 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed',GradientType=1 ); }
 
-#resume-page .employment-section, #resume-page .projects-section, #resume-page .education-section, #resume-page .certifications-section {
+#resume-page .header {
+  height: 15%; }
+  #resume-page .header div:first-child {
+    height: 100%;
+    width: 15%;
+    padding-left: 3%;
+    vertical-align: middle; }
+    #resume-page .header div:first-child img {
+      width: 100%;
+      height: auto;
+      max-height: 101px;
+      max-width: 100px;
+      min-height: 50px;
+      min-width: 50px; }
+  #resume-page .header div:nth-child(2) {
+    vertical-align: middle;
+    width: 85%;
+    height: 100%;
+    text-align: center; }
+    #resume-page .header div:nth-child(2) h1 {
+      font-size: 72px;
+      color: #414042;
+      margin-top: 2%;
+      margin-bottom: 0px;
+      font-weight: normal; }
+    #resume-page .header div:nth-child(2) ul li {
+      text-align: center; }
+
+#resume-page .employment-section, #resume-page .work-projects-section, #resume-page .personal-projects-section, #resume-page .education-section, #resume-page .certifications-section, #resume-page .summary-section {
   margin: 1%;
   padding: 1%; }
+  #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div {
+    padding-left: .5%;
+    padding-right: .5%; }
 
-#resume-page .employment-section .employment-section-item {
+#resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div {
   background-color: #fbfbfb;
-  padding-top: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   margin-bottom: 1%; }
 
-#resume-page .employment-section .employment-section-item ul li {
-  width: 33%;
-  font-size: 140%; }
-#resume-page .employment-section .employment-section-item ul li:nth-child(1) {
-  font-family: 'Quicksand_Book_Oblique', sans-serif; }
-#resume-page .employment-section .employment-section-item ul li:nth-child(2) {
-  text-align: center; }
-#resume-page .employment-section .employment-section-item ul li:nth-child(3) {
-  text-align: right; }
-#resume-page .employment-section .employment-section-item dl {
-  padding: 1%; }
-  #resume-page .employment-section .employment-section-item dl dt {
-    margin-right: 15px;
-    padding: .5%; }
-#resume-page .employment-section .employment-section-item dl:nth-of-type(1) dt {
-  background-color: #a3dbff; }
-#resume-page .employment-section .employment-section-item dl:nth-of-type(2) dt {
-  background-color: #d1d3d4; }
+#resume-page .employment-section .employment-section-item {
+  padding-top: 3%; }
+  #resume-page .employment-section .employment-section-item ul li {
+    width: 33%;
+    font-size: 140%; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(1) {
+    font-family: 'Quicksand_Book_Oblique', sans-serif; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(2) {
+    text-align: center; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(3) {
+    text-align: right; }
+  #resume-page .employment-section .employment-section-item dl {
+    padding: 1%; }
+    #resume-page .employment-section .employment-section-item dl dt {
+      margin-right: 15px;
+      padding: .5%; }
+  #resume-page .employment-section .employment-section-item dl:nth-of-type(1) dt {
+    background-color: #a3dbff; }
+  #resume-page .employment-section .employment-section-item dl:nth-of-type(2) dt {
+    background-color: #d1d3d4; }
 
 #resume-page {
   height: 100%;
@@ -1836,30 +513,24 @@ html, body {
   padding-top: 3%;
   font-family: 'Quicksand_Book', sans-serif;
   background-color: white; }
+
+@media only screen and (max-width: 989px) {
   #resume-page .header {
-    height: 15%; }
+    height: auto; }
     #resume-page .header div:first-child {
-      height: 100%;
-      width: 15%;
-      padding-left: 3%;
-      vertical-align: middle; }
-      #resume-page .header div:first-child img {
-        width: 100%;
-        height: auto;
-        max-height: 101px;
-        max-width: 100px;
-        min-height: 50px;
-        min-width: 50px; }
-    #resume-page .header div:nth-child(2) {
-      vertical-align: middle;
-      width: 85%;
-      height: 100%;
+      width: 100%;
       text-align: center; }
-      #resume-page .header div:nth-child(2) h1 {
-        font-size: 72px;
-        color: #414042;
-        margin-top: 2%;
-        margin-bottom: 0px;
-        font-weight: normal; }
-      #resume-page .header div:nth-child(2) ul li {
-        text-align: center; }
+    #resume-page .header div:nth-child(2) {
+      width: 100%; }
+
+  #resume-page .employment-section .employment-section-item ul li {
+    width: 100%;
+    font-size: 110%; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(1) {
+    text-align: left; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(2) {
+    text-align: right;
+    font-size: 90%; }
+  #resume-page .employment-section .employment-section-item ul li:nth-child(3) {
+    text-align: right;
+    font-size: 90%; } }

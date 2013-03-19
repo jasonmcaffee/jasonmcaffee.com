@@ -5,7 +5,7 @@
 
 //dont use visibility:hidden on menuExpanded. on android 4 there is an issue: menu won't completely dissapear on click. fragment at bottom still remains visible.
 #navbar{
-    display: none; //for now..todo:re-enable nav bar if needed.
+   // display: none; //for now..todo:re-enable nav bar if needed.
   position:fixed;
   height: 50px;
   z-index: 5;
