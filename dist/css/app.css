@@ -31,9 +31,7 @@
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
-  /* reset IE < 8 */
-  word-spacing: -0.43em;
-  /* IE < 8 && gecko: collapse white-space between units */ }
+  /* reset IE < 8 */ }
 
 .inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt {
   display: inline-block;
@@ -512,6 +510,8 @@ html, body {
   padding-top: 3%;
   font-family: 'Quicksand_Book', sans-serif;
   background-color: white; }
+  #resume-page .personal-projects-section > div > a {
+    word-wrap: break-word; }
 
 @media only screen and (max-width: 989px) {
   #resume-page .header {

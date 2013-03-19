@@ -3,6 +3,7 @@
 %header{
     //size
     height:15%;  //fixes so that face image has vertical-align.
+
     //layout
     @extend .inline-block-grid;
 
@@ -192,6 +193,11 @@
 
     .personal-projects-section{
         @extend %projects-section;
+        > div {
+            > a {
+                word-wrap: break-word;
+            }
+        }
     }
 
     .education-section{
@@ -215,8 +221,12 @@
              width:100%;
              text-align: center;
          }
+         //name
          div:nth-child(2){
              width:100%;
+             h1{
+                 //font-size:120%;
+             }
 
          }
     }

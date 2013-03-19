@@ -7,7 +7,7 @@ define([
         defaults:{
            summary:{
                 paragraphs:[
-                    "Highly skilled software engineer with a strong passion for technology and nearly 10 years experience.  Experience in both enterprise and startup environments."
+                    "Highly skilled software engineer with a strong passion for technology, and nearly 10 years experience.  Experience in both enterprise and startup environments."
                 ]
            },
            employment:{

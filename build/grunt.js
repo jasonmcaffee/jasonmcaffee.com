@@ -97,7 +97,7 @@ module.exports = function(grunt) {
         var config = {
             baseUrl: 'src/js',
             out: 'dist/js/app-built.js',
-            optimize: 'none',//'uglify',//'none',
+            optimize: 'uglify',//'none',//'uglify',//'none',
             name:'app',
             paths: {
                 'jquery': 'lib-third-party/jquery',
