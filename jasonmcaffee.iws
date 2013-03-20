@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/static-index/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static-index/index.html" afterPath="$PROJECT_DIR$/dist/static-index/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/test.html" afterPath="$PROJECT_DIR$/node-server/views/test.html" />
     </list>
@@ -90,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="33" selection-start="571" selection-end="571" vertical-scroll-proportion="-6.4">
+            <state line="21" column="8" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.3271665">
               <folding />
             </state>
           </provider>
@@ -126,10 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="227" selection-start="822" selection-end="822" vertical-scroll-proportion="0.24926972">
+            <state line="27" column="13" selection-start="1638" selection-end="1723" vertical-scroll-proportion="-17.28">
               <folding />
             </state>
           </provider>
@@ -1145,7 +1144,11 @@
       <created>1363794005316</created>
       <updated>1363794005316</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ie 8 support using selectivr polyfill for partial css3 pseudo selector support.">
+      <created>1363802867630</created>
+      <updated>1363802867630</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1209,7 +1212,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added .woff font. created static index page. web.config for godaddy gzip." />
+    <option name="LAST_COMMIT_MESSAGE" value="ie 8 support using selectivr polyfill for partial css3 pseudo selector support." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1232,6 +1235,7 @@
     <MESSAGE value="fixed page width issue with inline-block-grid and safari." />
     <MESSAGE value="native scrolling for ios and android." />
     <MESSAGE value="added .woff font. created static index page. web.config for godaddy gzip." />
+    <MESSAGE value="ie 8 support using selectivr polyfill for partial css3 pseudo selector support." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1337,16 +1341,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
+    <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="33" selection-start="571" selection-end="571" vertical-scroll-proportion="-6.4">
+        <state line="27" column="13" selection-start="1638" selection-end="1723" vertical-scroll-proportion="-17.28">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
+    <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="227" selection-start="822" selection-end="822" vertical-scroll-proportion="0.24926972">
+        <state line="21" column="8" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.3271665">
           <folding />
         </state>
       </provider>
