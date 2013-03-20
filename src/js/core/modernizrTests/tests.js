@@ -12,7 +12,17 @@ define([
         log('enhancedscrolling test' + deviceInfo.browser);
         if( (deviceInfo.browser == 'android' && deviceInfo.compareOSVersions('4.0') >= 0) ||
             (deviceInfo.os == 'ios' && deviceInfo.compareOSVersions('5.0') >=0) ){
-            log('ios5 or android4 detected. enhancing...');
+            log('enhanced scrolling enabled!');
+            return true;
+        }
+        return false;
+    });
+
+    modernizr.addTest('gridspacingissue', function(){
+        log('gridspacingissue test' + deviceInfo.browser);
+        if( (deviceInfo.browser == 'Safari') ||
+            (deviceInfo.os == 'ios') ){
+            log('grid spacing issue!');
             return true;
         }
         return false;

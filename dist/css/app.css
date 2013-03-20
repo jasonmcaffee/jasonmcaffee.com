@@ -31,7 +31,13 @@
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
-  /* reset IE < 8 */ }
+  /* reset IE < 8 */
+  word-spacing: -0.43em;
+  text-rendering: optimizespeed;
+  /* Webkit: fixes text-rendering: optimizeLegibility */ }
+
+.gridspacingissue .inline-block-grid, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl {
+  word-spacing: normal; }
 
 .inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt {
   display: inline-block;
@@ -40,7 +46,8 @@
   /* IE < 8: fake inline-block */
   letter-spacing: normal;
   word-spacing: normal;
-  vertical-align: top; }
+  vertical-align: top;
+  text-rendering: auto; }
 
 /*
 * Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.

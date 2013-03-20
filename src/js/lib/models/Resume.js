@@ -74,6 +74,19 @@ define([
                        primarySkills:"javascript, html, css, flash, c# .net, VOIP, vb script, systems admin, network admin, database design, clustering".split(","),
                        toolsAndLibs:"asterisk, cisco, linux, windows server, terminal services".split(",")
 
+                   },
+                   {
+                       title: "Computer Repair Technician",
+                       employer: "Unisys",
+                       date:"Sep 02 - Jan 04",
+                       summary:{
+                           paragraphs:[
+                               "Troubleshooting, diagnosing, and repairing hardware on laptops and desktop pcs."
+                           ]
+                       },
+                       primarySkills:"laptop repair, desktop repair, computer hardware".split(","),
+                       toolsAndLibs:[]
+
                    }
                ]
            },
@@ -105,7 +118,7 @@ define([
                    name: "Coca Cola",
                    summary:{
                        paragraphs:[
-                           "Developed a desktop application for Coca Cola water treatment facilities.  The application was designed to assist in improving water treatment efficiency throughout the treatment process. The app included several complex calculations used throughout many phases of the water treatment process, and allowed users to make virtual adjustments to help obtain better efficiency."
+                           "Developed a desktop application for Coca Cola water treatment facilities.  The application was designed to assist in improving water treatment efficiency throughout the treatment process. The app included several complex calculations, and allowed users to make virtual adjustments to see how they could improve the process."
                        ]
                    }
                },
