@@ -59,6 +59,34 @@
     }
 }
 
+%download-and-contact{
+    @extend %resume-content-section;
+
+    ul{
+        @extend .inline-block-grid;
+
+        //width:25%;
+        //text-align: right;
+
+        li{
+            @extend .inline-block-grid-cell;
+            vertical-align: middle;
+            //margin-right:2%;
+
+            a{
+                color:#a3dbff;
+                text-decoration: none;
+                cursor: pointer;
+                //fix fast button issue by making the size bigger.
+                //height:50px;
+                //width:50px;
+
+                font-size:140%;
+            }
+        }
+    }
+}
+
 %resume-content-section{
     //background-color: rgb(251, 251, 251);
     margin:1%;
@@ -103,7 +131,7 @@
         }
         //title
         li:nth-child(1){
-            font-family: 'Quicksand_Book_Oblique', sans-serif;
+            font-family: 'Quicksand_Book_Oblique', 'Quicksand Regular',sans-serif;
         }
         //employer
         li:nth-child(2){
@@ -168,13 +196,16 @@
     //positioning
     padding-top:3%;
     //font
-    font-family: 'Quicksand_Book', sans-serif;
+    font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
     background-color:white;
 
     .header{
        @extend %header;
     }
 
+    .download-and-contact{
+        @extend %download-and-contact;
+    }
     .summary-section{
         @extend %resume-content-section;
     }
@@ -211,6 +242,19 @@
 
 
 //=============================== media queries ================================================
+@media print{
+    //dont display picture of face or contact links
+    %download-and-contact{
+        display: none !important;
+    }
+
+    //%header{
+    //    div:first-child{
+    //        display:none !important;
+    //    }
+    // }
+}
+
 @include mq(medium-and-below){
 
     //stack the face image and name on top of each other
@@ -230,6 +274,21 @@
 
          }
     }
+
+    %download-and-contact{
+        ul{
+            width:100%;
+            text-align:center;
+            li{
+                margin-left:1%;
+                width:19%;
+                a{
+                    font-size:250%;
+                }
+            }
+        }
+     }
+
     //stack the job title, employer, and date on top of each other.
     %employment-section-item{
         ul{

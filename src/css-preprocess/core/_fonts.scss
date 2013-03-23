@@ -1,10 +1,19 @@
+﻿
+//some of these fonts dont work in ie8 because the eot is bad? not sure, but downloading quicksand regular from google web fonts
+//works.
+
+$fontsPath:   "../fonts";
+
+//works in ie8
 @font-face {
-  font-family: 'Quicksand_Book';
-  src: url('../fonts/Quicksand_Book.eot');
-  src: local('☺'), url('../fonts/Quicksand_Book.woff') format('woff'), url('../fonts/Quicksand_Book.ttf') format('truetype'), url('../fonts/Quicksand_Book.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Quicksand Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$fontsPath}/Quicksand_normal.eot');
+    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('#{$fontsPath}/Quicksand_normal.eot') format('embedded-opentype'),
+    url('#{$fontsPath}/Quicksand_normal.woff') format('woff');
 }
+
 
 @font-face {
   font-family: 'Quicksand_Bold';
@@ -20,4 +29,12 @@
   src: local('☺'), url('../fonts/Quicksand_Book_Oblique.woff') format('woff'), url('../fonts/Quicksand_Book_Oblique.ttf') format('truetype'), url('../fonts/Quicksand_Book_Oblique.svg') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand_Book';
+    src: url('../fonts/Quicksand_Book.eot');
+    src: local('☺'), url('../fonts/Quicksand_Book.woff') format('woff'), url('../fonts/Quicksand_Book.ttf') format('truetype'), url('../fonts/Quicksand_Book.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }

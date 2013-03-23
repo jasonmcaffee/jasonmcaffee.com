@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    <!-- strict doctype needed for ie8 support with selectivizr -->
     <head>
         <title>Jason McAffee</title>
 
@@ -8,11 +9,14 @@
         <meta name="author" content="Jason McAffee">
         <meta name="title" content="Jason McAffee">
 
-        <!-- app styling -->
+        <!-- css -->
         <link rel="stylesheet" href="css/app.css">
 
-        <!--[if gte IE 9]>
-        <!--<link rel="stylesheet" type="text/css" href="css/ie.css" />-->
+
+        <!-- polyfills - selectivizr gives ie8 full css 3 selector support. nwmatcher helps. -->
+        <!--[if lte IE 8]>
+        ﻿<script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+         <script type="text/javascript" src="js/polyfills/selectivizr-min.js"></script>
         <![endif]-->
 
         <!-- initial view should be zoomed correctly on mobile -->
@@ -23,30 +27,9 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        <!--[if (gte IE 6)&(lte IE 8)]>
-            <!-- css selector polyfill nth, etc-->
-            ﻿<script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
-            <script type="text/javascript" src="js/polyfills/selectivizr-min.js"></script>
-            <!--<noscript><link rel="stylesheet" href="[fallback css]" /></noscript>-->
-        <![endif]-->
-
     </head>
 
     <body>
-
-        <!--<div id="navbar">-->
-            <!--<div id="menuCollapsed">-->
-                <!--<img id="menuButton" alt="menu button" src="images/menu-button.png">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div id="menuExpanded">-->
-            <!--<ul>-->
-                <!--<li><a href="#home">Home</a></li>-->
-                <!--<li><a href="#demos/home">Demos</a></li>-->
-                <!--<li><a href="#home">Docs</a></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-
         <!-- all views will render in this element -->
         <div id="pages" class="pages">
            loading...
@@ -55,6 +38,7 @@
         <!-- scripts at the bottom -->
         <!-- Load the script "js/main.js" as our entry point, along with requirejs -->
         <script data-main="js/app-built" src="js/app-built.js"></script>
+
         <!-- initial load of the page will contain json data for template rendering. -->
         <script type="text/javascript">
             var viewModel = µ- JSON.stringify(viewModel)µ;
@@ -62,3 +46,18 @@
 
     </body>
 </html>
+
+
+
+<!--<div id="navbar">-->
+<!--<div id="menuCollapsed">-->
+<!--<img id="menuButton" alt="menu button" src="images/menu-button.png">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div id="menuExpanded">-->
+<!--<ul>-->
+<!--<li><a href="#home">Home</a></li>-->
+<!--<li><a href="#demos/home">Demos</a></li>-->
+<!--<li><a href="#home">Docs</a></li>-->
+<!--</ul>-->
+<!--</div>-->

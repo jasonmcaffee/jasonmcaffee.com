@@ -27,8 +27,13 @@ define([
         event.stopPropagation();
         this.element.addEventListener('touchend', this, false);
         document.body.addEventListener('touchmove', this, false);
+        //document.elementFromPoint(event.changedTouches[0].screenX, event.changedTouches[0].screenY);
+        //clientX doesn't return the right element in android and android-chrome.
         this.startX = event.touches[0].clientX;
         this.startY = event.touches[0].clientY;
+        //this.startX = event.changedTouches[0].screenX;
+       // this.startY = event.changedTouches[0].screenY;
+
         isMoving = false;
     };
     FastButton.prototype.onTouchMove = function(event) {
@@ -78,6 +83,7 @@ define([
     function goSomewhere() {
         //console.log('goSomewhere emitting click');
         var theTarget = document.elementFromPoint(this.startX, this.startY);
+        //console.log('element from point x: ' + this.startX + ' y: ' + this.startY);
         if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
 
         //this randomly doesn't work when showing hiding elements. using trigger instead.
@@ -89,8 +95,10 @@ define([
         //http://stackoverflow.com/questions/9904170/trigger-a-click-on-a-anchor-link
         if(theTarget.nodeType == 1 && theTarget.nodeName == "A"){
             //console.log('triggering click for anchor tag');
-            $(theTarget).get(0).click();
+            //DONT EVER DO THIS. CLICK WONT FIRE --> alert('triggering click for anchor tag');
+            $(theTarget).get(0).click();     //<-- this works with android 2.3, and 4.0! but not when you have an alert!
         }else{
+            //alert('trigger jquery for nodeName:' + theTarget.nodeName);
             $(theTarget).trigger('click');
         }
     }
