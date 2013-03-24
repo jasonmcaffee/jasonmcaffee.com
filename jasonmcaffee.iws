@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/fonts/fontawesome/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/fonts/fontawesome/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/Quicksand_normal.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.eot.back_no_ie8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/fonts/fontawesome/fontawesome-webfont.afm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/fonts/fontawesome/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/Quicksand_normal.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.afm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_fontawesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min_bad.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static-index/index.html" afterPath="$PROJECT_DIR$/dist/static-index/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/server.js" afterPath="$PROJECT_DIR$/node-server/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/test.html" afterPath="$PROJECT_DIR$/node-server/views/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_fonts.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/resume/resume.html" afterPath="$PROJECT_DIR$/src/templates/resume/resume.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,7 +75,7 @@
       <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="88" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-9.08">
+            <state line="17" column="48" selection-start="0" selection-end="2747" vertical-scroll-proportion="-10.88">
               <folding>
                 <marker date="1364080563000" expanded="true" signature="969:1071" placeholder="..." />
               </folding>
@@ -113,10 +92,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_resume.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_resume.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="281" column="126" selection-start="5762" selection-end="5762" vertical-scroll-proportion="0.42205322">
+            <state line="273" column="35" selection-start="5634" selection-end="5634" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="32" selection-start="752" selection-end="752" vertical-scroll-proportion="-9.6">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="16" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-12.16">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selectivizr-min.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,11 +144,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_grids.scss" />
         <option value="$PROJECT_DIR$/dist/index.html" />
         <option value="$PROJECT_DIR$/dist/godaddy_index.html" />
-        <option value="$PROJECT_DIR$/dist/static-index/index.html" />
         <option value="$PROJECT_DIR$/node_modules/handlebars/package.json" />
         <option value="$PROJECT_DIR$/dist/css/app.css" />
         <option value="$PROJECT_DIR$/node-server/views/fonttest.html" />
@@ -154,12 +158,14 @@
         <option value="$PROJECT_DIR$/node-server/views/test.html" />
         <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
+        <option value="$PROJECT_DIR$/dist/static-index/index.html" />
+        <option value="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="253" />
-    <option name="y" value="363" />
+    <option name="x" value="310" />
+    <option name="y" value="176" />
     <option name="width" value="2209" />
     <option name="height" value="1200" />
   </component>
@@ -1023,6 +1029,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist" />
       <recent name="$PROJECT_DIR$/dist/css" />
       <recent name="$PROJECT_DIR$/dist/fonts" />
       <recent name="$PROJECT_DIR$/dist/css/fonts" />
@@ -1190,18 +1197,27 @@
       <created>1363805729405</created>
       <updated>1363805729405</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="ie8 font fix. added icons for contact on resume. added font awesome.">
+      <created>1364082196183</created>
+      <updated>1364082196183</updated>
+    </task>
+    <task id="LOCAL-00020" summary="ie8 font fix. added icons for contact on resume. added font awesome. fixed issue with android fastbutton icon click.">
+      <created>1364151105658</created>
+      <updated>1364151105658</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="253" y="363" width="2209" height="1200" extended-state="0" />
+    <frame x="310" y="176" width="2209" height="1200" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15873742" sideWeight="0.67099166" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15873742" sideWeight="0.67006487" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1211,7 +1227,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1254,7 +1269,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="better ie8 support for css pseudo selectors." />
+    <option name="LAST_COMMIT_MESSAGE" value="ie8 font fix. added icons for contact on resume. added font awesome. fixed issue with android fastbutton icon click." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1279,6 +1294,8 @@
     <MESSAGE value="added .woff font. created static index page. web.config for godaddy gzip." />
     <MESSAGE value="ie 8 support using selectivr polyfill for partial css3 pseudo selector support." />
     <MESSAGE value="better ie8 support for css pseudo selectors." />
+    <MESSAGE value="ie8 font fix. added icons for contact on resume. added font awesome." />
+    <MESSAGE value="ie8 font fix. added icons for contact on resume. added font awesome. fixed issue with android fastbutton icon click." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1287,13 +1304,6 @@
     <entry file="file://$PROJECT_DIR$/dist/fonts/fontawesome/fontawesome-webfont.eot">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="127" selection-start="130" selection-end="130" vertical-scroll-proportion="0.031158715">
           <folding />
         </state>
       </provider>
@@ -1354,15 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="88" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-9.08">
-          <folding>
-            <marker date="1364080563000" expanded="true" signature="969:1071" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="82" selection-start="1257" selection-end="1257" vertical-scroll-proportion="31.88">
@@ -1372,7 +1373,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="281" column="126" selection-start="5762" selection-end="5762" vertical-scroll-proportion="0.42205322">
+        <state line="273" column="35" selection-start="5634" selection-end="5634" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node-server/views/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="48" selection-start="0" selection-end="2747" vertical-scroll-proportion="-10.88">
+          <folding>
+            <marker date="1364080563000" expanded="true" signature="969:1071" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/static-index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="32" selection-start="752" selection-end="752" vertical-scroll-proportion="-9.6">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min_bad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="41" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="16" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-12.16">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
