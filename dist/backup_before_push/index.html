@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+    <title>Jason McAffee</title>
+
+    <meta name="keywords" content="jason mcaffee, HTML, HTML5, CSS3, css, bootstrap, css3, backbone, node.js, nodejs, handlebars, handlebars.js, jquery, underscore, express, ejs, boilerplate, html5 boilerplate">
+    <meta name="description" content="jasonmcaffee.com jason mcaffee">
+    <meta name="author" content="Jason McAffee">
+    <meta name="title" content="Jason McAffee">
+
+    <!-- app styling -->
+    <link rel="stylesheet" href="css/app.css">
+
+    <!-- initial view should be zoomed correctly on mobile -->
+    <!--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <!--easiest fix for ipad rotate resize issue. user scalable needed for android to support position:fixed in nav bar-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+    <!-- apple ios specific styling. fullscreen and translucent status bar. -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+        <!-- css selector polyfill nth, etc-->
+        <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+        <script type="text/javascript" src="js/polyfills/selectivizr-min.js"></script>
+    <!--<noscript><link rel="stylesheet" href="[fallback css]" /></noscript>-->
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- all views will render in this element -->
+    <div id="pages" class="pages">
+        loading...
+    </div>
+
+    <!-- scripts at the bottom -->
+    <!-- Load the script "js/main.js" as our entry point, along with requirejs -->
+    <script data-main="js/app-built" src="js/app-built.js"></script>
+
+</body>
+</html>
