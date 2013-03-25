@@ -317,6 +317,37 @@ define([
             $('html').addClass(cssClassNames);
         });
     };
+
+    deviceInfo.screen = {
+        //for desktops you want to use innerWidth, which is not typically available to mobile browsers.
+        //http://stackoverflow.com/questions/6850164/get-the-device-width-in-javascript
+        //width: (window.innerWidth > 0) ? window.innerWidth + 'px': screen.width + 'px'  <-- boo. bad width. too large
+        //http://responsejs.com/labs/dimensions/
+        //width: document.documentElement.clientWidth + 'px'
+        //https://github.com/ryanve/response.js/issues/17
+//        width: (function (win, docElem) {
+//
+//            var mM = win['matchMedia'] || win['msMatchMedia']
+//                , client = docElem['clientWidth']
+//                , inner = win['innerWidth']
+//
+//            return mM && client < inner && true === mM('(min-width:' + inner + 'px)')['matches']
+//                ? function () { return win['innerWidth'] }
+//                : function () { return docElem['clientWidth'] }
+//
+//        }(window, document.documentElement))
+        calculateWidth : function(){
+            return $(window).width();
+//            var win = window,
+//                docElem = document.documentElement;
+//            var mM = win['matchMedia'] || win['msMatchMedia']
+//                , client = docElem['clientWidth']
+//                , inner = win['innerWidth']
+//
+//            return mM && client < inner && true === mM('(min-width:' + inner + 'px)')['matches'] ? win['innerWidth']: docElem['clientWidth']
+        }
+    };
+
     return deviceInfo;
 
 });

@@ -196,7 +196,7 @@ function program18(depth0,data) {
   buffer += escapeExpression(stack1) + "</div>\n            ";
   return buffer;}
 
-  buffer += "<div id=\"resume-page\">\n    <div class=\"header\">\n\n        ";
+  buffer += "<div id=\"resume-page\">\n    <a href=\"#blogs\">blogs</a>\n    <div class=\"header\">\n\n        ";
   buffer += "\n        <div>\n            <img src=\"images/face-with-blue-dot.png\">\n            &nbsp;\n        </div>\n\n        ";
   buffer += "\n        <div>\n            <h1>Jason McAffee </h1>\n            <ul>\n                <li>jasonlmcaffee@gmail.com</li>\n                <li>614 915 8198</li>\n            </ul>\n        </div>\n    </div>\n\n    <div class=\"download-and-contact\">\n        <ul>\n            <li>\n                <a href=\"downloads/jason_mcaffee_resume.doc\" class=\"icon-download-alt\"></a>\n            </li>\n            <li>\n                <a href=\"http://www.linkedin.com/pub/jason-mcaffee/66/503/854\" class=\"icon-linkedin-sign\">\n                    ";
   buffer += "\n                </a>\n            </li>\n            <li>\n                <a href=\"http://www.github.com/jasonmcaffee\" class=\"icon-github-alt\"></a>\n            </li>\n            <li>\n                <a href=\"mailto:jasonlmcaffee@gmail.com\" class=\"icon-envelope-alt\"></a>\n            </li>\n            <li>\n                <a href=\"tel:+1-614-915-8198\" class=\"icon-phone\"></a>\n            </li>\n        </ul>\n    </div>\n\n    ";

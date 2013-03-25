@@ -1,0 +1,128 @@
+//http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance
+
+//pages will be moved individually so non-moving static content (e.g. header, footer) can remain if desired.
+
+//.move-page-off-screen-left{
+//    -webkit-transform-style: preserve-3d;
+//    -webkit-transform: translate(-400px, 0px);
+//}
+//
+//.add-page-to-screen{
+//    position:absolute;
+//    left: 400px;
+//}
+
+//keyframes mixin
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+      }
+    @-moz-keyframes #{$name} {
+        @content;
+      }
+    @-ms-keyframes #{$name} {
+        @content;
+      }
+    @keyframes #{$name} {
+        @content;
+      }
+}
+
+
+.slide-in{
+    position:absolute;
+    top:0px;
+    //left:0px;
+    //left:400px;
+
+    animation-name:slidein;
+    -webkit-animation-name:slidein;
+
+    animation-duration:1s;
+    -webkit-animation-duration:1s;
+
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.slide-out{
+    position:absolute;
+
+    animation-name:slideout;
+    -webkit-animation-name:slideout;
+
+    animation-duration:1s;
+    -webkit-animation-duration:1s;
+
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+
+@include keyframes(slidein){
+    from{
+        //margin-left:100%;
+        //left: 400px;
+        transform : translateX(100%);
+        -webkit-transform : translateX(100%);
+        -moz-transform: translateX(100%);
+    }
+    to{
+        transform : translateX(0%);
+        -webkit-transform : translateX(0%);
+        -moz-transform: translateX(0%);
+    }
+}
+@include keyframes(slideout){
+    from{
+        //margin-left:100%;
+        //left:0px;
+        transform : translateX(0%);
+        -webkit-transform : translateX(0%);
+        -moz-transform: translateX(0%);
+    }
+    to{
+        transform : translateX(-100%);
+        -webkit-transform : translateX(-100%);
+        -moz-transform: translateX(-100%);
+    }
+}
+//@keyframes slidein{
+//    from{
+//        margin-left:100%;
+//
+//    }
+//    to{
+//        margin-left:0%;
+//    }
+//}
+
+//@keyframes slideout{
+//    from{
+//        margin-left:0%;
+//
+//    }
+//    to{
+//        margin-left:-100%;
+//    }
+//}
+
+//@-webkit-keyframes slidein{
+//    from{
+//        margin-left:100%;
+//
+//    }
+//    to{
+//        margin-left:0%;
+//    }
+//}
+
+//@-webkit-keyframes slideout{
+//    from{
+//        margin-left:0%;
+//
+//    }
+//    to{
+//        margin-left:-100%;
+//    }
+//}

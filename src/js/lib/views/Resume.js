@@ -5,7 +5,7 @@ define([
     core.log('Resume View module loaded a');
 
     var View = core.mvc.View.extend({
-        el:'#pages',
+        id:'resume', // each view needs a unique id for transitions.
         template:resumeTemplate
     });
 

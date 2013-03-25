@@ -290,6 +290,13 @@ dl {
   font-weight: normal;
   font-style: normal; }
 
+#resume-page > a, #blogHome-page > a {
+  height: 80px;
+  min-width: 150px;
+  background-color: grey;
+  padding: 2%;
+  font-size: 120%; }
+
 /*
  *  Font Awesome 3.0.2
  *  the iconic font designed for use with Twitter Bootstrap
@@ -1289,6 +1296,113 @@ ul.icons {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
+.slide-in {
+  position: absolute;
+  top: 0px;
+  animation-name: slidein;
+  -webkit-animation-name: slidein;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.slide-out {
+  position: absolute;
+  animation-name: slideout;
+  -webkit-animation-name: slideout;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+@-webkit-keyframes slidein {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%); }
+
+  to {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); } }
+
+@-moz-keyframes slidein {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%); }
+
+  to {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); } }
+
+@-ms-keyframes slidein {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%); }
+
+  to {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); } }
+
+@keyframes slidein {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%); }
+
+  to {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); } }
+
+@-webkit-keyframes slideout {
+  from {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); }
+
+  to {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%); } }
+
+@-moz-keyframes slideout {
+  from {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); }
+
+  to {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%); } }
+
+@-ms-keyframes slideout {
+  from {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); }
+
+  to {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%); } }
+
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%); }
+
+  to {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%); } }
+
 .home-page h1 {
   color: black; }
 
@@ -1445,10 +1559,19 @@ html, body {
   /*color*/ }
 
 .enhancedscrolling .pages {
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   height: 100%;
   min-height: 100px; }
+
+/**
+<div class="pages">
+   <div class="page">        <-- view generates this element.
+       <div id="resume-page">
+*/
+.page {
+  height: 100%;
+  width: 100%; }
 
 #resume-page .header {
   height: 15%; }
@@ -1561,3 +1684,9 @@ html, body {
   #resume-page .employment-section .employment-section-item ul li:nth-child(3) {
     text-align: right;
     font-size: 90%; } }
+#blogHome-page {
+  height: 100%;
+  width: 100%; }
+
+#blog {
+  width: 100%; }

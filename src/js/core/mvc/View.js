@@ -4,6 +4,9 @@ define([
 ], function(Backbone, log){
     var View = Backbone.View.extend({
         template: null, //you should define a template function
+        attributes:{
+            'class':'page'
+        },
         render : function(){
             log('Core View render called.');
 

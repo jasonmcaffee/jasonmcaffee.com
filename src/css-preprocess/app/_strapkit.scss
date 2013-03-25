@@ -32,9 +32,19 @@ html, body{
 //native scrolling for iphone and android. whitelisted in core/modenizrTests/tests.js
 .enhancedscrolling{
     .pages{
-        overflow:scroll;
+        overflow-y:scroll;
         -webkit-overflow-scrolling:touch;
         height:100%;
         min-height: 100px; //min-height of 500 causes page to double scroll on phones. set min-height down a bit.
     }
+}
+
+/**
+<div class="pages">
+   <div class="page">        <-- view generates this element.
+       <div id="resume-page">
+*/
+.page{
+    height:100%;
+    width:100%;
 }

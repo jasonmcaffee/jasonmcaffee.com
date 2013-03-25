@@ -10,8 +10,9 @@ define([
     'modernizer',
     'lib-third-party/FastButton2',
     'core/ui/hideAddressBar',
-    'core/modernizrTests/tests'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests){
+    'core/modernizrTests/tests',
+    'core/ui/transitionPage'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests, transitionPage){
     log('core module loaded');
 
     var core = {
@@ -26,7 +27,7 @@ define([
             //every click on the page will be a fast click!
             fastButton2.init('body');
 
-            hideAddressBar();
+            //hideAddressBar();
         },
         initPlugins : function(){
             log('core.initPlugins called');
@@ -37,6 +38,9 @@ define([
             View : View,
             Model : Backbone.Model,
             Controller : Controller
+        },
+        ui : {
+            transitionPage : transitionPage
         },
         log : log,
         deviceInfo : deviceInfo

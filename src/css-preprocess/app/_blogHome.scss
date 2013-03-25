@@ -1,0 +1,13 @@
+#blogHome-page{
+    //sizing
+    height:100%;
+    width: 100%;
+
+    > a{
+        @extend %button;
+    }
+}
+
+#blog{
+    width:100%;
+}

@@ -6,8 +6,9 @@ define([
     'lib/controllers/DemosController',
     'lib/controllers/StrapkitController',
     'lib/controllers/Resume',
+    'lib/controllers/Blogs',
     'lib/widgets/NavigationBar'
-], function(core, $, Backbone, DemosController, StrapkitController, resumeController, NavigationBar){
+], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
 
     function App(){
         core.log('app constructor called.');
