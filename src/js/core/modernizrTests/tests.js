@@ -28,5 +28,14 @@ define([
         return false;
     });
 
+    modernizr.addTest('fancypagetransitions', function(){
+        log('fancypagetranstions test ' + deviceInfo.browser);
+        if(deviceInfo.browser == 'Explorer' && deviceInfo.compareOSVersions('10') < 0){
+            log('ie lt 9 found. no fancy transitions for you.');
+            return false;
+        }
+        return true;
+    });
+
     return modernizr;
 });

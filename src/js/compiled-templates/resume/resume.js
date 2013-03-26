@@ -24,12 +24,12 @@ function program3(depth0,data) {
   stack1 = foundHelper || depth0.title;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "title", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "</li>\n                <li>";
+  buffer += escapeExpression(stack1) + "</li><!--\n                --><li>";
   foundHelper = helpers.employer;
   stack1 = foundHelper || depth0.employer;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "employer", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "</li>\n                <li>";
+  buffer += escapeExpression(stack1) + "</li><!--\n                --><li>";
   foundHelper = helpers.date;
   stack1 = foundHelper || depth0.date;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -46,7 +46,7 @@ function program3(depth0,data) {
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n            ";
-  buffer += "\n            <dl>\n                ";
+  buffer += "\n            <dl>\n                <!--\n                ";
   foundHelper = helpers.primarySkills;
   stack1 = foundHelper || depth0.primarySkills;
   stack2 = helpers.each;
@@ -56,7 +56,7 @@ function program3(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n            </dl>\n\n            ";
+  buffer += "\n                -->\n            </dl>\n\n            ";
   buffer += "\n            <dl>\n                ";
   foundHelper = helpers.toolsAndLibs;
   stack1 = foundHelper || depth0.toolsAndLibs;
@@ -82,11 +82,11 @@ function program4(depth0,data) {
 function program6(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n                    <dt>";
+  buffer += "\n                    --><dt>";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "</dt>\n                ";
+  buffer += escapeExpression(stack1) + "</dt><!--\n                ";
   return buffer;}
 
 function program8(depth0,data) {
@@ -198,8 +198,8 @@ function program18(depth0,data) {
 
   buffer += "<div id=\"resume-page\">\n    <a href=\"#blogs\">blogs</a>\n    <div class=\"header\">\n\n        ";
   buffer += "\n        <div>\n            <img src=\"images/face-with-blue-dot.png\">\n            &nbsp;\n        </div>\n\n        ";
-  buffer += "\n        <div>\n            <h1>Jason McAffee </h1>\n            <ul>\n                <li>jasonlmcaffee@gmail.com</li>\n                <li>614 915 8198</li>\n            </ul>\n        </div>\n    </div>\n\n    <div class=\"download-and-contact\">\n        <ul>\n            <li>\n                <a href=\"downloads/jason_mcaffee_resume.doc\" class=\"icon-download-alt\"></a>\n            </li>\n            <li>\n                <a href=\"http://www.linkedin.com/pub/jason-mcaffee/66/503/854\" class=\"icon-linkedin-sign\">\n                    ";
-  buffer += "\n                </a>\n            </li>\n            <li>\n                <a href=\"http://www.github.com/jasonmcaffee\" class=\"icon-github-alt\"></a>\n            </li>\n            <li>\n                <a href=\"mailto:jasonlmcaffee@gmail.com\" class=\"icon-envelope-alt\"></a>\n            </li>\n            <li>\n                <a href=\"tel:+1-614-915-8198\" class=\"icon-phone\"></a>\n            </li>\n        </ul>\n    </div>\n\n    ";
+  buffer += "\n        <div>\n            <h1>Jason McAffee </h1>\n            <ul>\n                <li>jasonlmcaffee@gmail.com</li><!--\n                --><li>614 915 8198</li>\n            </ul>\n        </div>\n    </div>\n\n    <div class=\"download-and-contact\">\n        <ul>\n            <li>\n                <a href=\"downloads/jason_mcaffee_resume.doc\" class=\"icon-download-alt\"></a>\n            </li><!--\n         --><li>\n                <a href=\"http://www.linkedin.com/pub/jason-mcaffee/66/503/854\" class=\"icon-linkedin-sign\">\n                    ";
+  buffer += "\n                </a>\n            </li><!--\n         --><li>\n                <a href=\"http://www.github.com/jasonmcaffee\" class=\"icon-github-alt\"></a>\n            </li><!--\n        --><li>\n                <a href=\"mailto:jasonlmcaffee@gmail.com\" class=\"icon-envelope-alt\"></a>\n            </li><!--\n        --><li>\n                <a href=\"tel:+1-614-915-8198\" class=\"icon-phone\"></a>\n            </li>\n        </ul>\n    </div>\n\n    ";
   buffer += "\n    <div class=\"summary-section\">\n        <h2>Summary</h2>\n        <hr/>\n        <div>\n            ";
   foundHelper = helpers.summary;
   stack1 = foundHelper || depth0.summary;

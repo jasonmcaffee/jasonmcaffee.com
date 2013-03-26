@@ -58,6 +58,17 @@
     -webkit-animation-fill-mode: forwards;
 }
 
+.no-fancypagetransitions{
+    .slide-in{
+        position:relative;
+        display: block;
+    }
+
+    .slide-out{
+        display:none;
+    }
+}
+
 
 @include keyframes(slidein){
     from{

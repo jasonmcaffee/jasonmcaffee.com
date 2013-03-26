@@ -150,6 +150,9 @@
      //tags (primary and libs)
      dl{
         @extend .inline-block-grid;
+        //inline block grid has an issue with spilling over on this section.
+        //word-spacing: normal;
+
         padding:1%;
         dt{
             @extend .inline-block-grid-cell;

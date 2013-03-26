@@ -12,8 +12,8 @@
         <div>
             <h1>Jason McAffee </h1>
             <ul>
-                <li>jasonlmcaffee@gmail.com</li>
-                <li>614 915 8198</li>
+                <li>jasonlmcaffee@gmail.com</li><!--
+                --><li>614 915 8198</li>
             </ul>
         </div>
     </div>
@@ -22,19 +22,19 @@
         <ul>
             <li>
                 <a href="downloads/jason_mcaffee_resume.doc" class="icon-download-alt"></a>
-            </li>
-            <li>
+            </li><!--
+         --><li>
                 <a href="http://www.linkedin.com/pub/jason-mcaffee/66/503/854" class="icon-linkedin-sign">
                     {{! dont use i here as it is messed up with fastbutton on android 4 <i class="icon-linkedin-sign"></i> }}
                 </a>
-            </li>
-            <li>
+            </li><!--
+         --><li>
                 <a href="http://www.github.com/jasonmcaffee" class="icon-github-alt"></a>
-            </li>
-            <li>
+            </li><!--
+        --><li>
                 <a href="mailto:jasonlmcaffee@gmail.com" class="icon-envelope-alt"></a>
-            </li>
-            <li>
+            </li><!--
+        --><li>
                 <a href="tel:+1-614-915-8198" class="icon-phone"></a>
             </li>
         </ul>
@@ -59,9 +59,9 @@
         <div class="employment-section-item">
             {{!job title, company, date}}
             <ul>
-                <li>{{title}}</li>
-                <li>{{employer}}</li>
-                <li>{{date}}</li>
+                <li>{{title}}</li><!--
+                --><li>{{employer}}</li><!--
+                --><li>{{date}}</li>
             </ul>
 
             {{#each summary.paragraphs}}
@@ -72,9 +72,11 @@
 
             {{!primary skills}}
             <dl>
+                <!--
                 {{#each primarySkills}}
-                    <dt>{{this}}</dt>
+                    --><dt>{{this}}</dt><!--
                 {{/each}}
+                -->
             </dl>
 
             {{!libraries used}}

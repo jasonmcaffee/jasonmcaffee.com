@@ -1315,6 +1315,12 @@ ul.icons {
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards; }
 
+.no-fancypagetransitions .slide-in {
+  position: relative;
+  display: block; }
+.no-fancypagetransitions .slide-out {
+  display: none; }
+
 @-webkit-keyframes slidein {
   from {
     transform: translateX(100%);
@@ -1555,7 +1561,6 @@ html, body {
   min-height: 500px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
-  z-index: 2;
   /*color*/ }
 
 .enhancedscrolling .pages {
