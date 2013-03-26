@@ -13,7 +13,7 @@ define([], function(){
     function log(message){
         //ie 9 blows up if you try to access console in an if statement. eg. if(console)
         try{
-            if(console && console.log){
+            if(window.console && console.log){
                 var formattedMessage = message;
                 for (var i = 0; i < arguments.length; i++) {
                     var regexp = new RegExp('\\{'+i+'\\}', 'gi');
@@ -22,7 +22,9 @@ define([], function(){
 
                 console.log(formattedMessage);
             }
-        }catch(ex){}
+        }catch(ex){
+            alert('arg console is broken');
+        }
 
     }
 

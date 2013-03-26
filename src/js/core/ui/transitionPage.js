@@ -62,6 +62,11 @@ define([
 
             $pageContainer.append(viewToTransitionTo.$el);
 
+            //if selectivizr is present, run it so the page doesn't look like crap in ie
+            if(window.selectivizr){
+                log('running selectivizr');
+                window.selectivizr.init();
+            }
 //            viewToTransitionTo.$el.css({
 //                'overflow':'hidden'
 //            });

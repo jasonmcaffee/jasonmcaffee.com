@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="transitioning in progress. works ok. iphone has a glitch after transition. not working well in ie. (need ms-transition and disable for ie8)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
+    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" afterPath="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" afterPath="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" afterPath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/util/log.js" afterPath="$PROJECT_DIR$/src/js/core/util/log.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/resume/resume.html" afterPath="$PROJECT_DIR$/src/templates/resume/resume.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
@@ -69,37 +67,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="resume.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="98" selection-start="632" selection-end="632" vertical-scroll-proportion="-15.36">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blogHome.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="transitionPage.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="84" selection-start="4002" selection-end="4002" vertical-scroll-proportion="0.0">
+            <state line="67" column="42" selection-start="2521" selection-end="2521" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_resume.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
+      <file leaf-file-name="resume.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="156" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0">
+            <state line="6" column="53" selection-start="173" selection-end="173" vertical-scroll-proportion="0.07862408">
               <folding />
             </state>
           </provider>
@@ -109,15 +89,6 @@
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state line="27" column="96" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_buttons.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_buttons.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="9" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,10 +112,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tests.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="188" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.608365">
+            <state line="6" column="43" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selectivizr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="523" column="61" selection-start="0" selection-end="18481" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selectivizr-min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="444" column="10" selection-start="18100" selection-end="18100" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/util/log.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="207" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,30 +175,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/js/lib/views/Blog.js" />
-        <option value="$PROJECT_DIR$/src/js/core/device/DeviceInfo.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/controllers/Blogs.js" />
         <option value="$PROJECT_DIR$/src/js/lib/controllers/Resume.js" />
         <option value="$PROJECT_DIR$/src/templates/blogs/blogHome.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_blogHome.scss" />
         <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_buttons.scss" />
-        <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
-        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_grids.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" />
         <option value="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" />
+        <option value="$PROJECT_DIR$/src/js/core/util/log.js" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js" />
+        <option value="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
+        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="232" />
-    <option name="y" value="384" />
-    <option name="width" value="2209" />
-    <option name="height" value="1200" />
+    <option name="x" value="4" />
+    <option name="y" value="199" />
+    <option name="width" value="2306" />
+    <option name="height" value="1394" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -226,6 +226,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -397,6 +400,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib-third-party" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-third-party" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="polyfills" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1064,28 +1093,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/js/lib-third-party/polyfills" />
+      <recent name="$PROJECT_DIR$/src/js/core/polyfills" />
       <recent name="$PROJECT_DIR$/dist" />
       <recent name="$PROJECT_DIR$/dist/css" />
       <recent name="$PROJECT_DIR$/dist/fonts" />
-      <recent name="$PROJECT_DIR$/dist/css/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/design/fonts/fontawesome" />
@@ -1274,19 +1303,22 @@
       <created>1364254761298</created>
       <updated>1364254761298</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="transition in progress 2. no fancy transitions for ie &lt; 10.">
+      <created>1364323767728</created>
+      <updated>1364323767728</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="232" y="384" width="2209" height="1200" extended-state="0" />
+    <frame x="4" y="199" width="2306" height="1394" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15873742" sideWeight="0.67006487" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15199299" sideWeight="0.9992082" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1296,6 +1328,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1338,7 +1371,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="transitioning in progress. works ok. iphone has a glitch after transition. not working well in ie. (need ms-transition and disable for ie8)" />
+    <option name="LAST_COMMIT_MESSAGE" value="transition in progress 2. no fancy transitions for ie &lt; 10." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1366,119 +1399,100 @@
     <MESSAGE value="ie8 font fix. added icons for contact on resume. added font awesome." />
     <MESSAGE value="ie8 font fix. added icons for contact on resume. added font awesome. fixed issue with android fastbutton icon click." />
     <MESSAGE value="transitioning in progress. works ok. iphone has a glitch after transition. not working well in ie. (need ms-transition and disable for ie8)" />
+    <MESSAGE value="transition in progress 2. no fancy transitions for ie &lt; 10." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Blogs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="43" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="68" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_blogHome.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/blogs/blogHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="32" selection-start="57" selection-end="57" vertical-scroll-proportion="-0.64">
-          <folding />
-        </state>
+        <state line="1" column="32" selection-start="57" selection-end="57" vertical-scroll-proportion="-0.64" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="42" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="127" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="127" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_buttons.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="9" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="9" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="47" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="98" selection-start="632" selection-end="632" vertical-scroll-proportion="-15.36">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="156" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="139" column="156" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="96" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="96" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="47" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="30" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="56" column="30" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
+    <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="84" selection-start="4002" selection-end="4002" vertical-scroll-proportion="0.0">
+        <state line="6" column="43" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/util/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="207" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="4" selection-start="10140" selection-end="10140" vertical-scroll-proportion="0.0">
+        <state line="308" column="4" selection-start="10140" selection-end="10140" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="523" column="61" selection-start="0" selection-end="18481" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
+    <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="188" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.608365">
+        <state line="444" column="10" selection-start="18100" selection-end="18100" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="42" selection-start="2521" selection-end="2521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="53" selection-start="173" selection-end="173" vertical-scroll-proportion="0.07862408">
           <folding />
         </state>
       </provider>

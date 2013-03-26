@@ -47,7 +47,7 @@ define('core/util/log',[], function(){
     function log(message){
         //ie 9 blows up if you try to access console in an if statement. eg. if(console)
         try{
-            if(console && console.log){
+            if(window.console && console.log){
                 var formattedMessage = message;
                 for (var i = 0; i < arguments.length; i++) {
                     var regexp = new RegExp('\\{'+i+'\\}', 'gi');
@@ -56,7 +56,9 @@ define('core/util/log',[], function(){
 
                 console.log(formattedMessage);
             }
-        }catch(ex){}
+        }catch(ex){
+            alert('arg console is broken');
+        }
 
     }
 
@@ -13545,6 +13547,11 @@ define('core/ui/transitionPage',[
 
             $pageContainer.append(viewToTransitionTo.$el);
 
+            //if selectivizr is present, run it so the page doesn't look like crap in ie
+            if(window.selectivizr){
+                log('running selectivizr');
+                window.selectivizr.init();
+            }
 //            viewToTransitionTo.$el.css({
 //                'overflow':'hidden'
 //            });
@@ -14486,7 +14493,7 @@ function program18(depth0,data) {
   return buffer;}
 
   buffer += "<div id=\"resume-page\">\n    <a href=\"#blogs\">blogs</a>\n    <div class=\"header\">\n\n        ";
-  buffer += "\n        <div>\n            <img src=\"images/face-with-blue-dot.png\">\n            &nbsp;\n        </div>\n\n        ";
+  buffer += "\n        <div>\n            <img src=\"images/face-with-blue-dot.png\">\n        </div>\n\n        ";
   buffer += "\n        <div>\n            <h1>Jason McAffee </h1>\n            <ul>\n                <li>jasonlmcaffee@gmail.com</li><!--\n                --><li>614 915 8198</li>\n            </ul>\n        </div>\n    </div>\n\n    <div class=\"download-and-contact\">\n        <ul>\n            <li>\n                <a href=\"downloads/jason_mcaffee_resume.doc\" class=\"icon-download-alt\"></a>\n            </li><!--\n         --><li>\n                <a href=\"http://www.linkedin.com/pub/jason-mcaffee/66/503/854\" class=\"icon-linkedin-sign\">\n                    ";
   buffer += "\n                </a>\n            </li><!--\n         --><li>\n                <a href=\"http://www.github.com/jasonmcaffee\" class=\"icon-github-alt\"></a>\n            </li><!--\n        --><li>\n                <a href=\"mailto:jasonlmcaffee@gmail.com\" class=\"icon-envelope-alt\"></a>\n            </li><!--\n        --><li>\n                <a href=\"tel:+1-614-915-8198\" class=\"icon-phone\"></a>\n            </li>\n        </ul>\n    </div>\n\n    ";
   buffer += "\n    <div class=\"summary-section\">\n        <h2>Summary</h2>\n        <hr/>\n        <div>\n            ";
