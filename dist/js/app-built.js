@@ -13038,9 +13038,10 @@ define('lib-third-party/FastButton2',[
         if(theTarget.nodeType == 1 && theTarget.nodeName == "A"){
             //console.log('triggering click for anchor tag');
             //DONT EVER DO THIS. CLICK WONT FIRE --> alert('triggering click for anchor tag');
-            $(theTarget).get(0).click();     //<-- this works with android 2.3, and 4.0! but not when you have an alert!
+            $(theTarget).focus();//android fix. sometimes click doesn't cause anything to happen.
+            $(theTarget).get(0).click();     //<-- this mostly works with android 2.3, and 4.0! but not when you have an alert!
         }else{
-            //alert('trigger jquery for nodeName:' + theTarget.nodeName);
+            alert('trigger jquery for nodeName:' + theTarget.nodeName);
             $(theTarget).trigger('click');
         }
     }
@@ -13538,6 +13539,9 @@ define('core/ui/transitionPage',[
             currentView.$el.addClass(config.slideOutClass)
                 .css({'width':screenWidth+'px'}); //on iphone this screen grows to 200% wide.
 
+            //disable webkit-overflow-scroll: touch, as the page isn't fully painted.
+            //$('html').addClass('page-transitioning'); <-- doesn't work
+
             //add the page to the page container
             log('attaching $el to pageContainer');
             viewToTransitionTo.$el.addClass(config.slideInClass) //so it doesn't get painted wrong when attached.
@@ -13545,9 +13549,12 @@ define('core/ui/transitionPage',[
                 //    , position:'relative' <-- messes up on iphone. els are stacked on top
                 }); //fix iphone sizing? <-- makes scrollbar (horizontal) cover part of the page. hardly noticable.
 
+
+
+
             $pageContainer.append(viewToTransitionTo.$el);
 
-            //if selectivizr is present, run it so the page doesn't look like crap in ie
+            //if selectivizr is present, run it so the page doesn't look like crap in ie 8
             if(window.selectivizr){
                 log('running selectivizr');
                 window.selectivizr.init();
@@ -13591,11 +13598,16 @@ define('core/ui/transitionPage',[
                 viewToTransitionTo.$el.removeClass(config.slideInClass)  //this causes a repaint, but fixes iphone bug where whole screen isn't painted.
                     .css({width:''});
 
+                //enable webkit-overflow-scroll: touch
+                //$('html').removeClass('page-transitioning');  <-- doesn't work
+
+                //$('html').addClass('fix-iphone-scroll');   no worky
+
                 //$('body').css({'overflow-x':''}); //this leads to a vertical scrollbar appearing.
 
                 //the view has been transitioned to and is now the currentView.
                 currentView = viewToTransitionTo;
-            }, 1500);
+            }, 300);
 
 
         });
@@ -14827,7 +14839,7 @@ templates['blogHome'] = template(function (Handlebars,depth0,helpers,partials,da
   var foundHelper, self=this;
 
 
-  return "<div id=\"blogHome-page\">\n    <a href=\"#resume\">RESUME</a>\n    <ul>\n        <li>\n             Hi there. DO YOU KNOW THE BLOG\n        </li>\n        <li>\n             I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n\n    </ul>\n</div>";}); 
+  return "<div id=\"blogHome-page\">\n    <a href=\"#resume\">RESUME</a>\n    <ul>\n        <li>\n             Hi there. DO YOU KNOW THE BLOG\n        </li>\n        <li>\n             I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n        <li>\n            I am a blog entry\n        </li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("blogHome", templates["blogHome"]); 
 return templates["blogHome"]; 
 });

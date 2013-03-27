@@ -53,6 +53,9 @@ define([
             currentView.$el.addClass(config.slideOutClass)
                 .css({'width':screenWidth+'px'}); //on iphone this screen grows to 200% wide.
 
+            //disable webkit-overflow-scroll: touch, as the page isn't fully painted.
+            //$('html').addClass('page-transitioning'); <-- doesn't work
+
             //add the page to the page container
             log('attaching $el to pageContainer');
             viewToTransitionTo.$el.addClass(config.slideInClass) //so it doesn't get painted wrong when attached.
@@ -60,9 +63,12 @@ define([
                 //    , position:'relative' <-- messes up on iphone. els are stacked on top
                 }); //fix iphone sizing? <-- makes scrollbar (horizontal) cover part of the page. hardly noticable.
 
+
+
+
             $pageContainer.append(viewToTransitionTo.$el);
 
-            //if selectivizr is present, run it so the page doesn't look like crap in ie
+            //if selectivizr is present, run it so the page doesn't look like crap in ie 8
             if(window.selectivizr){
                 log('running selectivizr');
                 window.selectivizr.init();
@@ -106,11 +112,16 @@ define([
                 viewToTransitionTo.$el.removeClass(config.slideInClass)  //this causes a repaint, but fixes iphone bug where whole screen isn't painted.
                     .css({width:''});
 
+                //enable webkit-overflow-scroll: touch
+                //$('html').removeClass('page-transitioning');  <-- doesn't work
+
+                //$('html').addClass('fix-iphone-scroll');   no worky
+
                 //$('body').css({'overflow-x':''}); //this leads to a vertical scrollbar appearing.
 
                 //the view has been transitioned to and is now the currentView.
                 currentView = viewToTransitionTo;
-            }, 1500);
+            }, 300);
 
 
         });

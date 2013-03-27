@@ -33,11 +33,29 @@ html, body{
 .enhancedscrolling{
     .pages{
         overflow-y:scroll;
-        -webkit-overflow-scrolling:touch;
+        -webkit-overflow-scrolling:touch;   //   <-- this causes the screen not to paint completely after a transform
         height:100%;
         min-height: 100px; //min-height of 500 causes page to double scroll on phones. set min-height down a bit.
     }
 }
+
+
+//doesn't work
+//.page-transitioning{
+//    .enhancedscrolling{
+//        .pages{
+//            -webkit-overflow-scrolling:none !important;
+//        }
+//    }
+//}
+//
+//.fix-iphone-scroll{
+//    .pages{
+//        *{
+//            -webkit-transform: translate3d(0,0,0);
+//        }
+//    }
+//}
 
 /**
 <div class="pages">
