@@ -1,0 +1,21 @@
+//view el
+#threejsdemoOne{
+    height:100%;
+}
+
+#demoOnePage{
+    height:100%;
+    width:100%;
+    //background-color: green;
+
+    #controls{
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    #scene{
+        height:100%;
+        width:100%;
+        //min-height: 500px;
+    }
+}

@@ -99,7 +99,7 @@ define([
             $(theTarget).focus();//android fix. sometimes click doesn't cause anything to happen.
             $(theTarget).get(0).click();     //<-- this mostly works with android 2.3, and 4.0! but not when you have an alert!
         }else{
-            alert('trigger jquery for nodeName:' + theTarget.nodeName);
+            //alert('trigger jquery for nodeName:' + theTarget.nodeName);
             $(theTarget).trigger('click');
         }
     }

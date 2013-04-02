@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/three.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Threejs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" afterPath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/blogs/blogHome.html" afterPath="$PROJECT_DIR$/src/templates/blogs/blogHome.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,37 +73,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="transitionPage.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
+      <file leaf-file-name="Threejs.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Threejs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="41" selection-start="1382" selection-end="1382" vertical-scroll-proportion="-0.33386838">
+            <state line="18" column="18" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blogHome.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/blogs/blogHome.html">
+      <file leaf-file-name="three.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/js/three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="241" selection-start="1177" selection-end="1177" vertical-scroll-proportion="-38.4">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resume.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
+      <file leaf-file-name="threejsDemoOneTemplate.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="167" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-44.16">
+            <state line="7" column="31" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FastButton2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
+      <file leaf-file-name="ThreejsDemoOne.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="60" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.0">
+            <state line="411" column="53" selection-start="15390" selection-end="15390" vertical-scroll-proportion="0.7344262">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_threejsDemoOne.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="184" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,54 +121,34 @@
       <file leaf-file-name="_strapkit.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="100" selection-start="1658" selection-end="1658" vertical-scroll-proportion="0.0">
+            <state line="31" column="173" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_reset.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_reset.scss">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="2" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0">
+            <state line="45" column="77" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_transitions.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="31" selection-start="1139" selection-end="1139" vertical-scroll-proportion="0.0">
+            <state line="48" column="71" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectivizr.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js">
+      <file leaf-file-name="grunt.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/grunt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="523" column="61" selection-start="0" selection-end="18481" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selectivizr-min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="444" column="10" selection-start="18100" selection-end="18100" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceInfo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="308" column="4" selection-start="10140" selection-end="10140" vertical-scroll-proportion="0.0">
+            <state line="103" column="70" selection-start="3850" selection-end="3850" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,28 +170,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_blogHome.scss" />
-        <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_buttons.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_grids.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
-        <option value="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" />
-        <option value="$PROJECT_DIR$/src/js/core/util/log.js" />
-        <option value="$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js" />
         <option value="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
         <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" />
         <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
         <option value="$PROJECT_DIR$/src/templates/blogs/blogHome.html" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib/controllers/Threejs.js" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
+        <option value="$PROJECT_DIR$/src/js/core/core.js" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="22" />
-    <option name="y" value="125" />
+    <option name="x" value="35" />
+    <option name="y" value="42" />
     <option name="width" value="2306" />
     <option name="height" value="1394" />
   </component>
@@ -1101,22 +1094,22 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist/js" />
       <recent name="$PROJECT_DIR$/src/js/lib-third-party/polyfills" />
       <recent name="$PROJECT_DIR$/src/js/core/polyfills" />
       <recent name="$PROJECT_DIR$/dist" />
       <recent name="$PROJECT_DIR$/dist/css" />
-      <recent name="$PROJECT_DIR$/dist/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/design/fonts/fontawesome" />
@@ -1313,14 +1306,17 @@
       <created>1364338182957</created>
       <updated>1364338182957</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix for fastbutton and android a tags not always reacting to click event. using focus(). still minor issue on galaxy tablet with anroid 4">
+      <created>1364397939244</created>
+      <updated>1364397939244</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="22" y="125" width="2306" height="1394" extended-state="0" />
+    <frame x="35" y="42" width="2306" height="1394" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1335,6 +1331,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1377,7 +1374,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="ie8 fix for polyfill. now init selectivizr after page change." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for fastbutton and android a tags not always reacting to click event. using focus(). still minor issue on galaxy tablet with anroid 4" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1407,109 +1404,92 @@
     <MESSAGE value="transitioning in progress. works ok. iphone has a glitch after transition. not working well in ie. (need ms-transition and disable for ie8)" />
     <MESSAGE value="transition in progress 2. no fancy transitions for ie &lt; 10." />
     <MESSAGE value="ie8 fix for polyfill. now init selectivizr after page change." />
+    <MESSAGE value="fix for fastbutton and android a tags not always reacting to click event. using focus(). still minor issue on galaxy tablet with anroid 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="9" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/blogs/blogHome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_resume.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="156" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="96" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="43" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/util/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="207" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="308" column="4" selection-start="10140" selection-end="10140" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/polyfills/selectivizr.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Resume.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="523" column="61" selection-start="0" selection-end="18481" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/Resume.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="444" column="10" selection-start="18100" selection-end="18100" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_reset.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="2" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/resume/resume.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="167" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-44.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="100" selection-start="1658" selection-end="1658" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="31" selection-start="1139" selection-end="1139" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="60" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="8" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/blogs/blogHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="241" selection-start="1177" selection-end="1177" vertical-scroll-proportion="-38.4">
+        <state line="6" column="12" selection-start="150" selection-end="150" vertical-scroll-proportion="-3.84" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="37" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.4093098" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="10" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="247" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Threejs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="18" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="31" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="41" selection-start="1382" selection-end="1382" vertical-scroll-proportion="-0.33386838">
+        <state line="18" column="184" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="173" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="77" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="71" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/grunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="70" selection-start="3850" selection-end="3850" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="411" column="53" selection-start="15390" selection-end="15390" vertical-scroll-proportion="0.7344262">
           <folding />
         </state>
       </provider>

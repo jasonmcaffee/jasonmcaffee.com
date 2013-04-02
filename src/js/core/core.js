@@ -11,8 +11,9 @@ define([
     'lib-third-party/FastButton2',
     'core/ui/hideAddressBar',
     'core/modernizrTests/tests',
-    'core/ui/transitionPage'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests, transitionPage){
+    'core/ui/transitionPage',
+    'core/ui/requestAnimationFrame'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests, transitionPage, requestAnimationFrame){
     log('core module loaded');
 
     var core = {
@@ -40,7 +41,9 @@ define([
             Controller : Controller
         },
         ui : {
-            transitionPage : transitionPage
+            transitionPage : transitionPage,
+            requestAnimationFrame : requestAnimationFrame.requestAnimationFrame,
+            cancelAnimationFrame : requestAnimationFrame.cancelAnimationFrame
         },
         log : log,
         deviceInfo : deviceInfo

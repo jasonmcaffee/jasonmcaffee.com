@@ -1,3 +1,11 @@
+require.config({
+    shim:{
+        three:{
+            exports:'THREE'
+        }
+    }
+});
+
 define([
     'core/core',
     'jquery',
@@ -7,6 +15,7 @@ define([
     'lib/controllers/StrapkitController',
     'lib/controllers/Resume',
     'lib/controllers/Blogs',
+    'lib/controllers/Threejs',
     'lib/widgets/NavigationBar'
 ], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
 

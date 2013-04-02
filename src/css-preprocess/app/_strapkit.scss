@@ -11,7 +11,7 @@ html, body{
   //margin-top:50px;   todo:re-enable nav bar
 
   min-height: 500px;
-  //height:100%; <-- this causes ie9 to not paint anything that is in a scrollable region (e.g. the page)
+  height:100%; //<-- this causes ie9 to not paint anything that is in a scrollable region (e.g. the page)
   width:100%;
 /*!!needed to allow menu to be placed below navbar*/
   //z-index:2;
@@ -29,6 +29,11 @@ html, body{
 
 }
 
+.Explorer-9{
+    .pages{
+        height:auto; //height:100%; //<-- this causes ie9 to not paint anything that is in a scrollable region (e.g. the page)
+    }
+}
 //native scrolling for iphone and android. whitelisted in core/modenizrTests/tests.js
 .enhancedscrolling{
     .pages{

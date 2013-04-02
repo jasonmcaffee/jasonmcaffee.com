@@ -1560,9 +1560,13 @@ html, body {
 
 .pages {
   min-height: 500px;
+  height: 100%;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   /*color*/ }
+
+.Explorer-9 .pages {
+  height: auto; }
 
 .enhancedscrolling .pages {
   overflow-y: scroll;
@@ -1696,3 +1700,17 @@ html, body {
 
 #blog {
   width: 100%; }
+
+#threejsdemoOne {
+  height: 100%; }
+
+#demoOnePage {
+  height: 100%;
+  width: 100%; }
+  #demoOnePage #controls {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  #demoOnePage #scene {
+    height: 100%;
+    width: 100%; }
