@@ -14944,7 +14944,7 @@ define('lib/views/ThreejsDemoOne',[
     'compiled-templates/demos/threejsDemoOneTemplate',
     'jquery'
 ], function(core, threejsDemoOneTemplate, $){
-
+    var three = null;//once threejs is loaded
     /**
      * Casts a ray in the direction the cursor is pointing.
      * Returns the first hit object.
@@ -14961,13 +14961,16 @@ define('lib/views/ThreejsDemoOne',[
         var x = clickEvent.clientX;
         var y = clickEvent.clientY;
 
-        var v = new three.Vector3( (x/width)*2-1, -(y/height)*2+1, 0.5);
+        //https://github.com/mrdoob/three.js/issues/397 change z from 0.5 to 1
+        var v = new three.Vector3( (x/width)*2-1, -(y/height)*2+1, 1);
         projector.unprojectVector(v, camera);
 
-        var ray = new three.Raycaster(camera.position, v.sub(camera.position).normalize());
+        var direction = v.sub(camera.position).normalize();
+        core.log('direction is x:{0} y:{1} z:{2}', direction.x, direction.y, direction.z);
+        var ray = new three.Raycaster(camera.position, direction);
 
         var intersects = ray.intersectObjects(sceneObjects);
-        return intersects[0] ? intersects[0].object : undefined;
+        return intersects[0]; //need more than just the object to determine which face //? intersects[0].object : undefined;
     }
 
     var View = core.mvc.View.extend({
@@ -14987,8 +14990,6 @@ define('lib/views/ThreejsDemoOne',[
             this.blockSize = 5;
             this.movementAmount = 1;
 
-            this.isKeyCurrentlyPressed = false;//let users hold down key to continue moving at rate faster than keydown is fired.
-
             this.isUpPressed = false;
             this.isDownPressed = false;
             this.isLeftPressed = false;
@@ -14997,7 +14998,7 @@ define('lib/views/ThreejsDemoOne',[
             this.isBackwardPressed = false;
 
             this.target = null; //for looking around
-            this.lookSpeed = 0.05;
+            this.lookSpeed = 0.1;
             this.viewHalfX = 0;
             this.viewHalfY = 0;
             this.mouseY = 1;
@@ -15006,46 +15007,31 @@ define('lib/views/ThreejsDemoOne',[
             this.lon = 0;
             this.lat = 0;
 
+            this.playerGeometry = null; //for hit detection.
+            this.playerHeight = this.blockSize * 2;
+            this.playerWidth = this.blockSize;
+            this.playerDepth = this.blockSize;
+
             $(window).on('keydown', function(e){
                 core.log('keydown window {0} {1}', e.which, e.keyCode);
-
-                //don't fire if already pressed.
-//                if(this.isKeyCurrentlyPressed){
-//                    return;
-//                }
-
-                this.isKeyCurrentlyPressed = true;
                 switch(e.which){
                     case 87 : //w
-                        //if(this.isForwardPressed){return;}
                         this.isForwardPressed = true;
-                        //this.moveForward();
                         break;
                     case 65 : //a
-                        //if(this.isLeftPressed){return;}
                         this.isLeftPressed = true;
-                        //this.moveLeft();
                         break;
-
                     case 68: //d
-                        //if(this.isRightPressed){return;}
                         this.isRightPressed = true;
-                        //this.moveRight();
                         break;
                     case 83: //s
-                        //if(this.isBackwardPressed){return;}
                         this.isBackwardPressed = true;
-                        //this.moveBackward();
                         break;
                     case 32: //space
-                        //if(this.isUpPressed){return;}
                         this.isUpPressed = true;
-                        //this.moveUp();
                         break;
                     case 16: //shift (dont use tab lose focus)
-                        //if(this.isDownPressed){return;}
                         this.isDownPressed = true;
-                        //this.moveDown();
                         break;
 
                 }
@@ -15053,8 +15039,6 @@ define('lib/views/ThreejsDemoOne',[
 
             $(window).on('keyup', function(e){
                 core.log('keyup window {0} {1}', e.which, e.keyCode);
-                //this.isKeyCurrentlyPressed = false;
-
                 switch(e.which){
                     case 87 : //w
                         this.isForwardPressed = false;
@@ -15062,7 +15046,6 @@ define('lib/views/ThreejsDemoOne',[
                     case 65 : //a
                         this.isLeftPressed = false;
                         break;
-
                     case 68: //d
                         this.isRightPressed = false;
                         break;
@@ -15084,17 +15067,54 @@ define('lib/views/ThreejsDemoOne',[
         events:{
             'click #scene': function(e){
                 //this.camera.position.x += 20;
-                var clickedObject = getClickedObject(THREE, e, this.projector, this.camera,this.sceneWidth, this.sceneHeight, this.scene.children);
+                var clickedIntersect = getClickedObject(THREE, e, this.projector, this.camera,this.sceneWidth, this.sceneHeight, this.scene.children);
+                var clickedObject = clickedIntersect ? clickedIntersect.object : null;
+
+                var newBlockPosition = {x:0, y:0, z:0};
                 if(clickedObject){
-                    clickedObject.scale.x -= .1;
+                    //clickedObject.scale.x -= .1;
+                    core.log('face index is ' + clickedIntersect.faceIndex);
+                    if(clickedIntersect.faceIndex == 2){
+                        //top
+                        newBlockPosition.x = clickedObject.position.x;
+                        newBlockPosition.y = clickedObject.position.y + this.blockSize;
+                        newBlockPosition.z = clickedObject.position.z;
+                    }else if(clickedIntersect.faceIndex == 4){
+                        //back
+                        newBlockPosition.x = clickedObject.position.x;
+                        newBlockPosition.y = clickedObject.position.y;
+                        newBlockPosition.z = clickedObject.position.z + this.blockSize;
+                    }else if(clickedIntersect.faceIndex == 5){
+                        //front
+                        newBlockPosition.x = clickedObject.position.x;
+                        newBlockPosition.y = clickedObject.position.y;
+                        newBlockPosition.z = clickedObject.position.z - this.blockSize;
+                    }else if(clickedIntersect.faceIndex == 1){
+                        //left
+                        newBlockPosition.x = clickedObject.position.x - this.blockSize;
+                        newBlockPosition.y = clickedObject.position.y;
+                        newBlockPosition.z = clickedObject.position.z;
+                    }else if(clickedIntersect.faceIndex == 0){
+                        //right
+                        newBlockPosition.x = clickedObject.position.x  + this.blockSize;
+                        newBlockPosition.y = clickedObject.position.y;
+                        newBlockPosition.z = clickedObject.position.z;
+                    } else if(clickedIntersect.faceIndex == 3){
+                        //bottom
+                        newBlockPosition.x = clickedObject.position.x;
+                        newBlockPosition.y = clickedObject.position.y - this.blockSize;
+                        newBlockPosition.z = clickedObject.position.z;
+                    }
+
+                    this.createBlock(newBlockPosition);
                 }
             },
-            'click #controls #moveForward': 'moveForward',
-            'click #controls #moveBackward': 'moveBackward',
-            'click #controls #moveLeft' : 'moveLeft',
-            'click #controls #moveRight' : 'moveRight',
-            'click #controls #moveUp' : 'moveUp',
-            'click #controls #moveDown' :'moveDown',
+//            'click #controls #moveForward': 'moveForward',
+//            'click #controls #moveBackward': 'moveBackward',
+//            'click #controls #moveLeft' : 'moveLeft',
+//            'click #controls #moveRight' : 'moveRight',
+//            'click #controls #moveUp' : 'moveUp',
+//            'click #controls #moveDown' :'moveDown',
             'mouseUp #controls':function(){
                 this.isUpPressed = false;
                 this.isDownPressed = false;
@@ -15104,87 +15124,73 @@ define('lib/views/ThreejsDemoOne',[
                 this.isBackwardPressed = false;
             },
             'mousemove #scene' : function(e){
-                //core.log('mousemove x:{0} y:{1}', e.clientX, e.clientY);
-
                 this.mouseX = e.pageX - this.viewHalfX;
                 this.mouseY = e.pageY - this.viewHalfY;
-//                var x = e.pageX;
-//                var y = e.pageY;
-//
-//                var v = new three.Vector3( (x/this.sceneWidth)*2-1, -(y/this.sceneHeight)*2+1, 0.5);
-//                this.projector.unprojectVector(v, this.camera);
-//                var direction = v.sub(this.camera.position).normalize();
-//
-//                var ray = new three.Ray(this.camera.position, direction);
-//                var distance =  this.camera.position.z / direction.z;
-//
-//                var position = this.camera.position.clone().add(direction.multiplyScalar(distance));
-//
-//                this.camera.lookAt(position);
-
             }
 
         },
-        /**
-         * moves every n milliseconds while this.isKeyCurrentlyPressed == true.
-         *
-         * @param moveFunc - function that updates camera.position. 'this' will be this view instance. e.g. this.camera.position.z += 30; should return true if you wish to keep the interval, false if you want to stop.
-         */
-        move:function(moveFunc){
-            var func = moveFunc.bind(this);
-            var interval = setInterval(function(){
-                if(!func()){
-                    clearInterval(interval);
-                }
-            }.bind(this), 30);
-        },
+        createLight:function(){
+            var light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, 100, 10 );
+            this.scene.add( light );
 
-        moveForward: function(){
-            this.move(function(){
-                //core.log('updating position forward');
-                this.camera.position.z -= this.movementAmount;
-                return this.isForwardPressed;
-            });
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 100, 10, 10 );
+            this.scene.add(light);
 
-        },
-        moveBackward: function(){
-            this.move(function(){
-                this.camera.position.z += this.movementAmount;
-                return this.isBackwardPressed;
-            });
-        },
-        moveRight: function(){
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( -100, 10, 10 );
+            this.scene.add(light);
 
-            this.move(function(){
-                this.camera.position.x += this.movementAmount;
-                return this.isRightPressed;
-            });
-        },
-        moveLeft: function(){
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, -100, 10 );
+            this.scene.add(light);
 
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, -100, -10 );
+            this.scene.add(light);
 
-            this.move(function(){
-                //this.camera.position.x -= this.movementAmount;
-                this.camera.translateX( - this.movementAmount);
-                return this.isLeftPressed;
-            });
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, 100, -10 );
+            this.scene.add(light);
+
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, -100, 100 );
+            this.scene.add(light);
+
+            light = new three.PointLight( 0xF4F799 );
+            light.position.set( 10, 100, 100 );
+            this.scene.add(light);
+//            for(var x = 0; x < 1000; x+=10){
+//                light = new three.PointLight( 0xF4F799 );
+//                light.position.set( 10, x, 10 );
+//                this.scene.add( light );
+//
+//                light = new three.PointLight( 0xF4F799 );
+//                light.position.set( x, 10, 10 );
+//                this.scene.add( light );
+//            }
 
         },
-        moveUp: function(){
+        createBlock:function(position){
+            var geometry = new three.CubeGeometry( this.blockSize, this.blockSize, this.blockSize );
+            var material = new three.MeshLambertMaterial( { color: 0x91D164 } );
 
-            this.move(function(){
-                this.camera.position.y += this.movementAmount;
-                return this.isUpPressed;
-            });
+            //try different way for color so we can set its face color when collision occurs.
+            //X!!!! doesn't work for changing colors, and doesn't have lighting effects.
+//            for(var i=0; i < geometry.faces.length; ++i){
+//                var face = geometry.faces[i];
+//                face.color.setHex(0x91D164);
+//            }
+//            var material =  new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors } );
+
+            var mesh = new three.Mesh( geometry, material );
+            mesh.position.set(position.x, position.y, position.z);
+
+            mesh.dynamic = true;//allow the colors of a face to be changed after a collision.
+
+            this.scene.add( mesh );
         },
-        moveDown: function(){
-
-            this.move(function(){
-                this.camera.position.y -= this.movementAmount;
-                return this.isDownPressed;
-            });
-        },
-
         drawFloorLines:function(){
             var THREE = this.three;
             //lines
@@ -15211,7 +15217,7 @@ define('lib/views/ThreejsDemoOne',[
                 return line;
             }
 
-            for(var x = 0, negX =0; x<=100; x += this.blockSize, negX = x * -1){
+            for(var x = 0, negX =0; x<=300; x += this.blockSize, negX = x * -1){
                 this.scene.add(createZLine(x, 0));
                 this.scene.add(createZLine(negX, 0));
 
@@ -15263,8 +15269,43 @@ define('lib/views/ThreejsDemoOne',[
                 this.camera.translateZ(this.movementAmount);
             }
             if(this.isForwardPressed){
-                this.camera.translateZ(- this.movementAmount);
 
+                var originPoint = this.playerCube.position.clone();
+                var forwardMovementFailed = false;
+                //check to see if you hit something first.
+                for (var vertexIndex = 0; vertexIndex < this.playerGeometry.vertices.length; vertexIndex++)
+                {
+                    var localVertex = this.playerGeometry.vertices[vertexIndex].clone();
+                    var globalVertex = localVertex.applyMatrix4( this.playerCube.matrix );
+                    var directionVector = globalVertex.sub( this.playerCube.position ); //maybe - 1 the z so we know we'll hit if we move.
+
+                    //change the origin point a bit so the player can leave
+
+                    var ray = new three.Raycaster( originPoint, directionVector.clone().normalize() );
+                    var collisionResults = ray.intersectObjects( this.scene.children );
+
+                    var directionVectorLength = directionVector.length();
+
+                    if ( collisionResults.length > 0 && collisionResults[0].distance < directionVectorLength ){
+                        //core.log('collisionResult.distance: {0}  directionVectorLength: {1}', collisionResults[0].distance ,  directionVectorLength);
+                        //core.log('directionVector x:{0} y:{1} z:{2}', directionVector.x, directionVector.y, directionVector.z);
+                        core.log('camera.rotation x: {0} y:{1} z:{2}', this.camera.rotation.x, this.camera.rotation.y, this.camera.rotation.z);
+                        core.log('no move for you!');
+                        forwardMovementFailed = true;
+
+                        //change the color of the object we collided with
+                        var collision = collisionResults[0];
+                        var objectCollidedWith = collision.object;
+                        objectCollidedWith.material.color.setHex(Math.random() * 0xffffff);//0x1F89F2
+                        //objectCollidedWith.dynamic = true;
+                        objectCollidedWith.geometry.__dirtyColors = true;
+
+                        break;
+                    }
+                }
+                if(!forwardMovementFailed){
+                    this.camera.translateZ(- this.movementAmount);
+                }
             }
             if(this.isUpPressed){
                 this.camera.translateY(this.movementAmount);
@@ -15278,6 +15319,9 @@ define('lib/views/ThreejsDemoOne',[
             if(this.isRightPressed){
                 this.camera.translateX(this.movementAmount);
             }
+
+            //update playerCube position to match camera
+            this.playerCube.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z );
         },
         render:function(){
             core.log('threejs rendering');
@@ -15287,15 +15331,15 @@ define('lib/views/ThreejsDemoOne',[
             //todo: bind polyfill
             var self = this;
             //nested require so threejs isn't prepackaged with the site.
-            require(['three'], function(three){
+            require(['three'], function(three3){
                 core.log('three has loaded.');
 
                 three = THREE; //todo: fix shim export  it's because the require is compiled at the bottom?
                 this.three = three;
 
                 this.$scene = this.$el.find('#scene');
-                this.sceneWidth = this.$scene.width();
-                this.sceneHeight =this.$scene.height();
+                this.sceneWidth = this.$scene.width() -10; //window.innerWidth;
+                this.sceneHeight = this.$scene.height()-10; //window.innerHeight;//
                 this.viewHalfX = this.sceneWidth /2;
                 this.viewHalfY = this.sceneHeight /2;
 
@@ -15318,19 +15362,28 @@ define('lib/views/ThreejsDemoOne',[
                     10000           // Far plane
                 );
 
-               this.camera.position.set( 0, 10, 100 );
+               this.camera.position.set( this.playerWidth /2, this.playerHeight / 2, 100 );
 //                camera.lookAt( scene.position );
 
-                var geometry = new three.CubeGeometry( this.blockSize, this.blockSize, this.blockSize );
-                var material = new three.MeshLambertMaterial( { color: 0x91D164 } );
-                var mesh = new three.Mesh( geometry, material );
-                mesh.position.set(0, 0, 0);
-                this.scene.add( mesh );
+//                var geometry = new three.CubeGeometry( this.blockSize, this.blockSize, this.blockSize );
+//                var material = new three.MeshLambertMaterial( { color: 0x91D164 } );
+//                var mesh = new three.Mesh( geometry, material );
+//                mesh.position.set(0, 0, 0);
+//                this.scene.add( mesh );
+
+                this.playerGeometry = new three.CubeGeometry(this.playerWidth, this.playerHeight, this.playerDepth);
+                this.playerMaterial = new three.MeshBasicMaterial({color:0xFC0015, wireframe:true});   //
+                this.playerCube = new three.Mesh(this.playerGeometry, this.playerMaterial);
+                this.playerCube.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z );
+
+                this.scene.add(this.playerCube);
+
+                //starting point block
+                this.createBlock({x:0, y:this.blockSize/2, z:0});
+
                 //this.sceneObjects.push(mesh);
 
-                var light = new three.PointLight( 0xF4F799 );
-                light.position.set( 10, 100, 10 );
-                this.scene.add( light );
+                this.createLight();
 
                 this.drawFloorLines();
 
