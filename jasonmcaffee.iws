@@ -2,8 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/high_progressive_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/medium_non-progressive_30.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/medium_progressive_30.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/original.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/quality_50_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/quality_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image1/quality_60_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/high_progressive_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/medium_non-progressive-30.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/medium_progressive_30.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/original.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/original.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/quality_50_bicubic_sharpen.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/quality_60_bicubic_sharpen.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image2/saveas_progressive3_quality6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/original.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_50.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_50_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_60_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_60_blur0.5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image3/quality_60_progressive.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/original.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/progressive_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_30_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_35_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_40_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_40_dpi_66_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_50.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_50_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_50_progressive.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_60.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/imageTestDemo/image4/quality_60_bicubic_sharper.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_imagesTest.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/demos/imagesTest1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/demos/imagesTest2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/demos/threejsDemoOneTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib-third-party/three.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Images.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/views/ImagesTest1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/demos/imagesTest1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js" afterPath="$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js" />
     </list>
     <ignored path="jasonmcaffee.iws" />
@@ -62,46 +106,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Threejs.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Threejs.js">
+      <file leaf-file-name="Images.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Images.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="238" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0">
+            <state line="53" column="103" selection-start="3572" selection-end="3572" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="threejsDemoOneTemplate.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html">
+      <file leaf-file-name="_imagesTest.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_imagesTest.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
+            <state line="7" column="19" selection-start="173" selection-end="173" vertical-scroll-proportion="0.089030206">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreejsDemoOne.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
+      <file leaf-file-name="_grids.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="356" column="66" selection-start="15390" selection-end="15390" vertical-scroll-proportion="0.3147541">
+            <state line="37" column="0" selection-start="1892" selection-end="1915" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_threejsDemoOne.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss">
+      <file leaf-file-name="ImagesTest1.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/views/ImagesTest1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="184" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
+            <state line="13" column="47" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
+      <file leaf-file-name="Resume.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/views/Resume.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="77" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.0">
+            <state line="0" column="43" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imagesTest1.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/demos/imagesTest1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="73" selection-start="351" selection-end="351" vertical-scroll-proportion="-7.68">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="42" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +172,7 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="71" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0">
+            <state line="95" column="71" selection-start="3627" selection-end="3627" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,7 +181,7 @@
       <file leaf-file-name="grunt.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/grunt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="70" selection-start="3850" selection-end="3850" vertical-scroll-proportion="0.0">
+            <state line="25" column="111" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,30 +203,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/dist/js/polyfills/selectivizr-min.js" />
-        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_transitions.scss" />
-        <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
-        <option value="$PROJECT_DIR$/src/templates/blogs/blogHome.html" />
-        <option value="$PROJECT_DIR$/src/js/lib/controllers/Threejs.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
         <option value="$PROJECT_DIR$/src/js/core/core.js" />
         <option value="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
         <option value="$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss" />
         <option value="$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/controllers/images.js" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/views/ImagesTest2.js" />
+        <option value="$PROJECT_DIR$/src/templates/demos/imagesTest2.html" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib/views/ImagesTest1.js" />
+        <option value="$PROJECT_DIR$/src/templates/demos/imagesTest1.html" />
+        <option value="$PROJECT_DIR$/src/js/lib/controllers/Images.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/_imagesTest.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="26" />
-    <option name="y" value="192" />
-    <option name="width" value="2306" />
-    <option name="height" value="1394" />
+    <option name="x" value="180" />
+    <option name="y" value="72" />
+    <option name="width" value="2502" />
+    <option name="height" value="1406" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -194,16 +256,6 @@
     <panes>
       <pane id="PackagesPane">
         <subPane />
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -1021,6 +1073,110 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageTestDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageTestDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageTestDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageTestDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1059,20 +1215,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1285,19 +1451,22 @@
       <created>1364867926918</created>
       <updated>1364867926918</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="collision detection in progress. blocks change color when you collide with them.">
+      <created>1365373167338</created>
+      <updated>1365373167338</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="192" width="2306" height="1394" extended-state="0" />
+    <frame x="180" y="72" width="2502" height="1406" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15199299" sideWeight="0.9992082" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19322307" sideWeight="0.9986024" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1307,6 +1476,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1349,7 +1519,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="threejs demo with good looking and moving" />
+    <option name="LAST_COMMIT_MESSAGE" value="collision detection in progress. blocks change color when you collide with them." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1381,51 +1551,15 @@
     <MESSAGE value="ie8 fix for polyfill. now init selectivizr after page change." />
     <MESSAGE value="fix for fastbutton and android a tags not always reacting to click event. using focus(). still minor issue on galaxy tablet with anroid 4" />
     <MESSAGE value="threejs demo with good looking and moving" />
+    <MESSAGE value="collision detection in progress. blocks change color when you collide with them." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="4" selection-start="10140" selection-end="10140" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/views/Resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="8" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/blogs/blogHome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="150" selection-end="150" vertical-scroll-proportion="-3.84" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="37" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.4093098" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="10" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="247" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/demos/threejsDemoOneTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="184" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
@@ -1433,45 +1567,110 @@
         <state line="45" column="77" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+    <entry file="file://$PROJECT_DIR$/src/templates/demos/demosHomePageTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="71" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="370" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/DemosController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/grunt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="70" selection-start="3850" selection-end="3850" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/js/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="163" selection-start="38657" selection-end="38657" vertical-scroll-proportion="0.3463098">
+        <state line="25" column="111" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Threejs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="238" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0">
+        <state line="18" column="63" selection-start="466" selection-end="466" vertical-scroll-proportion="0.22893482">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/Resume.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="173" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.3964687">
+        <state line="0" column="43" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_threejsDemoOne.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="184" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="66" selection-start="15390" selection-end="15390" vertical-scroll-proportion="0.3147541">
+        <state line="16" column="44" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/app-built.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="0" selection-start="17497" selection-end="17497" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{&quot;exports&quot;: 'THREE'...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="{&quot;*notFound&quot;: &quot;allRoutes&quot;...}" />
+            <marker date="1366580778000" expanded="true" signature="-1:-1" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="71" selection-start="3627" selection-end="3627" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="42" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/ImagesTest1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="47" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Images.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="103" selection-start="3572" selection-end="3572" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/demos/imagesTest1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="73" selection-start="351" selection-end="351" vertical-scroll-proportion="-7.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1892" selection-end="1915" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_imagesTest.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="19" selection-start="173" selection-end="173" vertical-scroll-proportion="0.089030206">
           <folding />
         </state>
       </provider>

@@ -16,7 +16,8 @@ define([
     'lib/controllers/Resume',
     'lib/controllers/Blogs',
     'lib/controllers/Threejs',
-    'lib/widgets/NavigationBar'
+    'lib/widgets/NavigationBar',
+    'lib/controllers/Images'
 ], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
 
     function App(){
@@ -56,16 +57,17 @@ define([
      *
      */
     App.prototype.setupRoutes = function(){
-        core.log('App.setupRoutes called.');
+        core.log('App.setupRoutes called. 1');
         var self = this;
         var AppRouter = Backbone.Router.extend({
             routes: {
-//                "demos/buttonsDemo" : "buttonsDemo",
-//                "demos/responsiveDemo" : "responsiveDemo",
-//                "demos/responsiveFlexBoxDemo" : "responsiveFlexBoxDemo",
-//                "home" : "home",
-                "*notFound" : "allRoutes",
-                "*notFound/:page" : "allRoutes" //eg #resume/tacos or #resume <--todo:stopped working after notFound added
+                ":controller/:action":"allRoutes"//,
+//                "*notFound" : "allRoutes",
+//                "*notFound/:page" : "allRoutes" //eg #resume/tacos or #resume <--todo:stopped working after notFound added
+            },
+            _extractParameters: function(route, fragment) {
+                var result = route.exec(fragment).slice(1);
+                return result;
             },
             initialize:function(){
                 //this.bind("all", this.allRoutes); <-- doesn't fire when non-configured route is accessed (e.g. #balkdjflaksdjf doesn't fire this, and we need it to)

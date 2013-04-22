@@ -1,0 +1,17 @@
+<div id="imageTestPage">
+    <h2>{{title}}</h2>
+
+    <div id="navigation">
+        {{#each navigation.links}}
+            <a href="{{this.src}}">{{this.text}}</a>
+        {{/each}}
+    </div>
+
+    {{#each imageSet}}
+        <div class="image-set-item">
+            <h3>{{title}}</h3>
+            <img alt="{{title}}" src="{{../baseImageUrl}}{{src}}"/>
+        </div>
+    {{/each}}
+
+</div>

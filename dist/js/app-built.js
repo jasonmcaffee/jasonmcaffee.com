@@ -15259,6 +15259,12 @@ define('lib/views/ThreejsDemoOne',[
             if(!isNaN(targetPosition.x)){
 
                 this.camera.lookAt( targetPosition );
+
+                //update the player cube rotation
+                this.playerCube.rotation.x = this.camera.rotation.x;
+                this.playerCube.rotation.y = this.camera.rotation.y;
+                this.playerCube.rotation.z = this.camera.rotation.z;
+                //this.playerCube.
             }else{
                 core.log('x is NAN!');
             }
@@ -15277,7 +15283,10 @@ define('lib/views/ThreejsDemoOne',[
                 {
                     var localVertex = this.playerGeometry.vertices[vertexIndex].clone();
                     var globalVertex = localVertex.applyMatrix4( this.playerCube.matrix );
-                    var directionVector = globalVertex.sub( this.playerCube.position ); //maybe - 1 the z so we know we'll hit if we move.
+
+                    var intendedOriginPoint = originPoint.clone();
+                   // intendedOriginPoint.
+                    var directionVector = globalVertex.sub( originPoint);//this.playerCube.position ); //maybe - 1 the z so we know we'll hit if we move.
 
                     //change the origin point a bit so the player can leave
 
@@ -15290,7 +15299,7 @@ define('lib/views/ThreejsDemoOne',[
                         //core.log('collisionResult.distance: {0}  directionVectorLength: {1}', collisionResults[0].distance ,  directionVectorLength);
                         //core.log('directionVector x:{0} y:{1} z:{2}', directionVector.x, directionVector.y, directionVector.z);
                         core.log('camera.rotation x: {0} y:{1} z:{2}', this.camera.rotation.x, this.camera.rotation.y, this.camera.rotation.z);
-                        core.log('no move for you!');
+                        core.log('no move for you! vertexIndex: ' + vertexIndex);
                         forwardMovementFailed = true;
 
                         //change the color of the object we collided with
@@ -15582,6 +15591,196 @@ define('lib/widgets/NavigationBar',[
 //
 //
 //});
+define('compiled-templates/demos/imagesTest1',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("imagesTest1 precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['imagesTest1'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            <a href=\"";
+  stack1 = depth0.src;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.src", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0.text;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.text", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</a>\n        ";
+  return buffer;}
+
+function program3(depth0,data,depth1) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        <div class=\"image-set-item\">\n            <h3>";
+  foundHelper = helpers.title;
+  stack1 = foundHelper || depth0.title;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "title", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</h3>\n            <img alt=\"";
+  foundHelper = helpers.title;
+  stack1 = foundHelper || depth0.title;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "title", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" src=\"";
+  foundHelper = helpers.baseImageUrl;
+  stack1 = foundHelper || depth1.baseImageUrl;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "...baseImageUrl", { hash: {} }); }
+  buffer += escapeExpression(stack1);
+  foundHelper = helpers.src;
+  stack1 = foundHelper || depth0.src;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "src", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\"/>\n        </div>\n    ";
+  return buffer;}
+
+  buffer += "<div id=\"imageTestPage\">\n    <h2>";
+  foundHelper = helpers.title;
+  stack1 = foundHelper || depth0.title;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "title", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</h2>\n\n    <div id=\"navigation\">\n        ";
+  foundHelper = helpers.navigation;
+  stack1 = foundHelper || depth0.navigation;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.links);
+  stack2 = helpers.each;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    </div>\n\n    ";
+  foundHelper = helpers.imageSet;
+  stack1 = foundHelper || depth0.imageSet;
+  stack2 = helpers.each;
+  tmp1 = self.programWithDepth(program3, data, depth0);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n</div>";
+  return buffer;}); 
+Handlebars.registerPartial("imagesTest1", templates["imagesTest1"]); 
+return templates["imagesTest1"]; 
+});
+define('lib/views/ImagesTest1',[
+    'core/core',
+    'compiled-templates/demos/imagesTest1',
+    'jquery'
+], function(core, imagesTest1Template, $){
+    core.log('ImagesTest view module loaded');
+
+    var View = core.mvc.View.extend({
+        id:'imagesTest', // each view needs a unique id for transitions.
+        template:imagesTest1Template,
+        events:{
+            'click .image-set-item':function(e){
+                core.log('toggling visibility for image');
+                var $this = $(e.currentTarget);
+                var $imgToToggle = $this.find('img');
+                $imgToToggle.toggle();
+            }
+        }
+    });
+    return View;
+});
+define('lib/controllers/Images',[
+    'core/core',
+    'lib/views/ImagesTest1'
+], function(core, ImagesTest1){
+    core.log('images controller module loaded');
+
+    var imagePageViewModel = {
+        baseImageUrl : '/images/imageTestDemo/',
+        images : [
+        {title:'Image Set 1', imageSet:[
+            {title:'original 33KB', src:'image1/original.jpg'},
+            {title:'quality 60 25KB', src:'image1/quality_60.jpg'},
+            {title:'quality 60 bicubic sharper 25KB', src:'image1/quality_60_bicubic_sharper.jpg'},
+            {title:'high progressive 60 25KB', src:'image1/high_progressive_60.jpg'},
+            {title:'quality 50 bicubic sharper 20KB', src:'image1/quality_50_bicubic_sharper.jpg'},
+            {title:'medium non progressive 30 16KB', src:'image1/medium_non-progressive_30.jpg'},
+            {title:'medium progressive 30 16KB', src:'image1/medium_progressive_30.jpg'}
+//            ,
+//            {title:'', src:'original.jpg'},
+//            {title:'', src:'original.jpg'}
+        ]},
+        {title:'Image Set 2', imageSet:[
+            {title:'original 135KB', src:'image2/original.jpg'},
+            {title:'progressive 60 115KB', src:'image2/high_progressive_60.jpg'},
+            {title:'quality 60 bicubic sharpen 127KB', src:'image2/quality_60_bicubic_sharpen.jpg'},
+            {title:'quality 50 bicubic sharpen 90KB', src:'image2/quality_50_bicubic_sharpen.jpg'},
+            {title:'medium non progressive 30 61', src:'image2/medium_non-progressive-30.jpg'},
+            {title:'medium progressive 30 53', src:'image2/medium_progressive_30.jpg'},
+            {title:'save as progressive: 3, quality 6 152KB', src:'image2/saveas_progressive3_quality6.jpg'}
+        ]},
+        {title:'Image Set 3', imageSet:[
+            {title:'original 205KB', src:'image3/original.jpg'},
+            {title:'quality 60 119KB', src:'image3/quality_60.jpg'},
+            {title:'quality 60 progressive 119KB', src:'image3/quality_60_progressive.jpg'},
+            {title:'quality 60 bicubic sharper 119KB', src:'image3/quality_60_bicubic_sharper.jpg'},
+            {title:'quality 50 86KB', src:'image3/quality_50.jpg'},
+            {title:'quality 50 bicubic sharper 86KB', src:'image3/quality_50_bicubic_sharper.jpg'},
+            //{title:'quality 60 blur .5', src:'image3/quality_60_blur0.5.jpg'},
+            {title:'original 205KB', src:'image3/original.jpg'}
+        ]},
+            {title:'Image Set 4', imageSet:[
+                {title:'original 16KB', src:'image4/original.jpg'},
+                {title:'quality 60 20KB', src:'image4/quality_60.jpg'},
+                {title:'quality 60 bicubic sharper 20KB', src:'image4/quality_60_bicubic_sharper.jpg'},
+                {title:'progressive 60 20KB', src:'image4/progressive_60.jpg'},
+                {title:'original 16KB', src:'image4/original.jpg'},
+                {title:'quality 50 16KB', src:'image4/quality_50.jpg'},
+                {title:'quality 50 bicubic sharper 16KB', src:'image4/quality_50_bicubic_sharper.jpg'},
+                {title:'quality 50 progressive 16KB', src:'image4/quality_50_progressive.jpg'},
+                {title:'original', src:'image4/original.jpg'},
+                {title:'quality 40 bicubic sharper 16KB', src:'image4/quality_40_bicubic_sharper.jpg'},
+                {title:'quality 35 bicubic sharper 16KB', src:'image4/quality_35_bicubic_sharper.jpg'},
+                {title:'quality 30 bicubic sharper 12KB', src:'image4/quality_30_bicubic_sharper.jpg'},
+                {title:'quality 40 dpi 66 sharper 12KB', src:'image4/quality_40_dpi_66_sharper.jpg'}
+            ]}
+    ]};
+
+    var Controller = core.mvc.Controller.extend({
+        action:function(controllerName, actionName){
+            core.log('images action');
+
+            var imageSetIndex = parseInt(actionName,10) - 1;
+            if(imageSetIndex < 0 || imageSetIndex >= imagePageViewModel.images.length){
+                alert('no images to display with param: '+ actionName);
+                return;
+            }
+
+            var images = imagePageViewModel.images[imageSetIndex];
+            this.view = new ImagesTest1({model:new core.mvc.Model({
+                baseImageUrl: imagePageViewModel.baseImageUrl,
+                title: images.title,
+                imageSet: images.imageSet,
+                navigation: this.buildNavigationLinks(imagePageViewModel)
+            })});
+            this.view.render();
+
+            core.ui.transitionPage(this.view);
+        },
+        buildNavigationLinks:function(imageModel){
+            var navigation = {links:[]};
+            for(var i=0; i<imageModel.images.length; ++i){
+                var link = '#images/' + (i + 1);
+                var text = '' + (i + 1);
+                navigation.links.push({src:link, text:text});
+            }
+            return navigation;
+        }
+    });
+
+    return new Controller();//singleton
+});
 require.config({
     shim:{
         three:{
@@ -15600,7 +15799,8 @@ define('app',[
     'lib/controllers/Resume',
     'lib/controllers/Blogs',
     'lib/controllers/Threejs',
-    'lib/widgets/NavigationBar'
+    'lib/widgets/NavigationBar',
+    'lib/controllers/Images'
 ], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
 
     function App(){
@@ -15640,16 +15840,17 @@ define('app',[
      *
      */
     App.prototype.setupRoutes = function(){
-        core.log('App.setupRoutes called.');
+        core.log('App.setupRoutes called. 1');
         var self = this;
         var AppRouter = Backbone.Router.extend({
             routes: {
-//                "demos/buttonsDemo" : "buttonsDemo",
-//                "demos/responsiveDemo" : "responsiveDemo",
-//                "demos/responsiveFlexBoxDemo" : "responsiveFlexBoxDemo",
-//                "home" : "home",
-                "*notFound" : "allRoutes",
-                "*notFound/:page" : "allRoutes" //eg #resume/tacos or #resume <--todo:stopped working after notFound added
+                ":controller/:action":"allRoutes"//,
+//                "*notFound" : "allRoutes",
+//                "*notFound/:page" : "allRoutes" //eg #resume/tacos or #resume <--todo:stopped working after notFound added
+            },
+            _extractParameters: function(route, fragment) {
+                var result = route.exec(fragment).slice(1);
+                return result;
             },
             initialize:function(){
                 //this.bind("all", this.allRoutes); <-- doesn't fire when non-configured route is accessed (e.g. #balkdjflaksdjf doesn't fire this, and we need it to)

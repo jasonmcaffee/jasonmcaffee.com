@@ -318,6 +318,12 @@ define([
             if(!isNaN(targetPosition.x)){
 
                 this.camera.lookAt( targetPosition );
+
+                //update the player cube rotation
+                this.playerCube.rotation.x = this.camera.rotation.x;
+                this.playerCube.rotation.y = this.camera.rotation.y;
+                this.playerCube.rotation.z = this.camera.rotation.z;
+                //this.playerCube.
             }else{
                 core.log('x is NAN!');
             }
@@ -336,7 +342,10 @@ define([
                 {
                     var localVertex = this.playerGeometry.vertices[vertexIndex].clone();
                     var globalVertex = localVertex.applyMatrix4( this.playerCube.matrix );
-                    var directionVector = globalVertex.sub( this.playerCube.position ); //maybe - 1 the z so we know we'll hit if we move.
+
+                    var intendedOriginPoint = originPoint.clone();
+                   // intendedOriginPoint.
+                    var directionVector = globalVertex.sub( originPoint);//this.playerCube.position ); //maybe - 1 the z so we know we'll hit if we move.
 
                     //change the origin point a bit so the player can leave
 
@@ -349,7 +358,7 @@ define([
                         //core.log('collisionResult.distance: {0}  directionVectorLength: {1}', collisionResults[0].distance ,  directionVectorLength);
                         //core.log('directionVector x:{0} y:{1} z:{2}', directionVector.x, directionVector.y, directionVector.z);
                         core.log('camera.rotation x: {0} y:{1} z:{2}', this.camera.rotation.x, this.camera.rotation.y, this.camera.rotation.z);
-                        core.log('no move for you!');
+                        core.log('no move for you! vertexIndex: ' + vertexIndex);
                         forwardMovementFailed = true;
 
                         //change the color of the object we collided with

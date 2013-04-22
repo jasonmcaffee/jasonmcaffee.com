@@ -1,0 +1,26 @@
+#imageTestPage{
+
+    #navigation{
+        @extend .inline-block-grid;
+        a{
+            @extend .inline-block-grid-cell;
+            font-size:120%;
+            width:50px;
+        }
+    }
+}
+
+.image-set-item{
+    &:nth-child(even){
+        background-color: #D4D4D4;
+    }
+    &:nth-child(odd){
+        background-color: #E0E0E0;
+    }
+    > h3{
+
+    }
+    > img{
+
+    }
+}

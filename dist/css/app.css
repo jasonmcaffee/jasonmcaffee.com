@@ -27,7 +27,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl {
+.inline-block-grid, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -36,10 +36,10 @@
   text-rendering: optimizespeed;
   /* Webkit: fixes text-rendering: optimizeLegibility */ }
 
-.gridspacingissue .inline-block-grid, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl {
+.gridspacingissue .inline-block-grid, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-.inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt {
+.inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1714,3 +1714,12 @@ html, body {
   #demoOnePage #scene {
     height: 100%;
     width: 100%; }
+
+#imageTestPage #navigation a {
+  font-size: 120%;
+  width: 50px; }
+
+.image-set-item:nth-child(even) {
+  background-color: #D4D4D4; }
+.image-set-item:nth-child(odd) {
+  background-color: #E0E0E0; }
