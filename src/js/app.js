@@ -61,8 +61,8 @@ define([
         var self = this;
         var AppRouter = Backbone.Router.extend({
             routes: {
-                ":controller/:action":"allRoutes"//,
-//                "*notFound" : "allRoutes",
+                ":controller/:action":"allRoutes",
+                "*notFound" : "allRoutes"
 //                "*notFound/:page" : "allRoutes" //eg #resume/tacos or #resume <--todo:stopped working after notFound added
             },
             _extractParameters: function(route, fragment) {
