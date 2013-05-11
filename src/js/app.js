@@ -17,7 +17,8 @@ define([
     'lib/controllers/Blogs',
     'lib/controllers/Threejs',
     'lib/widgets/NavigationBar',
-    'lib/controllers/Images'
+    'lib/controllers/Images',
+    'lib/controllers/Webcam'
 ], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
 
     function App(){

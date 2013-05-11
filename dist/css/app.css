@@ -1723,3 +1723,335 @@ html, body {
   background-color: #D4D4D4; }
 .image-set-item:nth-child(odd) {
   background-color: #E0E0E0; }
+
+#webcamPage {
+  height: 100%;
+  /* for % heights, all containers must have height set */
+  width: 100%;
+  /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*color*/
+  color: black;
+  background: #606060;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #606060), color-stop(19%, #686868), color-stop(49%, #6b6b6b), color-stop(84%, #5e5e5e), color-stop(100%, #4c4c4c));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
+  /* IE10+ */
+  background: linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 );
+  /* IE6-9 */
+  /*overwrite some of bootstraps stuff*/
+  /* center container which runs down the entire page, and contains all content on the page.*/
+  /* the header is broken into several pieces to give an interesting layered visual.
+     the top will be white, with a blue banner wrapping around it.
+     the logo will be on the next layer, above  the blue banner
+     @layer = body + 1
+     @position = top
+  */
+  /*this portion is at the top of the page, and the blue banner is intended to cover it/reside in it.
+    the logo will also reside in this element
+    @layer = header
+    @position = top */
+  /*
+    @layer = header-top-white + 1
+    @position = top + 3%  */
+  /*
+    @layer = header-blue-banner + 1
+    @position = top + 3% (same as header-blue-banner) */
+  /*
+    this section is meant to overlay the header-top-white section
+    @layer = header-blue-banner + 1
+    @position = bottom of header-top-white - 5%
+  */
+  /*container for navigation tabs (report, runner, logs)*/
+  /*container for a navigation tab. img elements are currently in each of these (report, runner, logs)*/
+  /*divider between navigation tabs and pages*/ }
+  #webcamPage .container-fluid {
+    min-width: 120px; }
+  #webcamPage .main-containing-column {
+    width: 60%;
+    height: 100%;
+    /*center the column in the middle.  ie requires !DOCTYPE to be declared for this to work: http://www.w3schools.com/css/css_align.asp   */
+    margin-left: auto;
+    margin-right: auto; }
+  #webcamPage .header {
+    /*sizing*/
+    height: 5%;
+    min-height: 50px;
+    max-height: 150px;
+    width: 100%; }
+  #webcamPage .header-top-white {
+    /*sizing*/
+    height: 60%;
+    width: 100%;
+    /*keep things from looking funny on different form factors. perhaps a media query is in order*/
+    min-height: 50px;
+    /*positioning*/
+    /*push the header-blue-banner down from the top*/
+    padding-top: 3%;
+    /*color*/
+    background: #ededed;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(15%, #f4f4f4), color-stop(45%, #f9f9f9), color-stop(84%, #f4f4f4), color-stop(100%, #e5e5e5));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 );
+    /* IE6-9 */
+    /*shadows*/
+    -webkit-box-shadow: 0px 0px 8px #000000;
+    -moz-box-shadow: 0px 0px 8px #000000;
+    box-shadow: 0px 0px 8px #000000; }
+  #webcamPage .header-blue-banner {
+    /*sizing*/
+    height: 50%;
+    min-height: 70px;
+    max-height: 110px;
+    /*keep it from looking weird on large monitors (23" & 30")*/
+    width: 104%;
+    /*the banner should look like its wrapping around header-top-white. make it slightly larger*/
+    /*positioning*/
+    /*the banner should look like its wrapping around header-top-white. */
+    margin-left: -2%;
+    /*color*/
+    background: #2d96ff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #2d96ff 0%, #60afff 16%, #70b4f4 29%, #6db6ff 68%, #66b2ff 84%, #529eea 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2d96ff), color-stop(16%, #60afff), color-stop(29%, #70b4f4), color-stop(68%, #6db6ff), color-stop(84%, #66b2ff), color-stop(100%, #529eea));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #2d96ff 0%, #60afff 16%, #70b4f4 29%, #6db6ff 68%, #66b2ff 84%, #529eea 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #2d96ff 0%, #60afff 16%, #70b4f4 29%, #6db6ff 68%, #66b2ff 84%, #529eea 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #2d96ff 0%, #60afff 16%, #70b4f4 29%, #6db6ff 68%, #66b2ff 84%, #529eea 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #2d96ff 0%, #60afff 16%, #70b4f4 29%, #6db6ff 68%, #66b2ff 84%, #529eea 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d96ff', endColorstr='#529eea',GradientType=0 );
+    /* IE6-9 */
+    /*rounded corners*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*shadows*/
+    -webkit-box-shadow: 0px 0px 8px #000000;
+    -moz-box-shadow: 0px 0px 8px #000000;
+    box-shadow: 0px 0px 8px #000000; }
+  #webcamPage .aptjs-logo {
+    /*positioning*/
+    /*overlay the logo on top of the blue banner */
+    position: absolute;
+    top: 3%;
+    /*move the logo to the left a little*/
+    margin-left: 1%;
+    /*shadow*/
+    display: inline-block;
+    /* fold tabs under logo when smaller screens are displaying. display to the right of the logo for larger screens*/ }
+  #webcamPage .main-content-below-header {
+    /*sizing*/
+    /*height: 80%;*/
+    /*this causes image container to escape this container*/
+    min-height: 500px;
+    padding-top: 6%;
+    padding-left: 2%;
+    padding-bottom: 20px;
+    /*positioning*/
+    /*color*/
+    background: #ededed;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(15%, #f4f4f4), color-stop(45%, #f9f9f9), color-stop(84%, #f4f4f4), color-stop(100%, #e5e5e5));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 );
+    /* IE6-9 */
+    /*rounded corners*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*shadows*/
+    -webkit-box-shadow: 0px 0px 8px #000000;
+    -moz-box-shadow: 0px 0px 8px #000000;
+    box-shadow: 0px 0px 8px #000000; }
+  #webcamPage .navigation-tabs {
+    /*positioning*/
+    margin-bottom: -6px;
+    /*bring the hr closer*/ }
+  #webcamPage .navigation-tab {
+    /*positioning*/
+    display: inline-block;
+    margin-left: 2%;
+    /*misc*/
+    cursor: pointer;
+    /* button-like effect */ }
+  #webcamPage .fancy-horizontal-rule {
+    /*sizing*/
+    width: 98%;
+    /*positioning*/
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0px auto;
+    clear: both;
+    border: none;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #FFF;
+    font-size: 1px;
+    line-height: 0;
+    overflow: visible; }
+  #webcamPage .page {
+    /*height: 100%;*/ }
+  #webcamPage .recently-uploaded-images-container {
+    max-width: 500px;
+    width: 96.5%;
+    height: 100%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background: #303235;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303235), color-stop(36%, #2c2e33), color-stop(100%, #33373a));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303235', endColorstr='#33373a',GradientType=0 );
+    /* IE6-9 */
+    border: none 5px #000000;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  #webcamPage .recently-uploaded-image {
+    width: 100%;
+    background-color: blue;
+    margin-bottom: 10px; }
+  #webcamPage .progress-bar-container {
+    /*sizing*/
+    width: 90%;
+    max-width: 500px;
+    /*positioning*/
+    margin-top: 10px;
+    padding: 3px;
+    background: #303235;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303235), color-stop(36%, #2c2e33), color-stop(100%, #33373a));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303235', endColorstr='#33373a',GradientType=0 );
+    /* IE6-9 */
+    border: none 5px #000000;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  #webcamPage .progress-bar-background {
+    background: black;
+    background-color: black;
+    width: 85%;
+    display: inline-block;
+    border: none 3px #000000;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  #webcamPage .progress-bar {
+    background: -moz-linear-gradient(left, #6db3f2 0%, #3e9cef 19%, #54a3ee 40%, #3690f0 70%, #1f6bdf 86%, rgba(30, 105, 222, 0.96) 87%, rgba(30, 105, 222, 0.68) 95%, rgba(17, 99, 221, 0.33) 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #6db3f2), color-stop(19%, #3e9cef), color-stop(40%, #54a3ee), color-stop(70%, #3690f0), color-stop(86%, #1f6bdf), color-stop(87%, rgba(30, 105, 222, 0.96)), color-stop(95%, rgba(30, 105, 222, 0.68)), color-stop(100%, rgba(17, 99, 221, 0.33)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #6db3f2 0%, #3e9cef 19%, #54a3ee 40%, #3690f0 70%, #1f6bdf 86%, rgba(30, 105, 222, 0.96) 87%, rgba(30, 105, 222, 0.68) 95%, rgba(17, 99, 221, 0.33) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #6db3f2 0%, #3e9cef 19%, #54a3ee 40%, #3690f0 70%, #1f6bdf 86%, rgba(30, 105, 222, 0.96) 87%, rgba(30, 105, 222, 0.68) 95%, rgba(17, 99, 221, 0.33) 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #6db3f2 0%, #3e9cef 19%, #54a3ee 40%, #3690f0 70%, #1f6bdf 86%, rgba(30, 105, 222, 0.96) 87%, rgba(30, 105, 222, 0.68) 95%, rgba(17, 99, 221, 0.33) 100%);
+    /* IE10+ */
+    background: linear-gradient(left, #6db3f2 0%, #3e9cef 19%, #54a3ee 40%, #3690f0 70%, #1f6bdf 86%, rgba(30, 105, 222, 0.96) 87%, rgba(30, 105, 222, 0.68) 95%, rgba(17, 99, 221, 0.33) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6db3f2', endColorstr='#541163dd',GradientType=1 );
+    /* IE6-9 */
+    border: none 3px #000000;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  #webcamPage .progress-text {
+    width: 10%;
+    display: inline-block;
+    text-align: right;
+    color: #f6f8f9;
+    text-shadow: 0px 2px 3px #555; }
