@@ -59,6 +59,10 @@ app.register('.html', require('ejs'));//all .html files served up will be consid
 
 
 
+//metrics ======================================================================================================================
+app.post('/metrics', function(req, res){
+
+});
 
 //server response functions =====================================================================================================
 app.get('/', function(req,res){
