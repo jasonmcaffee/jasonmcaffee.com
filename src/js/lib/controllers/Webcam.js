@@ -9,7 +9,7 @@ define([
             core.log('webcam action');
 
             this.view = new WebcamView({model:new core.mvc.Model({
-                baseImageUrl:''
+                recentlyUploadedImages:viewModel.recentlyUploadedImagePaths //global viewModel will be populated initially by server.
             })});
             this.view.render();
 
