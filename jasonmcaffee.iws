@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="web &#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node-server/uploadedFiles/quality_60.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/webcam/images.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/webcam/webcamPageTemplate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/progressBarTemplate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/models/asyncFileUploader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/widgets/ProgressBar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/webcam/images.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/widgets/progressBarTemplate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
+    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/test.html" afterPath="$PROJECT_DIR$/node-server/views/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/mvc/View.js" afterPath="$PROJECT_DIR$/src/js/core/mvc/View.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/controllers/Webcam.js" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Webcam.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/WebcamView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/WebcamView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/webcam/webcamPageTemplate.html" afterPath="$PROJECT_DIR$/src/templates/webcam/webcamPageTemplate.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,7 +72,7 @@
       <file leaf-file-name="webcamPageTemplate.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/webcam/webcamPageTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="257" selection-start="417" selection-end="417" vertical-scroll-proportion="0.2962963">
+            <state line="38" column="155" selection-start="1313" selection-end="1314" vertical-scroll-proportion="0.75061727">
               <folding />
             </state>
           </provider>
@@ -1119,7 +1105,11 @@
       <created>1368314598081</created>
       <updated>1368314598081</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="webcam  &#10;">
+      <created>1368317956722</created>
+      <updated>1368317956722</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1203,7 +1193,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="webcam upload ajax and non-ajax working&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="webcam  &#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1239,6 +1229,7 @@
     <MESSAGE value="image size testing. testing quality 60, 50, progressive, and bicubic sharper." />
     <MESSAGE value="metrics in progress. about to move webcam lab&#10;" />
     <MESSAGE value="webcam upload ajax and non-ajax working&#10;" />
+    <MESSAGE value="webcam  &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1351,7 +1342,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/webcam/webcamPageTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="257" selection-start="417" selection-end="417" vertical-scroll-proportion="0.2962963">
+        <state line="38" column="155" selection-start="1313" selection-end="1314" vertical-scroll-proportion="0.75061727">
           <folding />
         </state>
       </provider>
