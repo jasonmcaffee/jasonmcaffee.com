@@ -31,6 +31,8 @@ define([
                 }
             };
 
+            xhr.onerror = onErrorCallback;
+
             xhr.addEventListener("load", function (data) {
                 core.log('load complete : ' + this.responseText);
                 //var responseData = JSON.parse(this.responseText);
@@ -38,6 +40,7 @@ define([
 
             }, false);
 
+            urlToUploadTo = urlToUploadTo + "?cache="+(Math.random()*1000000);
             xhr.open('POST', urlToUploadTo, true);
             xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             xhr.setRequestHeader("Content-Type", "application/octet-stream");

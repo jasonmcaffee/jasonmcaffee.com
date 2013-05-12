@@ -4,14 +4,17 @@ define([
 ], function(Backbone, log){
     var View = Backbone.View.extend({
         template: null, //you should define a template function
-        attributes:{
-            'class':'page'
-        },
+//        attributes:{
+//            'class':'page'
+//        },
         initialize:function(options){
             log('core.mvc.View initialize called');
             this.options = options || {};
             this.options.widgets = this.options.widgets || [];
             this.options.templates = this.options.templates || [];
+            if(!this.isWidget){
+                this.$el.addClass('page');
+            }
         },
         render : function(){
             log('Core View render called.');

@@ -1,3 +1,32 @@
+#webcam{
+    height:100%;
+    width:100%;
+}
+
+%main-section{
+ /*color*/
+     background: rgb(237,237,237); /* Old browsers */
+     background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(244,244,244,1) 15%, rgba(249,249,249,1) 45%, rgba(244,244,244,1) 84%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(15%,rgba(244,244,244,1)), color-stop(45%,rgba(249,249,249,1)), color-stop(84%,rgba(244,244,244,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+     background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+     background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+     background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* IE10+ */
+     background: linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+
+
+ /*rounded corners*/
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+ /*shadows*/
+     -webkit-box-shadow: 0px 0px 8px #000000;
+     -moz-box-shadow: 0px 0px 8px #000000;
+     box-shadow: 0px 0px 8px #000000;
+}
+
+
 #webcamPage{
     height: 100%; /* for % heights, all containers must have height set */
     width:100%;
@@ -9,15 +38,15 @@
 
 
     /*color*/
-    color:black;
-    background: rgb(96,96,96); /* Old browsers */
-    background: -moz-linear-gradient(top,  rgba(96,96,96,1) 0%, rgba(104,104,104,1) 19%, rgba(107,107,107,1) 49%, rgba(94,94,94,1) 84%, rgba(76,76,76,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,96,96,1)), color-stop(19%,rgba(104,104,104,1)), color-stop(49%,rgba(107,107,107,1)), color-stop(84%,rgba(94,94,94,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 ); /* IE6-9 */
+    //color:black;
+    //background: rgb(96,96,96); /* Old browsers */
+    //background: -moz-linear-gradient(top,  rgba(96,96,96,1) 0%, rgba(104,104,104,1) 19%, rgba(107,107,107,1) 49%, rgba(94,94,94,1) 84%, rgba(76,76,76,1) 100%); /* FF3.6+ */
+    //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,96,96,1)), color-stop(19%,rgba(104,104,104,1)), color-stop(49%,rgba(107,107,107,1)), color-stop(84%,rgba(94,94,94,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
+    //background: -webkit-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
+    //background: -o-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
+    //background: -ms-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* IE10+ */
+    //background: linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* W3C */
+    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 ); /* IE6-9 */
 
 /*overwrite some of bootstraps stuff*/
     .container-fluid{
@@ -131,8 +160,8 @@
 
     /*positioning*/
     /*overlay the logo on top of the blue banner */
-        position: absolute;
-        top: 3%;
+        position: relative; //absolute is wonky after a prompt
+        margin-top:-3%;
     /*move the logo to the left a little*/
         margin-left: 1%;
 
@@ -148,7 +177,7 @@
     .main-content-below-header{
     /*sizing*/
     /*height: 80%;*/    /*this causes image container to escape this container*/
-        min-height: 500px;
+        //min-height: 500px;
 
         padding-top:6%;
         padding-left:2%;
@@ -156,27 +185,15 @@
         padding-bottom: 20px;
     /*positioning*/
 
-    /*color*/
-        background: rgb(237,237,237); /* Old browsers */
-        background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(244,244,244,1) 15%, rgba(249,249,249,1) 45%, rgba(244,244,244,1) 84%, rgba(229,229,229,1) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(15%,rgba(244,244,244,1)), color-stop(45%,rgba(249,249,249,1)), color-stop(84%,rgba(244,244,244,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* IE10+ */
-        background: linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(244,244,244,1) 15%,rgba(249,249,249,1) 45%,rgba(244,244,244,1) 84%,rgba(229,229,229,1) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+        @extend %main-section;
 
+    }
 
-    /*rounded corners*/
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-
-    /*shadows*/
-        -webkit-box-shadow: 0px 0px 8px #000000;
-        -moz-box-shadow: 0px 0px 8px #000000;
-        box-shadow: 0px 0px 8px #000000;
-
+    .recent-images-section{
+        @extend %main-section;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:20px;
     }
 
 
@@ -228,6 +245,10 @@
         padding:1%;
         margin-bottom: 2%;
 
+        //center
+        margin-right:auto;
+        margin-left:auto;
+
         background: rgb(48,50,53); /* Old browsers */
         background: -moz-linear-gradient(top,  rgba(48,50,53,1) 0%, rgba(44,46,51,1) 36%, rgba(51,55,58,1) 100%); /* FF3.6+ */
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(48,50,53,1)), color-stop(36%,rgba(44,46,51,1)), color-stop(100%,rgba(51,55,58,1))); /* Chrome,Safari4+ */
@@ -263,9 +284,19 @@
     }
 
     .camera-input{
-
+        display:none;
+        //position:absolute;
+        //left:-400px;
     }
 
+    #captureInputFacade{
+        @extend %form-input-button;
+       // background-color: blue;
+    }
+
+    .submit-button{
+        @extend %form-submit-button;
+    }
     .progress-bar-container {
     /*sizing*/
         width:90%;
@@ -356,3 +387,83 @@
     }
 }
 
+
+@include mq(small){
+    #webcamPage{
+        p {
+            margin: 0px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+    /*core library fixes*/
+    /*uniform*/
+        div.uploader input {
+            opacity: 0;
+            //filter: alpha(opacity:0);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            float: right;
+            height: 35px; /* we want text a bit bigger on phones*/
+            border: none;
+            cursor: default;
+        }
+
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+        .main-containing-column{
+        /* sizing */
+            width: 88%; /* leave room for the blue banner to wrap (its width is 104%) */
+
+
+        }
+
+    /* fix positioning of content like navigation & pages so that it does not overlay the logo*/
+        .main-content-below-header{
+        /*sizing*/
+        /*height: 80%;*/     /*this causes image container to escape this container*/
+
+            padding-top:13%;
+
+        /*positioning*/
+
+        }
+
+    /*
+@layer = header-blue-banner + 1
+@position = top + 3% (same as header-blue-banner) */
+        .aptjs-logo{
+            width:80%;
+            /*positioning*/
+            margin-top:-6%;
+        }
+    }
+}
+
+
+@include mq(medium-and-below){
+    #webcamPage{
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+        .main-containing-column{
+        /* sizing */
+            width: 93%; /* leave room for the blue banner to wrap (its width is 104%) */
+        }
+
+        .aptjs-logo{
+           // width:80%;
+            /*positioning*/
+            margin-top:-7%;
+        }
+    /* fix positioning of content like navigation & pages so that it does not overlay the logo*/
+        .main-content-below-header{
+        /*sizing*/
+        /*height: 90%;*/   /*this causes image container to escape this container*/
+
+            padding-top:12%;
+
+        /*positioning*/
+        }
+    }
+}

@@ -8,6 +8,7 @@ define([
         id:'progressBar', // each view needs a unique id for transitions.
         template:progressBarTemplate,
         model:{percentageLoadedString:'0%'},
+        isWidget:true,
         updateProgressBar:function(e){
             core.log('updateProgressBar callback');
             core.log('length computable? : ' + e.lengthComputable);
@@ -17,7 +18,7 @@ define([
                 var total = e.total;
                 this.model.percentageLoadedString = (loaded/total) * 100;
                 if(Number(1) && Number(1).toFixed){
-                    this.model.percentageLoadedString = Number(this.model.percentageLoadedString).toFixed(2);
+                    this.model.percentageLoadedString = Number(this.model.percentageLoadedString).toFixed(0);
                 }
                 this.model.percentageLoadedString += '%';
                 core.log('percentageLoadedString: ' +this.model.percentageLoadedString);
@@ -26,6 +27,11 @@ define([
                 var newHtml = progressBarTemplate(this.model);
                 this.$el.html(newHtml);
             }
+        },
+        setProgressBar:function(percentString){
+            this.model.percentageLoadedString = percentString;
+            var newHtml = progressBarTemplate(this.model);
+            this.$el.html(newHtml);
         }
     });
 

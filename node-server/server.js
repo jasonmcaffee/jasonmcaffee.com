@@ -81,6 +81,7 @@ var recentlyUploadedImagePaths = [];//array for temporarily storing image paths 
 app.recentlyUploadedImagePaths = recentlyUploadedImagePaths;
 
 app.post('/webcam/uploadImage', function(req,res,next){
+    console.log('uploadImage called');
     var self = this;
     var uploadDirectory =  config.uploadDir;
     var fileName =  req.header('X-File-Name');
@@ -96,6 +97,10 @@ app.post('/webcam/uploadImage', function(req,res,next){
         }));
 
         return;//don't continue
+    }
+
+    if(fileName === 'image.jpg'){
+        fileName = 'image_' + Date.now() + '.jpg';
     }
 
     var filePath = uploadDirectory + fileName;  //todo: clean params to prevent hacking.
@@ -145,7 +150,7 @@ app.post('/webcam/uploadImage', function(req,res,next){
 });
 
 app.post('/webcam/uploadImageNonAsync', function(req,res,next){
-    console.log('upload image called');
+    console.log('upload imageNonAsync called');
     console.log('files: ' + JSON.stringify(req.files));
 
     // get the temporary location of the file

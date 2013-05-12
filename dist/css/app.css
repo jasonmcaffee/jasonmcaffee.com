@@ -161,6 +161,84 @@
   background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
 
+#resume-page > a, #blogHome-page > a {
+  height: 80px;
+  min-width: 150px;
+  background-color: grey;
+  padding: 2%;
+  font-size: 120%; }
+
+#webcamPage #captureInputFacade {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fafafa), color-stop(1, #dfdfdf));
+  background: -moz-linear-gradient(center top, #fafafa 5%, #dfdfdf 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#dfdfdf');
+  background-color: #fafafa;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #ffffff; }
+
+#webcamPage #captureInputFacade:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #fafafa));
+  background: -moz-linear-gradient(center top, #dfdfdf 5%, #fafafa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#fafafa');
+  background-color: #dfdfdf; }
+
+#webcamPage #captureInputFacade:active {
+  position: relative;
+  top: 1px; }
+
+#webcamPage .submit-button {
+  -moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
+  -webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+  background: -moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background: -webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background: -o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background: -ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+  background-color: #2dabf9;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #0b0e07;
+  display: inline-block;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 15px;
+  font-weight: normal;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666; }
+
+#webcamPage .submit-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+  background: -moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background: -webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background: -o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background: -ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+  background-color: #0688fa; }
+
+#webcamPage .submit-button:active {
+  position: relative;
+  top: 1px; }
+
 * {
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -290,13 +368,6 @@ dl {
   src: local("☺"), url("../fonts/Quicksand_Book.woff") format("woff"), url("../fonts/Quicksand_Book.ttf") format("truetype"), url("../fonts/Quicksand_Book.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-
-#resume-page > a, #blogHome-page > a {
-  height: 80px;
-  min-width: 150px;
-  background-color: grey;
-  padding: 2%;
-  font-size: 120%; }
 
 /*
  *  Font Awesome 3.0.2
@@ -1724,6 +1795,37 @@ html, body {
 .image-set-item:nth-child(odd) {
   background-color: #E0E0E0; }
 
+#webcam {
+  height: 100%;
+  width: 100%; }
+
+#webcamPage .main-content-below-header, #webcamPage .recent-images-section {
+  /*color*/
+  background: #ededed;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(15%, #f4f4f4), color-stop(45%, #f9f9f9), color-stop(84%, #f4f4f4), color-stop(100%, #e5e5e5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+  /* IE10+ */
+  background: linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 );
+  /* IE6-9 */
+  /*rounded corners*/
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  /*shadows*/
+  -webkit-box-shadow: 0px 0px 8px #000000;
+  -moz-box-shadow: 0px 0px 8px #000000;
+  box-shadow: 0px 0px 8px #000000; }
+
 #webcamPage {
   height: 100%;
   /* for % heights, all containers must have height set */
@@ -1733,23 +1835,6 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   /*color*/
-  color: black;
-  background: #606060;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #606060), color-stop(19%, #686868), color-stop(49%, #6b6b6b), color-stop(84%, #5e5e5e), color-stop(100%, #4c4c4c));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
-  /* IE10+ */
-  background: linear-gradient(top, #606060 0%, #686868 19%, #6b6b6b 49%, #5e5e5e 84%, #4c4c4c 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 );
-  /* IE6-9 */
   /*overwrite some of bootstraps stuff*/
   /* center container which runs down the entire page, and contains all content on the page.*/
   /* the header is broken into several pieces to give an interesting layered visual.
@@ -1859,8 +1944,8 @@ html, body {
   #webcamPage .aptjs-logo {
     /*positioning*/
     /*overlay the logo on top of the blue banner */
-    position: absolute;
-    top: 3%;
+    position: relative;
+    margin-top: -3%;
     /*move the logo to the left a little*/
     margin-left: 1%;
     /*shadow*/
@@ -1870,36 +1955,14 @@ html, body {
     /*sizing*/
     /*height: 80%;*/
     /*this causes image container to escape this container*/
-    min-height: 500px;
     padding-top: 6%;
     padding-left: 2%;
     padding-bottom: 20px;
-    /*positioning*/
-    /*color*/
-    background: #ededed;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(15%, #f4f4f4), color-stop(45%, #f9f9f9), color-stop(84%, #f4f4f4), color-stop(100%, #e5e5e5));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
-    /* IE10+ */
-    background: linear-gradient(top, #ededed 0%, #f4f4f4 15%, #f9f9f9 45%, #f4f4f4 84%, #e5e5e5 100%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 );
-    /* IE6-9 */
-    /*rounded corners*/
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    /*shadows*/
-    -webkit-box-shadow: 0px 0px 8px #000000;
-    -moz-box-shadow: 0px 0px 8px #000000;
-    box-shadow: 0px 0px 8px #000000; }
+    /*positioning*/ }
+  #webcamPage .recent-images-section {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; }
   #webcamPage .navigation-tabs {
     /*positioning*/
     margin-bottom: -6px;
@@ -1935,6 +1998,8 @@ html, body {
     height: 100%;
     padding: 1%;
     margin-bottom: 2%;
+    margin-right: auto;
+    margin-left: auto;
     background: #303235;
     /* Old browsers */
     background: -moz-linear-gradient(top, #303235 0%, #2c2e33 36%, #33373a 100%);
@@ -1969,6 +2034,8 @@ html, body {
     width: 100%;
     background-color: blue;
     margin-bottom: 10px; }
+  #webcamPage .camera-input {
+    display: none; }
   #webcamPage .progress-bar-container {
     /*sizing*/
     width: 90%;
@@ -2057,3 +2124,60 @@ html, body {
     text-align: right;
     color: #f6f8f9;
     text-shadow: 0px 2px 3px #555; }
+
+@media only screen and (max-width: 325px) {
+  #webcamPage {
+    /*core library fixes*/
+    /*uniform*/
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+    /* fix positioning of content like navigation & pages so that it does not overlay the logo*/
+    /*
+@layer = header-blue-banner + 1
+@position = top + 3% (same as header-blue-banner) */ }
+    #webcamPage p {
+      margin: 0px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 25px; }
+    #webcamPage div.uploader input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      float: right;
+      height: 35px;
+      /* we want text a bit bigger on phones*/
+      border: none;
+      cursor: default; }
+    #webcamPage .main-containing-column {
+      /* sizing */
+      width: 88%;
+      /* leave room for the blue banner to wrap (its width is 104%) */ }
+    #webcamPage .main-content-below-header {
+      /*sizing*/
+      /*height: 80%;*/
+      /*this causes image container to escape this container*/
+      padding-top: 13%;
+      /*positioning*/ }
+    #webcamPage .aptjs-logo {
+      width: 80%;
+      /*positioning*/
+      margin-top: -6%; } }
+@media only screen and (max-width: 989px) {
+  #webcamPage {
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+    /* fix positioning of content like navigation & pages so that it does not overlay the logo*/ }
+    #webcamPage .main-containing-column {
+      /* sizing */
+      width: 93%;
+      /* leave room for the blue banner to wrap (its width is 104%) */ }
+    #webcamPage .aptjs-logo {
+      /*positioning*/
+      margin-top: -7%; }
+    #webcamPage .main-content-below-header {
+      /*sizing*/
+      /*height: 90%;*/
+      /*this causes image container to escape this container*/
+      padding-top: 12%;
+      /*positioning*/ } }

@@ -20,34 +20,37 @@
 
             <hr class="fancy-horizontal-rule"/>
 
-            <!-- pages ===================================================================-->
-
-            <!-- report page -->
-            <div id="mainPage" class="page">
-                <h1>Take a Picture and Upload It</h1>
+            <h1>Take a Picture and Upload It</h1>
 
 
-                <form id="fileUploadForm" action="webcam/uploadImage" method="post" enctype="multipart/form-data">
-                    <input name="userImage" type="file" accept="image/*;capture=camera" capture="camera" id="captureInput" class="camera-input">
+            <form id="fileUploadForm" action="webcam/uploadImage" method="post" enctype="multipart/form-data">
+                <input name="userImage" type="file" accept="image/*;capture=camera" capture="camera" id="captureInput" class="camera-input">
 
-                    <button type="submit" class="btn btn-primary">submit</button>
-
-                    <br>
-                    <!-- progress bar -->
-                    <div id="progressBarContainer" class="progress-bar-container"></div>
-                </form>
+                <div id="captureInputFacade">Choose File</div>
 
                 <div id="imagePreviewContainer">
+                    <h3>Preview Image</h3>
                     <img id="imagePreview">
                 </div>
+                <button type="submit" class="submit-button">submit</button>
 
-                <div id="recentlyUploadedImagesContainer" class="recently-uploaded-images-container">
-                    {{! not needed >images }}
-                </div>
-            </div>
+                <br/><br/>
+                <!-- progress bar -->
+                <div id="progressBarContainer" class="progress-bar-container"></div>
+            </form>
+
 
             <hr class="fancy-horizontal-rule"/>
         </div>
+
+        <div class="recent-images-section">
+            <h3>Recent Images</h3>
+            <hr class="fancy-horizontal-rule"/>
+            <div id="recentlyUploadedImagesContainer" class="recently-uploaded-images-container">
+                {{! not needed >images }}
+            </div>
+        </div>
+
 
     </div>
 </div>
