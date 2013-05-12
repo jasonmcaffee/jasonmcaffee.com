@@ -20,19 +20,35 @@ define([
                 selector:'#progressBarContainer',
                 widget:this.progressBarWidget
             });
+
+            this.options.templates.push({
+                selector:'#recentlyUploadedImagesContainer',
+                template:imagesTemplate
+            });
         },
         events:{
             'change #captureInput':function(e){
                 core.log('captureInput change with file: ' + e.target.files[0]);
                 this.selectedFile = e.target.files[0];
+                if(typeof FileReader != "undefined"){
+                    core.log('filereader supported');
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        this.$el.find('#imagePreview').attr('src', e.target.result);
+                    }.bind(this);
+
+                    reader.readAsDataURL(this.selectedFile);
+
+                }else{
+                    alert('sorry, but your browser doesnt support previewing the image before upload');
+                }
             },
             'submit #fileUploadForm':function(e){
                 core.log('form submit called..');
                 e.preventDefault();
-
                 if(!this.selectedFile){core.log('please select a file'); return;}
 
-
+                //upload the selected file
                 asyncFileUploader.uploadFileAsync(
                     this.selectedFile,
                     e.target.action,
@@ -41,8 +57,12 @@ define([
                 );
             }
         },
-        fileUploadComplete:function(){
-            core.log('fileUploadComplete callback');
+        fileUploadComplete:function(responseText){
+            var responseData = JSON.parse(responseText);
+            core.log('fileUploadComplete callback: ' + responseText);
+            this.model.recentlyUploadedImages = responseData.recentlyUploadedImagePaths;
+
+            this.$el.find('#recentlyUploadedImagesContainer').html(imagesTemplate(this.model));
         }
     });
 

@@ -219,7 +219,8 @@
 
     }
 
-    .recently-uploaded-images-container{
+    .recently-uploaded-images-container,
+    #imagePreviewContainer{
         max-width:500px;
         width: 96.5%;
         height: 100%;
@@ -252,7 +253,9 @@
         border-bottom-right-radius:5px;
 
     }
-    .recently-uploaded-image{
+
+    .recently-uploaded-image,
+    #imagePreview{
         width:100%;
         background-color: blue;
         margin-bottom: 10px;

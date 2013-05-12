@@ -1928,7 +1928,8 @@ html, body {
     overflow: visible; }
   #webcamPage .page {
     /*height: 100%;*/ }
-  #webcamPage .recently-uploaded-images-container {
+  #webcamPage .recently-uploaded-images-container,
+  #webcamPage #imagePreviewContainer {
     max-width: 500px;
     width: 96.5%;
     height: 100%;
@@ -1963,7 +1964,8 @@ html, body {
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; }
-  #webcamPage .recently-uploaded-image {
+  #webcamPage .recently-uploaded-image,
+  #webcamPage #imagePreview {
     width: 100%;
     background-color: blue;
     margin-bottom: 10px; }

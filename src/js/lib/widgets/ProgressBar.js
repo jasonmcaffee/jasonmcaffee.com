@@ -7,7 +7,7 @@ define([
     var View = core.mvc.View.extend({
         id:'progressBar', // each view needs a unique id for transitions.
         template:progressBarTemplate,
-        model:{percentLoaded:0},
+        model:{percentageLoadedString:'0%'},
         updateProgressBar:function(e){
             core.log('updateProgressBar callback');
             core.log('length computable? : ' + e.lengthComputable);
@@ -15,7 +15,12 @@ define([
             if(e.lengthComputable){
                 var loaded = e.loaded;
                 var total = e.total;
-                this.model.percentLoaded = (loaded/total) * 100;
+                this.model.percentageLoadedString = (loaded/total) * 100;
+                if(Number(1) && Number(1).toFixed){
+                    this.model.percentageLoadedString = Number(this.model.percentageLoadedString).toFixed(2);
+                }
+                this.model.percentageLoadedString += '%';
+                core.log('percentageLoadedString: ' +this.model.percentageLoadedString);
 
                 //refresh the progress bar
                 var newHtml = progressBarTemplate(this.model);
