@@ -1565,26 +1565,28 @@ ul.icons {
     position: absolute;
     z-index: 3;
     width: 100%; }
-    .layer-1 .layer-2 .layer-2a > h1 {
-      color: white;
-      font-size: 400%;
-      text-align: center;
-      font-weight: normal; }
-    .layer-1 .layer-2 .layer-2a #home-links {
-      text-align: center;
-      margin-top: 5%; }
-      .layer-1 .layer-2 .layer-2a #home-links li {
-        height: 5%;
-        min-height: 30px;
-        font-size: 200%;
-        padding: 2%;
-        width: 50%;
-        margin-left: 25%;
-        margin-right: 25%;
-        margin-top: 2%; }
-        .layer-1 .layer-2 .layer-2a #home-links li a {
-          color: white;
-          text-decoration: none; }
+    .layer-1 .layer-2 .layer-2a {
+      padding-top: 10px; }
+      .layer-1 .layer-2 .layer-2a > h1 {
+        color: white;
+        font-size: 400%;
+        text-align: center;
+        font-weight: normal; }
+      .layer-1 .layer-2 .layer-2a #home-links {
+        text-align: center;
+        margin-top: 5%; }
+        .layer-1 .layer-2 .layer-2a #home-links li {
+          height: 5%;
+          min-height: 30px;
+          font-size: 200%;
+          padding: 2%;
+          width: 50%;
+          margin-left: 25%;
+          margin-right: 25%;
+          margin-top: 2%; }
+          .layer-1 .layer-2 .layer-2a #home-links li a {
+            color: white;
+            text-decoration: none; }
 
 #navbar {
   position: fixed;

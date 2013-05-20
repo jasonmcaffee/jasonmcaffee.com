@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="webcam working well. now to introduce image editing">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0975.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0976.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0977.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0978.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0979.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0988.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/IMG_0989.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/home page.ai" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/clouds.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/clouds_medium.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_shadows.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/controllers/StrapkitController.js" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Home.js" />
+    <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_reset.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/resume/resume.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/WebcamView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/WebcamView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/homePageTemplate.html" afterPath="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/resume/resume.html" afterPath="$PROJECT_DIR$/src/templates/resume/resume.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,7 +67,16 @@
       <file leaf-file-name="_homePage.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="66" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.8648649">
+            <state line="80" column="29" selection-start="2499" selection-end="2499" vertical-scroll-proportion="0.49602544">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="42" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,15 +122,6 @@
         <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Home.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="51" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebcamView.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/views/WebcamView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="104" selection-start="3499" selection-end="3499" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -197,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_webcam.scss" />
         <option value="$PROJECT_DIR$/src/js/lib/views/WebcamView.js" />
         <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_responsiveDemo.scss" />
         <option value="$PROJECT_DIR$/src/js/lib/controllers/Home.js" />
         <option value="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
@@ -205,6 +184,7 @@
         <option value="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/_shadows.scss" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" />
       </list>
     </option>
@@ -1115,7 +1095,11 @@
       <created>1368396424476</created>
       <updated>1368396424476</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="home page initial design">
+      <created>1369011706476</created>
+      <updated>1369011706476</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1142,6 +1126,7 @@
     <frame x="8" y="104" width="2502" height="1406" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291829" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299611" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1156,7 +1141,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1199,7 +1183,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="webcam working well. now to introduce image editing" />
+    <option name="LAST_COMMIT_MESSAGE" value="home page initial design" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1212,7 +1196,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="first commit 2" />
     <MESSAGE value="commit - ignoring modules?" />
     <MESSAGE value="updated readme.md" />
     <MESSAGE value="test" />
@@ -1237,18 +1220,12 @@
     <MESSAGE value="webcam  &#10;" />
     <MESSAGE value="image preview working nicely. async uploads working&#10;" />
     <MESSAGE value="webcam working well. now to introduce image editing" />
+    <MESSAGE value="home page initial design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="64" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1347,9 +1324,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="42" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="66" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.8648649">
+        <state line="80" column="29" selection-start="2499" selection-end="2499" vertical-scroll-proportion="0.49602544">
           <folding />
         </state>
       </provider>

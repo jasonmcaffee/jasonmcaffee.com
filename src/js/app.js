@@ -42,7 +42,7 @@ define([
             core.log('current route is : ' + Backbone.history.fragment);
             if(Backbone.history.fragment == ""){
                 //load the home page
-                self.router.navigate('Resume', {trigger:true});
+                self.router.navigate('Home', {trigger:true});
             }
         });
     }
