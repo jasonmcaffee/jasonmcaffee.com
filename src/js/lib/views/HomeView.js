@@ -1,22 +1,15 @@
 define([
-    'core/util/log',
+    'core/core',
     'backbone',
     'jquery',
     'compiled-templates/homePageTemplate'
-], function(log, Backbone, $, homePageTemplateFunction){
+], function(core, Backbone, $, homePageTemplateFunction){
 
-    var HomeView = Backbone.View.extend({
-        el:'#pages',
+    var HomeView = core.mvc.View.extend({
+        id:'home',
+        template:homePageTemplateFunction,
         initialize : function(){
-            log('HomeView.initialize called.' + this.el);
-
-        },
-        render: function(){ //don't call until the dom is ready
-            log('HomeView.render called.');
-
-            log('HomeView.render executing now that dom is ready...' );
-
-            this.$el.html(homePageTemplateFunction());
+            core.log('HomeView.initialize called. ');
         }
     });
 

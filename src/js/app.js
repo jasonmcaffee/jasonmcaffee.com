@@ -1,3 +1,4 @@
+//needed at runtime since we download three.js only when needed.
 require.config({
     shim:{
         three:{
@@ -11,15 +12,15 @@ define([
     'jquery',
     'backbone',
     //all controllers need to be listed here for requirejs build purposes (if not listed, won't get included in the final build)
-    'lib/controllers/DemosController',
-    'lib/controllers/StrapkitController',
+    'lib/controllers/DemosController', //todo:refactor to new approach
+    'lib/controllers/Home',
     'lib/controllers/Resume',
     'lib/controllers/Blogs',
     'lib/controllers/Threejs',
-    'lib/widgets/NavigationBar',
+    'lib/widgets/NavigationBar', //todo:refactor to new approach
     'lib/controllers/Images',
     'lib/controllers/Webcam'
-], function(core, $, Backbone, DemosController, StrapkitController, resumeController, blogsController, NavigationBar){
+], function(core, $, Backbone, DemosController, homeController, resumeController, blogsController, NavigationBar){
 
     function App(){
         core.log('app constructor called.');
@@ -31,10 +32,6 @@ define([
         //make everything easier to manage by waiting until dom ready to create controllers
         $(function(){
             core.log('app : document ready. creating controllers and establishing routes.');
-            //create controllers
-            self.demosController = new DemosController();
-            self.strapkitController = new StrapkitController();
-
             //setup routes
             self.setupRoutes();
 
@@ -48,9 +45,6 @@ define([
                 self.router.navigate('Resume', {trigger:true});
             }
         });
-
-
-
     }
 
 
@@ -96,36 +90,12 @@ define([
                     core.log('route controller successfully retrieved.');
                     routeController._action.apply(routeController, args);
                 });
-            },
-            home: function(){
-              core.log('router: home called');
-                self.strapkitController._action();
-            },
-            buttonsDemo : function(){
-                core.log('router: buttonsDemo called.');
-                self.demosController.showButtonsDemoPage();
-            },
-            responsiveDemo : function(){
-                core.log('router: responsiveDemo called.');
-                self.demosController.showResponsiveDemoPage();
-            },
-            responsiveFlexBoxDemo : function(){
-                core.log('router: responsiveFlexBoxDemo called.');
-                self.demosController.showResponsiveFlexBoxDemoPage();
-            },
-            demosHome : function(){
-                core.log('router: demosHome called.');
-                self.demosController.showDemosHomePage();
             }
         });
 
         this.router = new AppRouter();
         Backbone.history.start();
     };
-
-    $(function(){
-       core.log('document ready.');
-    });
 
     return new App();
 });

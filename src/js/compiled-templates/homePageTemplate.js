@@ -6,7 +6,7 @@ templates['homePageTemplate'] = template(function (Handlebars,depth0,helpers,par
   var foundHelper, self=this;
 
 
-  return "<div class=\"home-page\">\n\n   <h1>Strapkit</h1>\n    <p>\n        Strapkit is:\n        <ul>\n            <li>Build</li>\n            <li>Structure</li>\n            <li>Javascript API Framework - Backbone, Require, Handlebars, Modernizr</li>\n            <li>CSS API Framework</li>\n        </ul>\n\n    </p>\n\n</div>";}); 
+  return "<img class=\"clouds-background\" src=\"images/clouds_medium.jpg\" alt=\"clouds and blue sky\"/>\n\n<div class=\"transparent-white-background\">\n    &nbsp;\n</div>\n<div id=\"homePage\">\n    &nbsp;\n</div>\n\n<div class=\"layer-1\">\n    <div class=\"layer-2\">\n        <div class=\"layer-2a\">\n            <h1>Jason McAffee</h1>\n\n            <ul id=\"home-links\">\n                <li>\n                    <a href=\"#resume\">Resume</a>\n                </li>\n                <li>\n                    <a href=\"#threejs\">WebGL Minecraft Demo</a>\n                </li>\n                <li>\n                    <a href=\"http://www.jasonmcaffee.com\">Photography</a>\n                </li>\n                <li>\n                    <a href=\"http://music.jasonmcaffee.com\">Music App</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n\n</div>";}); 
 Handlebars.registerPartial("homePageTemplate", templates["homePageTemplate"]); 
 return templates["homePageTemplate"]; 
 });

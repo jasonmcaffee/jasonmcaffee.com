@@ -16,3 +16,16 @@ dl{
   margin:0;
   padding:0;
 }
+
+h1{
+    //these margins cause the page to scroll for some reason when the h1 is at the top of the page.
+    margin-top:0px;
+    margin-bottom:0px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+//
+//a{
+//    cursor:pointer !important;//todo: why is this needed?
+//}

@@ -257,6 +257,12 @@ dl {
   margin: 0;
   padding: 0; }
 
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
 .round-top-left-right-by-7 {
   -moz-border-radius-topleft: 7px;
   -moz-border-radius-topright: 7px;
@@ -313,7 +319,7 @@ dl {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.round-all-by-5 {
+.round-all-by-5, .transparent-white-background, .layer-1 .layer-2 .layer-2a #home-links li {
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomleft: 5px;
@@ -368,6 +374,11 @@ dl {
   src: local("☺"), url("../fonts/Quicksand_Book.woff") format("woff"), url("../fonts/Quicksand_Book.ttf") format("truetype"), url("../fonts/Quicksand_Book.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
+
+.layer-1 .layer-2 .layer-2a #home-links li {
+  -webkit-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7); }
 
 /*
  *  Font Awesome 3.0.2
@@ -1481,8 +1492,99 @@ ul.icons {
     -webkit-transform: translateX(-100%);
     -moz-transform: translateX(-100%); } }
 
-.home-page h1 {
-  color: black; }
+#home {
+  width: 100%;
+  height: 100%; }
+
+.layer-1 .layer-2 .layer-2a #home-links li {
+  background: -moz-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(65, 70, 71, 0.8)), color-stop(100%, rgba(21, 25, 25, 0.8)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc414647', endColorstr='#cc151919',GradientType=0 );
+  /* IE6-9 */ }
+
+.clouds-background {
+  width: 80%;
+  position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  top: 0;
+  z-index: 1; }
+
+.transparent-white-background {
+  position: absolute;
+  z-index: 2;
+  margin-top: 80px;
+  width: 82%;
+  height: 70%;
+  margin-left: 9%;
+  margin-right: 9%;
+  opacity: .5;
+  -webkit-opacity: .5;
+  background-color: white; }
+
+#homePage {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  position: absolute;
+  background: #414647;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #414647 0%, #151919 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #414647), color-stop(100%, #151919));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #414647 0%, #151919 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #414647 0%, #151919 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #414647 0%, #151919 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #414647 0%, #151919 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414647', endColorstr='#151919',GradientType=0 );
+  /* IE6-9 */ }
+
+.layer-1 {
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 100%; }
+  .layer-1 .layer-2 {
+    position: absolute;
+    z-index: 3;
+    width: 100%; }
+    .layer-1 .layer-2 .layer-2a > h1 {
+      color: white;
+      font-size: 400%;
+      text-align: center;
+      font-weight: normal; }
+    .layer-1 .layer-2 .layer-2a #home-links {
+      text-align: center;
+      margin-top: 5%; }
+      .layer-1 .layer-2 .layer-2a #home-links li {
+        height: 5%;
+        min-height: 30px;
+        font-size: 200%;
+        padding: 2%;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 2%; }
+        .layer-1 .layer-2 .layer-2a #home-links li a {
+          color: white;
+          text-decoration: none; }
 
 #navbar {
   position: fixed;

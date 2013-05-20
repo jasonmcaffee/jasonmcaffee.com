@@ -39,7 +39,6 @@ define([
                     //any native prompts should be inside of a setTimeout
                     //alert('triggering click for captureInput');
                     this.$el.find('#captureInput').click();//.trigger('click');
-
                 }.bind(this), 1);
 
             },
