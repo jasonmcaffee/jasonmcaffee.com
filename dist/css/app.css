@@ -27,7 +27,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
+.inline-block-grid, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -36,10 +36,10 @@
   text-rendering: optimizespeed;
   /* Webkit: fixes text-rendering: optimizeLegibility */ }
 
-.gridspacingissue .inline-block-grid, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
+.gridspacingissue .inline-block-grid, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-.inline-block-grid-cell, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
+.inline-block-grid-cell, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -319,7 +319,7 @@ h1 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.round-all-by-5, .transparent-white-background, .layer-1 .layer-2 .layer-2a #home-links li {
+.round-all-by-5 {
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomleft: 5px;
@@ -374,11 +374,6 @@ h1 {
   src: local("☺"), url("../fonts/Quicksand_Book.woff") format("woff"), url("../fonts/Quicksand_Book.ttf") format("truetype"), url("../fonts/Quicksand_Book.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-
-.layer-1 .layer-2 .layer-2a #home-links li {
-  -webkit-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
-  box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7); }
 
 /*
  *  Font Awesome 3.0.2
@@ -1496,98 +1491,120 @@ ul.icons {
   width: 100%;
   height: 100%; }
 
-.layer-1 .layer-2 .layer-2a #home-links li {
-  background: -moz-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(65, 70, 71, 0.8)), color-stop(100%, rgba(21, 25, 25, 0.8)));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, rgba(65, 70, 71, 0.8) 0%, rgba(21, 25, 25, 0.8) 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc414647', endColorstr='#cc151919',GradientType=0 );
-  /* IE6-9 */ }
+.no-enhancedbackground .home-background {
+  position: fixed;
+  top: -55%;
+  left: -50%;
+  width: 200%;
+  height: 220%;
+  z-index: -1; }
+  .no-enhancedbackground .home-background > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%; }
 
-.clouds-background {
-  width: 80%;
+.enhancedbackground .home-background {
   position: absolute;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 10px;
-  top: 0;
-  z-index: 1; }
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow-x: hidden; }
+  .enhancedbackground .home-background > img {
+    -webkit-transform: translateZ(0);
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 50%;
+    height: 100%; }
 
-.transparent-white-background {
-  position: absolute;
-  z-index: 2;
-  margin-top: 80px;
-  width: 82%;
-  height: 70%;
-  margin-left: 9%;
-  margin-right: 9%;
-  opacity: .5;
-  -webkit-opacity: .5;
-  background-color: white; }
+.home-background-1 {
+  top: 0%; }
+
+.home-background-2 {
+  top: 100%;
+  height: 100%; }
+
+.home-section {
+  padding-top: 15%;
+  height: 100%;
+  overflow: hidden; }
+
+.home-section-content {
+  overflow: hidden; }
 
 #homePage {
   width: 100%;
   height: 100%;
-  padding-top: 10px;
-  position: absolute;
-  background: #414647;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #414647 0%, #151919 100%);
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
+  position: relative;
+  z-index: 1; }
+
+.navigation {
+  -webkit-transform: translateZ(0);
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  padding: 1%;
+  padding-left: 2%;
+  padding-top: 2%;
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif; }
+  .navigation > h1 {
+    width: 30%;
+    min-width: 230px;
+    color: white;
+    font-size: normal;
+    font-weight: normal; }
+  .navigation .navigation-links {
+    width: 70%; }
+
+.navigation {
+  background: -moz-linear-gradient(left, rgba(89, 89, 91, 0.19) 0%, rgba(107, 108, 112, 0.19) 25%, rgba(65, 64, 66, 0.19) 68%, rgba(64, 64, 66, 0.19) 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #414647), color-stop(100%, #151919));
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(89, 89, 91, 0.19)), color-stop(25%, rgba(107, 108, 112, 0.19)), color-stop(68%, rgba(65, 64, 66, 0.19)), color-stop(100%, rgba(64, 64, 66, 0.19)));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #414647 0%, #151919 100%);
+  background: -webkit-linear-gradient(left, rgba(89, 89, 91, 0.19) 0%, rgba(107, 108, 112, 0.19) 25%, rgba(65, 64, 66, 0.19) 68%, rgba(64, 64, 66, 0.19) 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #414647 0%, #151919 100%);
+  background: -o-linear-gradient(left, rgba(89, 89, 91, 0.19) 0%, rgba(107, 108, 112, 0.19) 25%, rgba(65, 64, 66, 0.19) 68%, rgba(64, 64, 66, 0.19) 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #414647 0%, #151919 100%);
+  background: -ms-linear-gradient(left, rgba(89, 89, 91, 0.19) 0%, rgba(107, 108, 112, 0.19) 25%, rgba(65, 64, 66, 0.19) 68%, rgba(64, 64, 66, 0.19) 100%);
   /* IE10+ */
-  background: linear-gradient(to bottom, #414647 0%, #151919 100%);
+  background: linear-gradient(to right, rgba(89, 89, 91, 0.19) 0%, rgba(107, 108, 112, 0.19) 25%, rgba(65, 64, 66, 0.19) 68%, rgba(64, 64, 66, 0.19) 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414647', endColorstr='#151919',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3059595b', endColorstr='#30404042',GradientType=1 );
   /* IE6-9 */ }
 
-.layer-1 {
-  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
-  position: absolute;
-  z-index: 4;
-  width: 100%;
-  height: 100%; }
-  .layer-1 .layer-2 {
-    position: absolute;
-    z-index: 3;
-    width: 100%; }
-    .layer-1 .layer-2 .layer-2a {
-      padding-top: 10px; }
-      .layer-1 .layer-2 .layer-2a > h1 {
-        color: white;
-        font-size: 400%;
-        text-align: center;
-        font-weight: normal; }
-      .layer-1 .layer-2 .layer-2a #home-links {
-        text-align: center;
-        margin-top: 5%; }
-        .layer-1 .layer-2 .layer-2a #home-links li {
-          height: 5%;
-          min-height: 30px;
-          font-size: 200%;
-          padding: 2%;
-          width: 50%;
-          margin-left: 25%;
-          margin-right: 25%;
-          margin-top: 2%; }
-          .layer-1 .layer-2 .layer-2a #home-links li a {
-            color: white;
-            text-decoration: none; }
+.navigation-links {
+  text-align: right; }
+  .navigation-links li {
+    height: 5%;
+    min-height: 30px;
+    font-size: 100%;
+    padding: 2%;
+    width: 20%;
+    margin-left: 1%;
+    margin-right: 1%; }
+    .navigation-links li a {
+      color: grey;
+      text-decoration: none; }
+    .navigation-links li a:hover {
+      color: white; }
+    .navigation-links li a.selected {
+      color: white; }
 
+@media only screen and (max-width: 989px) {
+  .navigation > h1 {
+    width: 100%; }
+  .navigation .navigation-links {
+    width: 100%;
+    text-align: left; } }
 #navbar {
   position: fixed;
   height: 50px;
@@ -1743,7 +1760,7 @@ html, body {
 .Explorer-9 .pages {
   height: auto; }
 
-.enhancedscrolling .pages {
+.enhancedscrolling .scroll-page {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   height: 100%;

@@ -37,5 +37,27 @@ define([
         return true;
     });
 
+    //i have a known solution, which works on all androids, ies, etc., but I want a better one, which is white listed due to so many issues.
+    modernizr.addTest('enhancedbackground', function(){
+        log('enhancedscrolling test' + deviceInfo.browser);
+        if( (deviceInfo.browser == 'Chrome' && deviceInfo.compareOSVersions('26.0') >= 0) ||
+            (deviceInfo.os == 'ios' && deviceInfo.compareOSVersions('5.0') >=0) ){
+            log('enhanced scrolling enabled!');
+            return true;
+        }
+        return false;
+    });
+
+    modernizr.addTest('addressbaradjustment', function(){
+        log('enhancedscrolling test' + deviceInfo.browser);
+        if((deviceInfo.os == 'ios' && deviceInfo.compareOSVersions('5.0') >=0) ){
+            log('enhanced scrolling enabled!');
+            return true;
+        }
+        return false;
+    });
+
+
+
     return modernizr;
 });

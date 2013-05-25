@@ -36,7 +36,7 @@ html, body{
 }
 //native scrolling for iphone and android. whitelisted in core/modenizrTests/tests.js
 .enhancedscrolling{
-    .pages{
+    .scroll-page{
         overflow-y:scroll;
         -webkit-overflow-scrolling:touch;   //   <-- this causes the screen not to paint completely after a transform
         height:100%;

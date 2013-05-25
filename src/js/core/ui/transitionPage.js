@@ -1,8 +1,9 @@
 define([
     'core/util/log',
     'core/device/DeviceInfo',
-    'jquery'
-], function(log, deviceInfo, $){
+    'jquery',
+    'core/ui/hideAddressBar'
+], function(log, deviceInfo, $, hideAddressBar){
     log('core/ui/transitionPage module loaded.');
 
     var config ={
@@ -22,10 +23,13 @@ define([
     function transitionView(viewToTransitionTo){
         log('transitionView called for view with id:{0}', viewToTransitionTo.id);
 
+        //hideAddressBar();
+
         //wait for dom ready
         $(function(){
 
             $pageContainer = $pageContainer || $(config.pageContainerId);
+
 
             //first time don't do anything special. widths are wrong at this point anyways. (no scrollbar)
             if(!currentView){

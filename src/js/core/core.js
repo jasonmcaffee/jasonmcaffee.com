@@ -12,8 +12,11 @@ define([
     'core/ui/hideAddressBar',
     'core/modernizrTests/tests',
     'core/ui/transitionPage',
-    'core/ui/requestAnimationFrame'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller, customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests, transitionPage, requestAnimationFrame){
+    'core/ui/requestAnimationFrame',
+    'core/ui/disableOrientationChange'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
+            customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
+            transitionPage, requestAnimationFrame, disableOrientationChange){
     log('core module loaded');
 
     var core = {
@@ -43,7 +46,9 @@ define([
         ui : {
             transitionPage : transitionPage,
             requestAnimationFrame : requestAnimationFrame.requestAnimationFrame,
-            cancelAnimationFrame : requestAnimationFrame.cancelAnimationFrame
+            cancelAnimationFrame : requestAnimationFrame.cancelAnimationFrame,
+            hideAddressBar: hideAddressBar,
+            disableOrientationChange: disableOrientationChange
         },
         log : log,
         deviceInfo : deviceInfo

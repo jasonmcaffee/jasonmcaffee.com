@@ -35,6 +35,7 @@ define([
             //setup routes
             self.setupRoutes();
 
+            core.ui.hideAddressBar();
             //create global widgets
             //self.navigationBar = new NavigationBar();
 
@@ -45,6 +46,9 @@ define([
                 self.router.navigate('Home', {trigger:true});
             }
         });
+
+
+
     }
 
 

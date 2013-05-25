@@ -1,6 +1,7 @@
 #home{
     width:100%;
     height:100%;
+
 }
 
 %link-background{
@@ -11,109 +12,240 @@
      background: -ms-linear-gradient(top,  rgba(65,70,71,0.8) 0%,rgba(21,25,25,0.8) 100%); /* IE10+ */
      background: linear-gradient(to bottom,  rgba(65,70,71,0.8) 0%,rgba(21,25,25,0.8) 100%); /* W3C */
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc414647', endColorstr='#cc151919',GradientType=0 ); /* IE6-9 */
-
 }
 
-.clouds-background{
-    width:80%;
-    position:absolute;
 
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top:10px;
-    top:0;
-    z-index: 1;
+.no-enhancedbackground{
+    %fullscreen-background{
+        position: fixed;
+        top: -55%;
+        left: -50%;
+        width: 200%;
+        height: 220%;
+        z-index: -1;
+
+        > img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            min-width: 50%;
+            min-height: 50%;
+        }
+    }
 }
 
-.transparent-white-background{
-    position:absolute;
-    z-index: 2;
-    margin-top:80px;
-    width:82%;
-    height: 70%;
+.enhancedbackground{
+    %fullscreen-background{
 
-    margin-left:9%;
-    margin-right:9%;
+         position: absolute;
+         //top: 0%;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         overflow-x:hidden;
+         > img{
+             //forces image to display on iphone when using enhanced scrolling
+             -webkit-transform: translateZ(0);
 
-    opacity:.5;
-    -webkit-opacity:.5;
-    background-color: white;
-
-    @extend .round-all-by-5;
+             position: absolute;
+             z-index: -2;
+             top: 0;
+             left: 0;
+             //right: 0;
+             //bottom: 0;
+             //margin: auto;
+             min-width: 100%;
+             min-height: 50%;
+             height:100%;
+             //width:100%;
+         }
+    }
 }
+
+.home-background-1{
+    top:0%;
+}
+
+.home-background-2{
+    top:100%;
+    height:100%
+}
+
+.home-background{
+    @extend %fullscreen-background;
+}
+
+
+//blogs, labs, photos, etc have a wrapper so we can overflow:scroll
+.enhancedscrolling{
+    .home-section{
+        //overflow:scroll;
+        //-webkit-overflow-scrolling:touch;
+    }
+}
+
+.home-section{
+    padding-top:15%;
+    height:100%;
+    overflow:hidden;//everything should fit inside the section. scrolling causes issues
+}
+
+//hopefully wont need to scroll. if so, you'll need breakpoints for height (too tall and wont be able to scroll all the way down)
+.home-section-content{
+    //overflow: scroll; works well on iphone. not so well in chrome (scrollbars show, and whitespace with repeating image)
+    //height:100%;
+    overflow:hidden;
+}
+
 
 #homePage{
     width:100%;
     height:100%;
-
-    //push everything down a bit.
-    padding-top:10px;
-
-    position:absolute;
-
-
-
-
-    //background
-    background: #414647; /* Old browsers */
-    background: -moz-linear-gradient(top,  #414647 0%, #151919 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414647), color-stop(100%,#151919)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #414647 0%,#151919 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #414647 0%,#151919 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #414647 0%,#151919 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #414647 0%,#151919 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414647', endColorstr='#151919',GradientType=0 ); /* IE6-9 */
+    font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
+    position:relative;
+    z-index: 1;
+    //overflow-x: hidden; no
 }
 
-.layer-1{
-    font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
-    position:absolute;
-    z-index: 4;
+
+//############################################################## navigation ############################################
+.navigation{
+    -webkit-transform: translateZ(0);
+    z-index: 10;
+    //positioning
+    @extend .inline-block-grid;
+    position:fixed;
+    //sizing
     width:100%;
-    height:100%;
+    //
+    padding:1%;
+    padding-left: 2%;
+    padding-top: 2%;
 
-    .layer-2{
-        position:absolute;
-        z-index:3;
-        width:100%;
+    //background
+    @extend %soft-transparent-dark-background;
 
-        .layer-2a{
-            padding-top:10px;
-            > h1{
-                color:white;
-                font-size:400%;
-                text-align: center;
-                font-weight: normal;
-            }
+    font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
 
-            #home-links{
-                text-align:center;
-                margin-top:5%;
-                li{
-                    height: 5%;
-                    min-height: 30px;
-                    font-size:200%;
+    //jason mcaffee
+    > h1{
+        @extend .inline-block-grid-cell;
+        width:30%;
+        min-width:230px;
+        color:white;
+        font-size: normal;
+        font-weight: normal;
+    }
 
-                    padding:2%;
-                    width: 50%;
-                    margin-left:25%;
-                    margin-right:25%;
-
-                    margin-top:2%;
-
-                    @extend .round-all-by-5;
-
-                    @extend %link-background;
-                    @extend %shadow-centered-blur10-opacity7;
-
-                    a{
-                        color:white;
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-
+    //links
+    .navigation-links{
+        @extend .inline-block-grid-cell;
+        width:70%;
     }
 }
 
+%soft-transparent-dark-background{
+     background: -moz-linear-gradient(left,  rgba(89,89,91,0.19) 0%, rgba(107,108,112,0.19) 25%, rgba(65,64,66,0.19) 68%, rgba(64,64,66,0.19) 100%); /* FF3.6+ */
+     background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(89,89,91,0.19)), color-stop(25%,rgba(107,108,112,0.19)), color-stop(68%,rgba(65,64,66,0.19)), color-stop(100%,rgba(64,64,66,0.19))); /* Chrome,Safari4+ */
+     background: -webkit-linear-gradient(left,  rgba(89,89,91,0.19) 0%,rgba(107,108,112,0.19) 25%,rgba(65,64,66,0.19) 68%,rgba(64,64,66,0.19) 100%); /* Chrome10+,Safari5.1+ */
+     background: -o-linear-gradient(left,  rgba(89,89,91,0.19) 0%,rgba(107,108,112,0.19) 25%,rgba(65,64,66,0.19) 68%,rgba(64,64,66,0.19) 100%); /* Opera 11.10+ */
+     background: -ms-linear-gradient(left,  rgba(89,89,91,0.19) 0%,rgba(107,108,112,0.19) 25%,rgba(65,64,66,0.19) 68%,rgba(64,64,66,0.19) 100%); /* IE10+ */
+     background: linear-gradient(to right,  rgba(89,89,91,0.19) 0%,rgba(107,108,112,0.19) 25%,rgba(65,64,66,0.19) 68%,rgba(64,64,66,0.19) 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3059595b', endColorstr='#30404042',GradientType=1 ); /* IE6-9 */
+ }
+
+.navigation-links{
+    text-align:right;
+    //margin-top:5%;
+    @extend .inline-block-grid;
+
+    li{
+        @extend .inline-block-grid-cell;
+        height: 5%;
+        min-height: 30px;
+        font-size:100%;
+
+        padding:2%;
+        width: 20%;
+        margin-left:1%;
+        margin-right:1%;
+
+        //margin-top:2%;
+
+        //@extend .round-all-by-5;
+
+        //@extend %link-background;
+        //@extend %shadow-centered-blur10-opacity7;
+
+        a{
+            color:grey;
+            text-decoration: none;
+        }
+        a:hover{
+            color:white;
+        }
+        a.selected{
+            color:white;
+        }
+    }
+}
+
+
+@include mq(medium-and-below){
+    .navigation{
+        > h1{
+            width:100%;
+        }
+
+        .navigation-links{
+            width:100%;
+            text-align: left;
+        }
+    }
+}
+
+
+//######################################## old
+
+
+//.clouds-background{
+//    width:80%;
+//    position:absolute;
+//
+//    margin-left: 10%;
+//    margin-right: 10%;
+//    margin-top:10px;
+//    top:0;
+//    z-index: 1;
+//}
+
+//.transparent-white-background{
+//    position:absolute;
+//    z-index: 2;
+//    margin-top:80px;
+//    width:82%;
+//    height: 70%;
+//
+//    margin-left:9%;
+//    margin-right:9%;
+//
+//    opacity:.5;
+//    -webkit-opacity:.5;
+//    background-color: white;
+//
+//    @extend .round-all-by-5;
+//}
+
+//background
+//background: #414647; /* Old browsers */
+//background: -moz-linear-gradient(top,  #414647 0%, #151919 100%); /* FF3.6+ */
+//background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414647), color-stop(100%,#151919)); /* Chrome,Safari4+ */
+//background: -webkit-linear-gradient(top,  #414647 0%,#151919 100%); /* Chrome10+,Safari5.1+ */
+//background: -o-linear-gradient(top,  #414647 0%,#151919 100%); /* Opera 11.10+ */
+//background: -ms-linear-gradient(top,  #414647 0%,#151919 100%); /* IE10+ */
+//background: linear-gradient(to bottom,  #414647 0%,#151919 100%); /* W3C */
+//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414647', endColorstr='#151919',GradientType=0 ); /* IE6-9 */

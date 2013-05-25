@@ -19,7 +19,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid{
+%inline-block-grid, .inline-block-grid{
   letter-spacing: -0.31em; /* webkit: collapse white-space between units */
   *letter-spacing: normal; /* reset IE < 8 */
     word-spacing: -0.43em;
@@ -35,7 +35,7 @@
    }
 }
 
-.inline-block-grid-cell{
+%inline-block-grid-cell, .inline-block-grid-cell{
   display: inline-block;
   zoom: 1; *display: inline; /* IE < 8: fake inline-block */
   letter-spacing: normal;
