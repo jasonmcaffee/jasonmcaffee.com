@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/ui/scroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/bobmcaffee-screenshot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/music-screenshot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/uidesigntools-screenshot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/webcam-screenshot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/webgl-screenshot.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js" afterPath="$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/homePageTemplate.html" afterPath="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,7 +95,7 @@
       <file leaf-file-name="HomeView.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="34" selection-start="809" selection-end="809" vertical-scroll-proportion="0.35612082">
+            <state line="42" column="64" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.53418124">
               <folding />
             </state>
           </provider>
@@ -1291,7 +1286,11 @@
       <created>1369530655369</created>
       <updated>1369530655369</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="tiles with screenshots. links update when scrolled into scrollTo.">
+      <created>1369605083452</created>
+      <updated>1369605083452</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1375,7 +1374,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiding address bar is challenging. mostly working." />
+    <option name="LAST_COMMIT_MESSAGE" value="tiles with screenshots. links update when scrolled into scrollTo." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1388,7 +1387,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="test" />
     <MESSAGE value="resume now responsive." />
     <MESSAGE value="ie9 support" />
     <MESSAGE value="fixed page width issue with inline-block-grid and safari." />
@@ -1413,6 +1411,7 @@
     <MESSAGE value="home page initial design" />
     <MESSAGE value="home page redesign. full screen images.  in progress..." />
     <MESSAGE value="hiding address bar is challenging. mostly working." />
+    <MESSAGE value="tiles with screenshots. links update when scrolled into scrollTo." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1534,7 +1533,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="809" selection-end="809" vertical-scroll-proportion="0.35612082">
+        <state line="42" column="64" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.53418124">
           <folding />
         </state>
       </provider>
