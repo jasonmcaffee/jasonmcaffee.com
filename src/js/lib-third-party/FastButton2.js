@@ -96,12 +96,16 @@ define([
         if(theTarget.nodeType == 1 && theTarget.nodeName == "A"){
             //console.log('triggering click for anchor tag');
             //DONT EVER DO THIS. CLICK WONT FIRE --> alert('triggering click for anchor tag');
+
+            //this also prevents clicks from occurring on underlying elements (eg navbar is fixed, link is clicked but underlying element click occurs)
             $(theTarget).focus();//android fix. sometimes click doesn't cause anything to happen.
             $(theTarget).get(0).click();     //<-- this mostly works with android 2.3, and 4.0! but not when you have an alert!
         }else{
             //alert('trigger jquery for nodeName:' + theTarget.nodeName);
             $(theTarget).trigger('click');
         }
+
+
     }
 
 

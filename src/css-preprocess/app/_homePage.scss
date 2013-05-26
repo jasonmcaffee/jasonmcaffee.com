@@ -38,32 +38,32 @@
 //}
 
 //.enhancedbackground{
-    %fullscreen-background{
+%fullscreen-background{
+
+     position: absolute;
+     //top: 0%;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: -1;
+     overflow-x:hidden;
+     > img{
+         //forces image to display on iphone when using enhanced scrolling
+         -webkit-transform: translateZ(0);
 
          position: absolute;
-         //top: 0%;
+         z-index: -2;
+         top: 0;
          left: 0;
-         width: 100%;
-         height: 100%;
-         z-index: -1;
-         overflow-x:hidden;
-         > img{
-             //forces image to display on iphone when using enhanced scrolling
-             -webkit-transform: translateZ(0);
-
-             position: absolute;
-             z-index: -2;
-             top: 0;
-             left: 0;
-             //right: 0;
-             //bottom: 0;
-             //margin: auto;
-             min-width: 100%;
-             min-height: 50%;
-             height:100%;
-             //width:100%;
-         }
-    }
+         //right: 0;
+         //bottom: 0;
+         //margin: auto;
+         min-width: 100%;
+         min-height: 50%;
+         height:100%;
+         //width:100%;
+     }
+}
 //}
 
 .home-background-1{
@@ -72,8 +72,19 @@
 
 .home-background-2{
     top:100%;
-    height:100%
+    //height:100%
 }
+
+.home-background-3{
+    top:200%;
+    //height:100%
+}
+
+.home-background-4{
+    top:300%;
+    //height:100%
+}
+
 
 .home-background{
     @extend %fullscreen-background;
@@ -99,15 +110,26 @@
     //overflow: scroll; works well on iphone. not so well in chrome (scrollbars show, and whitespace with repeating image)
     //height:100%;
     overflow:hidden;
+    @extend .inline-block-grid;
 }
 
 .home-section-tile{
     @extend %soft-transparent-dark-background;
     @extend %round-all-by-3;
-    width: 20%;
-    min-width: 200px;
+    @extend .inline-block-grid-cell;
+    width: 49%;
+    //min-width: 100px;
     padding: 5%;
-    margin-left: 10px;
+    margin-left: 1%;
+    margin-top:1%;
+
+    >a{
+        color:white;
+        text-decoration:none;
+        >img{
+            width:100%;
+        }
+    }
 }
 
 #homePage{
@@ -183,7 +205,7 @@
         font-size:100%;
 
         padding:2%;
-        width: 20%;
+        //width: 20%;
         margin-left:1%;
         margin-right:1%;
 

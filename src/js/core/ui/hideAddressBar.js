@@ -35,7 +35,10 @@ define([
 
                 calculateAddressBarHeight(function(addressBarHeight){
                     //logDimensions();
-                    document.body.style.height = window.innerHeight + addressBarHeight + 'px';
+                    //TODO: make it a percentage!!!
+                    var percentage = (window.innerHeight / addressBarHeight) + 100;
+                   // document.body.style.height = window.innerHeight + addressBarHeight + 'px';
+                    document.body.style.height = percentage + '%';
                     setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
                 });
                 //alert('window.screen.height: ' + window.screen.height + ' document.height: ' + document.height + ' address bar size is: ' + diff + ' scrollHeight: ' + document.body.scrollHeight);

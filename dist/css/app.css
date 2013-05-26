@@ -27,7 +27,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
+.inline-block-grid, .home-section-content, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -36,10 +36,10 @@
   text-rendering: optimizespeed;
   /* Webkit: fixes text-rendering: optimizeLegibility */ }
 
-.gridspacingissue .inline-block-grid, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
+.gridspacingissue .inline-block-grid, .gridspacingissue .home-section-content, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-.inline-block-grid-cell, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
+.inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1512,8 +1512,13 @@ ul.icons {
   top: 0%; }
 
 .home-background-2 {
-  top: 100%;
-  height: 100%; }
+  top: 100%; }
+
+.home-background-3 {
+  top: 200%; }
+
+.home-background-4 {
+  top: 300%; }
 
 .home-section {
   padding-top: 15%;
@@ -1524,10 +1529,15 @@ ul.icons {
   overflow: hidden; }
 
 .home-section-tile {
-  width: 20%;
-  min-width: 200px;
+  width: 49%;
   padding: 5%;
-  margin-left: 10px; }
+  margin-left: 1%;
+  margin-top: 1%; }
+  .home-section-tile > a {
+    color: white;
+    text-decoration: none; }
+    .home-section-tile > a > img {
+      width: 100%; }
 
 #homePage {
   width: 100%;
@@ -1579,7 +1589,6 @@ ul.icons {
     min-height: 30px;
     font-size: 100%;
     padding: 2%;
-    width: 20%;
     margin-left: 1%;
     margin-right: 1%; }
     .navigation-links li a {

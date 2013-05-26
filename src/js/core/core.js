@@ -14,10 +14,11 @@ define([
     'core/ui/transitionPage',
     'core/ui/requestAnimationFrame',
     'core/ui/disableOrientationChange',
-    'core/util/cookieMonster'
+    'core/util/cookieMonster',
+    'core/ui/scroll'
 ], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
-            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster){
+            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll){
     log('core module loaded');
 
     var core = {
@@ -32,6 +33,7 @@ define([
             //every click on the page will be a fast click!
             fastButton2.init('body');
 
+            scroll.init();
             //hideAddressBar();
         },
         initPlugins : function(){
@@ -49,7 +51,8 @@ define([
             requestAnimationFrame : requestAnimationFrame.requestAnimationFrame,
             cancelAnimationFrame : requestAnimationFrame.cancelAnimationFrame,
             hideAddressBar: hideAddressBar,
-            disableOrientationChange: disableOrientationChange
+            disableOrientationChange: disableOrientationChange,
+            scroll: scroll
         },
         log : log,
         deviceInfo : deviceInfo,
