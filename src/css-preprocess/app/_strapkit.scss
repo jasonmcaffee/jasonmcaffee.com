@@ -7,6 +7,10 @@ html, body{
   font-family: Helvetica, Arial, sans-serif;
 }
 
+body::-webkit-scrollbar {
+    display:none;
+}
+
 .pages{
   //margin-top:50px;   todo:re-enable nav bar
 

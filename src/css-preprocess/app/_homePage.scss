@@ -15,29 +15,29 @@
 }
 
 
-.no-enhancedbackground{
-    %fullscreen-background{
-        position: fixed;
-        top: -55%;
-        left: -50%;
-        width: 200%;
-        height: 220%;
-        z-index: -1;
+//.no-enhancedbackground{
+//    %fullscreen-background{
+//        position: fixed;
+//        top: -55%;
+//        left: -50%;
+//        width: 200%;
+//        height: 220%;
+//        z-index: -1;
+//
+//        > img{
+//            position: absolute;
+//            top: 0;
+//            left: 0;
+//            right: 0;
+//            bottom: 0;
+//            margin: auto;
+//            min-width: 50%;
+//            min-height: 50%;
+//        }
+//    }
+//}
 
-        > img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            min-width: 50%;
-            min-height: 50%;
-        }
-    }
-}
-
-.enhancedbackground{
+//.enhancedbackground{
     %fullscreen-background{
 
          position: absolute;
@@ -64,7 +64,7 @@
              //width:100%;
          }
     }
-}
+//}
 
 .home-background-1{
     top:0%;
@@ -101,6 +101,14 @@
     overflow:hidden;
 }
 
+.home-section-tile{
+    @extend %soft-transparent-dark-background;
+    @extend %round-all-by-3;
+    width: 20%;
+    min-width: 200px;
+    padding: 5%;
+    margin-left: 10px;
+}
 
 #homePage{
     width:100%;
@@ -110,6 +118,8 @@
     z-index: 1;
     //overflow-x: hidden; no
 }
+
+
 
 
 //############################################################## navigation ############################################
@@ -125,6 +135,9 @@
     padding:1%;
     padding-left: 2%;
     padding-top: 2%;
+    //needed for android
+    top:0;
+    left:0;
 
     //background
     @extend %soft-transparent-dark-background;

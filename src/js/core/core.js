@@ -13,10 +13,11 @@ define([
     'core/modernizrTests/tests',
     'core/ui/transitionPage',
     'core/ui/requestAnimationFrame',
-    'core/ui/disableOrientationChange'
+    'core/ui/disableOrientationChange',
+    'core/util/cookieMonster'
 ], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
-            transitionPage, requestAnimationFrame, disableOrientationChange){
+            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster){
     log('core module loaded');
 
     var core = {
@@ -51,7 +52,8 @@ define([
             disableOrientationChange: disableOrientationChange
         },
         log : log,
-        deviceInfo : deviceInfo
+        deviceInfo : deviceInfo,
+        cookieMonster: cookieMonster
     };
 
 
