@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/bobmcaffee-screenshot.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/music-screenshot.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/uidesigntools-screenshot.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/webcam-screenshot.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/webgl-screenshot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/thumbnails/whitenoise-screenshot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/ui/orientation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib-third-party/swipe.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/grunt.js" afterPath="$PROJECT_DIR$/build/grunt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/mvc/View.js" afterPath="$PROJECT_DIR$/src/js/core/mvc/View.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js" afterPath="$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" afterPath="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/homePageTemplate.html" afterPath="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,79 +78,16 @@
       <file leaf-file-name="_homePage.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="10" selection-start="5727" selection-end="5727" vertical-scroll-proportion="0.0">
+            <state line="104" column="42" selection-start="2453" selection-end="2453" vertical-scroll-proportion="-11.076923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FastButton2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
+      <file leaf-file-name="_strapkit.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="151" selection-start="4120" selection-end="4120" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="92" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeView.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="64" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.53418124">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scroll.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/ui/scroll.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="57" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hideAddressBar.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="118" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThreejsDemoOne.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cookieMonster.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/util/cookieMonster.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="26" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
+            <state line="9" column="4" selection-start="120" selection-end="139" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,7 +96,74 @@
       <file leaf-file-name="homePageTemplate.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/homePageTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="46" selection-start="3202" selection-end="3202" vertical-scroll-proportion="-63.36">
+            <state line="52" column="48" selection-start="1542" selection-end="1542" vertical-scroll-proportion="-6.44">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="swipe.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/swipe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="559" column="18" selection-start="16667" selection-end="16667" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeView.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="27" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.47058824">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requestAnimationFrame.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="19" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreejsDemoOne.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="479" column="70" selection-start="20536" selection-end="20536" vertical-scroll-proportion="-38.153847">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hideAddressBar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="73" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="111" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="34" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,21 +185,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/css-preprocess/core/_grids.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/_resume.scss" />
-        <option value="$PROJECT_DIR$/src/templates/resume/resume.html" />
-        <option value="$PROJECT_DIR$/src/js/core/ui/disableOrientationChange.js" />
-        <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss" />
         <option value="$PROJECT_DIR$/src/js/core/modernizrTests/tests.js" />
         <option value="$PROJECT_DIR$/src/js/core/util/cookieMonster.js" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/scroll.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/orientation.js" />
+        <option value="$PROJECT_DIR$/build/grunt.js" />
+        <option value="$PROJECT_DIR$/src/js/core/core.js" />
+        <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/swipe.js" />
+        <option value="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
         <option value="$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss" />
-        <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
-        <option value="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
-        <option value="$PROJECT_DIR$/src/js/core/ui/scroll.js" />
-        <option value="$PROJECT_DIR$/src/js/core/core.js" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js" />
         <option value="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
       </list>
     </option>
@@ -622,6 +636,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="touch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonmcaffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1290,7 +1330,11 @@
       <created>1369605083452</created>
       <updated>1369605083452</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="tiles with screenshots. links update when scrolled into scrollTo.">
+      <created>1369608182227</created>
+      <updated>1369608182227</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1417,85 +1461,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="12" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1536" column="7" selection-start="43964" selection-end="43964" vertical-scroll-proportion="-15.615385">
-          <folding>
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1369590203000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_rounded-corners.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="3442" selection-end="3457" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="54" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/modernizrTests/tests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="92" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/util/cookieMonster.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/matchMedia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="10" selection-start="5727" selection-end="5727" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="99" column="151" selection-start="4120" selection-end="4120" vertical-scroll-proportion="0.0">
@@ -1503,37 +1468,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js">
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/scroll.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="118" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
+        <state line="49" column="25" selection-start="0" selection-end="1454" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/orientation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="14" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_media-queries.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="34" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/grunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="46" selection-start="4313" selection-end="4313" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="26" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
+        <state line="21" column="111" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="34" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/swipe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="559" column="18" selection-start="16667" selection-end="16667" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/hideAddressBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="73" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_strapkit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="4" selection-start="120" selection-end="139" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_homePage.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="42" selection-start="2453" selection-end="2453" vertical-scroll-proportion="-11.076923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/homePageTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="46" selection-start="3202" selection-end="3202" vertical-scroll-proportion="-63.36">
+        <state line="52" column="48" selection-start="1542" selection-end="1542" vertical-scroll-proportion="-6.44">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/ui/scroll.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Threejs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="57" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/requestAnimationFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="19" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/ThreejsDemoOne.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="479" column="70" selection-start="20536" selection-end="20536" vertical-scroll-proportion="-38.153847">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="64" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.53418124">
+        <state line="37" column="27" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.47058824">
           <folding />
         </state>
       </provider>

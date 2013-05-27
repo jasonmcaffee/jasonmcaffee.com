@@ -1521,13 +1521,20 @@ ul.icons {
   top: 300%; }
 
 .home-section {
-  padding-top: 15%;
+  padding-top: 10%;
   height: 100%;
   overflow: hidden; }
 
-.home-section-content {
-  overflow: hidden; }
-
+@media only screen and (max-width: 989px) {
+  .home-section {
+    padding-top: 20%; } }
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-width: 325px) and (orientation: landscape) {
+  .home-section {
+    padding-top: 21%; } }
+@media only screen and (max-width: 325px) {
+  .home-section {
+    padding-top: 34%; } }
 .home-section-tile {
   width: 49%;
   padding: 5%;

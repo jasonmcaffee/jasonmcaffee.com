@@ -16,13 +16,15 @@ $giant-min-width:1824px;
   }@else if $type == small-landscape {
       /* Smartphones (landscape) ----------- */
     @media only screen
-    and (min-width : 321px) {
+    and (max-width : $small-max-width)
+    and (orientation : landscape){
       @content;
     }
   }@else if $type == small-portrait {
     /* Smartphones (portrait) ----------- */
     @media only screen
-    and (max-width : 320px) {
+    and (max-width : $small-max-width)
+    and (orientation : portrait){
       @content;
     }
   }@else if $type == medium {    //limited range of effect min width means that nothing will affect small

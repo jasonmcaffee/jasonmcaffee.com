@@ -15,10 +15,11 @@ define([
     'core/ui/requestAnimationFrame',
     'core/ui/disableOrientationChange',
     'core/util/cookieMonster',
-    'core/ui/scroll'
+    'core/ui/scroll',
+    'core/ui/orientation'
 ], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
-            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll){
+            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation){
     log('core module loaded');
 
     var core = {
@@ -34,6 +35,8 @@ define([
             fastButton2.init('body');
 
             scroll.init();
+
+            orientation.init();
             //hideAddressBar();
         },
         initPlugins : function(){
@@ -52,7 +55,8 @@ define([
             cancelAnimationFrame : requestAnimationFrame.cancelAnimationFrame,
             hideAddressBar: hideAddressBar,
             disableOrientationChange: disableOrientationChange,
-            scroll: scroll
+            scroll: scroll,
+            orientation: orientation
         },
         log : log,
         deviceInfo : deviceInfo,

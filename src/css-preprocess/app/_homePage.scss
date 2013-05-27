@@ -15,29 +15,7 @@
 }
 
 
-//.no-enhancedbackground{
-//    %fullscreen-background{
-//        position: fixed;
-//        top: -55%;
-//        left: -50%;
-//        width: 200%;
-//        height: 220%;
-//        z-index: -1;
-//
-//        > img{
-//            position: absolute;
-//            top: 0;
-//            left: 0;
-//            right: 0;
-//            bottom: 0;
-//            margin: auto;
-//            min-width: 50%;
-//            min-height: 50%;
-//        }
-//    }
-//}
 
-//.enhancedbackground{
 %fullscreen-background{
 
      position: absolute;
@@ -99,17 +77,50 @@
     }
 }
 
+//.swipe {
+//    overflow: hidden;
+//    visibility: hidden;
+//    position: relative;
+//}
+//.swipe-wrap {
+//    overflow: hidden;
+//    position: relative;
+//}
+//.swipe-wrap > div {
+//    float:left;
+//    width:100%;
+//    position: relative;
+//}
+
 .home-section{
-    padding-top:15%;
+    padding-top:10%; //make room for the fixed nav bar
     height:100%;
-    overflow:hidden;//everything should fit inside the section. scrolling causes issues
+    overflow:hidden;
+    //overflow-y:scroll; //everything should fit inside the section. scrolling causes issues
+    //-webkit-overflow-scrolling:touch;
 }
 
+
+@include mq(medium-and-below){
+    .home-section{
+        padding-top: 20%;
+    }
+}
+@include mq(small-landscape){
+    .home-section{
+        padding-top: 21%;
+    }
+}
+@include mq(small){
+    .home-section{
+        padding-top:34%;
+    }
+}
 //hopefully wont need to scroll. if so, you'll need breakpoints for height (too tall and wont be able to scroll all the way down)
 .home-section-content{
-    //overflow: scroll; works well on iphone. not so well in chrome (scrollbars show, and whitespace with repeating image)
+    //overflow: scroll;// works well on iphone. not so well in chrome (scrollbars show, and whitespace with repeating image)
     //height:100%;
-    overflow:hidden;
+    //overflow:hidden;
     @extend .inline-block-grid;
 }
 

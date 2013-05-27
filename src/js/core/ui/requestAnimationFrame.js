@@ -36,7 +36,7 @@ define([
 
     return {
         requestAnimationFrame: function(){
-            window.requestAnimationFrame.apply(window, arguments);
+            return window.requestAnimationFrame.apply(window, arguments);
         },
         cancelAnimationFrame: window.cancelAnimationFrame
     };

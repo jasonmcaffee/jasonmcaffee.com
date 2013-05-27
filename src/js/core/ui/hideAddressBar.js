@@ -3,8 +3,9 @@ define([
     'jquery',
     'modernizer',
     'core/device/DeviceInfo',
-    'core/util/cookieMonster'
-], function(log, $, modernizr, deviceInfo, cookieMonster){
+    'core/util/cookieMonster',
+    'core/ui/orientation'
+], function(log, $, modernizr, deviceInfo, cookieMonster, orientation){
     log('hideAddressBar module loaded');
 
     //http://mobile.tutsplus.com/tutorials/mobile-web-apps/remove-address-bar/
@@ -15,36 +16,44 @@ define([
             if((deviceInfo.os == 'ios') &&
                 document.height < window.outerHeight)
             {
-                calculateAddressBarHeight(function(addressBarHeight){
-//                    document.body.style.height = (window.outerHeight + addressBarHeight -16) + 'px';
-//                    setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
+                calculateAddressBarHeight(function(addressBarHeight, heightWhenAddressBarIsHidden, heightWhenAddressBarIsShown){
+
+                    //nothing to do (most likely ipad)
+                    if(addressBarHeight <= 0){ return;}
+
+                    function updateBodyHeightToReflectAddressBarSize(){
+                        var percentageHeight =  ((addressBarHeight + heightWhenAddressBarIsShown)   / heightWhenAddressBarIsShown ) * 100;
+                        //alert('percentageHeight: ' + percentageHeight + 'address bar: ' + addressBarHeight + ' heightWhenShown:' + heightWhenAddressBarIsShown + ' heightWhenHidden:' + heightWhenAddressBarIsHidden);
+                        document.body.style.height =percentageHeight + '%';
+                        setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
+                    }
+
+
+                    updateBodyHeightToReflectAddressBarSize();
+
+
                 });
-                //worked well, but want exact
-                var diff = window.outerHeight - document.height;
-                diff = diff < 4 ? 4 : diff;//ios 5 lies
-                log('address bar size is: ' + diff);
-                document.body.style.height = (window.outerHeight + diff) + 'px';
-                setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
+
 
             }
 
+            //not working well on android.
             if(deviceInfo.browser == 'android'){
-                //var diff = window.outerHeight - document.height;
-                //diff = diff < 4 ? 4 : diff;//ios 5 lies
-                var diff = 56;
+                calculateAddressBarHeight(function(addressBarHeight, heightWhenAddressBarIsHidden, heightWhenAddressBarIsShown){
 
-                calculateAddressBarHeight(function(addressBarHeight){
-                    //logDimensions();
-                    //TODO: make it a percentage!!!
-                    var percentage = (window.innerHeight / addressBarHeight) + 100;
-                   // document.body.style.height = window.innerHeight + addressBarHeight + 'px';
-                    document.body.style.height = percentage + '%';
-                    setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
+                    //nothing to do (most likely ipad)
+                    if(addressBarHeight <= 0){ return;}
+
+                    function updateBodyHeightToReflectAddressBarSize(){
+                        var percentageHeight =  ((addressBarHeight + heightWhenAddressBarIsShown)   / heightWhenAddressBarIsShown ) * 100;
+                        alert('percentageHeight: ' + percentageHeight + 'address bar: ' + addressBarHeight + ' heightWhenShown:' + heightWhenAddressBarIsShown + ' heightWhenHidden:' + heightWhenAddressBarIsHidden);
+                        document.body.style.height =percentageHeight + '%';
+                        setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
+                    }
+
+
+                    updateBodyHeightToReflectAddressBarSize();
                 });
-                //alert('window.screen.height: ' + window.screen.height + ' document.height: ' + document.height + ' address bar size is: ' + diff + ' scrollHeight: ' + document.body.scrollHeight);
-                //document.body.style.height = (document.height + diff) + 'px';
-                //setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
-
             }
         }
 
@@ -89,10 +98,11 @@ define([
             //return;//don't continue
         }
 
-        var isScrollable = document.body.scrollHeight > document.body.clientHeight;
+        //var isScrollable = document.body.scrollHeight > document.body.clientHeight;
         //if already scrollable, just scroll the page.
         //if(isScrollable){
             var heightBeforeScroll = window.innerHeight;
+
 
             function done(){
                 var addressBarHeight = window.innerHeight - heightBeforeScroll;
@@ -106,8 +116,9 @@ define([
                     setTimeout(function(){
                         if(callback){
                             callback(
-                                addressBarHeight//,
-                                //heightWhenAddressBarIsHidden: heightWhenAddressBarIsHidden
+                                addressBarHeight,
+                                heightWhenAddressBarIsHidden, //TODO: ORIENTATION HEIGHT!!
+                                heightBeforeScroll
                             );
                         }
                     },1);
@@ -118,7 +129,8 @@ define([
 
             //logDimensions();
             setTimeout(function(){
-                window.scrollTo(0,0);//first scroll to the top
+
+               // shouldnt be needed. only do this on first ever page load. window.scrollTo(0,0);// !! 'first scroll to the top.  cant do this address bar goes away on ios?
                 setTimeout(function(){
                     heightBeforeScroll = window.innerHeight;
                     setTimeout(function(){
@@ -149,6 +161,12 @@ define([
     return hideAddressBar;
 });
 
+//worked well, but want exact
+//var diff = window.outerHeight - document.height;
+//diff = diff < 4 ? 4 : diff;//ios 5 lies
+//log('address bar size is: ' + diff);
+//document.body.style.height = (window.outerHeight + diff) + 'px';    //dont use px. messes up when orientation changes.
+//setTimeout( function(){ window.scrollTo(0, 1); }, 1 );
 
 //        $(function(){
 //            $(window).on('load', function(){    //wait until everything is done loading.

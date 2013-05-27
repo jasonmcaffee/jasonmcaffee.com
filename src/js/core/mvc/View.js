@@ -29,8 +29,12 @@ define([
                 this.$el.find(templateMap.selector).append(templateMap.template(this.getModelAsJSON()));
             }, this);
 
+            if(this.postRender){
+                this.postRender();
+            }
             return this;
         },
+        postRender:null,//optional
         getModelAsJSON:function(){
             if(this.model){
                 if(this.model.toJSON){
