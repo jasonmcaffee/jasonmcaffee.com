@@ -1,0 +1,39 @@
+#chordical{
+    width:100%;
+}
+#chordical-page{
+    width:100%;
+    #keyboard{
+        @extend %keyboard;
+
+
+    }
+}
+
+%keyboard{
+    //sizing
+    width: 100%;
+    padding-left:5%;
+    padding-right:5%;
+
+    @extend %inline-block-grid;
+
+    background-color: grey;
+}
+
+.note{
+    @extend %note;
+}
+
+%note{
+    @extend %inline-block-grid-cell;
+    width:20%;
+
+    min-width:50px;
+    min-height:70px;
+
+    background-color:white;
+    border-color:black;
+    border-width: 1px;
+    border-style: solid;
+}

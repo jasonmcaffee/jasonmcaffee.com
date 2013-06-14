@@ -32,7 +32,10 @@ define([
             deviceInfo.addBrowserInfoCssClassToHtml();
 
             //every click on the page will be a fast click!
-            fastButton2.init('body');
+            if(deviceInfo.os == 'ios'){
+                fastButton2.init('body');
+            }
+
 
             scroll.init();
 

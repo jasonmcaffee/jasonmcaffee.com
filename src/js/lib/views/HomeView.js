@@ -59,6 +59,7 @@ define([
             }
         },
         handleScroll:function(scrollPosition, amountScrolled){
+            //return false;
             if(!this.updateLinksDuringScroll){ return;}//don't do any work if the scroll is an animation
             //core.log('scrollPosition: ' + scrollPosition + ' amountScrolled: ' + amountScrolled);
             this.$scrollToAnchors = this.$scrollToAnchors || $('a[scrollTo]');

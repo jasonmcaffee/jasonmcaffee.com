@@ -13,6 +13,18 @@ define([
            employment:{
                items:[
                    {
+                       title: "Consultant",
+                       employer: "Sophisticated Systems",
+                       date:"Apr 13 - Present",
+                       summary:{
+                           paragraphs:[
+                               "Web developer currently assigned to Victoria's Secret, working on victoriassecret.com."
+                           ]
+                       },
+                       primarySkills:"javascript, css3, html 5, functional testing, eCommerce".split(","),
+                       toolsAndLibs:"cucumber, sass, jquery, zepto, mustache".split(",")
+                   },
+                   {
                        title: "Mobile Architect Lead, VP",
                        employer: "JP Morgan Chase",
                        date:"Nov 11 - Mar 13",

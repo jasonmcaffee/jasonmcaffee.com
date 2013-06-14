@@ -19,7 +19,8 @@ define([
     'lib/controllers/Threejs',
     'lib/widgets/NavigationBar', //todo:refactor to new approach
     'lib/controllers/Images',
-    'lib/controllers/Webcam'
+    'lib/controllers/Webcam',
+    'lib/controllers/Chordical'
 ], function(core, $, Backbone, DemosController, homeController, resumeController, blogsController, NavigationBar){
 
     function App(){
