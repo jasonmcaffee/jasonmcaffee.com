@@ -3,21 +3,18 @@ define([
     'modernizer',
     'compiled-templates/chordical/chordical',
     'lib/models/chordical/Note',
-    'lib/models/chordical/notes'
-], function(core, modernizr, chordicalTemplate, NoteModel, notes){
+    'lib/models/chordical/notes',
+    'lib/widgets/chordical/keyboard'
+], function(core, modernizr, chordicalTemplate, NoteModel, notes, KeyboardWidget){
     core.log('Chordical View module loaded');
 
     var View = core.mvc.View.extend({
         id:'chordical', // each view needs a unique id for transitions.
         template:chordicalTemplate,
         initialize:function(){
-            core.mvc.View.prototype.initialize.apply(this, arguments);
             core.log('Chordical View initialize called.');
-            if(!modernizr.webaudio){
-                alert('web audio is not supported on your browser.');
-                return;
-            }
-           // this.note = new NoteModel({note:'c'});
+            if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
+
             this.model = {
                 notes: notes
             };
@@ -25,8 +22,13 @@ define([
             //create a note model for each note
             for(var note in notes){
                 notes[note].playableNote = new NoteModel({note:note});
-
             }
+
+            this.options.widgets=[
+                {selector:'#keyboardContainer', widget: new KeyboardWidget({model:this.model})}
+            ];
+
+            core.mvc.View.prototype.initialize.apply(this, [this.options]);
         },
         events:{
             //note presses
