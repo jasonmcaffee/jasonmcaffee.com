@@ -143,6 +143,8 @@ module.exports = function(grunt) {
         requirejs.optimize(config, function (buildResponse) {
             console.log('build-app done');
             taskDone(true);
+        },function(e){
+            grunt.log.error('ERROR IN REQUIREJS BUILD:\n' + e.toString());
         });
 
     });

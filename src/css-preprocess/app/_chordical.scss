@@ -3,29 +3,44 @@
 }
 #chordical-page{
     width:100%;
+
+    > h1{
+        display:inline-block;
+    }
+
+    .menu{
+        @extend %chordical-menu;
+    }
     #keyboard{
         @extend %keyboard;
-
-
     }
 }
 
+%chordical-menu{
+     @extend %inline-block-grid;
+
+    .link{
+        @extend %inline-block-grid-cell;
+    }
+}
+//keyboard --------------------------------------------------------------
 %keyboard{
     //sizing
     width: 100%;
     padding-left:5%;
     padding-right:5%;
-
+    display:inline-block;
     @extend %inline-block-grid;
+    //letter-spacing: 0em !important;
 
     background-color: grey;
 }
 
-.note{
-    @extend %note;
+.sound-cell{
+    @extend %sound-cell;
 }
 
-%note{
+%sound-cell{
     @extend %inline-block-grid-cell;
     width:20%;
 

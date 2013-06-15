@@ -16,10 +16,11 @@ define([
     'core/ui/disableOrientationChange',
     'core/util/cookieMonster',
     'core/ui/scroll',
-    'core/ui/orientation'
+    'core/ui/orientation',
+    'core/audio/audio'
 ], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
-            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation){
+            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation, coreAudio){
     log('core module loaded');
 
     var core = {
@@ -40,6 +41,7 @@ define([
             scroll.init();
 
             orientation.init();
+
             //hideAddressBar();
         },
         initPlugins : function(){
@@ -63,7 +65,8 @@ define([
         },
         log : log,
         deviceInfo : deviceInfo,
-        cookieMonster: cookieMonster
+        cookieMonster: cookieMonster,
+        audio:coreAudio
     };
 
 

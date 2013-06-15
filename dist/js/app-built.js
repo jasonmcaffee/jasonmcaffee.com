@@ -14127,6 +14127,22 @@ define('core/ui/scroll',[
 
     return scroll;
 });
+define('core/audio/audio',[
+    'core/util/log',
+    'modernizer'
+], function (log, modernizr) {
+    log('audio module loaded');
+    var audio = {
+        init:function(){
+            log('core audio init called');
+            if(modernizr.webaudio){
+                this.audioContext = new webkitAudioContext();
+            }
+        }
+    };
+
+    return audio;
+});
 define('core/core',[
     'core/util/log',
     'backbone',
@@ -14145,10 +14161,11 @@ define('core/core',[
     'core/ui/disableOrientationChange',
     'core/util/cookieMonster',
     'core/ui/scroll',
-    'core/ui/orientation'
+    'core/ui/orientation',
+    'core/audio/audio'
 ], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
-            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation){
+            transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation, coreAudio){
     log('core module loaded');
 
     var core = {
@@ -14169,6 +14186,7 @@ define('core/core',[
             scroll.init();
 
             orientation.init();
+
             //hideAddressBar();
         },
         initPlugins : function(){
@@ -14192,7 +14210,8 @@ define('core/core',[
         },
         log : log,
         deviceInfo : deviceInfo,
-        cookieMonster: cookieMonster
+        cookieMonster: cookieMonster,
+        audio:coreAudio
     };
 
 
@@ -17146,9 +17165,202 @@ templates['chordical'] = template(function (Handlebars,depth0,helpers,partials,d
   var foundHelper, self=this;
 
 
-  return "<div id=\"chordical-page\">\n    <h1>Chordical </h1>\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div>\n    </div>\n\n\n\n    <div id=\"keyboardContainer\">\n\n    </div>\n</div>";}); 
+  return "<div id=\"chordical-page\">\n    <h1>Chordical </h1>\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/sounds\">sounds</a></div>\n    </div>\n\n\n\n    <div id=\"keyboardContainer\">\n\n    </div>\n</div>";}); 
 Handlebars.registerPartial("chordical", templates["chordical"]); 
 return templates["chordical"]; 
+});
+define('compiled-templates/widgets/chordical/keyboard',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("keyboard precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['keyboard'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        --><div class=\"sound-cell\" note=\"";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</div><!--\n    ";
+  return buffer;}
+
+  buffer += "<div id=\"keyboard\">\n    <!-- fix for whitespace grid issue\n    ";
+  foundHelper = helpers.notes;
+  stack1 = foundHelper || depth0.notes;
+  foundHelper = helpers.each_property;
+  stack2 = foundHelper || depth0.each_property;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    -->\n</div>";
+  return buffer;}); 
+Handlebars.registerPartial("keyboard", templates["keyboard"]); 
+return templates["keyboard"]; 
+});
+define('lib/widgets/chordical/keyboard',[
+    'core/core',
+    'compiled-templates/widgets/chordical/keyboard'
+], function (core, keyboardTemplate) {
+    core.log('Keyboard View module loaded');
+
+    var View = core.mvc.View.extend({
+        id:'keyboardWidget', // each view needs a unique id for transitions.
+        template:keyboardTemplate,
+        isWidget:true,
+        //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
+        events:{
+            //note presses
+            'mousedown .sound-cell':"handleNotePress",
+            'mouseup .sound-cell':"handleNoteRelease",
+            'touchstart .sound-cell':"handleNotePress",
+            'touchend .sound-cell':"handleNoteRelease",
+
+            //prevent scrolling when move occurs on the keyboard
+            'touchmove .sound-cell':"handleUnintentionalMovement",
+            'touchcancel .sound-cell':"handleUnintentionalMovement",
+            'touchleave .sound-cell':"handleUnintentionalMovement"
+        },
+        handleUnintentionalMovement:function(e){
+            e.preventDefault();
+            //alert('touch move canceled');
+        },
+        handleNotePress:function(e){
+
+            var $this = $(e.currentTarget);
+            var noteToPlay = $this.attr('note');
+            core.log('note pressed: ' + noteToPlay);
+            var playableNote= this.model.notes[noteToPlay].playableNote;
+            playableNote.play();
+        },
+        handleNoteRelease:function(e){
+            var $this = $(e.currentTarget);
+            var noteToStop = $this.attr('note');
+            core.log('note released: ' + noteToStop);
+            var playableNote= this.model.notes[noteToStop].playableNote;
+            playableNote.stop();
+        }
+    });
+
+    return View;
+});
+define('lib/views/Chordical',[
+    'core/core',
+    'modernizer',
+    'compiled-templates/chordical/chordical',
+    'lib/widgets/chordical/keyboard'
+], function(core, modernizr, chordicalTemplate, KeyboardWidget){
+    core.log('Chordical View module loaded');
+
+    var View = core.mvc.View.extend({
+        id:'chordical', // each view needs a unique id for transitions.
+        template:chordicalTemplate,
+        initialize:function(options){
+            core.log('Chordical View initialize called.');
+            if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
+
+
+            this.options = this.options || {};
+            this.options.widgets=[
+                {selector:'#keyboardContainer', widget: new KeyboardWidget({model:this.model})}
+            ];
+
+            core.mvc.View.prototype.initialize.apply(this, [this.options]);
+        }
+    });
+
+    return View;
+});
+define('compiled-templates/chordical/soundsPage',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("soundsPage precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['soundsPage'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            <option value=\"";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</option>\n            ";
+  return buffer;}
+
+function program3(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n                <option value=\"";
+  stack1 = depth0;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</option>\n            ";
+  return buffer;}
+
+  buffer += "<div id=\"sounds-page\">\n    Sounds\n\n    <form action=\"/sounds\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
+  foundHelper = helpers.soundOptions;
+  stack1 = foundHelper || depth0.soundOptions;
+  foundHelper = helpers.each_property;
+  stack2 = foundHelper || depth0.each_property;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </select>\n\n        <select name=\"selectedSubType\">\n            ";
+  foundHelper = helpers.selectedSound;
+  stack1 = foundHelper || depth0.selectedSound;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.subTypes);
+  stack2 = helpers.each;
+  tmp1 = self.program(3, program3, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </select>\n\n    </form>\n</div>";
+  return buffer;}); 
+Handlebars.registerPartial("soundsPage", templates["soundsPage"]); 
+return templates["soundsPage"]; 
+});
+define('lib/views/chordical/Sounds',[
+    'core/core',
+    'compiled-templates/chordical/soundsPage'
+], function (core, soundsTemplate) {
+    core.log('Sounds View module loaded');
+
+    var View = core.mvc.View.extend({
+        id:'SoundsPage', // each view needs a unique id for transitions.
+        template:soundsTemplate,
+        //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
+        events:{
+            "change input":function (e) {
+
+            }
+        }
+    });
+
+    return View;
 });
 define('lib/models/chordical/notes',[
     'core/core'
@@ -17222,16 +17434,16 @@ define('lib/models/chordical/Note',[
 
     //todo: polyfill https://github.com/g200kg/WAAPISim
 
-    var context = new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
+    var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
+            if(!context){context = core.audio.audioContext;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
-//            this.set({note:note});
-//            this.set({octave:octave});
+
             var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);
@@ -17279,159 +17491,93 @@ define('lib/models/chordical/Note',[
 
     return NoteModel;
 });
-define('compiled-templates/widgets/chordical/keyboard',["handlebars", "core/util/log"], function(Handlebars, log){ 
-log("keyboard precompiled template function module loaded."); 
-var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
-templates['keyboard'] = template(function (Handlebars,depth0,helpers,partials,data) {
-  helpers = helpers || Handlebars.helpers;
-  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
+define('lib/models/chordical/Sound',[
+    'core/core'
+], function (core) {
+    core.log('Sound Model module loaded.');
 
-function program1(depth0,data) {
-  
-  var buffer = "", stack1;
-  buffer += "\n    <div class=\"note\" note=\"";
-  stack1 = depth0.propertyName;
-  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">";
-  stack1 = depth0.propertyName;
-  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "</div>\n    ";
-  return buffer;}
-
-  buffer += "<div id=\"keyboard\">\n    ";
-  foundHelper = helpers.notes;
-  stack1 = foundHelper || depth0.notes;
-  foundHelper = helpers.each_property;
-  stack2 = foundHelper || depth0.each_property;
-  tmp1 = self.program(1, program1, data);
-  tmp1.hash = {};
-  tmp1.fn = tmp1;
-  tmp1.inverse = self.noop;
-  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
-  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</div>";
-  return buffer;}); 
-Handlebars.registerPartial("keyboard", templates["keyboard"]); 
-return templates["keyboard"]; 
-});
-define('lib/widgets/chordical/keyboard',[
-    'core/core',
-    'compiled-templates/widgets/chordical/keyboard'
-], function (core, keyboardTemplate) {
-    core.log('Keyboard View module loaded');
-
-    var View = core.mvc.View.extend({
-        id:'keyboard', // each view needs a unique id for transitions.
-        template:keyboardTemplate//,
-        //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
-//        events:{
-//            "":function(e){
-//
-//            }
-//        }
-    });
-
-    return View;
-});
-define('lib/views/Chordical',[
-    'core/core',
-    'modernizer',
-    'compiled-templates/chordical/chordical',
-    'lib/models/chordical/Note',
-    'lib/models/chordical/notes',
-    'lib/widgets/chordical/keyboard'
-], function(core, modernizr, chordicalTemplate, NoteModel, notes, KeyboardWidget){
-    core.log('Chordical View module loaded');
-
-    var View = core.mvc.View.extend({
-        id:'chordical', // each view needs a unique id for transitions.
-        template:chordicalTemplate,
-        initialize:function(){
-            core.log('Chordical View initialize called.');
-            if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
-
-            this.model = {
-                notes: notes
-            };
-
-            //create a note model for each note
-            for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note});
-            }
-
-            this.options.widgets=[
-                {selector:'#keyboardContainer', widget: new KeyboardWidget({model:this.model})}
-            ];
-
-            core.mvc.View.prototype.initialize.apply(this, [this.options]);
+    var SoundModel = core.mvc.Model.extend({
+        initialize:function (attributes, options) {
+            core.log('Sound Model initialize called');
+            this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
+            this.attributes.selectedSubType = this.attributes.selectedSound.subTypes[0];
         },
-        events:{
-            //note presses
-            'mousedown .note':"handleNotePress",
-            'mouseup .note':"handleNoteRelease",
-            'touchstart .note':"handleNotePress",
-            'touchend .note':"handleNoteRelease",
-
-            //prevent scrolling when move occurs on the keyboard
-            'touchmove .note':"handleUnintentionalMovement",
-            'touchcancel .note':"handleUnintentionalMovement",
-            'touchleave .note':"handleUnintentionalMovement"
-        },
-        handleUnintentionalMovement:function(e){
-            e.preventDefault();
-            //alert('touch move canceled');
-        },
-        handleNotePress:function(e){
-
-            var $this = $(e.currentTarget);
-            var noteToPlay = $this.attr('note');
-            core.log('note pressed: ' + noteToPlay);
-            var playableNote= this.model.notes[noteToPlay].playableNote;
-            playableNote.play();
-        },
-        handleNoteRelease:function(e){
-            var $this = $(e.currentTarget);
-            var noteToStop = $this.attr('note');
-            core.log('note released: ' + noteToStop);
-            var playableNote= this.model.notes[noteToStop].playableNote;
-            playableNote.stop();
+        defaults:{
+            //sounds to choose from for instrument
+            soundOptions:{
+                'oscillator': {
+                    subTypes:[
+                        'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
+                    ]
+                }
+            },
+            selectedSound:0,
+            selectedSubType:0
         }
     });
 
-    return View;
+    return SoundModel;
 });
 define('lib/controllers/Chordical',[
     'core/core',
     'lib/views/Chordical',
-    'jquery'
-], function(core, ChordicalView, $){
+    'lib/views/chordical/Sounds',
+    'lib/models/chordical/Note',
+    'lib/models/chordical/notes',
+    'lib/models/chordical/Sound'
+], function(core, ChordicalView, SoundsView, NoteModel, notes, SoundModel){
     core.log('Chordical controller module loaded');
 
     var Controller = core.mvc.Controller.extend({
         initialize:function(){
             core.log('Chordical Controller constructor called.');
+            core.audio.init();
         },
         action:function(routeName, pageName){
             core.log('Chordical Controller action called with routeName:{0} pageName:{1}', routeName, pageName);
 
             switch(pageName){
                 case "edit": this.editPageAction(); break;
+                case "sounds":this.soundsPageAction(); break;
                 default:this.homePageAction();
             }
 
         },
+        getNotesModel:function(){
+            core.log('Chordical Controller createNotesModel called');
+            if(this.notesModel){return this.notesModel;}
+            //create a note model for each note
+            for(var note in notes){
+                notes[note].playableNote = new NoteModel({note:note});
+            }
+            this.notesModel = {
+                notes: notes
+            };
+            return this.notesModel;
+        },
+        getSoundsModel:function(){
+            core.log('Chordical Controller createSoundsModel called');
+            if(this.soundModel){return this.soundModel;}
+            this.soundModel = new SoundModel();
+            return this.soundModel;
+        },
         homePageAction:function(){
             core.log('home page action called.');
-            this.chordicalView = new ChordicalView();
+            this.getNotesModel();
+            this.chordicalView = new ChordicalView({model:this.notesModel});
             this.chordicalView.render();
 
             core.ui.transitionPage(this.chordicalView);
         },
         editPageAction:function(){
             alert('edit not implemented yet');
+        },
+        soundsPageAction:function(){
+            this.getSoundsModel();
+            this.soundsView = new SoundsView({model:this.soundModel});
+            core.log('selectedSoundOption: ' + this.soundModel.attributes.selectedSoundOption);
+            this.soundsView.render();
+            core.ui.transitionPage(this.soundsView);
         }
     });
 

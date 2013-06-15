@@ -6,16 +6,16 @@ define([
 
     //todo: polyfill https://github.com/g200kg/WAAPISim
 
-    var context = new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
+    var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
+            if(!context){context = core.audio.audioContext;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
-//            this.set({note:note});
-//            this.set({octave:octave});
+
             var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);

@@ -5,14 +5,41 @@ define([
     core.log('Keyboard View module loaded');
 
     var View = core.mvc.View.extend({
-        id:'keyboard', // each view needs a unique id for transitions.
-        template:keyboardTemplate//,
+        id:'keyboardWidget', // each view needs a unique id for transitions.
+        template:keyboardTemplate,
+        isWidget:true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
-//        events:{
-//            "":function(e){
-//
-//            }
-//        }
+        events:{
+            //note presses
+            'mousedown .sound-cell':"handleNotePress",
+            'mouseup .sound-cell':"handleNoteRelease",
+            'touchstart .sound-cell':"handleNotePress",
+            'touchend .sound-cell':"handleNoteRelease",
+
+            //prevent scrolling when move occurs on the keyboard
+            'touchmove .sound-cell':"handleUnintentionalMovement",
+            'touchcancel .sound-cell':"handleUnintentionalMovement",
+            'touchleave .sound-cell':"handleUnintentionalMovement"
+        },
+        handleUnintentionalMovement:function(e){
+            e.preventDefault();
+            //alert('touch move canceled');
+        },
+        handleNotePress:function(e){
+
+            var $this = $(e.currentTarget);
+            var noteToPlay = $this.attr('note');
+            core.log('note pressed: ' + noteToPlay);
+            var playableNote= this.model.notes[noteToPlay].playableNote;
+            playableNote.play();
+        },
+        handleNoteRelease:function(e){
+            var $this = $(e.currentTarget);
+            var noteToStop = $this.attr('note');
+            core.log('note released: ' + noteToStop);
+            var playableNote= this.model.notes[noteToStop].playableNote;
+            playableNote.stop();
+        }
     });
 
     return View;

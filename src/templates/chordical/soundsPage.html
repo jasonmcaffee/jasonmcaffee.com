@@ -1,0 +1,19 @@
+<div id="sounds-page">
+    Sounds
+
+    <form action="/sounds" id="soundsForm">
+
+        <select name="selectedSound">
+            {{#each_property soundOptions}}
+            <option value="{{this.propertyName}}">{{this.propertyName}}</option>
+            {{/each_property}}
+        </select>
+
+        <select name="selectedSubType">
+            {{#each selectedSound.subTypes}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+
+    </form>
+</div>
