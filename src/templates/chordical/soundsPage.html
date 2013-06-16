@@ -11,7 +11,7 @@
 
         <select name="selectedSound.selectedSubType">
             {{#each selectedSound.subTypes}}
-                <option value="{{this}}">{{this}}</option>
+                <option value="{{this}}" {{#if_conditional this ../selectedSound.selectedSubType}}selected{{/if_conditional}}>{{this}}</option>
             {{/each}}
         </select>
 

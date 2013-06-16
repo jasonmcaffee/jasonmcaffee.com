@@ -12322,6 +12322,39 @@ define('core/plugins/handlebars/eachProperty',[
 
 });
 
+define('core/plugins/handlebars/ifConditional',[
+    'core/util/log',
+    'handlebars'
+], function (log, Handlebars) {
+    log('ifConditional core plugin module loaded.');
+
+    /**
+     * adds ability to use {{#if_conditional ...}}
+     * @type {Object}
+     */
+    var plugin = {
+
+        /**
+         * in order for the plugin to register the handlebars helper, you must call init.
+         * (don't assume how and when this is executed so we get greater flexibility).
+         */
+        init:function () {
+            log('ifConditional plugin init called.');
+            Handlebars.registerHelper("if_conditional", function (v1,v2,options) {
+                log('if_conditional checking if v1: {0} == v2: {1}', v1, v2);
+                if(v1 === v2) {
+                    return options.fn(this);
+                }
+                return options.inverse(this);
+
+            });
+        }
+    };
+
+    return plugin;
+
+});
+
 define('core/mvc/View',[
     'backbone',
     'core/util/log',
@@ -12415,7 +12448,7 @@ define('core/mvc/View',[
                     log('calling model.' + onOrOff + ' for key: ' + key);
 
                     //try to bind the function to the view so we can call view functions
-                    var wrappedFunction = shouldDelegate? makeWrapper(method): null; //if off we dont want to wrap the function as it needs to be null so context will work (line
+                    var wrappedFunction = shouldDelegate? makeWrapper(method): null; //if off we dont want to wrap the function as it needs to be null so context will work and events will be removed(avoid double registration when navigating back and forth between pages)
 
                     model[onOrOff](key, wrappedFunction, this.id); //passing this as the parameter makes it so it removes all callbacks since wrappedFunction will never be the same.
                 }
@@ -14314,6 +14347,7 @@ define('core/core',[
     'backbone',
     'core/plugins/handlebars/eachWithIndex',
     'core/plugins/handlebars/eachProperty',
+    'core/plugins/handlebars/ifConditional',
     'core/mvc/View',
     'core/mvc/Controller',
     'core/touch/customEvents',
@@ -14329,7 +14363,7 @@ define('core/core',[
     'core/ui/scroll',
     'core/ui/orientation',
     'core/audio/audio'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, ifConditionalPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
             transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation, coreAudio){
     log('core module loaded');
@@ -14359,6 +14393,7 @@ define('core/core',[
             log('core.initPlugins called');
             eachWithIndexPlugin.init();
             eachPropertyPlugin.init();
+            ifConditionalPlugin.init();
         },
         mvc : {
             View : View,
@@ -17467,19 +17502,37 @@ function program1(depth0,data) {
   buffer += escapeExpression(stack1) + "</option>\n            ";
   return buffer;}
 
-function program3(depth0,data) {
+function program3(depth0,data,depth1) {
   
-  var buffer = "", stack1;
+  var buffer = "", stack1, stack2, stack3;
   buffer += "\n                <option value=\"";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">";
+  buffer += escapeExpression(stack1) + "\" ";
+  foundHelper = helpers.selectedSound;
+  stack1 = foundHelper || depth1.selectedSound;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.selectedSubType);
+  stack2 = depth0;
+  foundHelper = helpers.if_conditional;
+  stack3 = foundHelper || depth0.if_conditional;
+  tmp1 = self.program(4, program4, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack2, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ">";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</option>\n            ";
   return buffer;}
+function program4(depth0,data) {
+  
+  
+  return "selected";}
 
   buffer += "<div id=\"sounds-page\">\n    Sounds\n\n    <form action=\"/sounds\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
@@ -17498,7 +17551,7 @@ function program3(depth0,data) {
   stack1 = foundHelper || depth0.selectedSound;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.subTypes);
   stack2 = helpers.each;
-  tmp1 = self.program(3, program3, data);
+  tmp1 = self.programWithDepth(program3, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -17692,6 +17745,10 @@ define('lib/models/chordical/Sound',[
 ], function (core) {
     core.log('Sound Model module loaded.');
 
+    /**
+     * Used for the sound page of chordical. lets users pick different instruments(sounds), and stores selected preferences.
+     * @type {*}
+     */
     var SoundModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('Sound Model initialize called');
@@ -17706,7 +17763,7 @@ define('lib/models/chordical/Sound',[
                     subTypes:[
                         'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
                     ],
-                    selectedSubType:null
+                    selectedSubType:0
                 }
             },
             selectedSound:0

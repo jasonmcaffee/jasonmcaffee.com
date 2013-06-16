@@ -19,19 +19,37 @@ function program1(depth0,data) {
   buffer += escapeExpression(stack1) + "</option>\n            ";
   return buffer;}
 
-function program3(depth0,data) {
+function program3(depth0,data,depth1) {
   
-  var buffer = "", stack1;
+  var buffer = "", stack1, stack2, stack3;
   buffer += "\n                <option value=\"";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">";
+  buffer += escapeExpression(stack1) + "\" ";
+  foundHelper = helpers.selectedSound;
+  stack1 = foundHelper || depth1.selectedSound;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.selectedSubType);
+  stack2 = depth0;
+  foundHelper = helpers.if_conditional;
+  stack3 = foundHelper || depth0.if_conditional;
+  tmp1 = self.program(4, program4, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack2, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ">";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</option>\n            ";
   return buffer;}
+function program4(depth0,data) {
+  
+  
+  return "selected";}
 
   buffer += "<div id=\"sounds-page\">\n    Sounds\n\n    <form action=\"/sounds\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
@@ -50,7 +68,7 @@ function program3(depth0,data) {
   stack1 = foundHelper || depth0.selectedSound;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.subTypes);
   stack2 = helpers.each;
-  tmp1 = self.program(3, program3, data);
+  tmp1 = self.programWithDepth(program3, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;

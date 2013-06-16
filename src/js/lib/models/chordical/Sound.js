@@ -3,6 +3,10 @@ define([
 ], function (core) {
     core.log('Sound Model module loaded.');
 
+    /**
+     * Used for the sound page of chordical. lets users pick different instruments(sounds), and stores selected preferences.
+     * @type {*}
+     */
     var SoundModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('Sound Model initialize called');
@@ -17,7 +21,7 @@ define([
                     subTypes:[
                         'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
                     ],
-                    selectedSubType:null
+                    selectedSubType:0
                 }
             },
             selectedSound:0

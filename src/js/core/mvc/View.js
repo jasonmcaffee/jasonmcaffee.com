@@ -91,7 +91,7 @@ define([
                     log('calling model.' + onOrOff + ' for key: ' + key);
 
                     //try to bind the function to the view so we can call view functions
-                    var wrappedFunction = shouldDelegate? makeWrapper(method): null; //if off we dont want to wrap the function as it needs to be null so context will work (line
+                    var wrappedFunction = shouldDelegate? makeWrapper(method): null; //if off we dont want to wrap the function as it needs to be null so context will work and events will be removed(avoid double registration when navigating back and forth between pages)
 
                     model[onOrOff](key, wrappedFunction, this.id); //passing this as the parameter makes it so it removes all callbacks since wrappedFunction will never be the same.
                 }

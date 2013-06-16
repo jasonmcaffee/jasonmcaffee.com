@@ -3,6 +3,7 @@ define([
     'backbone',
     'core/plugins/handlebars/eachWithIndex',
     'core/plugins/handlebars/eachProperty',
+    'core/plugins/handlebars/ifConditional',
     'core/mvc/View',
     'core/mvc/Controller',
     'core/touch/customEvents',
@@ -18,7 +19,7 @@ define([
     'core/ui/scroll',
     'core/ui/orientation',
     'core/audio/audio'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, Controller,
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, ifConditionalPlugin, View, Controller,
             customEvents, deviceInfo, modernizer, fastButton2, hideAddressBar, modernizrTests,
             transitionPage, requestAnimationFrame, disableOrientationChange, cookieMonster, scroll, orientation, coreAudio){
     log('core module loaded');
@@ -48,6 +49,7 @@ define([
             log('core.initPlugins called');
             eachWithIndexPlugin.init();
             eachPropertyPlugin.init();
+            ifConditionalPlugin.init();
         },
         mvc : {
             View : View,
