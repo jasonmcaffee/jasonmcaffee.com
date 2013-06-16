@@ -12324,10 +12324,13 @@ define('core/plugins/handlebars/eachProperty',[
 
 define('core/mvc/View',[
     'backbone',
-    'core/util/log'
-], function(Backbone, log){
+    'core/util/log',
+    'jquery',
+    'underscore'
+], function(Backbone, log, $, _){
     var View = Backbone.View.extend({
         template: null, //you should define a template function
+        bindViewToModel:false, //set to true if you want all input changes to update bb model.
 //        attributes:{
 //            'class':'page'
 //        },
@@ -12338,6 +12341,84 @@ define('core/mvc/View',[
             this.options.templates = this.options.templates || [];
             if(!this.isWidget){
                 this.$el.addClass('page');
+            }
+            if(this.bindViewToModel){
+                this._bindViewToModel();
+            }
+        },
+        /**
+         * Override base delegateEvents so that we can add modelEvents binding.
+         * @param events
+         */
+        delegateEvents:function (events) {
+            //core.log('baseView.delegateEvents called');
+            Backbone.View.prototype.delegateEvents.apply(this, arguments); //default functionality
+            this.delegateOrUndelegateModelEvents(this.modelEvents, this.model, true); //custom functionality
+        },
+        /**
+         * Override base undelegateEvents so that we can remove modelEvents binding.
+         */
+        undelegateEvents:function () {
+            // core.log('baseView.undelegateEvents called.');
+            Backbone.View.prototype.undelegateEvents.apply(this, arguments); //default functionality
+            this.delegateOrUndelegateModelEvents(this.modelEvents, this.model, false);//custom functionality.
+        },
+        /**
+         * expects a object literal in the format
+         * modelEvents = {
+         *    'change' : function(){},
+         *    'change:prop1': function(){},
+         *    'change:prop2': 'prop2changeHandler'
+         * }
+         * will iterate over each key in modelEvents, find either the function assigned, or function on the view,
+         * and bind(or unbind) it to the model.
+         *
+         * @param modelEvents - hashmap of model event names and associated handler
+         * @param model - the backbone model we are assigning events to
+         * @param shouldDelegate - if true, model.on('event') will be used. if false, model.off('event') will be used.
+         */
+        delegateOrUndelegateModelEvents:function (modelEvents, model, shouldDelegate) {
+            log('baseView.delegateModelEvents called for: ' + this.id);
+            if (!modelEvents) {
+                return;
+            }
+            if (!model) {
+                log('no model to bind to');
+                return;
+            }
+            if(!model.on){
+                log('view is not using a backbone model');
+                return;
+            }
+            //backbone model trigger uses apply 'this', which means we don't get access to
+            //the view from the callback.
+            //creating a wrapper which will make the view the 'this'
+            var view = this;
+
+            function makeWrapper(originalFunction) {
+                return function () {
+                    originalFunction.apply(view, arguments);
+                };
+            }
+
+            for (var key in modelEvents) {
+                if (modelEvents.hasOwnProperty(key)) {
+                    var method = modelEvents[key];
+                    if (!_.isFunction(method)) {
+                        method = this[modelEvents[key]];
+                    }
+                    if (!method) {
+                        throw new Error('Method "' + modelEvents[key] + '" does not exist');
+                    }
+
+                    var onOrOff = shouldDelegate ? 'on' : 'off';
+                    log('calling model.' + onOrOff + ' for key: ' + key);
+
+                    //try to bind the function to the view so we can call view functions
+                    var wrappedFunction = shouldDelegate? makeWrapper(method): null; //if off we dont want to wrap the function as it needs to be null so context will work (line
+
+                    model[onOrOff](key, wrappedFunction, this.id); //passing this as the parameter makes it so it removes all callbacks since wrappedFunction will never be the same.
+                }
             }
         },
         render : function(){
@@ -12358,6 +12439,76 @@ define('core/mvc/View',[
             }
             return this;
         },
+        //any changes in the view will update the view's model.
+        //note: not sure if this will work in all situations yet. WIP
+        _bindViewToModel:function(){
+            log('Core View bindViewToModel called.');
+            var self = this;
+
+            //helper function which calls 'set' on backbone model or uses normal access updating (obj[name] = newVal)
+            function setValueUsingSetOrThroughAccessor(objToUpdate, name, newVal, lastBackboneObject, lastBackboneObjectPropertyName, lastPathToBackboneObjectSubProperty){
+                if(objToUpdate && objToUpdate.set){
+                    log('_bindViewToModel using set to update property named:{0} with value:{1}', name, newVal);
+                    var newObject = {};
+                    newObject[name] = newVal;
+                    objToUpdate.set(newObject);
+                }else if(objToUpdate){
+                    log('_bindViewToModel using set to update property named:{0} with value:{1}', name, newVal);
+                    objToUpdate[name] = newVal;
+                    if(lastBackboneObject){
+                        lastBackboneObject.trigger('subPropertyChange:'+lastBackboneObjectPropertyName + '.'+ lastPathToBackboneObjectSubProperty, newVal);//should be able to model.get(lastBackbonePropertyName)[lastPath]  (note: lastPath is an array)
+                    }
+                }else{
+                    log('_bindViewToModel cant update a null object');
+                }
+            }
+            function ensureSubObjectExists(obj, propName){
+                var subProp = obj.get ? obj.get(propName) : obj[propName];
+                if(!subProp){
+                    setValueUsingSetOrThroughAccessor(obj, propName, {});
+                }
+            }
+            this.$el.on('change', 'input, select', function(e){
+                if(!self.model){return;}
+                var $this = $(this);
+                var inputName = $this.attr('name') || $this.attr('id');
+                var newVal = $this.val(),
+                    lastBackboneObject, //when nested objects aren't bb models, we'll need the last bb object so we can call set on it and trigger change.
+                    lastBackboneObjectPropertyName, //so we can do this: lastBackboneObject.set({lastBbpropname:val});
+                    lastPathToBackboneObjectSubProperty; //"obj.sub1.sub2" if sub1 isn't backbone object result on last iteration should be "sub1.sub2"
+                    //lastPathArrayToBackboneObjectSubProperty;
+                //allow sub object update
+                if(inputName.indexOf('.') > 0){
+                    var names = inputName.split('.');
+                    var propToUpdate = self.model;
+
+                    for(var i=0; i<names.length;++i){
+                        var lastIteration = i == names.length -1;
+                        var name = names[i];
+
+                        if(lastIteration){
+                            setValueUsingSetOrThroughAccessor(propToUpdate, name, newVal, lastBackboneObject, lastBackboneObjectPropertyName, lastPathToBackboneObjectSubProperty);
+                        }else{
+
+                            ensureSubObjectExists(propToUpdate, name);
+                            if(propToUpdate.get){
+                                lastBackboneObject = propToUpdate;
+                                lastBackboneObjectPropertyName = name;
+                                lastPathToBackboneObjectSubProperty = names.slice(i + 1).join('.');
+                                //lastPathToBackboneObjectSubProperty = lastPathArrayToBackboneObjectSubProperty.join('.');
+                                propToUpdate = propToUpdate.get(name);
+                            }else{
+                                propToUpdate = propToUpdate[name];
+                            }
+                        }
+                    }
+                }else{
+                    setValueUsingSetOrThroughAccessor(self.model, inputName, newVal);
+                }
+            });
+
+        },
+
         postRender:null,//optional
         getModelAsJSON:function(){
             if(this.model){
@@ -12374,6 +12525,20 @@ define('core/mvc/View',[
 
     return View;
 });
+//
+//if(propToUpdate.hasOwnProperty('get')){
+//    if(lastIteration){
+//        setValueUsingSetOrThroughAccessor(propToUpdate, name, newVal);
+//    }else{
+//        propToUpdate = propToUpdate.get(name);
+//    }
+//}else{
+//    if(lastIteration){
+//        setValueUsingSetOrThroughAccessor(propToUpdate, name, newVal);
+//    }else{
+//        propToUpdate = propToUpdate[name];
+//    }
+//};
 define('core/mvc/Controller',[
     'core/util/log',
     'backbone'
@@ -13897,6 +14062,7 @@ define('core/ui/transitionPage',[
                 if(currentView){
                     log('removing old view from page container');
                     currentView.remove();
+                    currentView.undelegateEvents();//make sure no event listeners for model and dom
                     //since removing the view doesn't mean that the $el properties are gone, remove the slideout class.
                     //currentView.$el.removeClass(config.slideOutClass) ;
                         //.css({'width':''}); //reset as styles are retained.
@@ -17327,7 +17493,7 @@ function program3(depth0,data) {
   if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        </select>\n\n        <select name=\"selectedSubType\">\n            ";
+  buffer += "\n        </select>\n\n        <select name=\"selectedSound.selectedSubType\">\n            ";
   foundHelper = helpers.selectedSound;
   stack1 = foundHelper || depth0.selectedSound;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.subTypes);
@@ -17352,10 +17518,19 @@ define('lib/views/chordical/Sounds',[
     var View = core.mvc.View.extend({
         id:'SoundsPage', // each view needs a unique id for transitions.
         template:soundsTemplate,
+        bindViewToModel: true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
         events:{
-            "change input":function (e) {
-
+//            "change input":function (e) {
+//
+//            }
+        },
+        modelEvents:{
+            'change:selectedSound':function(){
+                core.log('Sound View selectedSound changed');
+            },
+            'subPropertyChange:selectedSound.selectedSubType':function(newVal){
+                core.log('Sound View selectedSound subproperty changed to: ' + newVal);
             }
         }
     });
@@ -17434,13 +17609,14 @@ define('lib/models/chordical/Note',[
 
     //todo: polyfill https://github.com/g200kg/WAAPISim
 
-    var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
+    //var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
-            if(!context){context = core.audio.audioContext;}
+
+            if(!attributes.sound){core.log('ERROR: sound is required to construct a note'); return;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
 
@@ -17448,7 +17624,7 @@ define('lib/models/chordical/Note',[
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);
 
-            this.context = context;
+            this.context = core.audio.audioContext;
 
 
         },
@@ -17472,10 +17648,14 @@ define('lib/models/chordical/Note',[
             //touch events can be weird. prevent notes from never ending.
             if(this.isPlaying){return;}
             this.isPlaying = true;
-
-
+            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._playOscillator(); break;
+            }
+        },
+        _playOscillator:function(){
             this.oscillator = this.context.createOscillator();
-            this.oscillator.type = this.oscillator.SQUARE;
+            this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
             this.oscillator.frequency.value = this.get('frequency');
             this.oscillator.connect(this.context.destination); // Connect our oscillator to the speakers.
 
@@ -17484,8 +17664,24 @@ define('lib/models/chordical/Note',[
         stop:function(){
             this.isPlaying = false;
             core.log('Note.stop() called');
+            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._stopOscillator(); break;
+            }
+
+        },
+        _stopOscillator:function(){
             this.oscillator.noteOff(0);
             this.oscillator.disconnect();
+        },
+        convertOscillatorSubTypeToNative:function(stringSubType){
+            switch(stringSubType){
+                case 'SINE': return 0;
+                case 'SQUARE': return 1;
+                case 'SAWTOOTH': return 2;
+                case 'TRIANGLE': return 3;
+                default: return 0;
+            }
         }
     });
 
@@ -17500,19 +17696,21 @@ define('lib/models/chordical/Sound',[
         initialize:function (attributes, options) {
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
-            this.attributes.selectedSubType = this.attributes.selectedSound.subTypes[0];
+            this.attributes.selectedSound.selectedSubType = this.attributes.selectedSound.subTypes[0];
         },
         defaults:{
             //sounds to choose from for instrument
             soundOptions:{
                 'oscillator': {
+                    type:'oscillator', //can't access property name in certain situations. may be temporary.
                     subTypes:[
                         'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
-                    ]
+                    ],
+                    selectedSubType:null
                 }
             },
-            selectedSound:0,
-            selectedSubType:0
+            selectedSound:0
+
         }
     });
 
@@ -17546,9 +17744,13 @@ define('lib/controllers/Chordical',[
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
+
+            //sound dictates how the notes are constructed
+            this.getSoundsModel();
+
             //create a note model for each note
             for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note});
+                notes[note].playableNote = new NoteModel({note:note, sound:this.soundModel});
             }
             this.notesModel = {
                 notes: notes

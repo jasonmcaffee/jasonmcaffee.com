@@ -102,6 +102,7 @@ define([
                 if(currentView){
                     log('removing old view from page container');
                     currentView.remove();
+                    currentView.undelegateEvents();//make sure no event listeners for model and dom
                     //since removing the view doesn't mean that the $el properties are gone, remove the slideout class.
                     //currentView.$el.removeClass(config.slideOutClass) ;
                         //.css({'width':''}); //reset as styles are retained.

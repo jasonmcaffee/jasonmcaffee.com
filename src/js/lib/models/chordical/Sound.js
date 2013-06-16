@@ -7,19 +7,21 @@ define([
         initialize:function (attributes, options) {
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
-            this.attributes.selectedSubType = this.attributes.selectedSound.subTypes[0];
+            this.attributes.selectedSound.selectedSubType = this.attributes.selectedSound.subTypes[0];
         },
         defaults:{
             //sounds to choose from for instrument
             soundOptions:{
                 'oscillator': {
+                    type:'oscillator', //can't access property name in certain situations. may be temporary.
                     subTypes:[
                         'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
-                    ]
+                    ],
+                    selectedSubType:null
                 }
             },
-            selectedSound:0,
-            selectedSubType:0
+            selectedSound:0
+
         }
     });
 

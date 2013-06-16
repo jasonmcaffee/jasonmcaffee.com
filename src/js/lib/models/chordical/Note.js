@@ -6,13 +6,14 @@ define([
 
     //todo: polyfill https://github.com/g200kg/WAAPISim
 
-    var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
+    //var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
-            if(!context){context = core.audio.audioContext;}
+
+            if(!attributes.sound){core.log('ERROR: sound is required to construct a note'); return;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
 
@@ -20,7 +21,7 @@ define([
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);
 
-            this.context = context;
+            this.context = core.audio.audioContext;
 
 
         },
@@ -44,10 +45,14 @@ define([
             //touch events can be weird. prevent notes from never ending.
             if(this.isPlaying){return;}
             this.isPlaying = true;
-
-
+            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._playOscillator(); break;
+            }
+        },
+        _playOscillator:function(){
             this.oscillator = this.context.createOscillator();
-            this.oscillator.type = this.oscillator.SQUARE;
+            this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
             this.oscillator.frequency.value = this.get('frequency');
             this.oscillator.connect(this.context.destination); // Connect our oscillator to the speakers.
 
@@ -56,8 +61,24 @@ define([
         stop:function(){
             this.isPlaying = false;
             core.log('Note.stop() called');
+            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._stopOscillator(); break;
+            }
+
+        },
+        _stopOscillator:function(){
             this.oscillator.noteOff(0);
             this.oscillator.disconnect();
+        },
+        convertOscillatorSubTypeToNative:function(stringSubType){
+            switch(stringSubType){
+                case 'SINE': return 0;
+                case 'SQUARE': return 1;
+                case 'SAWTOOTH': return 2;
+                case 'TRIANGLE': return 3;
+                default: return 0;
+            }
         }
     });
 

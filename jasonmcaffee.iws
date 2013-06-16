@@ -2,28 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3d0324-6fff-433b-958f-56e896a5e8dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/chordical/_sounds.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/chordical/cell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/chordical/soundsPage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/chordical/keyboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/audio/audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/chordical/soundsPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/grunt.js" afterPath="$PROJECT_DIR$/build/grunt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/_chordical.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/_chordical.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/chordical/chordical.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/chordical/chordical.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/chordical/soundsPage.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/chordical/soundsPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/mvc/View.js" afterPath="$PROJECT_DIR$/src/js/core/mvc/View.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" afterPath="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/Chordical.js" afterPath="$PROJECT_DIR$/src/js/lib/views/Chordical.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/chordical/Keyboard.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/chordical/Keyboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/chordical/chordical.html" afterPath="$PROJECT_DIR$/src/templates/chordical/chordical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/chordical/keyboard.html" afterPath="$PROJECT_DIR$/src/templates/widgets/chordical/keyboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js" afterPath="$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/chordical/soundsPage.html" afterPath="$PROJECT_DIR$/src/templates/chordical/soundsPage.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,7 +72,7 @@
       <file leaf-file-name="Chordical.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Chordical.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="119" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+            <state line="34" column="93" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,7 +90,7 @@
       <file leaf-file-name="soundsPage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/chordical/soundsPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="20" selection-start="353" selection-end="353" vertical-scroll-proportion="-7.68">
+            <state line="11" column="57" selection-start="346" selection-end="346" vertical-scroll-proportion="-7.04">
               <folding />
             </state>
           </provider>
@@ -111,7 +99,25 @@
       <file leaf-file-name="Sounds.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="25" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+            <state line="21" column="87" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="116" selection-start="3711" selection-end="3711" vertical-scroll-proportion="0.58505565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backbone.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/backbone.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="8" selection-start="3257" selection-end="3257" vertical-scroll-proportion="1.4615384">
               <folding />
             </state>
           </provider>
@@ -120,25 +126,25 @@
       <file leaf-file-name="Sound.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="74" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
+            <state line="9" column="12" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Note.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Note.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Note.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="87" selection-start="957" selection-end="957" vertical-scroll-proportion="0.22893482">
+            <state line="36" column="92" selection-start="1441" selection-end="1441" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="audio.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/audio/audio.js">
+      <file leaf-file-name="transitionPage.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="61" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
+            <state line="120" column="104" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,24 +154,6 @@
         <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="44" column="88" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grunt.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/grunt.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="43" selection-start="5336" selection-end="5336" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="keyboard.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/widgets/chordical/keyboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="41" selection-start="129" selection-end="150" vertical-scroll-proportion="-1.92">
               <folding />
             </state>
           </provider>
@@ -187,28 +175,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/widgets/chordical/Keyboard.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/chordical/_sounds.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
         <option value="$PROJECT_DIR$/src/templates/chordical/chordical.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/_chordical.scss" />
         <option value="$PROJECT_DIR$/src/templates/widgets/chordical/keyboard.html" />
         <option value="$PROJECT_DIR$/src/js/lib/views/Chordical.js" />
         <option value="$PROJECT_DIR$/build/grunt.js" />
-        <option value="$PROJECT_DIR$/src/templates/chordical/soundsPage.html" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js" />
         <option value="$PROJECT_DIR$/src/js/core/audio/audioContext.js" />
         <option value="$PROJECT_DIR$/src/js/core/audio/audio.js" />
         <option value="$PROJECT_DIR$/src/js/core/core.js" />
         <option value="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" />
+        <option value="$PROJECT_DIR$/src/templates/chordical/soundsPage.html" />
+        <option value="$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js" />
         <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" />
+        <option value="$PROJECT_DIR$/src/js/core/ui/transitionPage.js" />
+        <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="37" />
+    <option name="x" value="58" />
+    <option name="y" value="59" />
     <option name="width" value="2502" />
     <option name="height" value="1406" />
   </component>
@@ -1412,7 +1400,11 @@
       <created>1371271463301</created>
       <updated>1371271463301</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="beginnings of sound edit page">
+      <created>1371315556700</created>
+      <updated>1371315556700</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1436,7 +1428,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="37" width="2502" height="1406" extended-state="0" />
+    <frame x="58" y="59" width="2502" height="1406" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1496,7 +1488,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="chordical keyboard widget in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="beginnings of sound edit page" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1509,7 +1501,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="native scrolling for ios and android." />
     <MESSAGE value="added .woff font. created static index page. web.config for godaddy gzip." />
     <MESSAGE value="ie 8 support using selectivr polyfill for partial css3 pseudo selector support." />
     <MESSAGE value="better ie8 support for css pseudo selectors." />
@@ -1534,32 +1525,12 @@
     <MESSAGE value="animated scrollTo using requestanimationframe" />
     <MESSAGE value="chordical v2 started. multi-key press support, frequency calculation, highly responsive keyboard which doesnt move when you play it." />
     <MESSAGE value="chordical keyboard widget in progress" />
+    <MESSAGE value="beginnings of sound edit page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="48" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_grids.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="100" selection-start="4091" selection-end="4091" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/chordical/_sounds.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/_chordical.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="6" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
@@ -1595,34 +1566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/chordical/soundsPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="353" selection-end="353" vertical-scroll-proportion="-7.68">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="25" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="74" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/views/Chordical.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="12" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/audio/audio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="61" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
@@ -1637,16 +1580,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/Chordical.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="12" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Chordical.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="119" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+        <state line="34" column="93" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/chordical/soundsPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="57" selection-start="346" selection-end="346" vertical-scroll-proportion="-7.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/chordical/Sounds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="87" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Note.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="87" selection-start="957" selection-end="957" vertical-scroll-proportion="0.22893482">
+        <state line="36" column="92" selection-start="1441" selection-end="1441" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Sound.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="12" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/backbone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="8" selection-start="3257" selection-end="3257" vertical-scroll-proportion="1.4615384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/ui/transitionPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="104" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="116" selection-start="3711" selection-end="3711" vertical-scroll-proportion="0.58505565">
           <folding />
         </state>
       </provider>

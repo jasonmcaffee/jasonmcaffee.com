@@ -45,7 +45,7 @@ function program3(depth0,data) {
   if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        </select>\n\n        <select name=\"selectedSubType\">\n            ";
+  buffer += "\n        </select>\n\n        <select name=\"selectedSound.selectedSubType\">\n            ";
   foundHelper = helpers.selectedSound;
   stack1 = foundHelper || depth0.selectedSound;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.subTypes);

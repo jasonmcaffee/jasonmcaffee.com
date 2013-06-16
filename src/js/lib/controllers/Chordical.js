@@ -26,9 +26,13 @@ define([
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
+
+            //sound dictates how the notes are constructed
+            this.getSoundsModel();
+
             //create a note model for each note
             for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note});
+                notes[note].playableNote = new NoteModel({note:note, sound:this.soundModel});
             }
             this.notesModel = {
                 notes: notes
