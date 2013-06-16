@@ -9,6 +9,7 @@
     }
 
     .menu{
+        display:inline-block;
         @extend %chordical-menu;
     }
     #keyboard{
@@ -21,6 +22,7 @@
 
     .link{
         @extend %inline-block-grid-cell;
+        margin-left:10px;
     }
 }
 //keyboard --------------------------------------------------------------

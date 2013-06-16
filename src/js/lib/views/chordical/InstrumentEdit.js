@@ -1,6 +1,6 @@
 define([
     'core/core',
-    'compiled-templates/chordical/soundsPage'
+    'compiled-templates/chordical/instrumentEdit'
 ], function (core, soundsTemplate) {
     core.log('Sounds View module loaded');
 

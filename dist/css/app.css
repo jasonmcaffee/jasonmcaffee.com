@@ -2325,6 +2325,11 @@ body::-webkit-scrollbar {
   width: 100%; }
   #chordical-page > h1 {
     display: inline-block; }
+  #chordical-page .menu {
+    display: inline-block; }
+
+#chordical-page .menu .link {
+  margin-left: 10px; }
 
 #chordical-page #keyboard {
   width: 100%;

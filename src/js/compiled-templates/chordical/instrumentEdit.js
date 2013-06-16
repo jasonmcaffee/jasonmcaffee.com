@@ -1,7 +1,7 @@
 define(["handlebars", "core/util/log"], function(Handlebars, log){ 
-log("soundsPage precompiled template function module loaded."); 
+log("instrumentEdit precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
-templates['soundsPage'] = template(function (Handlebars,depth0,helpers,partials,data) {
+templates['instrumentEdit'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
   var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
 
@@ -76,6 +76,6 @@ function program4(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </select>\n\n    </form>\n</div>";
   return buffer;}); 
-Handlebars.registerPartial("soundsPage", templates["soundsPage"]); 
-return templates["soundsPage"]; 
+Handlebars.registerPartial("instrumentEdit", templates["instrumentEdit"]); 
+return templates["instrumentEdit"]; 
 });

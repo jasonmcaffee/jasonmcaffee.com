@@ -17363,10 +17363,12 @@ log("chordical precompiled template function module loaded.");
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
 templates['chordical'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
-  var foundHelper, self=this;
+  var buffer = "", foundHelper, self=this;
 
 
-  return "<div id=\"chordical-page\">\n    <h1>Chordical </h1>\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/sounds\">sounds</a></div>\n    </div>\n\n\n\n    <div id=\"keyboardContainer\">\n\n    </div>\n</div>";}); 
+  buffer += "<div id=\"chordical-page\">\n    <h1>Chordical </h1>\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/instrument\">instrument</a></div>\n    </div>\n\n\n    ";
+  buffer += "\n    <div id=\"keyboardContainer\">\n    </div>\n\n\n</div>";
+  return buffer;}); 
 Handlebars.registerPartial("chordical", templates["chordical"]); 
 return templates["chordical"]; 
 });
@@ -17441,14 +17443,16 @@ define('lib/widgets/chordical/keyboard',[
             var noteToPlay = $this.attr('note');
             core.log('note pressed: ' + noteToPlay);
             var playableNote= this.model.notes[noteToPlay].playableNote;
-            playableNote.play();
+            this.model.instrument.playNote(playableNote);
+            //playableNote.play();
         },
         handleNoteRelease:function(e){
             var $this = $(e.currentTarget);
             var noteToStop = $this.attr('note');
             core.log('note released: ' + noteToStop);
             var playableNote= this.model.notes[noteToStop].playableNote;
-            playableNote.stop();
+            this.model.instrument.stopNote(playableNote);
+            //playableNote.stop();
         }
     });
 
@@ -17481,10 +17485,10 @@ define('lib/views/Chordical',[
 
     return View;
 });
-define('compiled-templates/chordical/soundsPage',["handlebars", "core/util/log"], function(Handlebars, log){ 
-log("soundsPage precompiled template function module loaded."); 
+define('compiled-templates/chordical/instrumentEdit',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("instrumentEdit precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
-templates['soundsPage'] = template(function (Handlebars,depth0,helpers,partials,data) {
+templates['instrumentEdit'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
   var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
 
@@ -17559,12 +17563,12 @@ function program4(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </select>\n\n    </form>\n</div>";
   return buffer;}); 
-Handlebars.registerPartial("soundsPage", templates["soundsPage"]); 
-return templates["soundsPage"]; 
+Handlebars.registerPartial("instrumentEdit", templates["instrumentEdit"]); 
+return templates["instrumentEdit"]; 
 });
-define('lib/views/chordical/Sounds',[
+define('lib/views/chordical/InstrumentEdit',[
     'core/core',
-    'compiled-templates/chordical/soundsPage'
+    'compiled-templates/chordical/instrumentEdit'
 ], function (core, soundsTemplate) {
     core.log('Sounds View module loaded');
 
@@ -17669,7 +17673,7 @@ define('lib/models/chordical/Note',[
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
 
-            if(!attributes.sound){core.log('ERROR: sound is required to construct a note'); return;}
+            if(!attributes.instrument){core.log('ERROR: instrument is required to construct a note'); return;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
 
@@ -17701,7 +17705,7 @@ define('lib/models/chordical/Note',[
             //touch events can be weird. prevent notes from never ending.
             if(this.isPlaying){return;}
             this.isPlaying = true;
-            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
             switch(this.selectedSound.type){
                 case  'oscillator': this._playOscillator(); break;
             }
@@ -17717,7 +17721,7 @@ define('lib/models/chordical/Note',[
         stop:function(){
             this.isPlaying = false;
             core.log('Note.stop() called');
-            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
             switch(this.selectedSound.type){
                 case  'oscillator': this._stopOscillator(); break;
             }
@@ -17740,10 +17744,10 @@ define('lib/models/chordical/Note',[
 
     return NoteModel;
 });
-define('lib/models/chordical/Sound',[
+define('lib/models/chordical/Instrument',[
     'core/core'
 ], function (core) {
-    core.log('Sound Model module loaded.');
+    core.log('Instrument Model module loaded.');
 
     /**
      * Used for the sound page of chordical. lets users pick different instruments(sounds), and stores selected preferences.
@@ -17759,7 +17763,7 @@ define('lib/models/chordical/Sound',[
             //sounds to choose from for instrument
             soundOptions:{
                 'oscillator': {
-                    type:'oscillator', //can't access property name in certain situations. may be temporary.
+                    type:'oscillator', //can't access property name in certain situations, so we need this redundant property. may be temporary.
                     subTypes:[
                         'SAWTOOTH', 'SINE', 'SQUARE', 'TRIANGLE'
                     ],
@@ -17767,7 +17771,12 @@ define('lib/models/chordical/Sound',[
                 }
             },
             selectedSound:0
-
+        },
+        playNote:function(playableNote){
+            playableNote.play();
+        },
+        stopNote:function(playableNote){
+            playableNote.stop();
         }
     });
 
@@ -17776,11 +17785,11 @@ define('lib/models/chordical/Sound',[
 define('lib/controllers/Chordical',[
     'core/core',
     'lib/views/Chordical',
-    'lib/views/chordical/Sounds',
+    'lib/views/chordical/InstrumentEdit',
     'lib/models/chordical/Note',
     'lib/models/chordical/notes',
-    'lib/models/chordical/Sound'
-], function(core, ChordicalView, SoundsView, NoteModel, notes, SoundModel){
+    'lib/models/chordical/Instrument'
+], function(core, ChordicalView, InstrumentEditView, NoteModel, notes, InstrumentModel){
     core.log('Chordical controller module loaded');
 
     var Controller = core.mvc.Controller.extend({
@@ -17793,7 +17802,7 @@ define('lib/controllers/Chordical',[
 
             switch(pageName){
                 case "edit": this.editPageAction(); break;
-                case "sounds":this.soundsPageAction(); break;
+                case "instrument":this.instrumentPageAction(); break;
                 default:this.homePageAction();
             }
 
@@ -17802,23 +17811,25 @@ define('lib/controllers/Chordical',[
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
 
-            //sound dictates how the notes are constructed
-            this.getSoundsModel();
+            //instrument dictates how the notes are constructed   (selected sound, destination, etc)
+            this.getInstrumentModel();
 
-            //create a note model for each note
+            //create a note model for each note.
+            //keyboard widget uses this to play notes via the instrument.
             for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note, sound:this.soundModel});
+                notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
             }
             this.notesModel = {
-                notes: notes
+                notes: notes,
+                instrument: this.instrumentModel
             };
             return this.notesModel;
         },
-        getSoundsModel:function(){
+        getInstrumentModel:function(){
             core.log('Chordical Controller createSoundsModel called');
-            if(this.soundModel){return this.soundModel;}
-            this.soundModel = new SoundModel();
-            return this.soundModel;
+            if(this.instrumentModel){return this.instrumentModel;}
+            this.instrumentModel = new InstrumentModel();
+            return this.instrumentModel;
         },
         homePageAction:function(){
             core.log('home page action called.');
@@ -17831,12 +17842,12 @@ define('lib/controllers/Chordical',[
         editPageAction:function(){
             alert('edit not implemented yet');
         },
-        soundsPageAction:function(){
-            this.getSoundsModel();
-            this.soundsView = new SoundsView({model:this.soundModel});
-            core.log('selectedSoundOption: ' + this.soundModel.attributes.selectedSoundOption);
-            this.soundsView.render();
-            core.ui.transitionPage(this.soundsView);
+        instrumentPageAction:function(){
+            this.getInstrumentModel();
+            this.instrumentEditView = new InstrumentEditView({model:this.instrumentModel});
+            core.log('selectedSoundOption: ' + this.instrumentModel.attributes.selectedSoundOption);
+            this.instrumentEditView.render();
+            core.ui.transitionPage(this.instrumentEditView);
         }
     });
 

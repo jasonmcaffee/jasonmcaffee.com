@@ -1,11 +1,11 @@
 define([
     'core/core',
     'lib/views/Chordical',
-    'lib/views/chordical/Sounds',
+    'lib/views/chordical/InstrumentEdit',
     'lib/models/chordical/Note',
     'lib/models/chordical/notes',
-    'lib/models/chordical/Sound'
-], function(core, ChordicalView, SoundsView, NoteModel, notes, SoundModel){
+    'lib/models/chordical/Instrument'
+], function(core, ChordicalView, InstrumentEditView, NoteModel, notes, InstrumentModel){
     core.log('Chordical controller module loaded');
 
     var Controller = core.mvc.Controller.extend({
@@ -18,7 +18,7 @@ define([
 
             switch(pageName){
                 case "edit": this.editPageAction(); break;
-                case "sounds":this.soundsPageAction(); break;
+                case "instrument":this.instrumentPageAction(); break;
                 default:this.homePageAction();
             }
 
@@ -27,23 +27,25 @@ define([
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
 
-            //sound dictates how the notes are constructed
-            this.getSoundsModel();
+            //instrument dictates how the notes are constructed   (selected sound, destination, etc)
+            this.getInstrumentModel();
 
-            //create a note model for each note
+            //create a note model for each note.
+            //keyboard widget uses this to play notes via the instrument.
             for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note, sound:this.soundModel});
+                notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
             }
             this.notesModel = {
-                notes: notes
+                notes: notes,
+                instrument: this.instrumentModel
             };
             return this.notesModel;
         },
-        getSoundsModel:function(){
+        getInstrumentModel:function(){
             core.log('Chordical Controller createSoundsModel called');
-            if(this.soundModel){return this.soundModel;}
-            this.soundModel = new SoundModel();
-            return this.soundModel;
+            if(this.instrumentModel){return this.instrumentModel;}
+            this.instrumentModel = new InstrumentModel();
+            return this.instrumentModel;
         },
         homePageAction:function(){
             core.log('home page action called.');
@@ -56,12 +58,12 @@ define([
         editPageAction:function(){
             alert('edit not implemented yet');
         },
-        soundsPageAction:function(){
-            this.getSoundsModel();
-            this.soundsView = new SoundsView({model:this.soundModel});
-            core.log('selectedSoundOption: ' + this.soundModel.attributes.selectedSoundOption);
-            this.soundsView.render();
-            core.ui.transitionPage(this.soundsView);
+        instrumentPageAction:function(){
+            this.getInstrumentModel();
+            this.instrumentEditView = new InstrumentEditView({model:this.instrumentModel});
+            core.log('selectedSoundOption: ' + this.instrumentModel.attributes.selectedSoundOption);
+            this.instrumentEditView.render();
+            core.ui.transitionPage(this.instrumentEditView);
         }
     });
 

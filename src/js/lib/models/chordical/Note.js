@@ -13,7 +13,7 @@ define([
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
 
-            if(!attributes.sound){core.log('ERROR: sound is required to construct a note'); return;}
+            if(!attributes.instrument){core.log('ERROR: instrument is required to construct a note'); return;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
 
@@ -45,7 +45,7 @@ define([
             //touch events can be weird. prevent notes from never ending.
             if(this.isPlaying){return;}
             this.isPlaying = true;
-            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
             switch(this.selectedSound.type){
                 case  'oscillator': this._playOscillator(); break;
             }
@@ -61,7 +61,7 @@ define([
         stop:function(){
             this.isPlaying = false;
             core.log('Note.stop() called');
-            this.selectedSound = this.get('sound').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
             switch(this.selectedSound.type){
                 case  'oscillator': this._stopOscillator(); break;
             }

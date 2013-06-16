@@ -31,14 +31,16 @@ define([
             var noteToPlay = $this.attr('note');
             core.log('note pressed: ' + noteToPlay);
             var playableNote= this.model.notes[noteToPlay].playableNote;
-            playableNote.play();
+            this.model.instrument.playNote(playableNote);
+            //playableNote.play();
         },
         handleNoteRelease:function(e){
             var $this = $(e.currentTarget);
             var noteToStop = $this.attr('note');
             core.log('note released: ' + noteToStop);
             var playableNote= this.model.notes[noteToStop].playableNote;
-            playableNote.stop();
+            this.model.instrument.stopNote(playableNote);
+            //playableNote.stop();
         }
     });
 
