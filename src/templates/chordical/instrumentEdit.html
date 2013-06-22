@@ -21,11 +21,12 @@
         </div>
 
         <div id="soundNodesContainer" class="sound-nodes-section">
-            {{#each soundNodes}}
-                {{! just create a container. the SoundNode widget will inject html into container}}
-                <div id="soundNodeContainer{{this.uiId}}">sound node.</div>
-            {{/each}}
         </div>
 
     </form>
 </div>
+
+{{! #each soundNodes}}
+{{! just create a container. the SoundNode widget will inject html into container}}
+<!--<div id="soundNodeContainer{{this.uiId}}">sound node.</div>-->
+{{! /each}}

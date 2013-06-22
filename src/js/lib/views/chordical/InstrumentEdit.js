@@ -11,20 +11,37 @@ define([
         bindViewToModel: true,
         initialize:function(){
             core.mvc.View.prototype.initialize.apply(this, arguments);
-            for(var soundNode in this.model.get('soundNodes')){
-                core.log('Instrument View creating soundNode Widget');
-                this.options.widgets.push({
-                    selector:'soundNodeContainer'+soundNode.uiId,
-                    widget:new SoundNodeWidget()
-                });
+            this.createSoundNodeWidgetsUsingModel();
+        },
+        createSoundNodeWidgetsUsingModel:function(){
+            var soundNodes = this.model.get('soundNodes');
+            for(var x=0; x < soundNodes.length; ++x){
+                var soundNode = soundNodes[x];
+                this.createSoundNodeWidgetAndAddToWidgets(soundNode);
             }
+        },
+        createSoundNodeWidgetAndAddToWidgets:function(soundNodeModel){
+            core.log('Instrument View creating soundNode Widget for model with uiId:' + soundNodeModel.uiId);
+            this.options.widgets.push({
+                selector:'#soundNodesContainer', //+soundNode.uiId,
+                widget:new SoundNodeWidget({
+                    id:'soundNodeContainer'+soundNodeModel.uiId
+                })
+            });
         },
         events:{
             "click #addNodeButton":function (e) {
                 core.log('Instrument add node button clicked');
                 e.preventDefault();
-                var soundNodeWidget = new SoundNodeWidget();
-                this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
+                var soundNodeModel = {
+                    type:'gain',
+                    value1:22,
+                    uiId:this.model.get('soundNodes').length
+                };
+                this.model.get('soundNodes').push(soundNodeModel);
+                //var soundNodeWidget = new SoundNodeWidget();
+                //this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
+                this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.render();
             }
         },

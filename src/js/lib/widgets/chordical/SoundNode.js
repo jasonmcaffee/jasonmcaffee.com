@@ -5,7 +5,7 @@ define([
     core.log('SoundNode View module loaded');
 
     var View = core.mvc.View.extend({
-        id:'soundNode', // each view needs a unique id for transitions.
+        id:'', // each view needs a unique id for transitions.
         template:soundNodeTemplate,
         isWidget:true,
         //bindViewToModel:true,

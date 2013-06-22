@@ -104,6 +104,7 @@ define([
 
             _.each(this.options.widgets, function(widgetMap){
                 this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
+                widgetMap.widget.delegateEvents(); //ensure widget events get fired
             }, this);
 
             _.each(this.options.templates, function(templateMap){
