@@ -16,6 +16,7 @@ define([
             if(!attributes.instrument){core.log('ERROR: instrument is required to construct a note'); return;}
             if(!attributes.note){attributes.note = 'c';}
             if(!attributes.octave){attributes.octave = 3;}
+//            if(!attributes.destination){attributes.destination = core.audio.audioContext.destination;}     cant do this here. do it on play
 
             var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
             this.set({frequency:frequency});
@@ -54,8 +55,8 @@ define([
             this.oscillator = this.context.createOscillator();
             this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
             this.oscillator.frequency.value = this.get('frequency');
-            this.oscillator.connect(this.context.destination); // Connect our oscillator to the speakers.
-
+            this.oscillator.connect(this.attributes.destination || this.context.destination); // Connect our oscillator to the speakers.
+            //this.oscillator.connect(this.get('destination'));
             this.oscillator.noteOn(0);
         },
         stop:function(){

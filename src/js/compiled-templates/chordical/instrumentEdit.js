@@ -51,7 +51,18 @@ function program4(depth0,data) {
   
   return "selected";}
 
-  buffer += "<div id=\"sounds-page\">\n    Sounds\n\n    <form action=\"/sounds\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
+function program6(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n                ";
+  buffer += "\n                <div id=\"soundNodeContainer";
+  stack1 = depth0.uiId;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.uiId", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">sound node.</div>\n            ";
+  return buffer;}
+
+  buffer += "<div id=\"sounds-page\">\n    <h2>Sounds </h2>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
   stack1 = foundHelper || depth0.soundOptions;
   foundHelper = helpers.each_property;
@@ -74,7 +85,17 @@ function program4(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        </select>\n\n    </form>\n</div>";
+  buffer += "\n        </select>\n\n        <div class=\"add-node-section\">\n            <h3>Add Node</h3>\n            <button id=\"addNodeButton\">Add Node</button>\n        </div>\n\n        <div id=\"soundNodesContainer\" class=\"sound-nodes-section\">\n            ";
+  foundHelper = helpers.soundNodes;
+  stack1 = foundHelper || depth0.soundNodes;
+  stack2 = helpers.each;
+  tmp1 = self.program(6, program6, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </div>\n\n    </form>\n</div>";
   return buffer;}); 
 Handlebars.registerPartial("instrumentEdit", templates["instrumentEdit"]); 
 return templates["instrumentEdit"]; 

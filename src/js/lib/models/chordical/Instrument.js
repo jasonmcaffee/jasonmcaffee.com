@@ -7,7 +7,7 @@ define([
      * Used for the sound page of chordical. lets users pick different instruments(sounds), and stores selected preferences.
      * @type {*}
      */
-    var SoundModel = core.mvc.Model.extend({
+    var InstrumentModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
@@ -24,7 +24,15 @@ define([
                     selectedSubType:0
                 }
             },
-            selectedSound:0
+            selectedSound:0,
+            //gain, pan, etc array of nodes that the sound will pass through before reaching speakers.
+            soundNodes:[
+                {
+                    type:'gain',
+                    value1:1,
+                    uiId:0 //so the ui can have unique ids (soundNode0)
+                }
+            ]
         },
         playNote:function(playableNote){
             playableNote.play();
@@ -34,5 +42,5 @@ define([
         }
     });
 
-    return SoundModel;
+    return InstrumentModel;
 });

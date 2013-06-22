@@ -1,7 +1,7 @@
 <div id="sounds-page">
-    Sounds
+    <h2>Sounds </h2>
 
-    <form action="/sounds" id="soundsForm">
+    <form action="/instrument" id="soundsForm">
 
         <select name="selectedSound">
             {{#each_property soundOptions}}
@@ -14,6 +14,18 @@
                 <option value="{{this}}" {{#if_conditional this ../selectedSound.selectedSubType}}selected{{/if_conditional}}>{{this}}</option>
             {{/each}}
         </select>
+
+        <div class="add-node-section">
+            <h3>Add Node</h3>
+            <button id="addNodeButton">Add Node</button>
+        </div>
+
+        <div id="soundNodesContainer" class="sound-nodes-section">
+            {{#each soundNodes}}
+                {{! just create a container. the SoundNode widget will inject html into container}}
+                <div id="soundNodeContainer{{this.uiId}}">sound node.</div>
+            {{/each}}
+        </div>
 
     </form>
 </div>
