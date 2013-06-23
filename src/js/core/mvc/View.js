@@ -4,6 +4,15 @@ define([
     'jquery',
     'underscore'
 ], function(Backbone, log, $, _){
+
+    /**
+     * This extended view has some powerful features:
+     * - widget/subview support
+     * - model binding - changes to the dom automatically update the model when bindViewToModel is true.
+     *  - if widgets have bindViewToModel, parent view model is not updated
+     * - modelEvents - config for registering model.on('event') callbacks. similar to events config.
+     * @type {*}
+     */
     var View = Backbone.View.extend({
         template: null, //you should define a template function
         bindViewToModel:false, //set to true if you want all input changes to update bb model.
@@ -97,6 +106,7 @@ define([
                 }
             }
         },
+
         /**
          * renders the view by iterating over widgets and templates, rendering each and appending to the dom.
          * todo: it is inefficient to generate html, append to dom, search dom, and then modify dom
@@ -106,31 +116,24 @@ define([
         render : function(){
             log('Core View render called.');
 
-
             this.$el.html(this.template(this.getModelAsJSON()));
 
             _.each(this.options.widgets, function(widgetMap){
                 this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
                 widgetMap.widget.delegateEvents(); //ensure widget events get fired
             }, this);
-//            for(var i=0; i < this.options.widgets.length; ++i){
-//                var widgetMap = this.options.widgets[i];
-//                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
-//                widgetMap.widget.delegateEvents(); //ensure widget events get fired
-//            }
 
             _.each(this.options.templates, function(templateMap){
                 this.$el.find(templateMap.selector).append(templateMap.template(this.getModelAsJSON()));
             }, this);
 
-
             if(this.postRender){
                 this.postRender();
             }
 
-
             return this;
         },
+
         /**
          * finds all widgets with matching selector. empties selector html and appends each matching widget html to it.
          * @param selector
@@ -143,8 +146,8 @@ define([
                 widgetMap.widget.delegateEvents(); //ensure widget events get fired
             }, this);
         },
-        //any changes in the view will update the view's model.
-        //note: not sure if this will work in all situations yet. WIP
+
+
         /**
          * inputs & selects must have either an id or name which will be what is used to update the model.
          * e.g. <select name='test'> will update this.model.test
