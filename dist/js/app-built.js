@@ -12378,6 +12378,10 @@ define('core/mvc/View',[
      * - model binding - changes to the dom automatically update the model when bindViewToModel is true.
      *  - if widgets have bindViewToModel, parent view model is not updated
      * - modelEvents - config for registering model.on('event') callbacks. similar to events config.
+     * - models can be backbone models or plain object literals
+     * - sub templates - you can have an array of templates with selectors which corresponding elements will be updated with the template result.
+     *
+     * todo: subwidget model binding is triggering change twice. an update event isn't sent on the second trigger (since value is the same) but still needs to be fixed only to occur once.
      * @type {*}
      */
     var View = Backbone.View.extend({
@@ -12394,9 +12398,10 @@ define('core/mvc/View',[
             if(!this.isWidget){
                 this.$el.addClass('page');
             }
-            if(this.bindViewToModel){
-                this._bindViewToModel();
-            }
+            //do this in delegateEvents instead.
+//            if(this.bindViewToModel){
+//                this._bindViewToModel();
+//            }
         },
         /**
          * Override base delegateEvents so that we can add modelEvents binding.
@@ -12404,6 +12409,9 @@ define('core/mvc/View',[
          */
         delegateEvents:function (events) {
             //core.log('baseView.delegateEvents called');
+            if(this.bindViewToModel){
+                this._bindViewToModel();
+            }
             Backbone.View.prototype.delegateEvents.apply(this, arguments); //default functionality
             this.delegateOrUndelegateModelEvents(this.modelEvents, this.model, true); //custom functionality
         },
@@ -12412,6 +12420,9 @@ define('core/mvc/View',[
          */
         undelegateEvents:function () {
             // core.log('baseView.undelegateEvents called.');
+            if(this.bindViewToModel){
+                this._unbindViewToModel();
+            }
             Backbone.View.prototype.undelegateEvents.apply(this, arguments); //default functionality
             this.delegateOrUndelegateModelEvents(this.modelEvents, this.model, false);//custom functionality.
         },
@@ -12514,16 +12525,14 @@ define('core/mvc/View',[
             }, this);
         },
 
-
         /**
-         * inputs & selects must have either an id or name which will be what is used to update the model.
-         * e.g. <select name='test'> will update this.model.test
+         * When a change occurs and model binding is enabled, this callback will be registered.
+         * Needs to be in a separately named function so we can call off during delegateEvents/undelegateEvents
+         * @param e
          * @private
          */
-        _bindViewToModel:function(){
-            log('Core View bindViewToModel called.');
+        _handleDomEventForModelBinding : function(e){
             var self = this;
-
             //helper function which calls 'set' on backbone model or uses normal access updating (obj[name] = newVal)
             function setValueUsingSetOrThroughAccessor(objToUpdate, name, newVal, lastBackboneObject, lastBackboneObjectPropertyName, lastPathToBackboneObjectSubProperty){
                 if(objToUpdate && objToUpdate.set){
@@ -12547,65 +12556,81 @@ define('core/mvc/View',[
                     setValueUsingSetOrThroughAccessor(obj, propName, {});
                 }
             }
-            this.$el.on('change', 'input, select', function(e){
-                log('change occurred which was registered by bindViewToModel.');
-                if(!this.model){return;}
-                var $this = $(e.currentTarget);
-                var inputName = $this.attr('name') || $this.attr('id');
 
-                if(!inputName || inputName == ''){log('a {0} element was changed but it does not have an id or name attribute. binding cannot occur'); return;}
+            log('change occurred which was registered by bindViewToModel.');
+            if(!this.model){return;}
+            var $this = $(e.currentTarget);
+            var inputName = $this.attr('name') || $this.attr('id');
 
-                //do not update parent view if widgets have bindViewToModel set to true.
-                for(var x=0; x <  this.options.widgets.length; ++x){
-                    var widgetMap = this.options.widgets[x];
-                    if(widgetMap.widget.bindViewToModel){
-                        log('-- view has a widget which binds changes to its model. checking to see if parent view or widget should be updated');
-                        var shouldSelectByName = inputName === $this.attr('name');
-                        var inputSelector = shouldSelectByName ? '[name="'+inputName+'"]' : '#'+inputName;
-                        inputSelector = e.currentTarget.nodeName + inputSelector;
-                        log('-- input selector is: ' + inputSelector);
-                        if(widgetMap.widget.$el.find(inputSelector)){
-                            log('-- a subview/widget is binding to model and has the changed element. not updating this parents model');
-                            return;
-                        }
+            if(!inputName || inputName == ''){log('a {0} element was changed but it does not have an id or name attribute. binding cannot occur'); return;}
+
+            //do not update parent view if widgets have bindViewToModel set to true.
+            for(var x=0; x <  this.options.widgets.length; ++x){
+                var widgetMap = this.options.widgets[x];
+                if(widgetMap.widget.bindViewToModel){
+                    log('-- view has a widget which binds changes to its model. checking to see if parent view model or widget model should be updated');
+                    var shouldSelectByName = inputName === $this.attr('name');
+                    var inputSelector = shouldSelectByName ? '[name="'+inputName+'"]' : '#'+inputName;
+                    inputSelector = e.currentTarget.nodeName + inputSelector;
+                    log('-- input selector is: ' + inputSelector);
+                    var widgetHasElement =  widgetMap.widget.$el.find(inputSelector);
+                    widgetHasElement = widgetHasElement.length > 0;
+                    if(widgetHasElement){
+                        log('-- a subview/widget is binding to model and has the changed element. not updating this parents model');
+                        return;
                     }
                 }
+            }
 
-                var newVal = $this.val(),
-                    lastBackboneObject, //when nested objects aren't bb models, we'll need the last bb object so we can call set on it and trigger change.
-                    lastBackboneObjectPropertyName, //so we can do this: lastBackboneObject.set({lastBbpropname:val});
-                    lastPathToBackboneObjectSubProperty; //"obj.sub1.sub2" if sub1 isn't backbone object result on last iteration should be "sub1.sub2"
-                    //lastPathArrayToBackboneObjectSubProperty;
-                //allow sub object update
-                if(inputName.indexOf('.') > 0){
-                    var names = inputName.split('.');
-                    var propToUpdate = self.model;
+            var newVal = $this.val(),
+                lastBackboneObject, //when nested objects aren't bb models, we'll need the last bb object so we can call set on it and trigger change.
+                lastBackboneObjectPropertyName, //so we can do this: lastBackboneObject.set({lastBbpropname:val});
+                lastPathToBackboneObjectSubProperty; //"obj.sub1.sub2" if sub1 isn't backbone object result on last iteration should be "sub1.sub2"
+            //lastPathArrayToBackboneObjectSubProperty;
+            //allow sub object update
+            if(inputName.indexOf('.') > 0){
+                var names = inputName.split('.');
+                var propToUpdate = self.model;
 
-                    for(var i=0; i<names.length;++i){
-                        var lastIteration = i == names.length -1;
-                        var name = names[i];
+                for(var i=0; i<names.length;++i){
+                    var lastIteration = i == names.length -1;
+                    var name = names[i];
 
-                        if(lastIteration){
-                            setValueUsingSetOrThroughAccessor(propToUpdate, name, newVal, lastBackboneObject, lastBackboneObjectPropertyName, lastPathToBackboneObjectSubProperty);
+                    if(lastIteration){
+                        setValueUsingSetOrThroughAccessor(propToUpdate, name, newVal, lastBackboneObject, lastBackboneObjectPropertyName, lastPathToBackboneObjectSubProperty);
+                    }else{
+
+                        ensureSubObjectExists(propToUpdate, name);
+                        if(propToUpdate.get){
+                            lastBackboneObject = propToUpdate;
+                            lastBackboneObjectPropertyName = name;
+                            lastPathToBackboneObjectSubProperty = names.slice(i + 1).join('.');
+                            //lastPathToBackboneObjectSubProperty = lastPathArrayToBackboneObjectSubProperty.join('.');
+                            propToUpdate = propToUpdate.get(name);
                         }else{
-
-                            ensureSubObjectExists(propToUpdate, name);
-                            if(propToUpdate.get){
-                                lastBackboneObject = propToUpdate;
-                                lastBackboneObjectPropertyName = name;
-                                lastPathToBackboneObjectSubProperty = names.slice(i + 1).join('.');
-                                //lastPathToBackboneObjectSubProperty = lastPathArrayToBackboneObjectSubProperty.join('.');
-                                propToUpdate = propToUpdate.get(name);
-                            }else{
-                                propToUpdate = propToUpdate[name];
-                            }
+                            propToUpdate = propToUpdate[name];
                         }
                     }
-                }else{
-                    setValueUsingSetOrThroughAccessor(self.model, inputName, newVal);
                 }
-            }.bind(this));
+            }else{
+                setValueUsingSetOrThroughAccessor(self.model, inputName, newVal);
+            }
+        },
 
+        /**
+         * inputs & selects must have either an id or name which will be what is used to update the model.
+         * e.g. <select name='test'> will update this.model.test
+         * @private
+         */
+        _bindViewToModel:function(){
+            log('Core View bindViewToModel called.');
+            var self = this;
+            this.$el.on('change', 'input, select', this._handleDomEventForModelBinding.bind(this));
+        },
+
+        _unbindViewToModel:function(){
+            log('Core View unbindViewToModel called.');
+            this.$el.off('change', 'input, select', this._handleDomEventForModelBinding.bind(this));
         },
 
         postRender:null,//optional
@@ -17645,44 +17670,68 @@ templates['soundNode'] = template(function (Handlebars,depth0,helpers,partials,d
   helpers = helpers || Handlebars.helpers;
   var buffer = "", stack1, stack2, stack3, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
 
-function program1(depth0,data) {
+function program1(depth0,data,depth1) {
   
-  var buffer = "", stack1;
+  var buffer = "", stack1, stack2, stack3;
   buffer += "\n            <option value=\"";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">";
+  buffer += escapeExpression(stack1) + "\" ";
+  foundHelper = helpers.selectedNodeType;
+  stack1 = foundHelper || depth1.selectedNodeType;
+  stack2 = depth0;
+  foundHelper = helpers.if_conditional;
+  stack3 = foundHelper || depth0.if_conditional;
+  tmp1 = self.program(2, program2, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack2, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ">";
   stack1 = depth0;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</option>\n        ";
   return buffer;}
-
-function program3(depth0,data) {
+function program2(depth0,data) {
   
   
-  return "\n        gain\n    ";}
+  return "selected";}
 
-  buffer += "<div class=\"sound-node\">\n    <h4>sound node</h4>\n\n    <label>Node Type</label>\n    <select name=\"nodeType\">\n        ";
+function program4(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        <div>\n            <label>Amount</label>\n            <input name=\"gain.amount\" type=\"range\" min=\"1\" max=\"100\" value=\"";
+  foundHelper = helpers.gain;
+  stack1 = foundHelper || depth0.gain;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.amount);
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "gain.amount", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n        </div>\n    ";
+  return buffer;}
+
+  buffer += "<div class=\"sound-node\">\n    <h4>sound node</h4>\n\n    <label>Node Type</label>\n    <select name=\"selectedNodeType\">\n        ";
   foundHelper = helpers.typeOptions;
   stack1 = foundHelper || depth0.typeOptions;
   stack2 = helpers.each;
-  tmp1 = self.program(1, program1, data);
+  tmp1 = self.programWithDepth(program1, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </select>\n\n    ";
-  foundHelper = helpers.type;
-  stack1 = foundHelper || depth0.type;
+  foundHelper = helpers.selectedNodeType;
+  stack1 = foundHelper || depth0.selectedNodeType;
   stack2 = {};
   stack3 = "gain";
   stack2['compare'] = stack3;
   foundHelper = helpers.if_eq;
   stack3 = foundHelper || depth0.if_eq;
-  tmp1 = self.program(3, program3, data);
+  tmp1 = self.program(4, program4, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -17700,6 +17749,11 @@ define('lib/widgets/chordical/SoundNode',[
 ], function (core, soundNodeTemplate) {
     core.log('SoundNode View module loaded');
 
+    /**
+     * UI for sound nodes, which allow you to chain destinations (effects) together.
+     *
+     * @type {*}
+     */
     var View = core.mvc.View.extend({
         id:'', // each view needs a unique id for transitions.
         template:soundNodeTemplate,
@@ -17709,6 +17763,12 @@ define('lib/widgets/chordical/SoundNode',[
         events:{
             "click":function (e) {
                 core.log('click for SoundNode occurred');
+            }
+        },
+        modelEvents:{
+            'change:selectedNodeType':function(){
+                core.log('refreshing html so the selectedNodeType options are displayed');
+                this.render();
             }
         }
     });
@@ -17725,7 +17785,13 @@ define('lib/models/chordical/SoundNode',[
             core.log('SoundNode Model initialize called');
         },
         defaults:{
-            typeOptions : ['filter', 'gain']
+            typeOptions : ['filter', 'gain'],
+            selectedNodeType: 'gain',
+            destination: core.audio.audioContext, //overwrite this when chaining.
+            //when the node is 'gain', these properties will be set by modelbinding, and should be used when playing notes.
+            gain:{
+                amount:75
+            }
         }
     });
 
@@ -17760,11 +17826,16 @@ define('lib/views/chordical/InstrumentEdit',[
                 selector:'#soundNodesContainer', //+soundNode.uiId,
                 widget:new SoundNodeWidget({
                     id:'soundNodeContainer'+soundNodeModel.get('uiId'),
-                    model:soundNodeModel //share the instrument model for now.
+                    model:soundNodeModel
                 })
             });
         },
         events:{
+
+            /**
+             * when addNode is clicked, a SoundNode model and widget is created, and the soundNodesContainer is regenerated.
+             * @param e
+             */
             "click #addNodeButton":function (e) {
                 core.log('Instrument add node button clicked');
                 e.preventDefault();
@@ -17774,12 +17845,13 @@ define('lib/views/chordical/InstrumentEdit',[
                     uiId:this.model.get('soundNodes').length
                 });
 
+                //http://stackoverflow.com/questions/7325004/backbone-js-set-model-array-property
                 this.model.get('soundNodes').push(soundNodeModel);
-                //var soundNodeWidget = new SoundNodeWidget();
-                //this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
+                this.model.trigger('change');
+                this.model.trigger('change:soundNodes');
+
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
-                //this.render();
             }
         },
         modelEvents:{
@@ -17788,6 +17860,9 @@ define('lib/views/chordical/InstrumentEdit',[
             },
             'subPropertyChange:selectedSound.selectedSubType':function(newVal){
                 core.log('Instrument View selectedSound subproperty changed to: ' + newVal);
+            },
+            'change:soundNodes':function(){
+                core.log('Instrument View sound nodes changed');
             }
         }
     });
@@ -17936,7 +18011,7 @@ define('lib/models/chordical/Note',[
             this.oscillator = this.context.createOscillator();
             this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
             this.oscillator.frequency.value = this.get('frequency');
-            this.oscillator.connect(this.attributes.destination || this.context.destination); // Connect our oscillator to the speakers.
+            this.oscillator.connect(this.get('destination') || this.context.destination); // Connect our oscillator to the speakers.
             //this.oscillator.connect(this.get('destination'));
             this.oscillator.noteOn(0);
         },
@@ -18043,7 +18118,7 @@ define('lib/controllers/Chordical',[
     var Controller = core.mvc.Controller.extend({
         initialize:function(){
             core.log('Chordical Controller constructor called.');
-            core.audio.init();
+            core.audio.init(); //in order to use web audio, we must create a new context, which will be assigned to core.audio.audioContext
         },
         action:function(routeName, pageName){
             core.log('Chordical Controller action called with routeName:{0} pageName:{1}', routeName, pageName);

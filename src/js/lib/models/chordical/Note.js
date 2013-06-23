@@ -76,7 +76,7 @@ define([
             this.oscillator = this.context.createOscillator();
             this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
             this.oscillator.frequency.value = this.get('frequency');
-            this.oscillator.connect(this.attributes.destination || this.context.destination); // Connect our oscillator to the speakers.
+            this.oscillator.connect(this.get('destination') || this.context.destination); // Connect our oscillator to the speakers.
             //this.oscillator.connect(this.get('destination'));
             this.oscillator.noteOn(0);
         },

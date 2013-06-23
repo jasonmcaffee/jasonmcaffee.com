@@ -16,7 +16,7 @@ define([
     var Controller = core.mvc.Controller.extend({
         initialize:function(){
             core.log('Chordical Controller constructor called.');
-            core.audio.init();
+            core.audio.init(); //in order to use web audio, we must create a new context, which will be assigned to core.audio.audioContext
         },
         action:function(routeName, pageName){
             core.log('Chordical Controller action called with routeName:{0} pageName:{1}', routeName, pageName);

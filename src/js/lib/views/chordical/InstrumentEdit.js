@@ -27,11 +27,16 @@ define([
                 selector:'#soundNodesContainer', //+soundNode.uiId,
                 widget:new SoundNodeWidget({
                     id:'soundNodeContainer'+soundNodeModel.get('uiId'),
-                    model:soundNodeModel //share the instrument model for now.
+                    model:soundNodeModel
                 })
             });
         },
         events:{
+
+            /**
+             * when addNode is clicked, a SoundNode model and widget is created, and the soundNodesContainer is regenerated.
+             * @param e
+             */
             "click #addNodeButton":function (e) {
                 core.log('Instrument add node button clicked');
                 e.preventDefault();
@@ -41,12 +46,13 @@ define([
                     uiId:this.model.get('soundNodes').length
                 });
 
+                //http://stackoverflow.com/questions/7325004/backbone-js-set-model-array-property
                 this.model.get('soundNodes').push(soundNodeModel);
-                //var soundNodeWidget = new SoundNodeWidget();
-                //this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
+                this.model.trigger('change');
+                this.model.trigger('change:soundNodes');
+
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
-                //this.render();
             }
         },
         modelEvents:{
@@ -55,6 +61,9 @@ define([
             },
             'subPropertyChange:selectedSound.selectedSubType':function(newVal){
                 core.log('Instrument View selectedSound subproperty changed to: ' + newVal);
+            },
+            'change:soundNodes':function(){
+                core.log('Instrument View sound nodes changed');
             }
         }
     });

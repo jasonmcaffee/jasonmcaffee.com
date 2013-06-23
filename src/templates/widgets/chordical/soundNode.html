@@ -2,13 +2,16 @@
     <h4>sound node</h4>
 
     <label>Node Type</label>
-    <select name="nodeType">
+    <select name="selectedNodeType">
         {{#each typeOptions}}
-            <option value="{{this}}">{{this}}</option>
+            <option value="{{this}}" {{#if_conditional this ../selectedNodeType}}selected{{/if_conditional}}>{{this}}</option>
         {{/each}}
     </select>
 
-    {{#if_eq type compare="gain"}}
-        gain
+    {{#if_eq selectedNodeType compare="gain"}}
+        <div>
+            <label>Amount</label>
+            <input name="gain.amount" type="range" min="1" max="100" value="{{gain.amount}}">
+        </div>
     {{/if_eq}}
 </div>
