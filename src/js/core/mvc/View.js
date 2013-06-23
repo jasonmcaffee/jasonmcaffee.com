@@ -97,8 +97,15 @@ define([
                 }
             }
         },
+        /**
+         * renders the view by iterating over widgets and templates, rendering each and appending to the dom.
+         * todo: it is inefficient to generate html, append to dom, search dom, and then modify dom
+         * instead, render widget via template, and attach widget instance to selector. call setElement on widget.
+         * @return {*}
+         */
         render : function(){
             log('Core View render called.');
+
 
             this.$el.html(this.template(this.getModelAsJSON()));
 
@@ -106,18 +113,43 @@ define([
                 this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
                 widgetMap.widget.delegateEvents(); //ensure widget events get fired
             }, this);
+//            for(var i=0; i < this.options.widgets.length; ++i){
+//                var widgetMap = this.options.widgets[i];
+//                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
+//                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+//            }
 
             _.each(this.options.templates, function(templateMap){
                 this.$el.find(templateMap.selector).append(templateMap.template(this.getModelAsJSON()));
             }, this);
 
+
             if(this.postRender){
                 this.postRender();
             }
+
+
             return this;
+        },
+        /**
+         * finds all widgets with matching selector. empties selector html and appends each matching widget html to it.
+         * @param selector
+         */
+        reRenderWidgetsWithSelector:function(selector){
+            var $widgetContainer = this.$el.find(selector);
+            $widgetContainer.html('');
+            _.each(this.options.widgets, function(widgetMap){
+                $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
+                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+            }, this);
         },
         //any changes in the view will update the view's model.
         //note: not sure if this will work in all situations yet. WIP
+        /**
+         * inputs & selects must have either an id or name which will be what is used to update the model.
+         * e.g. <select name='test'> will update this.model.test
+         * @private
+         */
         _bindViewToModel:function(){
             log('Core View bindViewToModel called.');
             var self = this;
@@ -146,9 +178,29 @@ define([
                 }
             }
             this.$el.on('change', 'input, select', function(e){
-                if(!self.model){return;}
-                var $this = $(this);
+                log('change occurred which was registered by bindViewToModel.');
+                if(!this.model){return;}
+                var $this = $(e.currentTarget);
                 var inputName = $this.attr('name') || $this.attr('id');
+
+                if(!inputName || inputName == ''){log('a {0} element was changed but it does not have an id or name attribute. binding cannot occur'); return;}
+
+                //do not update parent view if widgets have bindViewToModel set to true.
+                for(var x=0; x <  this.options.widgets.length; ++x){
+                    var widgetMap = this.options.widgets[x];
+                    if(widgetMap.widget.bindViewToModel){
+                        log('-- view has a widget which binds changes to its model. checking to see if parent view or widget should be updated');
+                        var shouldSelectByName = inputName === $this.attr('name');
+                        var inputSelector = shouldSelectByName ? '[name="'+inputName+'"]' : '#'+inputName;
+                        inputSelector = e.currentTarget.nodeName + inputSelector;
+                        log('-- input selector is: ' + inputSelector);
+                        if(widgetMap.widget.$el.find(inputSelector)){
+                            log('-- a subview/widget is binding to model and has the changed element. not updating this parents model');
+                            return;
+                        }
+                    }
+                }
+
                 var newVal = $this.val(),
                     lastBackboneObject, //when nested objects aren't bb models, we'll need the last bb object so we can call set on it and trigger change.
                     lastBackboneObjectPropertyName, //so we can do this: lastBackboneObject.set({lastBbpropname:val});
@@ -182,7 +234,7 @@ define([
                 }else{
                     setValueUsingSetOrThroughAccessor(self.model, inputName, newVal);
                 }
-            });
+            }.bind(this));
 
         },
 

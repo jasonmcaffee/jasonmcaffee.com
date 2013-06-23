@@ -8,7 +8,7 @@ define([
         id:'', // each view needs a unique id for transitions.
         template:soundNodeTemplate,
         isWidget:true,
-        //bindViewToModel:true,
+        bindViewToModel:true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
         events:{
             "click":function (e) {

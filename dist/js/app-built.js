@@ -12348,6 +12348,16 @@ define('core/plugins/handlebars/ifConditional',[
                 return options.inverse(this);
 
             });
+
+            /**
+             * If Equals
+             * if_eq this compare=that
+             */
+            Handlebars.registerHelper('if_eq', function(context, options) {
+                if (context == options.hash.compare)
+                    return options.fn(this);
+                return options.inverse(this);
+            });
         }
     };
 
@@ -12454,8 +12464,15 @@ define('core/mvc/View',[
                 }
             }
         },
+        /**
+         * renders the view by iterating over widgets and templates, rendering each and appending to the dom.
+         * todo: it is inefficient to generate html, append to dom, search dom, and then modify dom
+         * instead, render widget via template, and attach widget instance to selector. call setElement on widget.
+         * @return {*}
+         */
         render : function(){
             log('Core View render called.');
+
 
             this.$el.html(this.template(this.getModelAsJSON()));
 
@@ -12463,18 +12480,43 @@ define('core/mvc/View',[
                 this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
                 widgetMap.widget.delegateEvents(); //ensure widget events get fired
             }, this);
+//            for(var i=0; i < this.options.widgets.length; ++i){
+//                var widgetMap = this.options.widgets[i];
+//                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
+//                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+//            }
 
             _.each(this.options.templates, function(templateMap){
                 this.$el.find(templateMap.selector).append(templateMap.template(this.getModelAsJSON()));
             }, this);
 
+
             if(this.postRender){
                 this.postRender();
             }
+
+
             return this;
+        },
+        /**
+         * finds all widgets with matching selector. empties selector html and appends each matching widget html to it.
+         * @param selector
+         */
+        reRenderWidgetsWithSelector:function(selector){
+            var $widgetContainer = this.$el.find(selector);
+            $widgetContainer.html('');
+            _.each(this.options.widgets, function(widgetMap){
+                $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
+                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+            }, this);
         },
         //any changes in the view will update the view's model.
         //note: not sure if this will work in all situations yet. WIP
+        /**
+         * inputs & selects must have either an id or name which will be what is used to update the model.
+         * e.g. <select name='test'> will update this.model.test
+         * @private
+         */
         _bindViewToModel:function(){
             log('Core View bindViewToModel called.');
             var self = this;
@@ -12503,9 +12545,29 @@ define('core/mvc/View',[
                 }
             }
             this.$el.on('change', 'input, select', function(e){
-                if(!self.model){return;}
-                var $this = $(this);
+                log('change occurred which was registered by bindViewToModel.');
+                if(!this.model){return;}
+                var $this = $(e.currentTarget);
                 var inputName = $this.attr('name') || $this.attr('id');
+
+                if(!inputName || inputName == ''){log('a {0} element was changed but it does not have an id or name attribute. binding cannot occur'); return;}
+
+                //do not update parent view if widgets have bindViewToModel set to true.
+                for(var x=0; x <  this.options.widgets.length; ++x){
+                    var widgetMap = this.options.widgets[x];
+                    if(widgetMap.widget.bindViewToModel){
+                        log('-- view has a widget which binds changes to its model. checking to see if parent view or widget should be updated');
+                        var shouldSelectByName = inputName === $this.attr('name');
+                        var inputSelector = shouldSelectByName ? '[name="'+inputName+'"]' : '#'+inputName;
+                        inputSelector = e.currentTarget.nodeName + inputSelector;
+                        log('-- input selector is: ' + inputSelector);
+                        if(widgetMap.widget.$el.find(inputSelector)){
+                            log('-- a subview/widget is binding to model and has the changed element. not updating this parents model');
+                            return;
+                        }
+                    }
+                }
+
                 var newVal = $this.val(),
                     lastBackboneObject, //when nested objects aren't bb models, we'll need the last bb object so we can call set on it and trigger change.
                     lastBackboneObjectPropertyName, //so we can do this: lastBackboneObject.set({lastBbpropname:val});
@@ -12539,7 +12601,7 @@ define('core/mvc/View',[
                 }else{
                     setValueUsingSetOrThroughAccessor(self.model, inputName, newVal);
                 }
-            });
+            }.bind(this));
 
         },
 
@@ -17578,10 +17640,54 @@ log("soundNode precompiled template function module loaded.");
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
 templates['soundNode'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
-  var foundHelper, self=this;
+  var buffer = "", stack1, stack2, stack3, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
 
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            <option value=\"";
+  stack1 = depth0;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</option>\n        ";
+  return buffer;}
 
-  return "<div class=\"sound-node\">\n    sound node\n</div>";}); 
+function program3(depth0,data) {
+  
+  
+  return "\n        gain\n    ";}
+
+  buffer += "<div class=\"sound-node\">\n    <h4>sound node</h4>\n\n    <label>Node Type</label>\n    <select name=\"nodeType\">\n        ";
+  foundHelper = helpers.typeOptions;
+  stack1 = foundHelper || depth0.typeOptions;
+  stack2 = helpers.each;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    </select>\n\n    ";
+  foundHelper = helpers.type;
+  stack1 = foundHelper || depth0.type;
+  stack2 = {};
+  stack3 = "gain";
+  stack2['compare'] = stack3;
+  foundHelper = helpers.if_eq;
+  stack3 = foundHelper || depth0.if_eq;
+  tmp1 = self.program(3, program3, data);
+  tmp1.hash = stack2;
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n</div>";
+  return buffer;}); 
 Handlebars.registerPartial("soundNode", templates["soundNode"]); 
 return templates["soundNode"]; 
 });
@@ -17595,7 +17701,7 @@ define('lib/widgets/chordical/SoundNode',[
         id:'', // each view needs a unique id for transitions.
         template:soundNodeTemplate,
         isWidget:true,
-        //bindViewToModel:true,
+        bindViewToModel:true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
         events:{
             "click":function (e) {
@@ -17606,11 +17712,28 @@ define('lib/widgets/chordical/SoundNode',[
 
     return View;
 });
+define('lib/models/chordical/SoundNode',[
+    'core/core'
+], function (core) {
+    core.log('SoundNode Model module loaded.');
+
+    var SoundNodeModel = core.mvc.Model.extend({
+        initialize:function (attributes, options) {
+            core.log('SoundNode Model initialize called');
+        },
+        defaults:{
+            typeOptions : ['filter', 'gain']
+        }
+    });
+
+    return SoundNodeModel;
+});
 define('lib/views/chordical/InstrumentEdit',[
     'core/core',
     'compiled-templates/chordical/instrumentEdit',
-    'lib/widgets/chordical/SoundNode'
-], function (core, instrumentEditTemplate, SoundNodeWidget) {
+    'lib/widgets/chordical/SoundNode',
+    'lib/models/chordical/SoundNode'
+], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel) {
     core.log('Instrument View module loaded');
 
     var View = core.mvc.View.extend({
@@ -17624,8 +17747,8 @@ define('lib/views/chordical/InstrumentEdit',[
         createSoundNodeWidgetsUsingModel:function(){
             var soundNodes = this.model.get('soundNodes');
             for(var x=0; x < soundNodes.length; ++x){
-                var soundNode = soundNodes[x];
-                this.createSoundNodeWidgetAndAddToWidgets(soundNode);
+                var soundNodeModel = soundNodes[x];
+                this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
             }
         },
         createSoundNodeWidgetAndAddToWidgets:function(soundNodeModel){
@@ -17633,7 +17756,8 @@ define('lib/views/chordical/InstrumentEdit',[
             this.options.widgets.push({
                 selector:'#soundNodesContainer', //+soundNode.uiId,
                 widget:new SoundNodeWidget({
-                    id:'soundNodeContainer'+soundNodeModel.uiId
+                    id:'soundNodeContainer'+soundNodeModel.get('uiId'),
+                    model:soundNodeModel //share the instrument model for now.
                 })
             });
         },
@@ -17641,16 +17765,18 @@ define('lib/views/chordical/InstrumentEdit',[
             "click #addNodeButton":function (e) {
                 core.log('Instrument add node button clicked');
                 e.preventDefault();
-                var soundNodeModel = {
+                var soundNodeModel = new SoundNodeModel({
                     type:'gain',
                     value1:22,
                     uiId:this.model.get('soundNodes').length
-                };
+                });
+
                 this.model.get('soundNodes').push(soundNodeModel);
                 //var soundNodeWidget = new SoundNodeWidget();
                 //this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
-                this.render();
+                this.reRenderWidgetsWithSelector('#soundNodesContainer');
+                //this.render();
             }
         },
         modelEvents:{
@@ -17740,6 +17866,11 @@ define('lib/models/chordical/Note',[
     //var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
+    /**
+     * playable note which uses the instrument model to determine which sound types to play.
+     * the instrument model holds the user selected options, including oscillator type, sound nodes (gain, echo, etc), etc
+     * @type {*}
+     */
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
@@ -17753,9 +17884,7 @@ define('lib/models/chordical/Note',[
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);
 
-            this.context = core.audio.audioContext;
-
-
+            this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
         },
         defaults:{
 
@@ -17772,6 +17901,9 @@ define('lib/models/chordical/Note',[
             if(!match){core.log('no match found for note'); return;}
             return match.frequencies[octave];
         },
+        /**
+         * Uses the this.model's selected sound to play a note
+         */
         play:function(){
             core.log('Note.play() called');
             //touch events can be weird. prevent notes from never ending.
@@ -17782,6 +17914,21 @@ define('lib/models/chordical/Note',[
                 case  'oscillator': this._playOscillator(); break;
             }
         },
+        /**
+         * You must explicitly stop a note from playing after it has been play()ed
+         */
+        stop:function(){
+            this.isPlaying = false;
+            core.log('Note.stop() called');
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._stopOscillator(); break;
+            }
+        },
+        /**
+         * uses the selected sound's selectedSubType to play an oscillator type. (SINE, TRIANGLE, etc)
+         * @private
+         */
         _playOscillator:function(){
             this.oscillator = this.context.createOscillator();
             this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
@@ -17790,19 +17937,21 @@ define('lib/models/chordical/Note',[
             //this.oscillator.connect(this.get('destination'));
             this.oscillator.noteOn(0);
         },
-        stop:function(){
-            this.isPlaying = false;
-            core.log('Note.stop() called');
-            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
-            switch(this.selectedSound.type){
-                case  'oscillator': this._stopOscillator(); break;
-            }
 
-        },
+        /**
+         * Oscillators must be explicitly stopped after being played.
+         * @private
+         */
         _stopOscillator:function(){
             this.oscillator.noteOff(0);
             this.oscillator.disconnect();
         },
+        /**
+         * The selectedSubType select option stores string values for the applicable sub types. (SINE, TRIANGLE, etc)
+         * This function takes the stored string and converts it into webkit audio's
+         * @param stringSubType
+         * @return {Number}
+         */
         convertOscillatorSubTypeToNative:function(stringSubType){
             switch(stringSubType){
                 case 'SINE': return 0;
@@ -17817,8 +17966,9 @@ define('lib/models/chordical/Note',[
     return NoteModel;
 });
 define('lib/models/chordical/Instrument',[
-    'core/core'
-], function (core) {
+    'core/core',
+    'lib/models/chordical/SoundNode'
+], function (core, SoundNodeModel) {
     core.log('Instrument Model module loaded.');
 
     /**
@@ -17830,6 +17980,8 @@ define('lib/models/chordical/Instrument',[
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
             this.attributes.selectedSound.selectedSubType = this.attributes.selectedSound.subTypes[0];
+
+
         },
         defaults:{
             //sounds to choose from for instrument
@@ -17845,13 +17997,21 @@ define('lib/models/chordical/Instrument',[
             selectedSound:0,
             //gain, pan, etc array of nodes that the sound will pass through before reaching speakers.
             soundNodes:[
-                {
+                //create a default gain SoundNode
+                new SoundNodeModel({
                     type:'gain',
                     value1:1,
                     uiId:0 //so the ui can have unique ids (soundNode0)
-                }
+                })
+            ],
+            soundNodeOptions:[
+                'gain'
             ]
         },
+        /**
+         * plays a note through the instrument.
+         * @param playableNote
+         */
         playNote:function(playableNote){
             playableNote.play();
         },
@@ -17862,12 +18022,17 @@ define('lib/models/chordical/Instrument',[
 
     return InstrumentModel;
 });
+/*
+
+
+ */
+
 define('lib/controllers/Chordical',[
     'core/core',
     'lib/views/Chordical',
     'lib/views/chordical/InstrumentEdit',
-    'lib/models/chordical/Note',
-    'lib/models/chordical/notes',
+    'lib/models/chordical/Note',      //playable note
+    'lib/models/chordical/notes',    //singleton of notes that has NoteModels created and assigned to that notes can be played.
     'lib/models/chordical/Instrument'
 ], function(core, ChordicalView, InstrumentEditView, NoteModel, notes, InstrumentModel){
     core.log('Chordical controller module loaded');
@@ -17887,6 +18052,7 @@ define('lib/controllers/Chordical',[
             }
 
         },
+
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
@@ -17911,6 +18077,10 @@ define('lib/controllers/Chordical',[
             this.instrumentModel = new InstrumentModel();
             return this.instrumentModel;
         },
+        /**
+         * default home page provides a keyboard interface to play multiple notes at once.
+         * The notesModel is created to instruct the view which notes to display
+         */
         homePageAction:function(){
             core.log('home page action called.');
             this.getNotesModel();

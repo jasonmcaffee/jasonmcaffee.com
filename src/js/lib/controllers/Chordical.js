@@ -1,9 +1,14 @@
+/*
+
+
+ */
+
 define([
     'core/core',
     'lib/views/Chordical',
     'lib/views/chordical/InstrumentEdit',
-    'lib/models/chordical/Note',
-    'lib/models/chordical/notes',
+    'lib/models/chordical/Note',      //playable note
+    'lib/models/chordical/notes',    //singleton of notes that has NoteModels created and assigned to that notes can be played.
     'lib/models/chordical/Instrument'
 ], function(core, ChordicalView, InstrumentEditView, NoteModel, notes, InstrumentModel){
     core.log('Chordical controller module loaded');
@@ -23,6 +28,7 @@ define([
             }
 
         },
+
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
@@ -47,6 +53,10 @@ define([
             this.instrumentModel = new InstrumentModel();
             return this.instrumentModel;
         },
+        /**
+         * default home page provides a keyboard interface to play multiple notes at once.
+         * The notesModel is created to instruct the view which notes to display
+         */
         homePageAction:function(){
             core.log('home page action called.');
             this.getNotesModel();

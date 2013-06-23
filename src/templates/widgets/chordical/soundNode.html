@@ -1,3 +1,14 @@
 <div class="sound-node">
-    sound node
+    <h4>sound node</h4>
+
+    <label>Node Type</label>
+    <select name="nodeType">
+        {{#each typeOptions}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+
+    {{#if_eq type compare="gain"}}
+        gain
+    {{/if_eq}}
 </div>

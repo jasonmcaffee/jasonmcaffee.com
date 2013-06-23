@@ -9,6 +9,11 @@ define([
     //var context;// = core.audio.audioContext;//new webkitAudioContext();//you can only have 1 context per window   http://stackoverflow.com/questions/14958175/html5-audio-api-audio-resources-unavailable-for-audiocontext-construction
 
     //http://tympanus.net/codrops/2013/06/10/web-audio-stylophone/
+    /**
+     * playable note which uses the instrument model to determine which sound types to play.
+     * the instrument model holds the user selected options, including oscillator type, sound nodes (gain, echo, etc), etc
+     * @type {*}
+     */
     var NoteModel = core.mvc.Model.extend({
         initialize:function(attributes, options){
             core.log('Note initialize called with note: ' + attributes.note + ' octave: ' + attributes.octave);
@@ -22,9 +27,7 @@ define([
             this.set({frequency:frequency});
             core.log('Note frequency is: ' + frequency);
 
-            this.context = core.audio.audioContext;
-
-
+            this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
         },
         defaults:{
 
@@ -41,6 +44,9 @@ define([
             if(!match){core.log('no match found for note'); return;}
             return match.frequencies[octave];
         },
+        /**
+         * Uses the this.model's selected sound to play a note
+         */
         play:function(){
             core.log('Note.play() called');
             //touch events can be weird. prevent notes from never ending.
@@ -51,6 +57,21 @@ define([
                 case  'oscillator': this._playOscillator(); break;
             }
         },
+        /**
+         * You must explicitly stop a note from playing after it has been play()ed
+         */
+        stop:function(){
+            this.isPlaying = false;
+            core.log('Note.stop() called');
+            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
+            switch(this.selectedSound.type){
+                case  'oscillator': this._stopOscillator(); break;
+            }
+        },
+        /**
+         * uses the selected sound's selectedSubType to play an oscillator type. (SINE, TRIANGLE, etc)
+         * @private
+         */
         _playOscillator:function(){
             this.oscillator = this.context.createOscillator();
             this.oscillator.type = this.convertOscillatorSubTypeToNative(this.selectedSound.selectedSubType);
@@ -59,19 +80,21 @@ define([
             //this.oscillator.connect(this.get('destination'));
             this.oscillator.noteOn(0);
         },
-        stop:function(){
-            this.isPlaying = false;
-            core.log('Note.stop() called');
-            this.selectedSound = this.get('instrument').get('selectedSound');  //always reset so we can change sounds and not have to recreate notes
-            switch(this.selectedSound.type){
-                case  'oscillator': this._stopOscillator(); break;
-            }
 
-        },
+        /**
+         * Oscillators must be explicitly stopped after being played.
+         * @private
+         */
         _stopOscillator:function(){
             this.oscillator.noteOff(0);
             this.oscillator.disconnect();
         },
+        /**
+         * The selectedSubType select option stores string values for the applicable sub types. (SINE, TRIANGLE, etc)
+         * This function takes the stored string and converts it into webkit audio's
+         * @param stringSubType
+         * @return {Number}
+         */
         convertOscillatorSubTypeToNative:function(stringSubType){
             switch(stringSubType){
                 case 'SINE': return 0;

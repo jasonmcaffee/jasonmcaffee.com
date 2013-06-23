@@ -1,8 +1,9 @@
 define([
     'core/core',
     'compiled-templates/chordical/instrumentEdit',
-    'lib/widgets/chordical/SoundNode'
-], function (core, instrumentEditTemplate, SoundNodeWidget) {
+    'lib/widgets/chordical/SoundNode',
+    'lib/models/chordical/SoundNode'
+], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel) {
     core.log('Instrument View module loaded');
 
     var View = core.mvc.View.extend({
@@ -16,8 +17,8 @@ define([
         createSoundNodeWidgetsUsingModel:function(){
             var soundNodes = this.model.get('soundNodes');
             for(var x=0; x < soundNodes.length; ++x){
-                var soundNode = soundNodes[x];
-                this.createSoundNodeWidgetAndAddToWidgets(soundNode);
+                var soundNodeModel = soundNodes[x];
+                this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
             }
         },
         createSoundNodeWidgetAndAddToWidgets:function(soundNodeModel){
@@ -25,7 +26,8 @@ define([
             this.options.widgets.push({
                 selector:'#soundNodesContainer', //+soundNode.uiId,
                 widget:new SoundNodeWidget({
-                    id:'soundNodeContainer'+soundNodeModel.uiId
+                    id:'soundNodeContainer'+soundNodeModel.get('uiId'),
+                    model:soundNodeModel //share the instrument model for now.
                 })
             });
         },
@@ -33,16 +35,18 @@ define([
             "click #addNodeButton":function (e) {
                 core.log('Instrument add node button clicked');
                 e.preventDefault();
-                var soundNodeModel = {
+                var soundNodeModel = new SoundNodeModel({
                     type:'gain',
                     value1:22,
                     uiId:this.model.get('soundNodes').length
-                };
+                });
+
                 this.model.get('soundNodes').push(soundNodeModel);
                 //var soundNodeWidget = new SoundNodeWidget();
                 //this.options.widgets.push({selector:'#soundNodesContainer', widget:soundNodeWidget});
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
-                this.render();
+                this.reRenderWidgetsWithSelector('#soundNodesContainer');
+                //this.render();
             }
         },
         modelEvents:{
