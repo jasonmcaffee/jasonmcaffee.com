@@ -39,7 +39,7 @@ function program2(depth0,data) {
 function program4(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        <div>\n            <label>Amount</label>\n            <input name=\"gain.amount\" type=\"range\" min=\"1\" max=\"100\" value=\"";
+  buffer += "\n        <div>\n            <label>Amount</label>\n            <input name=\"gain.amount\" type=\"range\" min=\"0\" max=\"1\" step=\"0.1\" value=\"";
   foundHelper = helpers.gain;
   stack1 = foundHelper || depth0.gain;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.amount);

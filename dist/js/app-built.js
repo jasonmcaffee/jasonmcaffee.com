@@ -17704,7 +17704,7 @@ function program2(depth0,data) {
 function program4(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        <div>\n            <label>Amount</label>\n            <input name=\"gain.amount\" type=\"range\" min=\"1\" max=\"100\" value=\"";
+  buffer += "\n        <div>\n            <label>Amount</label>\n            <input name=\"gain.amount\" type=\"range\" min=\"0\" max=\"1\" step=\"0.1\" value=\"";
   foundHelper = helpers.gain;
   stack1 = foundHelper || depth0.gain;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.amount);
@@ -17784,13 +17784,30 @@ define('lib/models/chordical/SoundNode',[
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
         },
+        getWebAudio:function(){
+            this.context = core.audio.audioContext;
+            if(this.webAudioNode){return this.webAudioNode;}
+
+            switch(this.get('selectedNodeType')){
+                case 'gain' : this.webAudioNode = this._createGainNode(); break;
+            }
+            return this.webAudioNode;
+        },
+        _createGainNode:function(){
+            core.log('SoundNode Model createGainNode called');
+            var gainNode = this.context.createGainNode();
+            gainNode.gain.value = parseFloat(this.get('gain').amount);
+            gainNode.connect(this.get('destination') || this.context.destination);
+            return gainNode;
+
+        },
         defaults:{
             typeOptions : ['filter', 'gain'],
             selectedNodeType: 'gain',
-            destination: core.audio.audioContext, //overwrite this when chaining.
+            destination: null, //overwrite this when chaining.
             //when the node is 'gain', these properties will be set by modelbinding, and should be used when playing notes.
             gain:{
-                amount:75
+                amount:.7
             }
         }
     });
@@ -18091,10 +18108,25 @@ define('lib/models/chordical/Instrument',[
          * @param playableNote
          */
         playNote:function(playableNote){
+            this.setDestinations(playableNote);
             playableNote.play();
         },
         stopNote:function(playableNote){
             playableNote.stop();
+        },
+        setDestinations:function(playableNote){
+            var previousSoundNode = playableNote,
+                soundNode = null;
+            for(var i = 0; i < this.attributes.soundNodes.length; ++i){
+                soundNode = this.attributes.soundNodes[i];
+                if(previousSoundNode){
+                    previousSoundNode.set('destination', soundNode.getWebAudio());
+                }
+                previousSoundNode = soundNode;
+            }
+
+            //last one should go to speakers
+
         }
     });
 

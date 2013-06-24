@@ -5,12 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasonmcaffee.iws" afterPath="$PROJECT_DIR$/jasonmcaffee.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/chordical/soundNode.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/chordical/soundNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/mvc/View.js" afterPath="$PROJECT_DIR$/src/js/core/mvc/View.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" afterPath="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js" afterPath="$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/chordical/InstrumentEdit.js" afterPath="$PROJECT_DIR$/src/js/lib/views/chordical/InstrumentEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/chordical/SoundNode.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/chordical/SoundNode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/chordical/soundNode.html" afterPath="$PROJECT_DIR$/src/templates/widgets/chordical/soundNode.html" />
     </list>
     <ignored path="jasonmcaffee.iws" />
@@ -72,7 +68,7 @@
       <file leaf-file-name="soundNode.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/widgets/chordical/soundNode.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="116" selection-start="494" selection-end="494" vertical-scroll-proportion="-8.32">
+            <state line="13" column="76" selection-start="477" selection-end="477" vertical-scroll-proportion="-8.32">
               <folding />
             </state>
           </provider>
@@ -96,19 +92,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SoundNode.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SoundNode.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/chordical/SoundNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="30" selection-start="902" selection-end="902" vertical-scroll-proportion="0.31796503">
+            <state line="19" column="57" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SoundNode.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SoundNode.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="25" selection-start="619" selection-end="619" vertical-scroll-proportion="0.0">
+            <state line="35" column="74" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.44515103">
               <folding />
             </state>
           </provider>
@@ -137,7 +133,7 @@
       <file leaf-file-name="Instrument.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="66" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
+            <state line="52" column="61" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,14 +181,14 @@
         <option value="$PROJECT_DIR$/src/templates/chordical/instrumentEdit.html" />
         <option value="$PROJECT_DIR$/build/grunt.js" />
         <option value="$PROJECT_DIR$/src/js/core/plugins/handlebars/ifConditional.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js" />
         <option value="$PROJECT_DIR$/src/js/lib/controllers/Chordical.js" />
         <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Note.js" />
         <option value="$PROJECT_DIR$/src/js/lib/views/chordical/InstrumentEdit.js" />
         <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/chordical/SoundNode.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js" />
         <option value="$PROJECT_DIR$/src/templates/widgets/chordical/soundNode.html" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js" />
       </list>
     </option>
   </component>
@@ -1386,7 +1382,11 @@
       <created>1371955545597</created>
       <updated>1371955545597</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="soundNode widget has model binding and slider control working for gain node. gain node is not attached to web audio yet.">
+      <created>1372031679438</created>
+      <updated>1372031679438</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1418,7 +1418,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299611" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19322307" sideWeight="0.67159534" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19322307" sideWeight="0.67159534" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1470,7 +1470,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SoundNode Model. model binding now allows for widgets to bind and not have an update on a parents model." />
+    <option name="LAST_COMMIT_MESSAGE" value="soundNode widget has model binding and slider control working for gain node. gain node is not attached to web audio yet." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1483,7 +1483,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="transition in progress 2. no fancy transitions for ie &lt; 10." />
     <MESSAGE value="ie8 fix for polyfill. now init selectivizr after page change." />
     <MESSAGE value="fix for fastbutton and android a tags not always reacting to click event. using focus(). still minor issue on galaxy tablet with anroid 4" />
     <MESSAGE value="threejs demo with good looking and moving" />
@@ -1508,6 +1507,7 @@
     <MESSAGE value="sound node ui - able to add sound node widget to screen" />
     <MESSAGE value="framework: widget/subview events working when re-render occurs." />
     <MESSAGE value="added SoundNode Model. model binding now allows for widgets to bind and not have an update on a parents model." />
+    <MESSAGE value="soundNode widget has model binding and slider control working for gain node. gain node is not attached to web audio yet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1556,20 +1556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="66" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/views/chordical/InstrumentEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="127" selection-start="1641" selection-end="1641" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/Chordical.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="139" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
@@ -1586,13 +1572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="25" selection-start="619" selection-end="619" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="151" column="35" selection-start="6804" selection-end="6831" vertical-scroll-proportion="0.0">
@@ -1602,7 +1581,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/widgets/chordical/soundNode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="116" selection-start="494" selection-end="494" vertical-scroll-proportion="-8.32">
+        <state line="13" column="76" selection-start="477" selection-end="477" vertical-scroll-proportion="-8.32">
           <folding />
         </state>
       </provider>
@@ -1614,9 +1593,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/views/chordical/InstrumentEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="127" selection-start="1641" selection-end="1641" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/Instrument.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="61" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/chordical/SoundNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="30" selection-start="902" selection-end="902" vertical-scroll-proportion="0.31796503">
+        <state line="19" column="57" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/chordical/SoundNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="74" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.44515103">
           <folding />
         </state>
       </provider>

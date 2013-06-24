@@ -46,10 +46,25 @@ define([
          * @param playableNote
          */
         playNote:function(playableNote){
+            this.setDestinations(playableNote);
             playableNote.play();
         },
         stopNote:function(playableNote){
             playableNote.stop();
+        },
+        setDestinations:function(playableNote){
+            var previousSoundNode = playableNote,
+                soundNode = null;
+            for(var i = 0; i < this.attributes.soundNodes.length; ++i){
+                soundNode = this.attributes.soundNodes[i];
+                if(previousSoundNode){
+                    previousSoundNode.set('destination', soundNode.getWebAudio());
+                }
+                previousSoundNode = soundNode;
+            }
+
+            //last one should go to speakers
+
         }
     });
 
