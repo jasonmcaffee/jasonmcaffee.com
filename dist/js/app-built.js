@@ -17783,6 +17783,11 @@ define('lib/models/chordical/SoundNode',[
     var SoundNodeModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
+
+            this.on('subPropertyChange:gain.amount', function(){
+                core.log('soundNode gain changed!!!!');
+                this.getWebAudio().gain.value = parseFloat(this.get('gain').amount);
+            });
         },
         getWebAudio:function(){
             this.context = core.audio.audioContext;
@@ -17799,7 +17804,9 @@ define('lib/models/chordical/SoundNode',[
             gainNode.gain.value = parseFloat(this.get('gain').amount);
             gainNode.connect(this.get('destination') || this.context.destination);
             return gainNode;
-
+        },
+        connect:function(destination){
+            this.getWebAudio().connect(destination);
         },
         defaults:{
             typeOptions : ['filter', 'gain'],
@@ -18094,8 +18101,10 @@ define('lib/models/chordical/Instrument',[
             soundNodes:[
                 //create a default gain SoundNode
                 new SoundNodeModel({
-                    type:'gain',
-                    value1:1,
+                    selectedNodeType:'gain',
+                    gain:{
+                        amount:.9
+                    },
                     uiId:0 //so the ui can have unique ids (soundNode0)
                 })
             ],
@@ -18115,10 +18124,12 @@ define('lib/models/chordical/Instrument',[
             playableNote.stop();
         },
         setDestinations:function(playableNote){
+            core.log('setting destinations');
             var previousSoundNode = playableNote,
                 soundNode = null;
             for(var i = 0; i < this.attributes.soundNodes.length; ++i){
                 soundNode = this.attributes.soundNodes[i];
+                core.log('setting a destination with type: ' + soundNode.get('type'));
                 if(previousSoundNode){
                     previousSoundNode.set('destination', soundNode.getWebAudio());
                 }
@@ -18126,6 +18137,7 @@ define('lib/models/chordical/Instrument',[
             }
 
             //last one should go to speakers
+            //previousSoundNode.set('destination', core.audio.audioContext.destination);
 
         }
     });

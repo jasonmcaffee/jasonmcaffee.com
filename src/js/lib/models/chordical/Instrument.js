@@ -32,8 +32,10 @@ define([
             soundNodes:[
                 //create a default gain SoundNode
                 new SoundNodeModel({
-                    type:'gain',
-                    value1:1,
+                    selectedNodeType:'gain',
+                    gain:{
+                        amount:.9
+                    },
                     uiId:0 //so the ui can have unique ids (soundNode0)
                 })
             ],
@@ -53,10 +55,12 @@ define([
             playableNote.stop();
         },
         setDestinations:function(playableNote){
+            core.log('setting destinations');
             var previousSoundNode = playableNote,
                 soundNode = null;
             for(var i = 0; i < this.attributes.soundNodes.length; ++i){
                 soundNode = this.attributes.soundNodes[i];
+                core.log('setting a destination with type: ' + soundNode.get('type'));
                 if(previousSoundNode){
                     previousSoundNode.set('destination', soundNode.getWebAudio());
                 }
@@ -64,6 +68,7 @@ define([
             }
 
             //last one should go to speakers
+            //previousSoundNode.set('destination', core.audio.audioContext.destination);
 
         }
     });

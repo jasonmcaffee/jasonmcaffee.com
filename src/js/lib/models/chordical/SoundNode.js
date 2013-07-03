@@ -6,6 +6,11 @@ define([
     var SoundNodeModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
+
+            this.on('subPropertyChange:gain.amount', function(){
+                core.log('soundNode gain changed!!!!');
+                this.getWebAudio().gain.value = parseFloat(this.get('gain').amount);
+            });
         },
         getWebAudio:function(){
             this.context = core.audio.audioContext;
@@ -22,7 +27,9 @@ define([
             gainNode.gain.value = parseFloat(this.get('gain').amount);
             gainNode.connect(this.get('destination') || this.context.destination);
             return gainNode;
-
+        },
+        connect:function(destination){
+            this.getWebAudio().connect(destination);
         },
         defaults:{
             typeOptions : ['filter', 'gain'],
