@@ -32,6 +32,16 @@ define([
             }
         },
         /**
+         * Call remove on widgets when parent view's remove is called.
+         */
+        remove: function(){
+            log('core.mvc.View remove called');
+            _.each(this.options.widgets, function(widgetMap){
+                widgetMap.widget.remove();
+            }, this);
+            Backbone.View.prototype.remove.apply(this, arguments);
+        },
+        /**
          * Override base delegateEvents so that we can add modelEvents binding.
          * @param events
          */

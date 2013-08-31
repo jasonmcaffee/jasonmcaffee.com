@@ -13,6 +13,9 @@ define([
         events:{
             "click":function (e) {
                 core.log('click for SoundNode occurred');
+            },
+            "keydown1":function(e){
+                core.log('keydown!!!!' + e.keyCode);
             }
         }
     });

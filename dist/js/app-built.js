@@ -1126,7 +1126,7 @@ define('core/util/log',[], function(){
     // AMD define happens at the end for compatibility with AMD loaders
     // that don't enforce next-turn semantics on modules.
     if (typeof define === 'function' && define.amd) {
-        define('underscore',[], function() {
+        define('underscore', [],function() {
             return _;
         });
     }
@@ -12399,6 +12399,16 @@ define('core/mvc/View',[
             }
         },
         /**
+         * Call remove on widgets when parent view's remove is called.
+         */
+        remove: function(){
+            log('core.mvc.View remove called');
+            _.each(this.options.widgets, function(widgetMap){
+                widgetMap.widget.remove();
+            }, this);
+            Backbone.View.prototype.remove.apply(this, arguments);
+        },
+        /**
          * Override base delegateEvents so that we can add modelEvents binding.
          * @param events
          */
@@ -17477,16 +17487,22 @@ Handlebars.registerPartial("keyboard", templates["keyboard"]);
 return templates["keyboard"]; 
 });
 define('lib/widgets/chordical/keyboard',[
+    'jquery',
     'core/core',
     'compiled-templates/widgets/chordical/keyboard'
-], function (core, keyboardTemplate) {
+], function ($, core, keyboardTemplate) {
     core.log('Keyboard View module loaded');
 
     var View = core.mvc.View.extend({
         id:'keyboardWidget', // each view needs a unique id for transitions.
         template:keyboardTemplate,
         isWidget:true,
-        //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
+        initialize:function(){
+            core.log('keyboardWidget is attaching to ')
+            core.mvc.View.prototype.initialize.apply(this, arguments);
+            this.emitCustomDomEventsOnKeyEvents = this.emitCustomDomEventsOnKeyEvents.bind(this);
+            $(document).on('keydown', this.emitCustomDomEventsOnKeyEvents);
+        },
         events:{
             //note presses
             'mousedown .sound-cell':"handleNotePress",
@@ -17498,6 +17514,15 @@ define('lib/widgets/chordical/keyboard',[
             'touchmove .sound-cell':"handleUnintentionalMovement",
             'touchcancel .sound-cell':"handleUnintentionalMovement",
             'touchleave .sound-cell':"handleUnintentionalMovement"
+        },
+        remove:function(){
+            core.log('remove called for keyboardWidget');
+            $(document).off('keydown', this.emitCustomDomEventsOnKeyEvents);
+            core.mvc.View.prototype.remove.apply(this, arguments);
+        },
+        //SoundNode listens for
+        emitCustomDomEventsOnKeyEvents:function(e){
+            core.log('keydown! ' + e.keyCode);
         },
         handleUnintentionalMovement:function(e){
             e.preventDefault();
@@ -17709,6 +17734,9 @@ define('lib/widgets/chordical/SoundNode',[
         events:{
             "click":function (e) {
                 core.log('click for SoundNode occurred');
+            },
+            "keydown1":function(e){
+                core.log('keydown!!!!' + e.keyCode);
             }
         }
     });
