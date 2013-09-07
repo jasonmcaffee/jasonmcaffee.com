@@ -13,7 +13,6 @@ define([
             core.log('Chordical View initialize called.');
             if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
 
-
             this.options = this.options || {};
             this.options.widgets=[
                 {selector:'#keyboardContainer', widget: new KeyboardWidget({model:this.model})}

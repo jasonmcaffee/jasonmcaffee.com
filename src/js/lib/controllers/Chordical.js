@@ -36,15 +36,36 @@ define([
             //instrument dictates how the notes are constructed   (selected sound, destination, etc)
             this.getInstrumentModel();
 
+            //by default, assign a keyCode to a note in this order.
+            var keyOrder = [
+             // 1   2   3   4   5   6   7   8   9   0
+                49, 50, 51, 52, 53, 54, 55, 56, 57, 48,
+             // q   w   e   r   t   y   u   i   o   p
+                81, 87, 69, 82, 84, 89, 85, 73, 79, 80
+            ];
+            var keyOrderIndex = 0;
             //create a note model for each note.
             //keyboard widget uses this to play notes via the instrument.
             for(var note in notes){
                 notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
+                //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
+                notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
             }
             this.notesModel = {
                 notes: notes,
-                instrument: this.instrumentModel
+                instrument: this.instrumentModel,
+                findNotesTriggeredByKeyCode:function(keyCode){
+                    var notesTriggeredByKeyCode = [];
+                    for(var note in this.notes){
+                        if(this.notes[note].playableNote.isTriggeredByKeyCode(keyCode)){
+                            notesTriggeredByKeyCode.push(this.notes[note]);
+                        }
+                    }
+                    return notesTriggeredByKeyCode;
+                }
             };
+
+            core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));
             return this.notesModel;
         },
         getInstrumentModel:function(){

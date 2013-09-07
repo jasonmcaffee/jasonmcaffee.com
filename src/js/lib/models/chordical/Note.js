@@ -28,9 +28,30 @@ define([
             core.log('Note frequency is: ' + frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
+            this.attributes.keyCodeTriggers = [];
         },
         defaults:{
-
+            //when a keyboard key is pressed (1, 2, a, b, etc) we need to find which notes should be played.
+            //each note has an array of triggers with the dom generated value e.g. 1 is 49
+            //keyCodeTriggers:[]
+        },
+        /**
+         *
+         * @param key - dom keyCode value
+         */
+        addKeyCodeTrigger:function(keyCode){
+            this.attributes.keyCodeTriggers.push(keyCode);
+        },
+        /**
+         * tells you if the provided keycode should trigger this note.
+         * @param keyCode
+         * @returns {boolean}
+         */
+        isTriggeredByKeyCode: function(keyCode){
+            for(var i = 0; i < this.attributes.keyCodeTriggers.length; ++i){
+                if(this.attributes.keyCodeTriggers[i] === keyCode){return true;}
+            }
+            return false;
         },
         /**
          * returns the web audio frequency for given note and octave.

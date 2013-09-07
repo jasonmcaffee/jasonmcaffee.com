@@ -1126,7 +1126,7 @@ define('core/util/log',[], function(){
     // AMD define happens at the end for compatibility with AMD loaders
     // that don't enforce next-turn semantics on modules.
     if (typeof define === 'function' && define.amd) {
-        define('underscore', [],function() {
+        define('underscore',[], function() {
             return _;
         });
     }
@@ -17518,15 +17518,22 @@ define('lib/widgets/chordical/keyboard',[
 ], function ($, core, keyboardTemplate) {
     core.log('Keyboard View module loaded');
 
+    //model should be the NotesModel created by the controller.
     var View = core.mvc.View.extend({
         id:'keyboardWidget', // each view needs a unique id for transitions.
         template:keyboardTemplate,
         isWidget:true,
+        //used for handleKeyDown. since keydown is fired multiple times when you hold the key down, we use this object
+        //to track whether the key is already down.
+        keysPressed : {'1': false}, //keyCode on the left, whether its press on the right
         initialize:function(){
-            core.log('keyboardWidget is attaching to ')
+            core.log('keyboardWidget is attaching to ');
             core.mvc.View.prototype.initialize.apply(this, arguments);
-            this.emitCustomDomEventsOnKeyEvents = this.emitCustomDomEventsOnKeyEvents.bind(this);
-            $(document).on('keydown', this.emitCustomDomEventsOnKeyEvents);
+            //assigning the result of bind so we can pass to off during destroy.
+            this.handleKeyDown = this.handleKeyDown.bind(this);
+            $(document).on('keydown', this.handleKeyDown);
+            this.handleKeyUp = this.handleKeyUp.bind(this);
+            $(document).on('keyup', this.handleKeyUp);
         },
         events:{
             //note presses
@@ -17542,12 +17549,37 @@ define('lib/widgets/chordical/keyboard',[
         },
         remove:function(){
             core.log('remove called for keyboardWidget');
-            $(document).off('keydown', this.emitCustomDomEventsOnKeyEvents);
+            $(document).off('keydown', this.handleKeyDown);
+            $(document).off('keyup', this.handleKeyUp);
             core.mvc.View.prototype.remove.apply(this, arguments);
         },
+
         //SoundNode listens for
-        emitCustomDomEventsOnKeyEvents:function(e){
+        handleKeyDown:function(e){
             core.log('keydown! ' + e.keyCode);
+            if(this.keysPressed[e.keyCode]){ return core.log('key is already pressed'); }
+            this.keysPressed[e.keyCode] = true;
+            //keydown will continue to fire while the key is held down, so dont call play over and over again.
+            var notesToPlay = this.model.findNotesTriggeredByKeyCode(e.keyCode);
+            this.playNotes(notesToPlay);
+        },
+        handleKeyUp:function(e){
+            core.log('keyup! ' + e.keyCode);
+            this.keysPressed[e.keyCode] = false;
+            var notesToStop = this.model.findNotesTriggeredByKeyCode(e.keyCode);
+            this.stopNotes(notesToStop);
+        },
+        playNotes:function(notesToPlay){
+            for(var i=0; i<notesToPlay.length; ++i){
+                var playableNote = notesToPlay[i].playableNote;
+                this.model.instrument.playNote(playableNote);
+            }
+        },
+        stopNotes:function(notesToPlay){
+            for(var i=0; i<notesToPlay.length; ++i){
+                var playableNote = notesToPlay[i].playableNote;
+                this.model.instrument.stopNote(playableNote);
+            }
         },
         handleUnintentionalMovement:function(e){
             e.preventDefault();
@@ -17588,7 +17620,6 @@ define('lib/views/Chordical',[
         initialize:function(options){
             core.log('Chordical View initialize called.');
             if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
-
 
             this.options = this.options || {};
             this.options.widgets=[
@@ -18015,9 +18046,30 @@ define('lib/models/chordical/Note',[
             core.log('Note frequency is: ' + frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
+            this.attributes.keyCodeTriggers = [];
         },
         defaults:{
-
+            //when a keyboard key is pressed (1, 2, a, b, etc) we need to find which notes should be played.
+            //each note has an array of triggers with the dom generated value e.g. 1 is 49
+            //keyCodeTriggers:[]
+        },
+        /**
+         *
+         * @param key - dom keyCode value
+         */
+        addKeyCodeTrigger:function(keyCode){
+            this.attributes.keyCodeTriggers.push(keyCode);
+        },
+        /**
+         * tells you if the provided keycode should trigger this note.
+         * @param keyCode
+         * @returns {boolean}
+         */
+        isTriggeredByKeyCode: function(keyCode){
+            for(var i = 0; i < this.attributes.keyCodeTriggers.length; ++i){
+                if(this.attributes.keyCodeTriggers[i] === keyCode){return true;}
+            }
+            return false;
         },
         /**
          * returns the web audio frequency for given note and octave.
@@ -18148,6 +18200,7 @@ define('lib/models/chordical/Instrument',[
             this.setDestinations(playableNote);
             playableNote.play();
         },
+
         stopNote:function(playableNote){
             playableNote.stop();
         },
@@ -18210,15 +18263,36 @@ define('lib/controllers/Chordical',[
             //instrument dictates how the notes are constructed   (selected sound, destination, etc)
             this.getInstrumentModel();
 
+            //by default, assign a keyCode to a note in this order.
+            var keyOrder = [
+             // 1   2   3   4   5   6   7   8   9   0
+                49, 50, 51, 52, 53, 54, 55, 56, 57, 48,
+             // q   w   e   r   t   y   u   i   o   p
+                81, 87, 69, 82, 84, 89, 85, 73, 79, 80
+            ];
+            var keyOrderIndex = 0;
             //create a note model for each note.
             //keyboard widget uses this to play notes via the instrument.
             for(var note in notes){
                 notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
+                //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
+                notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
             }
             this.notesModel = {
                 notes: notes,
-                instrument: this.instrumentModel
+                instrument: this.instrumentModel,
+                findNotesTriggeredByKeyCode:function(keyCode){
+                    var notesTriggeredByKeyCode = [];
+                    for(var note in this.notes){
+                        if(this.notes[note].playableNote.isTriggeredByKeyCode(keyCode)){
+                            notesTriggeredByKeyCode.push(this.notes[note]);
+                        }
+                    }
+                    return notesTriggeredByKeyCode;
+                }
             };
+
+            core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));
             return this.notesModel;
         },
         getInstrumentModel:function(){

@@ -51,6 +51,7 @@ define([
             this.setDestinations(playableNote);
             playableNote.play();
         },
+
         stopNote:function(playableNote){
             playableNote.stop();
         },
