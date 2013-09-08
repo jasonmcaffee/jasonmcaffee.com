@@ -17487,6 +17487,10 @@ function program1(depth0,data) {
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" octave=\"";
+  stack1 = depth0.octave;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.octave", { hash: {} }); }
   buffer += escapeExpression(stack1) + "\">";
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -17957,27 +17961,57 @@ define('lib/models/chordical/notes',[
 ], function(core){
     core.log('notes module loaded');
 
-    //http://www.phy.mtu.edu/~suits/notefreqs.html
-    var notes={
-        c:{frequencies:[],    //[16.35, 32.70, 65.41, 130.81, 261.63, 523.25, 1046.50, 2093.00, 4186.01]
-            playableNote:{},
-            notesInKey:['c#','']
-        },
-        'c#':{
-            frequencies:[],
-            notesInKey:[]},
-        d:{frequencies:[]},
-        'd#':{frequencies:[]},
-        e:{frequencies:[]},
-        f:{frequencies:[]},
-        'f#':{frequencies:[]},
-        g:{frequencies:[]},
-        'g#':{frequencies:[]},
-        'a':{frequencies:[]},
-        'a#':{frequencies:[]},
-        b:{frequencies:[]}
+    var constants = {
+        octavesToCalculate: 4,
+        startAtOctave: 1  //0 is too low
     };
+    //http://www.phy.mtu.edu/~suits/notefreqs.html
+//    var notes={
+//        c0:{
+//            frequencies:[],    //[16.35, 32.70, 65.41, 130.81, 261.63, 523.25, 1046.50, 2093.00, 4186.01]
+//            playableNote:{},
+//            notesInKey:['c#',''],
+//            octave: 0
+//        },
+//        'c#0':{
+//            frequencies:[],
+//            notesInKey:[]},
+//        d0:{frequencies:[]},
+//        'd#0':{frequencies:[]},
+//        e0:{frequencies:[]},
+//        f0:{frequencies:[]},
+//        'f#0':{frequencies:[]},
+//        g0:{frequencies:[]},
+//        'g#0':{frequencies:[]},
+//        'a0':{frequencies:[]},
+//        'a#0':{frequencies:[]},
+//        b0:{frequencies:[]}
+//    };
 
+    var noteSymbols = ['c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#', 'a', 'a#', 'b'];
+    function createNotesForEachOctave(){
+        var notes = {};
+        //
+        for(var octave =constants.startAtOctave; octave < constants.octavesToCalculate; ++octave){
+            for(var noteSymbolIndex in noteSymbols){
+                var noteSymbol = noteSymbols[noteSymbolIndex];
+                var noteSymbolWithOctave = noteSymbol + octave;
+                notes[noteSymbolWithOctave] = createNote(noteSymbol, octave);
+            }
+        }
+
+        return notes;
+    }
+
+    function createNote(noteSymbol, octave){
+        return {
+            noteSymbol: noteSymbol,
+            octave: octave,
+            frequency:null,
+            playableNote: {},
+            notesInKey:[]
+        };
+    }
     //    The basic formula for the frequencies of the notes of the equal tempered scale is given by
     //    fn = f0 * (a)n
     //    where
@@ -17997,21 +18031,49 @@ define('lib/models/chordical/notes',[
         core.log('baseNotexOctave: ' + baseNotexOctave);
         var a = Math.pow(2, (1/12));
 
-        var octavesToCalculate = 8;
-        var currentStep = 1;
+        var octavesToCalculate = constants.octavesToCalculate;
+        var currentStep = 1, i = 1;
         for(var note in notes){
-            for(var octave=0; octave <= octavesToCalculate; ++octave){
+                var octave = notes[note].octave;
                 var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
-                //core.log('halfStepsFromBase: '+ halfStepsFromBase);
+                core.log('halfStepsFromBase: '+ halfStepsFromBase);
                 var frequency = baseFrequency * Math.pow(a, halfStepsFromBase);
                 core.log('note: {0} octave:{1} has frequency {2}', note, octave, frequency);
-                notes[note].frequencies.push(frequency);
-            }
-            ++currentStep;
+                //notes[note].frequencies.push(frequency);
+                notes[note].frequency = frequency;
+            //if(i++%12 == 0){
+                core.log('increasing currentstep');
+                ++currentStep;
+            //}
+
         }
         return notes;
     }
 
+//    function calculateFrequencies(){
+//        var baseFrequency = 440;
+//        var baseOctave = 4;
+//        var baseNoteStep = 10;
+//        var baseNotexOctave =  baseNoteStep + baseOctave* 12;
+//        core.log('baseNotexOctave: ' + baseNotexOctave);
+//        var a = Math.pow(2, (1/12));
+//
+//        var octavesToCalculate = constants.octavesToCalculate;
+//        var currentStep = 1;
+//        for(var note in notes){
+//            for(var octave=0; octave <= octavesToCalculate; ++octave){
+//                var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
+//                //core.log('halfStepsFromBase: '+ halfStepsFromBase);
+//                var frequency = baseFrequency * Math.pow(a, halfStepsFromBase);
+//                core.log('note: {0} octave:{1} has frequency {2}', note, octave, frequency);
+//                notes[note].frequencies.push(frequency);
+//            }
+//            ++currentStep;
+//        }
+//        return notes;
+//    }
+
+    var notes = createNotesForEachOctave();
     calculateFrequencies();
 
     return notes;
@@ -18041,9 +18103,9 @@ define('lib/models/chordical/Note',[
             if(!attributes.octave){attributes.octave = 3;}
 //            if(!attributes.destination){attributes.destination = core.audio.audioContext.destination;}     cant do this here. do it on play
 
-            var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
-            this.set({frequency:frequency});
-            core.log('Note frequency is: ' + frequency);
+            //var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
+            //this.set({frequency:attributes.note.frequency});
+            core.log('Note frequency is: ' + attributes.frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
             this.attributes.keyCodeTriggers = [];
@@ -18077,12 +18139,12 @@ define('lib/models/chordical/Note',[
          * @param octave
          * @return {*}
          */
-        getNoteFrequency:function(note, octave){
-            core.log('getNoteFrequency called for note:' + note + ' octave: ' + octave);
-            var match = notes[note];
-            if(!match){core.log('no match found for note'); return;}
-            return match.frequencies[octave];
-        },
+//        getNoteFrequency:function(note, octave){
+//            core.log('getNoteFrequency called for note:' + note + ' octave: ' + octave);
+//            var match = notes[note];
+//            if(!match){core.log('no match found for note'); return;}
+//            return match.frequencies[octave];
+//        },
         /**
          * Uses the this.model's selected sound to play a note
          */
@@ -18256,6 +18318,7 @@ define('lib/controllers/Chordical',[
 
         },
 
+        //todo: create a new module for this.
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
@@ -18268,16 +18331,25 @@ define('lib/controllers/Chordical',[
              // 1   2   3   4   5   6   7   8   9   0
                 49, 50, 51, 52, 53, 54, 55, 56, 57, 48,
              // q   w   e   r   t   y   u   i   o   p
-                81, 87, 69, 82, 84, 89, 85, 73, 79, 80
+                81, 87, 69, 82, 84, 89, 85, 73, 79, 80,
+             // a   s   d   f   g   h   j   k   l
+                65, 83, 68, 70, 71, 72, 74, 75, 76,
+             // z   x   c   v   b   n   m
+                90, 88, 67, 86, 66, 78, 77
+
             ];
             var keyOrderIndex = 0;
             //create a note model for each note.
             //keyboard widget uses this to play notes via the instrument.
-            for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
-                //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
-                notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
-            }
+
+            //for(var octave = 0; octave < 8; ++octave){
+                for(var note in notes){
+                    notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel, octave:notes[note].octave, frequency:notes[note].frequency});
+                    //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
+                    notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
+                }
+            //}
+
             this.notesModel = {
                 notes: notes,
                 instrument: this.instrumentModel,

@@ -12,6 +12,10 @@ function program1(depth0,data) {
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" octave=\"";
+  stack1 = depth0.octave;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.octave", { hash: {} }); }
   buffer += escapeExpression(stack1) + "\">";
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }

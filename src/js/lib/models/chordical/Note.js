@@ -23,9 +23,9 @@ define([
             if(!attributes.octave){attributes.octave = 3;}
 //            if(!attributes.destination){attributes.destination = core.audio.audioContext.destination;}     cant do this here. do it on play
 
-            var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
-            this.set({frequency:frequency});
-            core.log('Note frequency is: ' + frequency);
+            //var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
+            //this.set({frequency:attributes.note.frequency});
+            core.log('Note frequency is: ' + attributes.frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
             this.attributes.keyCodeTriggers = [];
@@ -59,12 +59,12 @@ define([
          * @param octave
          * @return {*}
          */
-        getNoteFrequency:function(note, octave){
-            core.log('getNoteFrequency called for note:' + note + ' octave: ' + octave);
-            var match = notes[note];
-            if(!match){core.log('no match found for note'); return;}
-            return match.frequencies[octave];
-        },
+//        getNoteFrequency:function(note, octave){
+//            core.log('getNoteFrequency called for note:' + note + ' octave: ' + octave);
+//            var match = notes[note];
+//            if(!match){core.log('no match found for note'); return;}
+//            return match.frequencies[octave];
+//        },
         /**
          * Uses the this.model's selected sound to play a note
          */

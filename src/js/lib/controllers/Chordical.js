@@ -29,6 +29,7 @@ define([
 
         },
 
+        //todo: create a new module for this.
         getNotesModel:function(){
             core.log('Chordical Controller createNotesModel called');
             if(this.notesModel){return this.notesModel;}
@@ -41,16 +42,25 @@ define([
              // 1   2   3   4   5   6   7   8   9   0
                 49, 50, 51, 52, 53, 54, 55, 56, 57, 48,
              // q   w   e   r   t   y   u   i   o   p
-                81, 87, 69, 82, 84, 89, 85, 73, 79, 80
+                81, 87, 69, 82, 84, 89, 85, 73, 79, 80,
+             // a   s   d   f   g   h   j   k   l
+                65, 83, 68, 70, 71, 72, 74, 75, 76,
+             // z   x   c   v   b   n   m
+                90, 88, 67, 86, 66, 78, 77
+
             ];
             var keyOrderIndex = 0;
             //create a note model for each note.
             //keyboard widget uses this to play notes via the instrument.
-            for(var note in notes){
-                notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel});
-                //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
-                notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
-            }
+
+            //for(var octave = 0; octave < 8; ++octave){
+                for(var note in notes){
+                    notes[note].playableNote = new NoteModel({note:note, instrument:this.instrumentModel, octave:notes[note].octave, frequency:notes[note].frequency});
+                    //assign a keycode so the note can be played when keyboard key (1,2,a, etc) is keyed down
+                    notes[note].playableNote.addKeyCodeTrigger(keyOrder[keyOrderIndex++]);
+                }
+            //}
+
             this.notesModel = {
                 notes: notes,
                 instrument: this.instrumentModel,

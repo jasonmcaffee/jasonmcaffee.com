@@ -3,27 +3,57 @@ define([
 ], function(core){
     core.log('notes module loaded');
 
-    //http://www.phy.mtu.edu/~suits/notefreqs.html
-    var notes={
-        c:{frequencies:[],    //[16.35, 32.70, 65.41, 130.81, 261.63, 523.25, 1046.50, 2093.00, 4186.01]
-            playableNote:{},
-            notesInKey:['c#','']
-        },
-        'c#':{
-            frequencies:[],
-            notesInKey:[]},
-        d:{frequencies:[]},
-        'd#':{frequencies:[]},
-        e:{frequencies:[]},
-        f:{frequencies:[]},
-        'f#':{frequencies:[]},
-        g:{frequencies:[]},
-        'g#':{frequencies:[]},
-        'a':{frequencies:[]},
-        'a#':{frequencies:[]},
-        b:{frequencies:[]}
+    var constants = {
+        octavesToCalculate: 4,
+        startAtOctave: 1  //0 is too low
     };
+    //http://www.phy.mtu.edu/~suits/notefreqs.html
+//    var notes={
+//        c0:{
+//            frequencies:[],    //[16.35, 32.70, 65.41, 130.81, 261.63, 523.25, 1046.50, 2093.00, 4186.01]
+//            playableNote:{},
+//            notesInKey:['c#',''],
+//            octave: 0
+//        },
+//        'c#0':{
+//            frequencies:[],
+//            notesInKey:[]},
+//        d0:{frequencies:[]},
+//        'd#0':{frequencies:[]},
+//        e0:{frequencies:[]},
+//        f0:{frequencies:[]},
+//        'f#0':{frequencies:[]},
+//        g0:{frequencies:[]},
+//        'g#0':{frequencies:[]},
+//        'a0':{frequencies:[]},
+//        'a#0':{frequencies:[]},
+//        b0:{frequencies:[]}
+//    };
 
+    var noteSymbols = ['c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#', 'a', 'a#', 'b'];
+    function createNotesForEachOctave(){
+        var notes = {};
+        //
+        for(var octave =constants.startAtOctave; octave < constants.octavesToCalculate; ++octave){
+            for(var noteSymbolIndex in noteSymbols){
+                var noteSymbol = noteSymbols[noteSymbolIndex];
+                var noteSymbolWithOctave = noteSymbol + octave;
+                notes[noteSymbolWithOctave] = createNote(noteSymbol, octave);
+            }
+        }
+
+        return notes;
+    }
+
+    function createNote(noteSymbol, octave){
+        return {
+            noteSymbol: noteSymbol,
+            octave: octave,
+            frequency:null,
+            playableNote: {},
+            notesInKey:[]
+        };
+    }
     //    The basic formula for the frequencies of the notes of the equal tempered scale is given by
     //    fn = f0 * (a)n
     //    where
@@ -43,21 +73,49 @@ define([
         core.log('baseNotexOctave: ' + baseNotexOctave);
         var a = Math.pow(2, (1/12));
 
-        var octavesToCalculate = 8;
-        var currentStep = 1;
+        var octavesToCalculate = constants.octavesToCalculate;
+        var currentStep = 1, i = 1;
         for(var note in notes){
-            for(var octave=0; octave <= octavesToCalculate; ++octave){
+                var octave = notes[note].octave;
                 var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
-                //core.log('halfStepsFromBase: '+ halfStepsFromBase);
+                core.log('halfStepsFromBase: '+ halfStepsFromBase);
                 var frequency = baseFrequency * Math.pow(a, halfStepsFromBase);
                 core.log('note: {0} octave:{1} has frequency {2}', note, octave, frequency);
-                notes[note].frequencies.push(frequency);
-            }
-            ++currentStep;
+                //notes[note].frequencies.push(frequency);
+                notes[note].frequency = frequency;
+            //if(i++%12 == 0){
+                core.log('increasing currentstep');
+                ++currentStep;
+            //}
+
         }
         return notes;
     }
 
+//    function calculateFrequencies(){
+//        var baseFrequency = 440;
+//        var baseOctave = 4;
+//        var baseNoteStep = 10;
+//        var baseNotexOctave =  baseNoteStep + baseOctave* 12;
+//        core.log('baseNotexOctave: ' + baseNotexOctave);
+//        var a = Math.pow(2, (1/12));
+//
+//        var octavesToCalculate = constants.octavesToCalculate;
+//        var currentStep = 1;
+//        for(var note in notes){
+//            for(var octave=0; octave <= octavesToCalculate; ++octave){
+//                var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
+//                //core.log('halfStepsFromBase: '+ halfStepsFromBase);
+//                var frequency = baseFrequency * Math.pow(a, halfStepsFromBase);
+//                core.log('note: {0} octave:{1} has frequency {2}', note, octave, frequency);
+//                notes[note].frequencies.push(frequency);
+//            }
+//            ++currentStep;
+//        }
+//        return notes;
+//    }
+
+    var notes = createNotesForEachOctave();
     calculateFrequencies();
 
     return notes;
