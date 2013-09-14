@@ -10,24 +10,13 @@ define([
     //http://www.phy.mtu.edu/~suits/notefreqs.html
 //    var notes={
 //        c0:{
-//            frequencies:[],    //[16.35, 32.70, 65.41, 130.81, 261.63, 523.25, 1046.50, 2093.00, 4186.01]
+//            frequency:333,
 //            playableNote:{},
-//            notesInKey:['c#',''],
+//            notesInKey:['c#',''],  <-- not done yet
 //            octave: 0
 //        },
 //        'c#0':{
-//            frequencies:[],
-//            notesInKey:[]},
-//        d0:{frequencies:[]},
-//        'd#0':{frequencies:[]},
-//        e0:{frequencies:[]},
-//        f0:{frequencies:[]},
-//        'f#0':{frequencies:[]},
-//        g0:{frequencies:[]},
-//        'g#0':{frequencies:[]},
-//        'a0':{frequencies:[]},
-//        'a#0':{frequencies:[]},
-//        b0:{frequencies:[]}
+//            ...
 //    };
 
     var noteSymbols = ['c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#', 'a', 'a#', 'b'];
@@ -74,20 +63,15 @@ define([
         var a = Math.pow(2, (1/12));
 
         var octavesToCalculate = constants.octavesToCalculate;
-        var currentStep = 1, i = 1;
+        var currentStep = 1;
         for(var note in notes){
-                var octave = notes[note].octave;
-                var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
+                var halfStepsFromBase = (currentStep + (1 * 12)) - baseNotexOctave;
+                //var halfStepsFromBase = (currentStep + (octave * 12)) - baseNotexOctave;
                 core.log('halfStepsFromBase: '+ halfStepsFromBase);
                 var frequency = baseFrequency * Math.pow(a, halfStepsFromBase);
-                core.log('note: {0} octave:{1} has frequency {2}', note, octave, frequency);
-                //notes[note].frequencies.push(frequency);
+                core.log('note: {0} octave:{1} has frequency {2}', note, notes[note].octave, frequency);
                 notes[note].frequency = frequency;
-            //if(i++%12 == 0){
-                core.log('increasing currentstep');
                 ++currentStep;
-            //}
-
         }
         return notes;
     }
