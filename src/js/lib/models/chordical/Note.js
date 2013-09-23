@@ -23,8 +23,6 @@ define([
             if(!attributes.octave){attributes.octave = 3;}
 //            if(!attributes.destination){attributes.destination = core.audio.audioContext.destination;}     cant do this here. do it on play
 
-            //var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
-            //this.set({frequency:attributes.note.frequency});
             core.log('Note frequency is: ' + attributes.frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
@@ -34,6 +32,11 @@ define([
             //when a keyboard key is pressed (1, 2, a, b, etc) we need to find which notes should be played.
             //each note has an array of triggers with the dom generated value e.g. 1 is 49
             //keyCodeTriggers:[]
+        },
+        //returns the current destination (e.g. speakers, gain node, etc)
+        //useful if you want to insert a new destination.
+        getContextDestination: function(){
+
         },
         /**
          *

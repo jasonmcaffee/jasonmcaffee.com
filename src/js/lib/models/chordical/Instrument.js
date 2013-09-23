@@ -57,13 +57,14 @@ define([
         },
         setDestinations:function(playableNote){
             core.log('setting destinations');
-            var previousSoundNode = playableNote,
+            var previousSoundNode = null, //playableNote,
                 soundNode = null;
             for(var i = 0; i < this.attributes.soundNodes.length; ++i){
                 soundNode = this.attributes.soundNodes[i];
                 core.log('setting a destination with type: ' + soundNode.get('type'));
                 if(previousSoundNode){
-                    previousSoundNode.set('destination', soundNode.getWebAudio());
+                    //previousSoundNode.set('destination', soundNode.getWebAudio());
+                    previousSoundNode.connect(soundNode.getWebAudio());      //.context.destination
                 }
                 previousSoundNode = soundNode;
             }

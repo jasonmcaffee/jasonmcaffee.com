@@ -17773,6 +17773,18 @@ function program4(depth0,data) {
   buffer += escapeExpression(stack1) + "\">\n        </div>\n    ";
   return buffer;}
 
+function program6(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        <div>\n            <label>Left Right</label>\n            <input name=\"pan.amount\" type=\"range\" min=\"-45\" max=\"45\" step=\"1\" value=\"";
+  foundHelper = helpers.pan;
+  stack1 = foundHelper || depth0.pan;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.amount);
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "pan.amount", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n        </div>\n    ";
+  return buffer;}
+
   buffer += "<div class=\"sound-node\">\n    <h4>sound node</h4>\n\n    <label>Node Type</label>\n    <select name=\"selectedNodeType\">\n        ";
   foundHelper = helpers.typeOptions;
   stack1 = foundHelper || depth0.typeOptions;
@@ -17792,6 +17804,21 @@ function program4(depth0,data) {
   foundHelper = helpers.if_eq;
   stack3 = foundHelper || depth0.if_eq;
   tmp1 = self.program(4, program4, data);
+  tmp1.hash = stack2;
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    ";
+  foundHelper = helpers.selectedNodeType;
+  stack1 = foundHelper || depth0.selectedNodeType;
+  stack2 = {};
+  stack3 = "panner";
+  stack2['compare'] = stack3;
+  foundHelper = helpers.if_eq;
+  stack3 = foundHelper || depth0.if_eq;
+  tmp1 = self.program(6, program6, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -17851,6 +17878,13 @@ define('lib/models/chordical/SoundNode',[
                 core.log('soundNode gain changed!!!!');
                 this.getWebAudio().gain.value = parseFloat(this.get('gain').amount);
             });
+
+            //http://stackoverflow.com/questions/14378305/how-to-create-very-basic-left-right-equal-power-panning-with-createpanner
+            this.on('subPropertyChange:pan.amount', function(){
+                core.log('soundNode pan changed!!!');
+                var x = Math.sin(this.get('pan').amount * (Math.PI / 180));
+                this.getWebAudio().setPosition(x, 0, 0);
+            });
         },
         getWebAudio:function(){
             this.context = core.audio.audioContext;
@@ -17858,6 +17892,7 @@ define('lib/models/chordical/SoundNode',[
 
             switch(this.get('selectedNodeType')){
                 case 'gain' : this.webAudioNode = this._createGainNode(); break;
+                case 'panner' : this.webAudioNode = this._createPannerNode(); break;
             }
             return this.webAudioNode;
         },
@@ -17868,16 +17903,30 @@ define('lib/models/chordical/SoundNode',[
             gainNode.connect(this.get('destination') || this.context.destination);
             return gainNode;
         },
+        _createPannerNode:function(){
+            core.log('SoundNode Model createPannerNode called');
+            var pannerNode = this.context.createPanner();
+            var x = Math.sin(this.get('pan').amount * (Math.PI / 180));
+            pannerNode.setPosition(x, 0, 0);
+            pannerNode.connect(this.get('destination') || this.context.destination);
+            return pannerNode;
+        },
         connect:function(destination){
-            this.getWebAudio().connect(destination);
+            //this.getWebAudio().connect(destination);
+        },
+        disconnect:function(){
+            this.getWebAudio().disconnect(0);
         },
         defaults:{
-            typeOptions : ['filter', 'gain'],
+            typeOptions : ['filter', 'gain', 'panner'],
             selectedNodeType: 'gain',
             destination: null, //overwrite this when chaining.
             //when the node is 'gain', these properties will be set by modelbinding, and should be used when playing notes.
             gain:{
                 amount:.7
+            },
+            pan:{
+                amount:0 //-45 left, 45 right
             }
         }
     });
@@ -18087,8 +18136,6 @@ define('lib/models/chordical/Note',[
             if(!attributes.octave){attributes.octave = 3;}
 //            if(!attributes.destination){attributes.destination = core.audio.audioContext.destination;}     cant do this here. do it on play
 
-            //var frequency = this.getNoteFrequency(attributes.note, attributes.octave);
-            //this.set({frequency:attributes.note.frequency});
             core.log('Note frequency is: ' + attributes.frequency);
 
             this.context = core.audio.audioContext;//each page can have up to 2 contexts (IIRC). use an alias due to prior refactor.
@@ -18098,6 +18145,11 @@ define('lib/models/chordical/Note',[
             //when a keyboard key is pressed (1, 2, a, b, etc) we need to find which notes should be played.
             //each note has an array of triggers with the dom generated value e.g. 1 is 49
             //keyCodeTriggers:[]
+        },
+        //returns the current destination (e.g. speakers, gain node, etc)
+        //useful if you want to insert a new destination.
+        getContextDestination: function(){
+
         },
         /**
          *
@@ -18252,13 +18304,14 @@ define('lib/models/chordical/Instrument',[
         },
         setDestinations:function(playableNote){
             core.log('setting destinations');
-            var previousSoundNode = playableNote,
+            var previousSoundNode = null, //playableNote,
                 soundNode = null;
             for(var i = 0; i < this.attributes.soundNodes.length; ++i){
                 soundNode = this.attributes.soundNodes[i];
                 core.log('setting a destination with type: ' + soundNode.get('type'));
                 if(previousSoundNode){
-                    previousSoundNode.set('destination', soundNode.getWebAudio());
+                    //previousSoundNode.set('destination', soundNode.getWebAudio());
+                    previousSoundNode.connect(soundNode.getWebAudio());      //.context.destination
                 }
                 previousSoundNode = soundNode;
             }

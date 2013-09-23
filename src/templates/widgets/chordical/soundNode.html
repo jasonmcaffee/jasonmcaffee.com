@@ -14,4 +14,10 @@
             <input name="gain.amount" type="range" min="0" max="1" step="0.1" value="{{gain.amount}}">
         </div>
     {{/if_eq}}
+    {{#if_eq selectedNodeType compare="panner"}}
+        <div>
+            <label>Left Right</label>
+            <input name="pan.amount" type="range" min="-45" max="45" step="1" value="{{pan.amount}}">
+        </div>
+    {{/if_eq}}
 </div>
