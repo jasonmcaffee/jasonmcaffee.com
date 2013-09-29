@@ -11,6 +11,8 @@ define([
                 core.log('soundNodeModel selectedNodeType change fired. recreating web audio instance');
                 this.webAudioNode = null;
                 this.getWebAudio();
+                //also have to setDestinations
+
             });
             this.on('subPropertyChange:gain.amount', function(){
                 core.log('soundNode gain changed!!!!');

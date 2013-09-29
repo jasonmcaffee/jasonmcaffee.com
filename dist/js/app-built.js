@@ -17878,6 +17878,8 @@ define('lib/models/chordical/SoundNode',[
                 core.log('soundNodeModel selectedNodeType change fired. recreating web audio instance');
                 this.webAudioNode = null;
                 this.getWebAudio();
+                //also have to setDestinations
+
             });
             this.on('subPropertyChange:gain.amount', function(){
                 core.log('soundNode gain changed!!!!');
@@ -17947,13 +17949,40 @@ define('lib/views/chordical/InstrumentEdit',[
 ], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel) {
     core.log('Instrument View module loaded');
 
+    //NOTE: wonky - if you reset the model, make sure to call listenForChangesToSoundNodeModels
     var View = core.mvc.View.extend({
         id:'InstrumentPage', // each view needs a unique id for transitions.
         template:instrumentEditTemplate,
         bindViewToModel: true,
         initialize:function(){
             core.mvc.View.prototype.initialize.apply(this, arguments);
+            this.listenForChangesToSoundNodeModels();
             this.createSoundNodeWidgetsUsingModel();
+        },
+        //cleanup model bindings for each soundNode in array
+        remove:function(){
+            var soundNodes = this.model.get('soundNodes');
+            for(var x=0; x < soundNodes.length; ++x){
+                var soundNodeModel = soundNodes[x];
+                soundNodeModel.off('change:selectedNodeType', this.handleSoundNodeModelSelectedNodeTypeChange, this);
+            }
+            core.mvc.View.prototype.remove.apply(this, arguments);
+        },
+        //since i didn't use a collection, i need to explicitly listen for changes to items in soundNodes
+        listenForChangesToSoundNodeModels:function(){
+            var soundNodes = this.model.get('soundNodes');
+            for(var x=0; x < soundNodes.length; ++x){
+                var soundNodeModel = soundNodes[x];
+                this.listenForChangesToSoundNodeModel(soundNodeModel);
+            }
+        },
+        listenForChangesToSoundNodeModel:function(soundNodeModel){
+            //when the selectedNodeType is changed, we have to reconnect all destinations so they point to the right node (panner, gain, etc).
+            soundNodeModel.on('change:selectedNodeType', this.handleSoundNodeModelSelectedNodeTypeChange, this);
+        },
+        handleSoundNodeModelSelectedNodeTypeChange:function(){
+            //note:this must happen after the SoundNode's change:selectedNodeType handler has been called so that webAudio is the right node (gain, panner,etc)
+            this.model.setDestinationsForSoundNodes();
         },
         createSoundNodeWidgetsUsingModel:function(){
             var soundNodes = this.model.get('soundNodes');
@@ -17987,6 +18016,7 @@ define('lib/views/chordical/InstrumentEdit',[
                     uiId:this.model.get('soundNodes').length
                 });
 
+                this.listenForChangesToSoundNodeModel(soundNodeModel);
                 //http://stackoverflow.com/questions/7325004/backbone-js-set-model-array-property
                 this.model.get('soundNodes').push(soundNodeModel);
                 this.model.trigger('change');
