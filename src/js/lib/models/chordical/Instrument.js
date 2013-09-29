@@ -48,19 +48,37 @@ define([
          * @param playableNote
          */
         playNote:function(playableNote){
-            this.setDestinations(playableNote);
+            this.setDestinationsForNote(playableNote);  //we have to do this for every play/
             playableNote.play();
         },
 
         stopNote:function(playableNote){
             playableNote.stop();
         },
-        setDestinations:function(playableNote){
+        setDestinationsForNote:function(playableNote){
             core.log('setting destinations');
-            var previousSoundNode = null, //playableNote,
+            //if no soundNodes, just connect to default
+            if(!this.attributes.soundNodes){
+                playableNote.set('destination', core.audio.audioContext.destination);
+            }else{//connect it to the first soundNode
+                playableNote.set('destination', this.attributes.soundNodes[0].getWebAudio());
+            }
+
+        },
+
+        //when a new sound node is added (eg gain, panner), link them together.
+        setDestinationsForSoundNodes:function(){
+            var soundNodes = this.attributes.soundNodes;
+            //if we only have 1 sound node, just connect it to the speakers
+            if(soundNodes.length === 1){
+                soundNodes[0].set('destination', core.audio.audioContext.destination);
+                return;
+            }
+
+            var previousSoundNode = null,
                 soundNode = null;
-            for(var i = 0; i < this.attributes.soundNodes.length; ++i){
-                soundNode = this.attributes.soundNodes[i];
+            for(var i = 0; i < soundNodes.length; ++i){
+                soundNode = soundNodes[i];
                 core.log('setting a destination with type: ' + soundNode.get('type'));
                 if(previousSoundNode){
                     //previousSoundNode.set('destination', soundNode.getWebAudio());
@@ -68,10 +86,8 @@ define([
                 }
                 previousSoundNode = soundNode;
             }
-
-            //last one should go to speakers
-            //previousSoundNode.set('destination', core.audio.audioContext.destination);
-
+            //connect the last sound node to the speakers
+            soundNode.set('destination', core.audio.audioContext.destination);
         }
     });
 

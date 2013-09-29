@@ -7,6 +7,11 @@ define([
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
 
+            this.on('change:selectedNodeType', function(){
+                core.log('soundNodeModel selectedNodeType change fired. recreating web audio instance');
+                this.webAudioNode = null;
+                this.getWebAudio();
+            });
             this.on('subPropertyChange:gain.amount', function(){
                 core.log('soundNode gain changed!!!!');
                 this.getWebAudio().gain.value = parseFloat(this.get('gain').amount);
@@ -45,7 +50,8 @@ define([
             return pannerNode;
         },
         connect:function(destination){
-            //this.getWebAudio().connect(destination);
+            this.set('destination', destination);
+            this.getWebAudio().connect(destination);
         },
         disconnect:function(){
             this.getWebAudio().disconnect(0);

@@ -64,6 +64,7 @@ define([
             },
             'change:soundNodes':function(){
                 core.log('Instrument View sound nodes changed');
+                this.model.setDestinationsForSoundNodes();
             }
         }
     });
