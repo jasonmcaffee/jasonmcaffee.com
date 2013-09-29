@@ -74,7 +74,7 @@ function program4(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        </select>\n\n        <div class=\"add-node-section\">\n            <h3>Add Node</h3>\n            <button id=\"addNodeButton\">Add Node</button>\n        </div>\n\n        <div id=\"soundNodesContainer\" class=\"sound-nodes-section\">\n        </div>\n\n    </form>\n</div>\n\n";
+  buffer += "\n        </select>\n\n        <div class=\"add-node-section\">\n            <h3>Add Node</h3>\n            <button id=\"addNodeButton\">Add Node</button>\n        </div>\n\n        <button id=\"logSoundNodesNativeConnection\">Log Native Connection</button>\n\n        <div id=\"soundNodesContainer\" class=\"sound-nodes-section\">\n        </div>\n\n    </form>\n</div>\n\n";
   buffer += "\n";
   buffer += "\n<!--<div id=\"soundNodeContainer";
   stack1 = depth0.uiId;

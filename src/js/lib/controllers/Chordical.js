@@ -75,7 +75,7 @@ define([
                 }
             };
 
-            core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));
+            //core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));  <-- todo: Instrument's init call to this.setDestinationsForSoundNodes(); caused this to always break.
             return this.notesModel;
         },
         getInstrumentModel:function(){

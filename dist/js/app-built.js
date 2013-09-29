@@ -17712,7 +17712,7 @@ function program4(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        </select>\n\n        <div class=\"add-node-section\">\n            <h3>Add Node</h3>\n            <button id=\"addNodeButton\">Add Node</button>\n        </div>\n\n        <div id=\"soundNodesContainer\" class=\"sound-nodes-section\">\n        </div>\n\n    </form>\n</div>\n\n";
+  buffer += "\n        </select>\n\n        <div class=\"add-node-section\">\n            <h3>Add Node</h3>\n            <button id=\"addNodeButton\">Add Node</button>\n        </div>\n\n        <button id=\"logSoundNodesNativeConnection\">Log Native Connection</button>\n\n        <div id=\"soundNodesContainer\" class=\"sound-nodes-section\">\n        </div>\n\n    </form>\n</div>\n\n";
   buffer += "\n";
   buffer += "\n<!--<div id=\"soundNodeContainer";
   stack1 = depth0.uiId;
@@ -17847,14 +17847,14 @@ define('lib/widgets/chordical/SoundNode',[
         isWidget:true,
         bindViewToModel:true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
-        events:{
-            "click":function (e) {
-                core.log('click for SoundNode occurred');
-            },
-            "keydown1":function(e){
-                core.log('keydown!!!!' + e.keyCode);
-            }
-        },
+//        events:{
+//            "click":function (e) {
+//                core.log('click for SoundNode occurred');
+//            },
+//            "keydown1":function(e){
+//                core.log('keydown!!!!' + e.keyCode);
+//            }
+//        },
         modelEvents:{
             'change:selectedNodeType':function(){
                 core.log('refreshing html so the selectedNodeType options are displayed');
@@ -17919,6 +17919,7 @@ define('lib/models/chordical/SoundNode',[
             return pannerNode;
         },
         connect:function(destination){
+            this.disconnect();
             this.set('destination', destination);
             this.getWebAudio().connect(destination);
         },
@@ -18024,6 +18025,14 @@ define('lib/views/chordical/InstrumentEdit',[
 
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
+            },
+            'click #logSoundNodesNativeConnection':function(e){
+                e.preventDefault();
+                var soundNodes = this.model.get('soundNodes');
+                for(var x=0; x < soundNodes.length; ++x){
+                    var soundNodeModel = soundNodes[x];
+                    core.log('soundNode type:{0} is connected to: {1}', soundNodeModel.get('selectedNodeType'), soundNodeModel.get('destination'));
+                }
             }
         },
         modelEvents:{
@@ -18297,7 +18306,7 @@ define('lib/models/chordical/Instrument',[
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
             this.attributes.selectedSound.selectedSubType = this.attributes.selectedSound.subTypes[0];
-
+            this.setDestinationsForSoundNodes();
 
         },
         defaults:{
@@ -18355,7 +18364,8 @@ define('lib/models/chordical/Instrument',[
             var soundNodes = this.attributes.soundNodes;
             //if we only have 1 sound node, just connect it to the speakers
             if(soundNodes.length === 1){
-                soundNodes[0].set('destination', core.audio.audioContext.destination);
+                //soundNodes[0].set('destination', core.audio.audioContext.destination);
+                soundNodes[0].connect(core.audio.audioContext.destination);
                 return;
             }
 
@@ -18454,7 +18464,7 @@ define('lib/controllers/Chordical',[
                 }
             };
 
-            core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));
+            //core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));  <-- todo: Instrument's init call to this.setDestinationsForSoundNodes(); caused this to always break.
             return this.notesModel;
         },
         getInstrumentModel:function(){

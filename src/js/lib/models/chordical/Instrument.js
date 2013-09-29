@@ -13,7 +13,7 @@ define([
             core.log('Sound Model initialize called');
             this.attributes.selectedSound = this.attributes.soundOptions['oscillator'];
             this.attributes.selectedSound.selectedSubType = this.attributes.selectedSound.subTypes[0];
-
+            this.setDestinationsForSoundNodes();
 
         },
         defaults:{
@@ -71,7 +71,8 @@ define([
             var soundNodes = this.attributes.soundNodes;
             //if we only have 1 sound node, just connect it to the speakers
             if(soundNodes.length === 1){
-                soundNodes[0].set('destination', core.audio.audioContext.destination);
+                //soundNodes[0].set('destination', core.audio.audioContext.destination);
+                soundNodes[0].connect(core.audio.audioContext.destination);
                 return;
             }
 

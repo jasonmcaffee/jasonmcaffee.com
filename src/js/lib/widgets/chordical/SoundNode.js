@@ -15,14 +15,14 @@ define([
         isWidget:true,
         bindViewToModel:true,
         //initialize:function(){core.mvc.View.prototype.initialize.apply(this, arguments);},
-        events:{
-            "click":function (e) {
-                core.log('click for SoundNode occurred');
-            },
-            "keydown1":function(e){
-                core.log('keydown!!!!' + e.keyCode);
-            }
-        },
+//        events:{
+//            "click":function (e) {
+//                core.log('click for SoundNode occurred');
+//            },
+//            "keydown1":function(e){
+//                core.log('keydown!!!!' + e.keyCode);
+//            }
+//        },
         modelEvents:{
             'change:selectedNodeType':function(){
                 core.log('refreshing html so the selectedNodeType options are displayed');

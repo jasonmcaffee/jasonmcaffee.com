@@ -81,6 +81,14 @@ define([
 
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
+            },
+            'click #logSoundNodesNativeConnection':function(e){
+                e.preventDefault();
+                var soundNodes = this.model.get('soundNodes');
+                for(var x=0; x < soundNodes.length; ++x){
+                    var soundNodeModel = soundNodes[x];
+                    core.log('soundNode type:{0} is connected to: {1}', soundNodeModel.get('selectedNodeType'), soundNodeModel.get('destination'));
+                }
             }
         },
         modelEvents:{

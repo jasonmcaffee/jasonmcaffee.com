@@ -52,6 +52,7 @@ define([
             return pannerNode;
         },
         connect:function(destination){
+            this.disconnect();
             this.set('destination', destination);
             this.getWebAudio().connect(destination);
         },
