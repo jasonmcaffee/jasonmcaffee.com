@@ -82,6 +82,7 @@ define([
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
             },
+            //debugging purposes only.
             'click #logSoundNodesNativeConnection':function(e){
                 e.preventDefault();
                 var soundNodes = this.model.get('soundNodes');

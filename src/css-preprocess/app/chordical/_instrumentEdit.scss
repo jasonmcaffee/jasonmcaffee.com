@@ -1,0 +1,15 @@
+%sound-node{
+    @extend %round-all-by-3;
+    @extend %chordical-lime-green-gradient;
+    @extend %shadow-centered-blur10-opacity7;
+    margin: 2%;
+    padding: 0% 1% .5% 1%;
+    max-width:250px;
+}
+
+#InstrumentPage{
+
+    .sound-node{
+        @extend %sound-node;
+    }
+}

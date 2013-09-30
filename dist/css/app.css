@@ -168,9 +168,9 @@
   font-size: 120%; }
 
 #webcamPage #captureInputFacade {
-  -moz-box-shadow: inset 0px 1px 0px 0px white;
-  -webkit-box-shadow: inset 0px 1px 0px 0px white;
-  box-shadow: inset 0px 1px 0px 0px white;
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fafafa), color-stop(1, #dfdfdf));
   background: -moz-linear-gradient(center top, #fafafa 5%, #dfdfdf 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#dfdfdf');
@@ -178,7 +178,7 @@
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
-  border: 1px solid gainsboro;
+  border: 1px solid #dcdcdc;
   display: inline-block;
   color: #777777;
   font-family: arial;
@@ -186,7 +186,7 @@
   font-weight: bold;
   padding: 6px 24px;
   text-decoration: none;
-  text-shadow: 1px 1px 0px white; }
+  text-shadow: 1px 1px 0px #ffffff; }
 
 #webcamPage #captureInputFacade:hover {
   cursor: pointer;
@@ -338,7 +338,7 @@ h1 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.list-type-1, .list-type-2, .home-section-tile, #resume-page .download-and-contact > div, #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div, #resume-page .employment-section .employment-section-item dl dt {
+.list-type-1, .list-type-2, .home-section-tile, #resume-page .download-and-contact > div, #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div, #resume-page .employment-section .employment-section-item dl dt, #InstrumentPage .sound-node {
   -moz-border-radius-topleft: 3px;
   -moz-border-radius-topright: 3px;
   -moz-border-radius-bottomleft: 3px;
@@ -380,7 +380,12 @@ h1 {
   font-weight: normal;
   font-style: normal; }
 
-/*
+#InstrumentPage .sound-node {
+  -webkit-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7); }
+
+/*!
  *  Font Awesome 3.0.2
  *  the iconic font designed for use with Twitter Bootstrap
  *  -------------------------------------------------------
@@ -510,7 +515,7 @@ ul.icons {
 
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: 0.2em 0.25em 0.15em;
+  padding: .2em .25em .15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px; }
@@ -1562,7 +1567,7 @@ ul.icons {
 #homePage {
   width: 100%;
   height: 100%;
-  font-family: "Quicksand_Book", "Quicksand Regular", sans-serif;
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
   position: relative;
   z-index: 1; }
 
@@ -1576,7 +1581,7 @@ ul.icons {
   padding-top: 2%;
   top: 0;
   left: 0;
-  font-family: "Quicksand_Book", "Quicksand Regular", sans-serif; }
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif; }
   .navigation > h1 {
     width: 30%;
     min-width: 230px;
@@ -1632,7 +1637,7 @@ ul.icons {
   top: 0;
   left: 0;
   width: 100%;
-  border: none 5px black;
+  border: none 5px #000000;
   -moz-border-radius-topleft: 0px;
   -moz-border-radius-topright: 0px;
   -moz-border-radius-bottomleft: 5px;
@@ -1732,7 +1737,7 @@ ul.icons {
     box-shadow: inset 0 0 2px #0f0f0f; }
 
   #menuExpanded ul li:first-child {
-    border: none 0px black;
+    border: none 0px #000000;
     -moz-border-radius-topleft: 7px;
     -moz-border-radius-topright: 7px;
     -moz-border-radius-bottomleft: 0px;
@@ -1747,7 +1752,7 @@ ul.icons {
     border-bottom-right-radius: 0px; }
 
   #menuExpanded ul li:last-child {
-    border: none 0px black;
+    border: none 0px #000000;
     -moz-border-radius-topleft: 0px;
     -moz-border-radius-topright: 0px;
     -moz-border-radius-bottomleft: 7px;
@@ -1777,7 +1782,7 @@ body::-webkit-scrollbar {
   min-height: 500px;
   height: 100%;
   width: 100%;
-  /*!needed to allow menu to be placed below navbar*/
+  /*!!needed to allow menu to be placed below navbar*/
   /*color*/ }
 
 .Explorer-9 .pages {
@@ -1853,7 +1858,7 @@ body::-webkit-scrollbar {
     width: 33%;
     font-size: 140%; }
   #resume-page .employment-section .employment-section-item ul li:nth-child(1) {
-    font-family: "Quicksand_Book_Oblique", "Quicksand Regular", sans-serif; }
+    font-family: 'Quicksand_Book_Oblique', 'Quicksand Regular',sans-serif; }
   #resume-page .employment-section .employment-section-item ul li:nth-child(2) {
     text-align: center; }
   #resume-page .employment-section .employment-section-item ul li:nth-child(3) {
@@ -1872,7 +1877,7 @@ body::-webkit-scrollbar {
   height: 100%;
   width: 100%;
   padding-top: 3%;
-  font-family: "Quicksand_Book", "Quicksand Regular", sans-serif;
+  font-family: 'Quicksand_Book', 'Quicksand Regular',sans-serif;
   background-color: white; }
   #resume-page .personal-projects-section > div > a {
     word-wrap: break-word; }
@@ -1966,9 +1971,9 @@ body::-webkit-scrollbar {
   -moz-border-radius: 3px;
   border-radius: 3px;
   /*shadows*/
-  -webkit-box-shadow: 0px 0px 8px black;
-  -moz-box-shadow: 0px 0px 8px black;
-  box-shadow: 0px 0px 8px black; }
+  -webkit-box-shadow: 0px 0px 8px #000000;
+  -moz-box-shadow: 0px 0px 8px #000000;
+  box-shadow: 0px 0px 8px #000000; }
 
 #webcamPage {
   height: 100%;
@@ -2046,9 +2051,9 @@ body::-webkit-scrollbar {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#e5e5e5',GradientType=0 );
     /* IE6-9 */
     /*shadows*/
-    -webkit-box-shadow: 0px 0px 8px black;
-    -moz-box-shadow: 0px 0px 8px black;
-    box-shadow: 0px 0px 8px black; }
+    -webkit-box-shadow: 0px 0px 8px #000000;
+    -moz-box-shadow: 0px 0px 8px #000000;
+    box-shadow: 0px 0px 8px #000000; }
   #webcamPage .header-blue-banner {
     /*sizing*/
     height: 50%;
@@ -2082,9 +2087,9 @@ body::-webkit-scrollbar {
     -moz-border-radius: 3px;
     border-radius: 3px;
     /*shadows*/
-    -webkit-box-shadow: 0px 0px 8px black;
-    -moz-box-shadow: 0px 0px 8px black;
-    box-shadow: 0px 0px 8px black; }
+    -webkit-box-shadow: 0px 0px 8px #000000;
+    -moz-box-shadow: 0px 0px 8px #000000;
+    box-shadow: 0px 0px 8px #000000; }
   #webcamPage .aptjs-logo {
     /*positioning*/
     /*overlay the logo on top of the blue banner */
@@ -2128,8 +2133,8 @@ body::-webkit-scrollbar {
     margin: 0px auto;
     clear: both;
     border: none;
-    border-top: 1px solid #aaaaaa;
-    border-bottom: 1px solid white;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #FFF;
     font-size: 1px;
     line-height: 0;
     overflow: visible; }
@@ -2160,7 +2165,7 @@ body::-webkit-scrollbar {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303235', endColorstr='#33373a',GradientType=0 );
     /* IE6-9 */
-    border: none 5px black;
+    border: none 5px #000000;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     -moz-border-radius-bottomleft: 5px;
@@ -2203,7 +2208,7 @@ body::-webkit-scrollbar {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303235', endColorstr='#33373a',GradientType=0 );
     /* IE6-9 */
-    border: none 5px black;
+    border: none 5px #000000;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     -moz-border-radius-bottomleft: 5px;
@@ -2221,7 +2226,7 @@ body::-webkit-scrollbar {
     background-color: black;
     width: 85%;
     display: inline-block;
-    border: none 3px black;
+    border: none 3px #000000;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     -moz-border-radius-bottomleft: 3px;
@@ -2249,7 +2254,7 @@ body::-webkit-scrollbar {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6db3f2', endColorstr='#541163dd',GradientType=1 );
     /* IE6-9 */
-    border: none 3px black;
+    border: none 3px #000000;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     -moz-border-radius-bottomleft: 3px;
@@ -2267,7 +2272,7 @@ body::-webkit-scrollbar {
     display: inline-block;
     text-align: right;
     color: #f6f8f9;
-    text-shadow: 0px 2px 3px #555555; }
+    text-shadow: 0px 2px 3px #555; }
 
 @media only screen and (max-width: 325px) {
   #webcamPage {
@@ -2342,14 +2347,71 @@ body::-webkit-scrollbar {
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
-  display: inline-block;
-  background-color: grey; }
+  display: inline-block; }
 
 .sound-cell {
   width: 20%;
   min-width: 50px;
   min-height: 70px;
-  background-color: white;
   border-color: black;
   border-width: 1px;
-  border-style: solid; }
+  border-style: solid;
+  text-align: center;
+  vertical-align: middle; }
+
+#InstrumentPage .sound-node {
+  background: #baea52;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #baea52), color-stop(46%, #cdeb8e), color-stop(100%, #a5c956));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#baea52', endColorstr='#a5c956',GradientType=0 );
+  /* IE6-9 */ }
+
+.sound-cell {
+  background: -moz-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(198, 198, 198, 0.76)), color-stop(2%, rgba(216, 216, 216, 0.76)), color-stop(3%, rgba(221, 221, 221, 0.76)), color-stop(8%, rgba(234, 234, 234, 0.76)), color-stop(46%, rgba(249, 249, 249, 0.76)), color-stop(92%, rgba(247, 247, 247, 0.76)), color-stop(96%, rgba(232, 232, 232, 0.76)), color-stop(98%, rgba(219, 219, 219, 0.76)), color-stop(100%, rgba(198, 198, 198, 0.76)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c6c6c6', endColorstr='#c2c6c6c6',GradientType=1 );
+  /* IE6-9 */ }
+
+#chordical-page #keyboard {
+  background: #7abcff;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #7abcff), color-stop(50%, #60abf8), color-stop(100%, #4096ee));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+#InstrumentPage .sound-node {
+  margin: 2%;
+  padding: 0% 1% .5% 1%;
+  max-width: 250px; }

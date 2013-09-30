@@ -7,6 +7,7 @@ define([
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
 
+            //Note: wonky - this must occur before before the other change:selectedNodeType listener in instrument is fired.(so connect has the right new web audio)
             this.on('change:selectedNodeType', function(){
                 core.log('soundNodeModel selectedNodeType change fired. recreating web audio instance');
                 this.webAudioNode = null;
@@ -25,6 +26,10 @@ define([
                 var x = Math.sin(this.get('pan').amount * (Math.PI / 180));
                 this.getWebAudio().setPosition(x, 0, 0);
             });
+            this.on('subPropertyChange:delay.delayTime', function(){
+                core.log('soundNode delayTime changed');
+                this.getWebAudio().delayTime.value = this.get('delay').delayTime;
+            });
         },
         getWebAudio:function(){
             this.context = core.audio.audioContext;
@@ -33,6 +38,7 @@ define([
             switch(this.get('selectedNodeType')){
                 case 'gain' : this.webAudioNode = this._createGainNode(); break;
                 case 'panner' : this.webAudioNode = this._createPannerNode(); break;
+                case 'delay' : this.webAudioNode = this._createDelayNode(); break;
             }
             return this.webAudioNode;
         },
@@ -51,6 +57,13 @@ define([
             pannerNode.connect(this.get('destination') || this.context.destination);
             return pannerNode;
         },
+        _createDelayNode:function(){
+            core.log('SoundNode Model createDelayNode called');
+            var delayNode = this.context.createDelayNode();
+            delayNode.delayTime.value = this.get('delay').delayTime;
+            delayNode.connect(this.get('destination') || this.context.destination);
+            return delayNode;
+        },
         connect:function(destination){
             this.disconnect();
             this.set('destination', destination);
@@ -60,7 +73,7 @@ define([
             this.getWebAudio().disconnect(0);
         },
         defaults:{
-            typeOptions : ['filter', 'gain', 'panner'],
+            typeOptions : ['filter', 'gain', 'panner', 'delay'],
             selectedNodeType: 'gain',
             destination: null, //overwrite this when chaining.
             //when the node is 'gain', these properties will be set by modelbinding, and should be used when playing notes.
@@ -69,6 +82,9 @@ define([
             },
             pan:{
                 amount:0 //-45 left, 45 right
+            },
+            delay:{
+                delayTime:.5
             }
         }
     });

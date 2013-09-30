@@ -35,7 +35,7 @@
     @extend %inline-block-grid;
     //letter-spacing: 0em !important;
 
-    background-color: grey;
+    @extend %chordical-blue-radial-gradient;
 }
 
 .sound-cell{
@@ -49,8 +49,11 @@
     min-width:50px;
     min-height:70px;
 
-    background-color:white;
+    @extend %chordical-white-multi-step-gradient;
     border-color:black;
     border-width: 1px;
     border-style: solid;
+
+    text-align: center;
+    vertical-align: middle;
 }

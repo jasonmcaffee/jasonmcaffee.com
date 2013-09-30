@@ -17776,6 +17776,18 @@ function program4(depth0,data) {
 function program6(depth0,data) {
   
   var buffer = "", stack1;
+  buffer += "\n    <div>\n        <label>Amount</label>\n        <input name=\"delay.delayTime\" type=\"range\" min=\"0\" max=\"10\" step=\"0.1\" value=\"";
+  foundHelper = helpers.delay;
+  stack1 = foundHelper || depth0.delay;
+  stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.delayTime);
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "delay.delayTime", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n    </div>\n    ";
+  return buffer;}
+
+function program8(depth0,data) {
+  
+  var buffer = "", stack1;
   buffer += "\n        <div>\n            <label>Left Right</label>\n            <input name=\"pan.amount\" type=\"range\" min=\"-45\" max=\"45\" step=\"1\" value=\"";
   foundHelper = helpers.pan;
   stack1 = foundHelper || depth0.pan;
@@ -17814,11 +17826,26 @@ function program6(depth0,data) {
   foundHelper = helpers.selectedNodeType;
   stack1 = foundHelper || depth0.selectedNodeType;
   stack2 = {};
-  stack3 = "panner";
+  stack3 = "delay";
   stack2['compare'] = stack3;
   foundHelper = helpers.if_eq;
   stack3 = foundHelper || depth0.if_eq;
   tmp1 = self.program(6, program6, data);
+  tmp1.hash = stack2;
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    ";
+  foundHelper = helpers.selectedNodeType;
+  stack1 = foundHelper || depth0.selectedNodeType;
+  stack2 = {};
+  stack3 = "panner";
+  stack2['compare'] = stack3;
+  foundHelper = helpers.if_eq;
+  stack3 = foundHelper || depth0.if_eq;
+  tmp1 = self.program(8, program8, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -17874,6 +17901,7 @@ define('lib/models/chordical/SoundNode',[
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
 
+            //Note: wonky - this must occur before before the other change:selectedNodeType listener in instrument is fired.(so connect has the right new web audio)
             this.on('change:selectedNodeType', function(){
                 core.log('soundNodeModel selectedNodeType change fired. recreating web audio instance');
                 this.webAudioNode = null;
@@ -17892,6 +17920,10 @@ define('lib/models/chordical/SoundNode',[
                 var x = Math.sin(this.get('pan').amount * (Math.PI / 180));
                 this.getWebAudio().setPosition(x, 0, 0);
             });
+            this.on('subPropertyChange:delay.delayTime', function(){
+                core.log('soundNode delayTime changed');
+                this.getWebAudio().delayTime.value = this.get('delay').delayTime;
+            });
         },
         getWebAudio:function(){
             this.context = core.audio.audioContext;
@@ -17900,6 +17932,7 @@ define('lib/models/chordical/SoundNode',[
             switch(this.get('selectedNodeType')){
                 case 'gain' : this.webAudioNode = this._createGainNode(); break;
                 case 'panner' : this.webAudioNode = this._createPannerNode(); break;
+                case 'delay' : this.webAudioNode = this._createDelayNode(); break;
             }
             return this.webAudioNode;
         },
@@ -17918,6 +17951,13 @@ define('lib/models/chordical/SoundNode',[
             pannerNode.connect(this.get('destination') || this.context.destination);
             return pannerNode;
         },
+        _createDelayNode:function(){
+            core.log('SoundNode Model createDelayNode called');
+            var delayNode = this.context.createDelayNode();
+            delayNode.delayTime.value = this.get('delay').delayTime;
+            delayNode.connect(this.get('destination') || this.context.destination);
+            return delayNode;
+        },
         connect:function(destination){
             this.disconnect();
             this.set('destination', destination);
@@ -17927,7 +17967,7 @@ define('lib/models/chordical/SoundNode',[
             this.getWebAudio().disconnect(0);
         },
         defaults:{
-            typeOptions : ['filter', 'gain', 'panner'],
+            typeOptions : ['filter', 'gain', 'panner', 'delay'],
             selectedNodeType: 'gain',
             destination: null, //overwrite this when chaining.
             //when the node is 'gain', these properties will be set by modelbinding, and should be used when playing notes.
@@ -17936,6 +17976,9 @@ define('lib/models/chordical/SoundNode',[
             },
             pan:{
                 amount:0 //-45 left, 45 right
+            },
+            delay:{
+                delayTime:.5
             }
         }
     });
@@ -18026,6 +18069,7 @@ define('lib/views/chordical/InstrumentEdit',[
                 this.createSoundNodeWidgetAndAddToWidgets(soundNodeModel);
                 this.reRenderWidgetsWithSelector('#soundNodesContainer');
             },
+            //debugging purposes only.
             'click #logSoundNodesNativeConnection':function(e){
                 e.preventDefault();
                 var soundNodes = this.model.get('soundNodes');
