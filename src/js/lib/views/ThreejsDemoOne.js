@@ -4,7 +4,9 @@ define([
     'jquery'
 ], function(core, threejsDemoOneTemplate, $){
     var three = null;//once threejs is loaded
+
     /**
+     * Primarily used to determine if a block was clicked, so that we can add another block to it.
      * Casts a ray in the direction the cursor is pointing.
      * Returns the first hit object.
      * @param three
@@ -32,6 +34,9 @@ define([
         return intersects[0]; //need more than just the object to determine which face //? intersects[0].object : undefined;
     }
 
+
+    //primary view for the threejs demo.
+    //all logic for how the scene is created and interacted with can be found here.
     var View = core.mvc.View.extend({
         id:'threejsdemoOne',
         template: threejsDemoOneTemplate,
@@ -124,6 +129,9 @@ define([
 
         },
         events:{
+
+            //when the scene is clicked, we determine if an existing block was clicked, and if so,
+            //add a new block to the scene, appending it to the face of the existing block that was clicked.
             'click #scene': function(e){
                 //this.camera.position.x += 20;
                 var clickedIntersect = getClickedObject(THREE, e, this.projector, this.camera,this.sceneWidth, this.sceneHeight, this.scene.children);
@@ -168,12 +176,8 @@ define([
                     this.createBlock(newBlockPosition);
                 }
             },
-//            'click #controls #moveForward': 'moveForward',
-//            'click #controls #moveBackward': 'moveBackward',
-//            'click #controls #moveLeft' : 'moveLeft',
-//            'click #controls #moveRight' : 'moveRight',
-//            'click #controls #moveUp' : 'moveUp',
-//            'click #controls #moveDown' :'moveDown',
+
+            //currently not used. intended to allow controlling movement on touch device.
             'mouseUp #controls':function(){
                 this.isUpPressed = false;
                 this.isDownPressed = false;
@@ -182,12 +186,17 @@ define([
                 this.isForwardPressed = false;
                 this.isBackwardPressed = false;
             },
+
+            //when the mouse moves, we update mouseX and mouseY so that they can be used in looking
+            //around the scene
             'mousemove #scene' : function(e){
                 this.mouseX = e.pageX - this.viewHalfX;
                 this.mouseY = e.pageY - this.viewHalfY;
             }
 
         },
+
+        //creates points of light on the scene to demo lighting and shading effects.
         createLight:function(){
             var light = new three.PointLight( 0xF4F799 );
             light.position.set( 10, 100, 10 );
@@ -220,28 +229,14 @@ define([
             light = new three.PointLight( 0xF4F799 );
             light.position.set( 10, 100, 100 );
             this.scene.add(light);
-//            for(var x = 0; x < 1000; x+=10){
-//                light = new three.PointLight( 0xF4F799 );
-//                light.position.set( 10, x, 10 );
-//                this.scene.add( light );
-//
-//                light = new three.PointLight( 0xF4F799 );
-//                light.position.set( x, 10, 10 );
-//                this.scene.add( light );
-//            }
 
         },
+
+        //creates a new block and places it at the specified position.
+        //primarily called when a user clicks on another block.
         createBlock:function(position){
             var geometry = new three.CubeGeometry( this.blockSize, this.blockSize, this.blockSize );
             var material = new three.MeshLambertMaterial( { color: 0x91D164 } );
-
-            //try different way for color so we can set its face color when collision occurs.
-            //X!!!! doesn't work for changing colors, and doesn't have lighting effects.
-//            for(var i=0; i < geometry.faces.length; ++i){
-//                var face = geometry.faces[i];
-//                face.color.setHex(0x91D164);
-//            }
-//            var material =  new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors } );
 
             var mesh = new three.Mesh( geometry, material );
             mesh.position.set(position.x, position.y, position.z);
@@ -250,6 +245,8 @@ define([
 
             this.scene.add( mesh );
         },
+
+        //draws lines to outline the floor of the scene.
         drawFloorLines:function(){
             var THREE = this.three;
             //lines
@@ -280,20 +277,14 @@ define([
                 this.scene.add(createZLine(x, 0));
                 this.scene.add(createZLine(negX, 0));
 
-                //lines drawn along the z axis along x, but y increased
-//                for(var y= 10, negY=0; y<=20; y+= this.blockSize, negY = y * -1){
-//                    //lines drawn along the z axis (front to back) along x.
-//                    this.scene.add(createLine(x, y));
-//                    this.scene.add(createLine(negX, y));
-//                }
-
                 this.scene.add(createXLine(0, x));
                 this.scene.add(createXLine(0, negX));
-
-
             }
-
         },
+
+        //when the user moves the mouse, we create the illusion of looking around the 3d space.
+        //takes into account the speed the mouse is moving (lookSpeed) and translates the 2d movement of the
+        //mouse into 3d movement of the camera and playerCube.
         updateLookPosition:function(delta){
             //look
             var actualLookSpeed = delta * this.lookSpeed;
@@ -328,11 +319,16 @@ define([
                 core.log('x is NAN!');
             }
         },
+
+        //moves the camera position if w,s,a,d keys are in a pressed state.
+        //currently supports collision detection for forward movement (work in progress);
         updateCameraPosition:function(delta){
             if(this.isBackwardPressed){
                 //this.camera.position.z += this.movementAmount;
                 this.camera.translateZ(this.movementAmount);
             }
+            //collision detection: cast a ray in the direction the user is moving and see if we collide with 
+            //any objects in the scene. if we do, stop movement, and change the color of the object we hit.
             if(this.isForwardPressed){
 
                 var originPoint = this.playerCube.position.clone();
@@ -391,6 +387,12 @@ define([
             //update playerCube position to match camera
             this.playerCube.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z );
         },
+
+        //initial render of the page.  does a nested require so that the threejs lib is not included until
+        //this page is viewed.
+        //creates the primary threejs objects (renderer, scence, camera, projector), 
+        //as well as custom objects (floor lines, lights, player cube, and a block cube)
+        //draws each frame using requestAnimation frame.
         render:function(){
             core.log('threejs rendering');
             //first give the el the template html
@@ -431,13 +433,6 @@ define([
                 );
 
                this.camera.position.set( this.playerWidth /2, this.playerHeight / 2, 100 );
-//                camera.lookAt( scene.position );
-
-//                var geometry = new three.CubeGeometry( this.blockSize, this.blockSize, this.blockSize );
-//                var material = new three.MeshLambertMaterial( { color: 0x91D164 } );
-//                var mesh = new three.Mesh( geometry, material );
-//                mesh.position.set(0, 0, 0);
-//                this.scene.add( mesh );
 
                 this.playerGeometry = new three.CubeGeometry(this.playerWidth, this.playerHeight, this.playerDepth);
                 this.playerMaterial = new three.MeshBasicMaterial({color:0xFC0015, wireframe:true});   //
@@ -448,11 +443,9 @@ define([
 
                 //starting point block
                 this.createBlock({x:0, y:this.blockSize/2, z:0});
-
-                //this.sceneObjects.push(mesh);
-
+                //various lights throughout the scene
                 this.createLight();
-
+                //simulate a floor using lines
                 this.drawFloorLines();
 
                 //for looking around
@@ -461,20 +454,15 @@ define([
 
                 this.camera.lookAt({x:0, y:0, z:0});
 
+                //request animation frame callback.  
+                //any time the browser thinks it's a good time to draw things, this will be called.
+                //This allows us to draw things at ~60 frames per second.
+                //its important to note that user interactions dont render anything, they simply update
+                //state.  This function (and the functions it calls) are the only things that render.
                 function animate(t){
-//                    camera.position.x = Math.sin(t/1000) * 20;
-//                    camera.position.y = 150;
-//                    camera.position.z = Math.cos(t/1000) * 20;
-
-                    //this.camera.lookAt(this.scene.position);
                     var delta = this.clock.getDelta();
-
                     this.updateLookPosition(delta);
-
                     this.updateCameraPosition(delta);
-
-
-
                     this.renderer.render(this.scene, this.camera);
 
                     core.ui.requestAnimationFrame(animate.bind(this));
