@@ -68,6 +68,7 @@ define([
 
         //when a new sound node is added (eg gain, panner), link them together.
         setDestinationsForSoundNodes:function(){
+            if(core.audio.audioContext.noWebAudio){return;} //allow the page to be displayed without error if no web audio.
             var soundNodes = this.attributes.soundNodes;
             //if we only have 1 sound node, just connect it to the speakers
             if(soundNodes.length === 1){

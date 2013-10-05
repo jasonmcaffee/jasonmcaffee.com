@@ -91,24 +91,24 @@
     padding: 1% 1% 1% 1%;
     display:inline-block;
 
-    //border
+    //border 1
     border-color:#9E9E9E;
     border-width: 2px;
     border-style: solid;
-
     //@extend %chordical-grey-border-top;
 
-    @extend %inline-block-grid;
-    @extend .round-all-by-5;
-    //letter-spacing: 0em !important;
-
-    //border
-
-    //background color
-    //background: url('../images/chordical/leather-background2.jpg') repeat;
-    @include chordical-background-image-and-spotlight-gradient(url('../images/chordical/leather-background2.jpg') repeat){
-        background-size: 350px Auto;
+    //background - repeating leather texture with gradient over the top for spotlight
+    //need shorthand for size so the gradient can take up the entire element, and the leather image can repeat at small size
+    @include chordical-background-image-and-spotlight-gradient(url('../images/chordical/leather-background2.jpg') repeat center center /350px Auto){
     }
+
+    //layout (left to right stack)
+    @extend %inline-block-grid;
+
+    //rounded corners
+    @extend .round-all-by-5;
+
+
 
     //@extend %chordical-white-grey-slight-gradient;
 }

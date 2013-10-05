@@ -7,7 +7,17 @@ define([
         init:function(){
             log('core audio init called');
             if(modernizr.webaudio){
-                this.audioContext = new webkitAudioContext();
+                if(typeof webkitAudioContext != 'undefined'){
+                    this.audioContext = new webkitAudioContext();
+                }else if(typeof AudioContext != 'undefined'){
+                    this.audioContext = new AudioContext();
+                }else{
+                    log('NO WEBAUDIO SUPPORT');
+                    this.audioContext = {noWebAudio:true};
+                }
+            }else{
+                log('NO WEBAUDIO SUPPORT');
+                this.audioContext = {noWebAudio:true};
             }
         }
     };

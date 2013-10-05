@@ -14436,7 +14436,17 @@ define('core/audio/audio',[
         init:function(){
             log('core audio init called');
             if(modernizr.webaudio){
-                this.audioContext = new webkitAudioContext();
+                if(typeof webkitAudioContext != 'undefined'){
+                    this.audioContext = new webkitAudioContext();
+                }else if(typeof AudioContext != 'undefined'){
+                    this.audioContext = new AudioContext();
+                }else{
+                    log('NO WEBAUDIO SUPPORT');
+                    this.audioContext = {noWebAudio:true};
+                }
+            }else{
+                log('NO WEBAUDIO SUPPORT');
+                this.audioContext = {noWebAudio:true};
             }
         }
     };
@@ -17611,7 +17621,7 @@ define('lib/views/Chordical',[
         template:chordicalTemplate,
         initialize:function(options){
             core.log('Chordical View initialize called.');
-            if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
+            //if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
 
             this.options = this.options || {};
             this.options.widgets=[
@@ -18393,6 +18403,7 @@ define('lib/models/chordical/Instrument',[
 
         //when a new sound node is added (eg gain, panner), link them together.
         setDestinationsForSoundNodes:function(){
+            if(core.audio.audioContext.noWebAudio){return;} //allow the page to be displayed without error if no web audio.
             var soundNodes = this.attributes.soundNodes;
             //if we only have 1 sound node, just connect it to the speakers
             if(soundNodes.length === 1){

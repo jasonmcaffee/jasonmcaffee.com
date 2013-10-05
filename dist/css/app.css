@@ -2472,8 +2472,8 @@ body::-webkit-scrollbar {
   border-color: #9E9E9E;
   border-width: 2px;
   border-style: solid;
-  background: url("../images/chordical/leather-background2.jpg") repeat;
-  background-size: 350px Auto; }
+  background: -moz-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.51) -30%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%) center top/100% 70% no-repeat, url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto;
+  background: -webkit-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.51) -30%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%) center top/100% 70% no-repeat, url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto; }
 
 .sound-cell {
   visibility: hidden;
