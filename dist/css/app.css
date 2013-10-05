@@ -26,7 +26,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-#chordical-page .menu, #chordical-page #keyboard, .inline-block-grid, .home-section-content, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
+#chordical-page .menu, #sounds-page .menu, #chordical-page #keyboard, .inline-block-grid, .home-section-content, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -38,7 +38,7 @@
 .gridspacingissue .inline-block-grid, .gridspacingissue .home-section-content, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-#chordical-page .menu .link, .sound-cell, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
+#chordical-page .menu .link, #sounds-page .menu .link, .sound-cell, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -324,7 +324,7 @@ h1 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.round-all-by-5 {
+.round-all-by-5, #chordical-page #keyboard {
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomleft: 5px;
@@ -338,7 +338,7 @@ h1 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-.list-type-1, .list-type-2, .home-section-tile, #resume-page .download-and-contact > div, #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div, #resume-page .employment-section .employment-section-item dl dt, #demoOnePage #controls, #InstrumentPage .sound-node {
+.list-type-1, .list-type-2, .home-section-tile, #resume-page .download-and-contact > div, #resume-page .employment-section > div, #resume-page .work-projects-section > div, #resume-page .personal-projects-section > div, #resume-page .education-section > div, #resume-page .certifications-section > div, #resume-page .summary-section > div, #resume-page .employment-section .employment-section-item dl dt, #demoOnePage #controls, #chordical-page #keyboardWidget, #chordical-page #keyboardContainer, #InstrumentPage .sound-node {
   -moz-border-radius-topleft: 3px;
   -moz-border-radius-topright: 3px;
   -moz-border-radius-bottomleft: 3px;
@@ -2350,32 +2350,136 @@ body::-webkit-scrollbar {
       /*this causes image container to escape this container*/
       padding-top: 12%;
       /*positioning*/ } }
+#InstrumentPage .sound-node {
+  background: #baea52;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #baea52), color-stop(46%, #cdeb8e), color-stop(100%, #a5c956));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#baea52', endColorstr='#a5c956',GradientType=0 );
+  /* IE6-9 */ }
+
+.sound-cell {
+  background: -moz-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(198, 198, 198, 0.76)), color-stop(2%, rgba(216, 216, 216, 0.76)), color-stop(3%, rgba(221, 221, 221, 0.76)), color-stop(8%, rgba(234, 234, 234, 0.76)), color-stop(46%, rgba(249, 249, 249, 0.76)), color-stop(92%, rgba(247, 247, 247, 0.76)), color-stop(96%, rgba(232, 232, 232, 0.76)), color-stop(98%, rgba(219, 219, 219, 0.76)), color-stop(100%, rgba(198, 198, 198, 0.76)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(198, 198, 198, 0.76) 0%, rgba(216, 216, 216, 0.76) 2%, rgba(221, 221, 221, 0.76) 3%, rgba(234, 234, 234, 0.76) 8%, rgba(249, 249, 249, 0.76) 46%, rgba(247, 247, 247, 0.76) 92%, rgba(232, 232, 232, 0.76) 96%, rgba(219, 219, 219, 0.76) 98%, rgba(198, 198, 198, 0.76) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c6c6c6', endColorstr='#c2c6c6c6',GradientType=1 );
+  /* IE6-9 */ }
+
+#chordical-page, #sounds-page {
+  background: #333333;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(10%, #333333), color-stop(90%, #3d3d3d), color-stop(100%, #3f3f3f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
+  /* IE6-9 */ }
+
+#chordical-page #keyboardContainer {
+  background: #dddddd;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #dddddd), color-stop(93%, #ededed), color-stop(100%, #dddddd));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+#chordical-page #keyboardWidget {
+  -moz-box-shadow: inset 0 0 6px -1px #000;
+  -webkit-box-shadow: inset 0 0 6px -1px #000;
+  box-shadow: inset 0 0 6px -1px #000; }
+
+#chordical-page #keyboardWidget {
+  background: -moz-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(102, 102, 102, 0)), color-stop(91%, rgba(230, 230, 230, 0)), color-stop(96%, rgba(237, 237, 237, 0.31)), color-stop(100%, rgba(132, 132, 132, 0.55)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: radial-gradient(ellipse at center, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00666666', endColorstr='#8c848484',GradientType=1 ); }
+
 #chordical {
   width: 100%; }
 
-#chordical-page {
-  width: 100%; }
-  #chordical-page > h1 {
-    display: inline-block; }
-  #chordical-page .menu {
+#chordical-page, #sounds-page {
+  width: 100%;
+  height: 100%; }
+  #chordical-page > h1, #sounds-page > h1 {
+    display: inline-block;
+    background-color: #CCCCCC;
+    color: transparent;
+    text-shadow: 0px 1px .5px #EDEDED;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text; }
+  #chordical-page .menu, #sounds-page .menu {
     display: inline-block; }
 
-#chordical-page .menu .link {
+#chordical-page .menu .link, #sounds-page .menu .link {
   margin-left: 10px; }
+  #chordical-page .menu .link a, #sounds-page .menu .link a {
+    text-decoration: none;
+    color: white; }
+
+#chordical-page #keyboardContainer {
+  padding: 7px;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid; }
+#chordical-page #keyboardWidget {
+  padding: 3px; }
 
 #chordical-page #keyboard {
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
-  display: inline-block; }
+  padding: 1% 1% 1% 1%;
+  display: inline-block;
+  border-color: #9E9E9E;
+  border-width: 2px;
+  border-style: solid;
+  background: url("../images/chordical/leather-background2.jpg") repeat;
+  background-size: 350px Auto; }
 
 .sound-cell {
+  visibility: hidden;
   width: 20%;
   min-width: 50px;
   min-height: 70px;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
   text-align: center;
   vertical-align: middle; }
 
@@ -2413,23 +2517,55 @@ body::-webkit-scrollbar {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c6c6c6', endColorstr='#c2c6c6c6',GradientType=1 );
   /* IE6-9 */ }
 
-#chordical-page #keyboard {
-  background: #7abcff;
+#chordical-page, #sounds-page {
+  background: #333333;
   /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  background: -moz-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #7abcff), color-stop(50%, #60abf8), color-stop(100%, #4096ee));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(10%, #333333), color-stop(90%, #3d3d3d), color-stop(100%, #3f3f3f));
   /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  background: -webkit-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
-  /* Opera 12+ */
-  background: -ms-radial-gradient(center, ellipse cover, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  background: -o-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
   /* IE10+ */
-  background: radial-gradient(ellipse at center, #7abcff 0%, #60abf8 50%, #4096ee 100%);
+  background: linear-gradient(to bottom, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
+  /* IE6-9 */ }
+
+#chordical-page #keyboardContainer {
+  background: #dddddd;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #dddddd), color-stop(93%, #ededed), color-stop(100%, #dddddd));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #dddddd 0%, #ededed 93%, #dddddd 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */ }
+
+#chordical-page #keyboardWidget {
+  -moz-box-shadow: inset 0 0 6px -1px #000;
+  -webkit-box-shadow: inset 0 0 6px -1px #000;
+  box-shadow: inset 0 0 6px -1px #000; }
+
+#chordical-page #keyboardWidget {
+  background: -moz-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(102, 102, 102, 0)), color-stop(91%, rgba(230, 230, 230, 0)), color-stop(96%, rgba(237, 237, 237, 0.31)), color-stop(100%, rgba(132, 132, 132, 0.55)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  background: radial-gradient(ellipse at center, rgba(102, 102, 102, 0) 0%, rgba(230, 230, 230, 0) 91%, rgba(237, 237, 237, 0.31) 96%, rgba(132, 132, 132, 0.55) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00666666', endColorstr='#8c848484',GradientType=1 ); }
 
 #InstrumentPage .sound-node {
   margin: 2%;

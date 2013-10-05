@@ -1,41 +1,121 @@
+@import "chordical/chordicalColors";
+
 #chordical{
     width:100%;
 }
-#chordical-page{
-    width:100%;
 
+//all pages in chordical should extend this.
+%chordical-page{
+    width:100%;
+    height:100%;
+    @extend %chordical-dark-grey-slight-gradient;
+
+    //page title. e.g. 'Chordical', 'Sounds', etc
     > h1{
         display:inline-block;
+        //http://designshack.net/articles/css/inner-shadows-in-css-images-text-and-beyond/
+        background-color: #CCCCCC;
+        color: transparent;
+        text-shadow: 0px 1px .5px #EDEDED;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
     }
 
+    //menu with links, displayed left to right. placed to the right of the page title.
     .menu{
         display:inline-block;
         @extend %chordical-menu;
     }
+}
+
+%chordical-menu{
+    @extend %inline-block-grid;
+
+    .link{
+        @extend %chordical-link;
+    }
+}
+
+%chordical-link{
+    @extend %inline-block-grid-cell;
+    margin-left:10px;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+//the main chordical page
+#chordical-page{
+    @extend %chordical-page;
+
+
+    #keyboardContainer{
+        padding: 7px;
+        @extend %keyboard-border;
+        border-color:white;
+        border-width: 1px;
+        border-style: solid;
+
+    }
+
+    #keyboardWidget{
+        padding: 3px;
+
+        //box shadow inset border
+        @extend %chordical-border-inset;
+        //radial gradient to give corners slightly darker coloring/shadowing
+        @extend %chordical-grey-border-inset-gradient;
+
+
+        //rounded corners
+        @extend %round-all-by-3;
+
+        //@extend %keyboard-border;
+        //border-color:white;
+        //border-width: 1px;
+        //border-style: solid;
+    }
+
     #keyboard{
         @extend %keyboard;
     }
 }
 
-%chordical-menu{
-     @extend %inline-block-grid;
-
-    .link{
-        @extend %inline-block-grid-cell;
-        margin-left:10px;
-    }
-}
 //keyboard --------------------------------------------------------------
 %keyboard{
     //sizing
     width: 100%;
-    padding-left:5%;
-    padding-right:5%;
+    padding: 1% 1% 1% 1%;
     display:inline-block;
+
+    //border
+    border-color:#9E9E9E;
+    border-width: 2px;
+    border-style: solid;
+
+    //@extend %chordical-grey-border-top;
+
     @extend %inline-block-grid;
+    @extend .round-all-by-5;
     //letter-spacing: 0em !important;
 
-    @extend %chordical-blue-radial-gradient;
+    //border
+
+    //background color
+    //background: url('../images/chordical/leather-background2.jpg') repeat;
+    @include chordical-background-image-and-spotlight-gradient(url('../images/chordical/leather-background2.jpg') repeat){
+        background-size: 350px Auto;
+    }
+
+    //@extend %chordical-white-grey-slight-gradient;
+}
+
+%keyboard-border{
+    @extend %chordical-grey-border-gradient;
+    @extend %round-all-by-3;
 }
 
 .sound-cell{
@@ -43,6 +123,7 @@
 }
 
 %sound-cell{
+    visibility: hidden;
     @extend %inline-block-grid-cell;
     width:20%;
 
@@ -50,9 +131,9 @@
     min-height:70px;
 
     @extend %chordical-white-multi-step-gradient;
-    border-color:black;
-    border-width: 1px;
-    border-style: solid;
+    //border-color:black;
+    //border-width: 1px;
+    //border-style: solid;
 
     text-align: center;
     vertical-align: middle;
