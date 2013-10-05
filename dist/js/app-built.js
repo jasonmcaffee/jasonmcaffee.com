@@ -1126,7 +1126,7 @@ define('core/util/log',[], function(){
     // AMD define happens at the end for compatibility with AMD loaders
     // that don't enforce next-turn semantics on modules.
     if (typeof define === 'function' && define.amd) {
-        define('underscore',[], function() {
+        define('underscore', [],function() {
             return _;
         });
     }
