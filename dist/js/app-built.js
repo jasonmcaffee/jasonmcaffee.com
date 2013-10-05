@@ -17564,12 +17564,32 @@ define('lib/widgets/chordical/keyboard',[
             //keydown will continue to fire while the key is held down, so dont call play over and over again.
             var notesToPlay = this.model.findNotesTriggeredByKeyCode(e.keyCode);
             this.playNotes(notesToPlay);
+
+            var keyedEls = this.buildSelectorForElsTriggeredByKeyEvent(notesToPlay);
+            this.$el.find(keyedEls).addClass('sound-cell-active');
+        },
+        //for key up and key down, we need to find the corresponding element for the note(s) that was played.
+        //returns a string in the format  "[note='c#1'], [note='d#1']"
+        buildSelectorForElsTriggeredByKeyEvent:function(notesToPlay){
+            //find all els and add class
+            var foundEls = ""; //build up a selector like "[note='c#1'], [note='d#1']"
+            for(var i=0; i< notesToPlay.length; ++i){
+                var note = notesToPlay[i];
+                foundEls = foundEls.length > 0 ? foundEls + "," : foundEls;
+                var noteSelector = "[note='" + note.noteSymbol + note.octave + "']";
+                foundEls+=noteSelector;
+            }
+            core.log('foundEls is ' + foundEls);
+            return foundEls;
         },
         handleKeyUp:function(e){
             core.log('keyup! ' + e.keyCode);
             this.keysPressed[e.keyCode] = false;
             var notesToStop = this.model.findNotesTriggeredByKeyCode(e.keyCode);
             this.stopNotes(notesToStop);
+
+            var keyedEls = this.buildSelectorForElsTriggeredByKeyEvent(notesToStop);
+            this.$el.find(keyedEls).removeClass('sound-cell-active');
         },
         playNotes:function(notesToPlay){
             for(var i=0; i<notesToPlay.length; ++i){
@@ -17594,7 +17614,7 @@ define('lib/widgets/chordical/keyboard',[
             core.log('note pressed: ' + noteToPlay);
             var playableNote= this.model.notes[noteToPlay].playableNote;
             this.model.instrument.playNote(playableNote);
-            //playableNote.play();
+            $this.addClass('sound-cell-active');
         },
         handleNoteRelease:function(e){
             var $this = $(e.currentTarget);
@@ -17602,7 +17622,7 @@ define('lib/widgets/chordical/keyboard',[
             core.log('note released: ' + noteToStop);
             var playableNote= this.model.notes[noteToStop].playableNote;
             this.model.instrument.stopNote(playableNote);
-            //playableNote.stop();
+            $this.removeClass('sound-cell-active');
         }
     });
 
@@ -17621,7 +17641,7 @@ define('lib/views/Chordical',[
         template:chordicalTemplate,
         initialize:function(options){
             core.log('Chordical View initialize called.');
-            //if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
+            if(!modernizr.webaudio){ setTimeout(function(){alert('web audio is not supported on your browser.');}, 2000); }
 
             this.options = this.options || {};
             this.options.widgets=[

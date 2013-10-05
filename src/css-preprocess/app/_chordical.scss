@@ -71,8 +71,9 @@
 
 
         //rounded corners
-        @extend %round-all-by-3;
-
+        //@extend %round-all-by-3;
+        @extend .round-all-by-5;
+        //@extend %round-all-by-7;
         //@extend %keyboard-border;
         //border-color:white;
         //border-width: 1px;
@@ -106,7 +107,8 @@
     @extend %inline-block-grid;
 
     //rounded corners
-    @extend .round-all-by-5;
+    //@extend .round-all-by-5;
+    @extend %round-all-by-7;
 
 
 
@@ -115,26 +117,39 @@
 
 %keyboard-border{
     @extend %chordical-grey-border-gradient;
-    @extend %round-all-by-3;
+    //@extend %round-all-by-3;
 }
 
 .sound-cell{
     @extend %sound-cell;
 }
 
+//since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
+.sound-cell-active{
+    background-color: indianred !important;
+}
+
 %sound-cell{
-    visibility: hidden;
+    //visibility: hidden;
     @extend %inline-block-grid-cell;
-    width:20%;
+    width:18.9%; //todo: media breakpoints. this accomodates iphone landscapse, but doesnt fill desktop all the way.
 
     min-width:50px;
     min-height:70px;
 
-    @extend %chordical-white-multi-step-gradient;
+    margin:2px;
+
+    //@extend %chordical-white-multi-step-gradient;
     //border-color:black;
     //border-width: 1px;
     //border-style: solid;
+    background-color: white;
 
     text-align: center;
     vertical-align: middle;
+
+    @extend %round-all-by-7;
+
+
+
 }

@@ -11,7 +11,7 @@ define([
         template:chordicalTemplate,
         initialize:function(options){
             core.log('Chordical View initialize called.');
-            //if(!modernizr.webaudio){ alert('web audio is not supported on your browser.');return;}
+            if(!modernizr.webaudio){ setTimeout(function(){alert('web audio is not supported on your browser.');}, 2000); }
 
             this.options = this.options || {};
             this.options.widgets=[

@@ -91,27 +91,12 @@
 }
 
 @mixin chordical-background-image-and-spotlight-gradient($background){
-    //background: $background;
-    //center top/100% 70%
+    background: $background;
+    //cool browsers get a spotlight effect over the background.
     background: -moz-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background;
-    //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(237,237,237,0.27)), color-stop(64%,rgba(51,51,51,0.5)), color-stop(100%,rgba(51,51,51,1))), $background;
     background: -webkit-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background;
-    //background-image: -o-radial-gradient(center, ellipse cover,  rgba(237,237,237,0.27) 0%,rgba(51,51,51,0.5) 64%,rgba(51,51,51,1) 100%);
-    //background-image: -ms-radial-gradient(center, ellipse cover,  rgba(237,237,237,0.27) 0%,rgba(51,51,51,0.5) 64%,rgba(51,51,51,1) 100%);
-    //background-image: $background, radial-gradient(ellipse at center,  rgba(237,237,237,0.27) 0%,rgba(51,51,51,0.5) 64%,rgba(51,51,51,1) 100%);
-    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45ededed', endColorstr='#333333',GradientType=1 );
 
     @content;
-
-
-    //background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.31) 0%, rgba(255,255,255,0) 73%, rgba(255,255,255,0) 100%);
-    //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.31)), color-stop(73%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
-    //background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.31) 0%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%);
-    //background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.31) 0%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%);
-    //background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.31) 0%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%);
-    //background: radial-gradient(ellipse at center,  rgba(255,255,255,0.31) 0%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%);
-    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4fffffff', endColorstr='#00ffffff',GradientType=1 );
-
 }
 //fail
 //%chordical-grey-border-image-gradient{
