@@ -8,7 +8,7 @@ templates['keyboard'] = template(function (Handlebars,depth0,helpers,partials,da
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        --><div class=\"sound-cell\" note=\"";
+  buffer += "\n        --><div class=\"sound-cell-container\" note=\"";
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
@@ -16,11 +16,11 @@ function program1(depth0,data) {
   stack1 = depth0.octave;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.octave", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">";
+  buffer += escapeExpression(stack1) + "\"><div class=\"sound-cell\">";
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "</div><!--\n    ";
+  buffer += escapeExpression(stack1) + "</div></div><!--\n    ";
   return buffer;}
 
   buffer += "<div id=\"keyboard\">\n    <!-- fix for whitespace grid issue\n    ";

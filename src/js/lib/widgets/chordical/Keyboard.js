@@ -24,15 +24,15 @@ define([
         },
         events:{
             //note presses
-            'mousedown .sound-cell':"handleNotePress",
-            'mouseup .sound-cell':"handleNoteRelease",
-            'touchstart .sound-cell':"handleNotePress",
-            'touchend .sound-cell':"handleNoteRelease",
+            'mousedown .sound-cell-container':"handleNotePress",
+            'mouseup .sound-cell-container':"handleNoteRelease",
+            'touchstart .sound-cell-container':"handleNotePress",
+            'touchend .sound-cell-container':"handleNoteRelease",
 
             //prevent scrolling when move occurs on the keyboard
-            'touchmove .sound-cell':"handleUnintentionalMovement",
-            'touchcancel .sound-cell':"handleUnintentionalMovement",
-            'touchleave .sound-cell':"handleUnintentionalMovement"
+            'touchmove .sound-cell-container':"handleUnintentionalMovement",
+            'touchcancel .sound-cell-container':"handleUnintentionalMovement",
+            'touchleave .sound-cell-container':"handleUnintentionalMovement"
         },
         remove:function(){
             core.log('remove called for keyboardWidget');
@@ -93,13 +93,14 @@ define([
             //alert('touch move canceled');
         },
         handleNotePress:function(e){
-
             var $this = $(e.currentTarget);
+            //$this.addClass('sound-cell-active');  <-- makes no difference if at end or beginning. slow ui slows play.
             var noteToPlay = $this.attr('note');
             core.log('note pressed: ' + noteToPlay);
             var playableNote= this.model.notes[noteToPlay].playableNote;
             this.model.instrument.playNote(playableNote);
             $this.addClass('sound-cell-active');
+
         },
         handleNoteRelease:function(e){
             var $this = $(e.currentTarget);

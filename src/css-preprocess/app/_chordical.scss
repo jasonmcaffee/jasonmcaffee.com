@@ -62,8 +62,10 @@
     }
 
     #keyboardWidget{
-        padding: 3px;
-
+        padding: 5px;
+        border-color: #F2F2F2;//white;//#444444;//#5B5B5B;//#9E9E9E;
+        border-width: 1px;
+        border-style: solid;
         //box shadow inset border
         @extend %chordical-border-inset;
         //radial gradient to give corners slightly darker coloring/shadowing
@@ -91,16 +93,18 @@
     width: 100%;
     padding: 1% 1% 1% 1%;
     display:inline-block;
+    text-align: center;
 
     //border 1
-    border-color:#9E9E9E;
+    border-color: black;//#444444;//#5B5B5B;//#9E9E9E;
     border-width: 2px;
     border-style: solid;
-    //@extend %chordical-grey-border-top;
+   // @extend %chordical-grey-border-top;
 
     //background - repeating leather texture with gradient over the top for spotlight
     //need shorthand for size so the gradient can take up the entire element, and the leather image can repeat at small size
-    @include chordical-background-image-and-spotlight-gradient(url('../images/chordical/leather-background2.jpg') repeat center center /350px Auto){
+    @include chordical-background-image-and-spotlight-gradient(url('../images/chordical/leather-background2.jpg') repeat center center, 350px Auto){   //normally center center/350px Auto, but ios6.1 no likey
+
     }
 
     //layout (left to right stack)
@@ -109,10 +113,6 @@
     //rounded corners
     //@extend .round-all-by-5;
     @extend %round-all-by-7;
-
-
-
-    //@extend %chordical-white-grey-slight-gradient;
 }
 
 %keyboard-border{
@@ -120,24 +120,52 @@
     //@extend %round-all-by-3;
 }
 
-.sound-cell{
-    @extend %sound-cell;
-}
-
-//since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
-.sound-cell-active{
-    background-color: indianred !important;
-}
-
-%sound-cell{
-    //visibility: hidden;
+//need a container so that we can have spacing, but get rid of non-hit regions on touch devices. e.g when there is margin and its touched, no note is played.
+.sound-cell-container{
+    -webkit-backface-visibility:hidden;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
     @extend %inline-block-grid-cell;
     width:18.9%; //todo: media breakpoints. this accomodates iphone landscapse, but doesnt fill desktop all the way.
 
     min-width:50px;
     min-height:70px;
+    padding:4px;
+}
+.sound-cell{
 
-    margin:2px;
+    @extend %sound-cell;
+}
+
+//since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
+.sound-cell-active{
+    //-webkit-backface-visibility:hidden;
+    -webkit-transform: scale(0.98, 0.98);
+    transform: scale(0.98, 0.98);
+    .sound-cell{
+        //-webkit-backface-visibility:hidden;
+        //background-color: indianred !important;
+        //background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%, rgba(0,0,0,0.71) 100%);
+        //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.71)), color-stop(100%,rgba(0,0,0,0.71)));
+        //background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
+        //background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
+        //background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
+        //background: radial-gradient(ellipse at center,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
+        //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5000000', endColorstr='#b5000000',GradientType=1 );
+        background-color: indianred !important;
+
+    }
+}
+
+%sound-cell{
+    //visibility: hidden;
+    //-webkit-backface-visibility:hidden; //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
+    height:100%;
+    min-height:70px;
+
 
     //@extend %chordical-white-multi-step-gradient;
     //border-color:black;
@@ -151,5 +179,20 @@
     @extend %round-all-by-7;
 
 
+    //use box shadow for bottom illusion. definitely slows ui response time down
+    //-webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+    //-moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+    //-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+    box-shadow:
+        0px 8px 3px 1px rgba(0,0,0,0.75), //bottom bottom
+        inset 0px -3px 3px 1px rgba(0,0,0,0.75); //bottom top
 
+
+    //transition: all .05s linear;
+
+    //bottom bottom
+    //-webkit-box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
+    //-moz-box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
+    //box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
 }
+

@@ -68,9 +68,9 @@
 
 //inset box shadow used for border
 %chordical-border-inset{
-    -moz-box-shadow: inset 0 0 6px -1px #000;
-    -webkit-box-shadow: inset 0 0 6px -1px #000;
-    box-shadow: inset 0 0 6px -1px #000;
+    -moz-box-shadow:inset 0 0 6px -1px #000;
+    -webkit-box-shadow:inset 0 0 6px -1px #000;
+    box-shadow:inset 0 0 6px -1px #000;
 }
 
 //background radial gradient for darker corners (use with border-inset)
@@ -85,16 +85,24 @@
 }
 
 %chordical-grey-border-top{
-    -moz-box-shadow: 0 -5px 6px -6px #000;
-    -webkit-box-shadow: 0 -5px 6px -6px #000;
-    box-shadow: 0 -5px 6px -6px #000;
+    //-moz-box-shadow: 0 -5px 6px -6px #000;
+    //-webkit-box-shadow: 0 -5px 6px -6px #000;
+    //box-shadow: 0 -5px 6px -6px #000;
+    -moz-box-shadow: 0 0 4px 0 #000;
+    -webkit-box-shadow: 0 0 4px 0 #000;
+    box-shadow: 0 0 4px 0 #000;
+
 }
 
-@mixin chordical-background-image-and-spotlight-gradient($background){
+//uses a radial gradient, placed at the top of element, to give the illusion of lighting over the background image.
+//supports ios6.1 limitation of no shorthand background-size (and possibly doesnt like the spotlight gradient, as it does not display)
+@mixin chordical-background-image-and-spotlight-gradient($background, $backgroundSize){
+    //ios 6.1 fallback. doesnt like the shorthand for background size eg(...center top/100px auto)
     background: $background;
+    background-size: $backgroundSize;
     //cool browsers get a spotlight effect over the background.
-    background: -moz-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background;
-    background: -webkit-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background;
+    background: -moz-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background/$backgroundSize;
+    background: -webkit-radial-gradient(center top, ellipse farthest-corner,  rgba(255,255,255,0.51) -30%,rgba(255,255,255,0) 73%,rgba(255,255,255,0) 100%) center top/100% 70% no-repeat, $background/$backgroundSize;
 
     @content;
 }

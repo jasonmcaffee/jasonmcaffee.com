@@ -38,7 +38,7 @@
 .gridspacingissue .inline-block-grid, .gridspacingissue .home-section-content, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-#chordical-page .menu .link, #sounds-page .menu .link, .sound-cell, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
+#chordical-page .menu .link, #sounds-page .menu .link, .sound-cell-container, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2461,30 +2461,49 @@ body::-webkit-scrollbar {
   border-width: 1px;
   border-style: solid; }
 #chordical-page #keyboardWidget {
-  padding: 3px; }
+  padding: 5px;
+  border-color: #F2F2F2;
+  border-width: 1px;
+  border-style: solid; }
 
 #chordical-page #keyboard {
   width: 100%;
   padding: 1% 1% 1% 1%;
   display: inline-block;
-  border-color: #9E9E9E;
+  text-align: center;
+  border-color: black;
   border-width: 2px;
   border-style: solid;
-  background: url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto;
+  background: url("../images/chordical/leather-background2.jpg") repeat center center;
+  background-size: 350px Auto;
   background: -moz-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.51) -30%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%) center top/100% 70% no-repeat, url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto;
   background: -webkit-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.51) -30%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%) center top/100% 70% no-repeat, url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto; }
 
-.sound-cell-active {
-  background-color: indianred !important; }
-
-.sound-cell {
+.sound-cell-container {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
   width: 18.9%;
   min-width: 50px;
   min-height: 70px;
-  margin: 2px;
+  padding: 4px; }
+
+.sound-cell-active {
+  -webkit-transform: scale(0.98, 0.98);
+  transform: scale(0.98, 0.98); }
+  .sound-cell-active .sound-cell {
+    background-color: indianred !important; }
+
+.sound-cell {
+  height: 100%;
+  min-height: 70px;
   background-color: white;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  box-shadow: 0px 8px 3px 1px rgba(0, 0, 0, 0.75), inset 0px -3px 3px 1px rgba(0, 0, 0, 0.75); }
 
 #InstrumentPage .sound-node {
   background: #baea52;
