@@ -122,12 +122,7 @@
 
 //need a container so that we can have spacing, but get rid of non-hit regions on touch devices. e.g when there is margin and its touched, no note is played.
 .sound-cell-container{
-    -webkit-backface-visibility:hidden;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
+
     @extend %inline-block-grid-cell;
     width:18.9%; //todo: media breakpoints. this accomodates iphone landscapse, but doesnt fill desktop all the way.
 
@@ -136,63 +131,62 @@
     padding:4px;
 }
 .sound-cell{
-
     @extend %sound-cell;
+
 }
+
 
 //since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
 .sound-cell-active{
-    //-webkit-backface-visibility:hidden;
-    -webkit-transform: scale(0.98, 0.98);
-    transform: scale(0.98, 0.98);
-    .sound-cell{
-        //-webkit-backface-visibility:hidden;
-        //background-color: indianred !important;
-        //background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%, rgba(0,0,0,0.71) 100%);
-        //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.71)), color-stop(100%,rgba(0,0,0,0.71)));
-        //background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
-        //background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
-        //background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
-        //background: radial-gradient(ellipse at center,  rgba(0,0,0,0.71) 0%,rgba(0,0,0,0.71) 100%);
-        //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5000000', endColorstr='#b5000000',GradientType=1 );
-        background-color: indianred !important;
 
+    .sound-cell{
+        //give the illusion of the key being pressed down
+        //background-color: indianred !important;
+        //transform : perspective(1100px) rotateX(-20deg);
+
+        -webkit-transform: perspective(1100px) rotateX(-20deg)
+                           scale(0.98, 0.98);   //perspective( 1100px )
+        //margin-top:-2px; ios does NOT like this. slows ui down.
+        //-webkit-transform: scale(0.98, 0.98);
+        //transform: scale(0.98, 0.98);
+        //no support yet for gradient transitions: http://stackoverflow.com/questions/6542212/use-css3-transitions-with-gradient-backgrounds
+        //@extend %chordical-white-grey-gradual-gradient;
+        background-position:360px;  //hack makes it appear the background gradient is darker.
     }
 }
 
 %sound-cell{
-    //visibility: hidden;
-    //-webkit-backface-visibility:hidden; //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
+    //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
+    @extend %gpu-acceleration;
+
+    //sizing
     height:100%;
     min-height:70px;
 
+    //background
+    //@extend %chordical-white-grey-gradual-gradient;
+    //no support yet for gradient transitions: http://stackoverflow.com/questions/6542212/use-css3-transitions-with-gradient-backgrounds
+    @extend %chordical-white-simple-gradient;
 
-    //@extend %chordical-white-multi-step-gradient;
-    //border-color:black;
-    //border-width: 1px;
-    //border-style: solid;
-    background-color: white;
-
+    //layout
+    //when the sound cells dont quite fill up the width of the keyboard, center-aligning makes the board look nicer.
     text-align: center;
     vertical-align: middle;
 
+    //rounded corners
     @extend %round-all-by-7;
 
-
-    //use box shadow for bottom illusion. definitely slows ui response time down
-    //-webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
-    //-moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
-    //-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+    //shadows
+    //use box shadow for bottom illusion.
+    //definitely slows ui response time down when transformed, so dont mess with this on active
     box-shadow:
-        0px 8px 3px 1px rgba(0,0,0,0.75), //bottom bottom
+       // 0px 8px 3px 1px rgba(0,0,0,0.75), //bottom bottom    //!TO BIG and this will cause jitters on ios
         inset 0px -3px 3px 1px rgba(0,0,0,0.75); //bottom top
 
+    //transitions
+    //when the key is pressed, the active state changes the perspective. this controls how fast it does so.
+    -webkit-transition: all .02s linear; //ease-out;
+    transition: all .02s linear;//ease-out;
 
-    //transition: all .05s linear;
-
-    //bottom bottom
-    //-webkit-box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
-    //-moz-box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
-    //box-shadow: inset 0px -3px 3px 1px rgba(0,0,0,0.75);
 }
 

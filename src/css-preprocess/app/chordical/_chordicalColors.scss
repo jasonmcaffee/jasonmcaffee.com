@@ -55,6 +55,39 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
 }
 
+%chordical-white-slightest-gradient{
+    background: rgb(252,252,252);
+    background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(247,247,247,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(247,247,247,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(247,247,247,1) 100%);
+    background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(247,247,247,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(247,247,247,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(247,247,247,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#f7f7f7',GradientType=0 );
+
+}
+
+//used in conjunction with background position on transition since gradient transforms are not fully supported.
+%chordical-white-simple-gradient{
+    background: -webkit-linear-gradient(#FCFCFC,#A8A8A8);
+    background: -moz-linear-gradient(#FCFCFC,#A8A8A8);
+    background: -o-linear-gradient(#FCFCFC,#A8A8A8);
+    background: linear-gradient(#FCFCFC,#A8A8A8);
+    background-size:1px 170px;  //hack makes it appear the background gradient is darker.
+
+}
+%chordical-white-grey-gradual-gradient{
+    background: rgb(249,249,249);
+    background: -moz-linear-gradient(top,  rgba(249,249,249,1) 0%, rgba(66,66,66,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,249,249,1)), color-stop(100%,rgba(66,66,66,1)));
+    background: -webkit-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(66,66,66,1) 100%);
+    background: -o-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(66,66,66,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(66,66,66,1) 100%);
+    background: linear-gradient(to bottom,  rgba(249,249,249,1) 0%,rgba(66,66,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#424242',GradientType=0 );
+
+}
+
 %chordical-grey-border-gradient{
     background: rgb(221,221,221); /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover,  rgba(221,221,221,1) 0%, rgba(237,237,237,1) 93%, rgba(221,221,221,1) 100%); /* FF3.6+ */

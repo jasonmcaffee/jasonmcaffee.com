@@ -12,6 +12,16 @@
 //    left: 400px;
 //}
 
+
+//kicks in gpu acceleration by adding 3d transforms
+%gpu-acceleration{
+    -webkit-backface-visibility:hidden;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
 //keyframes mixin
 @mixin keyframes($name) {
     @-webkit-keyframes #{$name} {

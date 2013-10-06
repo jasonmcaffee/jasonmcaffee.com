@@ -1406,6 +1406,14 @@ ul.icons {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
+.sound-cell {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }
+
 .slide-in {
   position: absolute;
   top: 0px;
@@ -2400,6 +2408,13 @@ body::-webkit-scrollbar {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
   /* IE6-9 */ }
 
+.sound-cell {
+  background: -webkit-linear-gradient(#fcfcfc, #a8a8a8);
+  background: -moz-linear-gradient(#fcfcfc, #a8a8a8);
+  background: -o-linear-gradient(#fcfcfc, #a8a8a8);
+  background: linear-gradient(#fcfcfc, #a8a8a8);
+  background-size: 1px 170px; }
+
 #chordical-page #keyboardContainer {
   background: #dddddd;
   /* Old browsers */
@@ -2480,30 +2495,23 @@ body::-webkit-scrollbar {
   background: -webkit-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.51) -30%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%) center top/100% 70% no-repeat, url("../images/chordical/leather-background2.jpg") repeat center center/350px Auto; }
 
 .sound-cell-container {
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
   width: 18.9%;
   min-width: 50px;
   min-height: 70px;
   padding: 4px; }
 
-.sound-cell-active {
-  -webkit-transform: scale(0.98, 0.98);
-  transform: scale(0.98, 0.98); }
-  .sound-cell-active .sound-cell {
-    background-color: indianred !important; }
+.sound-cell-active .sound-cell {
+  -webkit-transform: perspective(1100px) rotateX(-20deg) scale(0.98, 0.98);
+  background-position: 360px; }
 
 .sound-cell {
   height: 100%;
   min-height: 70px;
-  background-color: white;
   text-align: center;
   vertical-align: middle;
-  box-shadow: 0px 8px 3px 1px rgba(0, 0, 0, 0.75), inset 0px -3px 3px 1px rgba(0, 0, 0, 0.75); }
+  box-shadow: inset 0px -3px 3px 1px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all .02s linear;
+  transition: all .02s linear; }
 
 #InstrumentPage .sound-node {
   background: #baea52;
@@ -2540,6 +2548,13 @@ body::-webkit-scrollbar {
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
   /* IE6-9 */ }
+
+.sound-cell {
+  background: -webkit-linear-gradient(#fcfcfc, #a8a8a8);
+  background: -moz-linear-gradient(#fcfcfc, #a8a8a8);
+  background: -o-linear-gradient(#fcfcfc, #a8a8a8);
+  background: linear-gradient(#fcfcfc, #a8a8a8);
+  background-size: 1px 170px; }
 
 #chordical-page #keyboardContainer {
   background: #dddddd;
