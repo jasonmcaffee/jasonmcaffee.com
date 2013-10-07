@@ -122,13 +122,22 @@
 
 //need a container so that we can have spacing, but get rid of non-hit regions on touch devices. e.g when there is margin and its touched, no note is played.
 .sound-cell-container{
-
+    @extend %gpu-acceleration;
     @extend %inline-block-grid-cell;
     width:18.9%; //todo: media breakpoints. this accomodates iphone landscapse, but doesnt fill desktop all the way.
 
     min-width:50px;
     min-height:70px;
-    padding:4px;
+    padding:4px;//-2px;
+    //@extend .round-all-by-5;
+
+    //border-image: url('../images/chordical/box-shadow-rounded-bottom-3px.png') 10 9;
+    //border-image-width: 2 -4;
+    //border-bottom:23px;
+    //border-left:3px;
+    //border-right:3px;
+    //border-top:0;
+    //border-radius: 9px;
 }
 .sound-cell{
     @extend %sound-cell;
@@ -138,23 +147,62 @@
 
 //since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
 .sound-cell-active{
-
+    @extend %gpu-acceleration;
+    -webkit-animation: sound-cell-container-pressed .02s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    //border-bottom:14px;    <-- ios does not like this. ermygerd
     .sound-cell{
         //give the illusion of the key being pressed down
-        //background-color: indianred !important;
-        //transform : perspective(1100px) rotateX(-20deg);
+        //background-color: indianred !important;  //this works but doesn't look as cool as it should
 
-        -webkit-transform: perspective(1100px) rotateX(-20deg)
-                           scale(0.98, 0.98);   //perspective( 1100px )
+        //-webkit-transform: perspective(1100px) rotateX(-20deg)
+        //                   scale(0.98, 0.98);   //perspective( 1100px )
+        -webkit-animation: sound-cell-pressed .02s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
         //margin-top:-2px; ios does NOT like this. slows ui down.
-        //-webkit-transform: scale(0.98, 0.98);
-        //transform: scale(0.98, 0.98);
+
         //no support yet for gradient transitions: http://stackoverflow.com/questions/6542212/use-css3-transitions-with-gradient-backgrounds
         //@extend %chordical-white-grey-gradual-gradient;
         background-position:360px;  //hack makes it appear the background gradient is darker.
     }
 }
 
+@include keyframes(sound-cell-container-pressed){
+    0%{
+        //-webkit-transform: perspective(2300px) rotateX(-1deg);
+        //-webkit-transform: perspective(2300px) rotateX(-1deg); <-- bad things on ios. random holds and extra touchs.weird.
+        //-webkit-transform: perspective(2300px) rotateX(-1deg);
+    }
+
+    99%{
+
+    }
+    100%{
+        -webkit-transform:scale(0.97, 0.97) perspective(1100px) rotateX(-16deg);
+        //border-image-width: 2 -4;
+        //border-left:3px;
+        //border-right:3px;
+        //border-top:0;
+        //border-radius: 9px;
+        //box-shadow: none;
+    }
+}
+@include keyframes(sound-cell-pressed){
+      0%{
+          //-webkit-transform: perspective(2300px) rotateX(-1deg);
+      }
+
+      99%{
+
+      }
+      100%{
+          -webkit-transform:
+            scale(0.99, 0.99) translateY(-1px);   //perspective(1100px) rotateX(-20deg)
+          //box-shadow: none;
+      }
+}
 %sound-cell{
     //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
     @extend %gpu-acceleration;
@@ -176,17 +224,33 @@
     //rounded corners
     @extend %round-all-by-7;
 
+    border-color: black;//#F2F2F2;//white;//#444444;//#5B5B5B;//#9E9E9E;
+    border-width: 1px 1px 1px 1px; //0px 0px 0px;
+    border-style: solid;
     //shadows
     //use box shadow for bottom illusion.
     //definitely slows ui response time down when transformed, so dont mess with this on active
+    //http://stackoverflow.com/questions/1249619/scroll-lag-with-css3-box-shadow-property
     box-shadow:
-       // 0px 8px 3px 1px rgba(0,0,0,0.75), //bottom bottom    //!TO BIG and this will cause jitters on ios
+        0px 4px 3px 1px rgba(0,0,0,0.75), //bottom bottom    //!TO BIG and this will cause jitters on ios
         inset 0px -3px 3px 1px rgba(0,0,0,0.75); //bottom top
+    //border-image: url('../images/chordical/box-shadow-rounded-bottom-3px.png') 20 9;
+    //border-image-width: 2 -4;
+    //border-bottom:13px;
+    //border-left:3px;
+    //border-right:3px;
+    //border-top:0;
+    //border-bottom-left-radius: 3px;
+
+    //border-image-slice: 30 30 30 30;
+    //cant have border with border image.
 
     //transitions
     //when the key is pressed, the active state changes the perspective. this controls how fast it does so.
-    -webkit-transition: all .02s linear; //ease-out;
-    transition: all .02s linear;//ease-out;
+    //-webkit-transition: all .1s ease-in;    //linear; //
+    //transition: all .01s linear;//ease-out;
+
+
 
 }
 

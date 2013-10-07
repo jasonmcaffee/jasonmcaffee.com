@@ -1406,7 +1406,7 @@ ul.icons {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
-.sound-cell {
+.sound-cell-container, .sound-cell-active, .sound-cell {
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -2500,18 +2500,57 @@ body::-webkit-scrollbar {
   min-height: 70px;
   padding: 4px; }
 
-.sound-cell-active .sound-cell {
-  -webkit-transform: perspective(1100px) rotateX(-20deg) scale(0.98, 0.98);
-  background-position: 360px; }
+.sound-cell-active {
+  -webkit-animation: sound-cell-container-pressed .02s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards; }
+  .sound-cell-active .sound-cell {
+    -webkit-animation: sound-cell-pressed .02s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    background-position: 360px; }
+
+@-webkit-keyframes sound-cell-container-pressed {
+  100% {
+    -webkit-transform: scale(0.97, 0.97) perspective(1100px) rotateX(-16deg); } }
+
+@-moz-keyframes sound-cell-container-pressed {
+  100% {
+    -webkit-transform: scale(0.97, 0.97) perspective(1100px) rotateX(-16deg); } }
+
+@-ms-keyframes sound-cell-container-pressed {
+  100% {
+    -webkit-transform: scale(0.97, 0.97) perspective(1100px) rotateX(-16deg); } }
+
+@keyframes sound-cell-container-pressed {
+  100% {
+    -webkit-transform: scale(0.97, 0.97) perspective(1100px) rotateX(-16deg); } }
+
+@-webkit-keyframes sound-cell-pressed {
+  100% {
+    -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
+
+@-moz-keyframes sound-cell-pressed {
+  100% {
+    -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
+
+@-ms-keyframes sound-cell-pressed {
+  100% {
+    -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
+
+@keyframes sound-cell-pressed {
+  100% {
+    -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
 
 .sound-cell {
   height: 100%;
   min-height: 70px;
   text-align: center;
   vertical-align: middle;
-  box-shadow: inset 0px -3px 3px 1px rgba(0, 0, 0, 0.75);
-  -webkit-transition: all .02s linear;
-  transition: all .02s linear; }
+  border-color: black;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-shadow: 0px 4px 3px 1px rgba(0, 0, 0, 0.75), inset 0px -3px 3px 1px rgba(0, 0, 0, 0.75); }
 
 #InstrumentPage .sound-node {
   background: #baea52;
