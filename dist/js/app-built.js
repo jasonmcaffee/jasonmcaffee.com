@@ -14446,10 +14446,11 @@ define('core/audio/audio',[
         init:function(){
             log('core audio init called');
             if(modernizr.webaudio){
-                if(typeof webkitAudioContext != 'undefined'){
-                    this.audioContext = new webkitAudioContext();
-                }else if(typeof AudioContext != 'undefined'){
+                //try newer standard first
+                if(typeof AudioContext != 'undefined'){
                     this.audioContext = new AudioContext();
+                }else if(typeof webkitAudioContext != 'undefined'){
+                    this.audioContext = new webkitAudioContext();
                 }else{
                     log('NO WEBAUDIO SUPPORT');
                     this.audioContext = {noWebAudio:true};
@@ -14457,6 +14458,14 @@ define('core/audio/audio',[
             }else{
                 log('NO WEBAUDIO SUPPORT');
                 this.audioContext = {noWebAudio:true};
+            }
+        },
+
+        createGain:function(){
+            if(this.audioContext.createGain){
+                return this.audioContext.createGain();
+            }else{
+                return this.audioContext.createGainNode();
             }
         }
     };
@@ -17967,7 +17976,7 @@ define('lib/models/chordical/SoundNode',[
         },
         _createGainNode:function(){
             core.log('SoundNode Model createGainNode called');
-            var gainNode = this.context.createGainNode();
+            var gainNode = core.audio.createGain();//this.context.createGainNode();  <android is slow with createGainNode. deprecated api.
             gainNode.gain.value = parseFloat(this.get('gain').amount);
             gainNode.connect(this.get('destination') || this.context.destination);
             return gainNode;

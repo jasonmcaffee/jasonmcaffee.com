@@ -44,7 +44,7 @@ define([
         },
         _createGainNode:function(){
             core.log('SoundNode Model createGainNode called');
-            var gainNode = this.context.createGainNode();
+            var gainNode = core.audio.createGain();//this.context.createGainNode();  <android is slow with createGainNode. deprecated api.
             gainNode.gain.value = parseFloat(this.get('gain').amount);
             gainNode.connect(this.get('destination') || this.context.destination);
             return gainNode;
