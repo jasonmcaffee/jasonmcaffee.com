@@ -59,6 +59,16 @@ define([
         return false;
     });
 
+    //used for chordical sound cell presses.
+    //black listed (phones)
+    modernizr.addTest('performantui', function(){
+        log('performantui test os: ' + deviceInfo.os + ' browser: ' + deviceInfo.browser);
+        if( (deviceInfo.os == 'android' )){
+            return false;
+        }
+        return true;
+    });
+
 
 
     return modernizr;

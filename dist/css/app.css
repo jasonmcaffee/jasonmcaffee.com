@@ -2453,6 +2453,11 @@ body::-webkit-scrollbar {
 #chordical-page, #sounds-page {
   width: 100%;
   height: 100%; }
+  #chordical-page .logo, #sounds-page .logo {
+    display: inline-block;
+    width: 30%; }
+    #chordical-page .logo img, #sounds-page .logo img {
+      width: 100%; }
   #chordical-page > h1, #sounds-page > h1 {
     display: inline-block;
     background-color: #CCCCCC;
@@ -2464,11 +2469,15 @@ body::-webkit-scrollbar {
   #chordical-page .menu, #sounds-page .menu {
     display: inline-block; }
 
+#chordical-page .menu, #sounds-page .menu {
+  vertical-align: top; }
+
 #chordical-page .menu .link, #sounds-page .menu .link {
   margin-left: 10px; }
   #chordical-page .menu .link a, #sounds-page .menu .link a {
     text-decoration: none;
-    color: white; }
+    color: white;
+    padding: 50% 0% 50% 0%; }
 
 #chordical-page #keyboardContainer {
   padding: 7px;
@@ -2497,18 +2506,18 @@ body::-webkit-scrollbar {
 .sound-cell-container {
   width: 18.9%;
   min-width: 50px;
+  max-width: 150px;
   min-height: 70px;
   padding: 4px; }
 
-.sound-cell-active {
+.performantui .sound-cell-active {
   -webkit-animation: sound-cell-container-pressed .02s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards; }
-  .sound-cell-active .sound-cell {
+  .performantui .sound-cell-active .sound-cell {
     -webkit-animation: sound-cell-pressed .02s;
     -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
-    background-position: 360px; }
+    -webkit-animation-fill-mode: forwards; }
 
 @-webkit-keyframes sound-cell-container-pressed {
   100% {
@@ -2528,21 +2537,33 @@ body::-webkit-scrollbar {
 
 @-webkit-keyframes sound-cell-pressed {
   100% {
+    color: #59A7DB;
+    background-position: 100px;
     -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
 
 @-moz-keyframes sound-cell-pressed {
   100% {
+    color: #59A7DB;
+    background-position: 100px;
     -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
 
 @-ms-keyframes sound-cell-pressed {
   100% {
+    color: #59A7DB;
+    background-position: 100px;
     -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
 
 @keyframes sound-cell-pressed {
   100% {
+    color: #59A7DB;
+    background-position: 100px;
     -webkit-transform: scale(0.99, 0.99) translateY(-1px); } }
 
 .sound-cell {
+  text-transform: uppercase;
+  line-height: 260%;
+  color: #B7B7B7;
+  font-size: 150%;
   height: 100%;
   min-height: 70px;
   text-align: center;

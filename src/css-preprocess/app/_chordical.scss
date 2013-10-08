@@ -10,6 +10,13 @@
     height:100%;
     @extend %chordical-dark-grey-slight-gradient;
 
+    .logo{
+        display:inline-block;
+        width:30%;
+        img{
+            width:100%;
+        }
+    }
     //page title. e.g. 'Chordical', 'Sounds', etc
     > h1{
         display:inline-block;
@@ -31,6 +38,10 @@
 
 %chordical-menu{
     @extend %inline-block-grid;
+    vertical-align: top;
+    //vertical-align: middle;  <- middle doesnt work. use margins
+    //margin: 50% 0% 0% 0%;
+    //padding: 50% 0% 50% 0%;
 
     .link{
         @extend %chordical-link;
@@ -40,10 +51,10 @@
 %chordical-link{
     @extend %inline-block-grid-cell;
     margin-left:10px;
-
     a{
         text-decoration: none;
         color: white;
+        padding: 50% 0% 50% 0%;
     }
 }
 
@@ -127,6 +138,7 @@
     width:18.9%; //todo: media breakpoints. this accomodates iphone landscapse, but doesnt fill desktop all the way.
 
     min-width:50px;
+    max-width:150px;
     min-height:70px;
     padding:4px;//-2px;
     //@extend .round-all-by-5;
@@ -144,13 +156,24 @@
 
 }
 
+//only do animations when our modernizr test passes (adds class performant ui when not android)
+.performantui{
+    .sound-cell-active{
+        -webkit-animation: sound-cell-container-pressed .02s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+
+        .sound-cell{
+            -webkit-animation: sound-cell-pressed .02s;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-fill-mode: forwards;
+        }
+    }
+}
 
 //since :active pseudo selector doesnt work that well on mobile, add this class on keypress, etc.
 .sound-cell-active{
     @extend %gpu-acceleration;
-    -webkit-animation: sound-cell-container-pressed .02s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
     //border-bottom:14px;    <-- ios does not like this. ermygerd
     .sound-cell{
         //give the illusion of the key being pressed down
@@ -158,14 +181,16 @@
 
         //-webkit-transform: perspective(1100px) rotateX(-20deg)
         //                   scale(0.98, 0.98);   //perspective( 1100px )
-        -webkit-animation: sound-cell-pressed .02s;
-        -webkit-animation-iteration-count: 1;
-        -webkit-animation-fill-mode: forwards;
+
+        //-webkit-animation: sound-cell-pressed .02s;
+        //-webkit-animation-iteration-count: 1;
+        //-webkit-animation-fill-mode: forwards;
+
         //margin-top:-2px; ios does NOT like this. slows ui down.
 
         //no support yet for gradient transitions: http://stackoverflow.com/questions/6542212/use-css3-transitions-with-gradient-backgrounds
         //@extend %chordical-white-grey-gradual-gradient;
-        background-position:360px;  //hack makes it appear the background gradient is darker.
+        //background-position:360px;  //hack makes it appear the background gradient is darker.
     }
 }
 
@@ -194,10 +219,13 @@
           //-webkit-transform: perspective(2300px) rotateX(-1deg);
       }
 
-      99%{
-
+      90%{
+          //background-position:0px;//hack makes it appear the background gradient is darker.
       }
       100%{
+          color: #59A7DB;
+          //text-shadow: 0 0 3px rgba(89,167,219,0.5);    ios does not like this.
+          background-position:100px;//hack makes it appear the background gradient is darker.
           -webkit-transform:
             scale(0.99, 0.99) translateY(-1px);   //perspective(1100px) rotateX(-20deg)
           //box-shadow: none;
@@ -207,6 +235,10 @@
     //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
     @extend %gpu-acceleration;
 
+    text-transform: uppercase;
+    line-height:260%;
+    color: #B7B7B7;
+    font-size:150%;
     //sizing
     height:100%;
     min-height:70px;
@@ -249,8 +281,5 @@
     //when the key is pressed, the active state changes the perspective. this controls how fast it does so.
     //-webkit-transition: all .1s ease-in;    //linear; //
     //transition: all .01s linear;//ease-out;
-
-
-
 }
 
