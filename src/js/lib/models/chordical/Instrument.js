@@ -17,6 +17,10 @@ define([
 
         },
         defaults:{
+            //allow key for sampling
+            sampleNote:{
+
+            },
             //sounds to choose from for instrument
             soundOptions:{
                 'oscillator': {
@@ -38,6 +42,7 @@ define([
                     },
                     uiId:0 //so the ui can have unique ids (soundNode0)
                 })
+
             ],
             soundNodeOptions:[
                 'gain'

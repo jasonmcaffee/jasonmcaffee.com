@@ -51,7 +51,7 @@ function program4(depth0,data) {
   
   return "selected";}
 
-  buffer += "<div id=\"sounds-page\">\n    <h1>Sounds </h1>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
+  buffer += "<div id=\"sounds-page\">\n    <h1>Sounds </h1>\n\n    <!-- sampler -->\n    <div id=\"sampleKeyboardContainer\">\n    </div>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
   stack1 = foundHelper || depth0.soundOptions;
   foundHelper = helpers.each_property;

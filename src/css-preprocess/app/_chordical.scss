@@ -70,9 +70,20 @@
         border-width: 1px;
         border-style: solid;
 
+        //border-image: url('../images/chordical/wood1.jpg') 20 20;
+        ////border-image-width: 200 200;
+        //border-bottom:2%;
+        //border-left:2%;
+        //border-right:2%;
+        //border-top:2%;
+
+
     }
 
     #keyboardWidget{
+
+
+
         padding: 5px;
         border-color: #F2F2F2;//white;//#444444;//#5B5B5B;//#9E9E9E;
         border-width: 1px;
@@ -95,6 +106,7 @@
 
     #keyboard{
         @extend %keyboard;
+
     }
 }
 
@@ -128,6 +140,8 @@
 
 %keyboard-border{
     @extend %chordical-grey-border-gradient;
+
+
     //@extend %round-all-by-3;
 }
 

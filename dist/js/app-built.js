@@ -12530,8 +12530,11 @@ define('core/mvc/View',[
             var $widgetContainer = this.$el.find(selector);
             $widgetContainer.html('');
             _.each(this.options.widgets, function(widgetMap){
-                $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
-                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+                if(widgetMap.selector === selector){
+                    log('rerendering selector: ' + selector);
+                    $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
+                    widgetMap.widget.delegateEvents(); //ensure widget events get fired
+                }
             }, this);
         },
 
@@ -17727,7 +17730,7 @@ function program4(depth0,data) {
   
   return "selected";}
 
-  buffer += "<div id=\"sounds-page\">\n    <h1>Sounds </h1>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
+  buffer += "<div id=\"sounds-page\">\n    <h1>Sounds </h1>\n\n    <!-- sampler -->\n    <div id=\"sampleKeyboardContainer\">\n    </div>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
   stack1 = foundHelper || depth0.soundOptions;
   foundHelper = helpers.each_property;
@@ -17935,6 +17938,9 @@ define('lib/models/chordical/SoundNode',[
 ], function (core) {
     core.log('SoundNode Model module loaded.');
 
+    //https://developer.tizen.org/documentation/articles/advanced-web-audio-api-usage
+    //http://www.w3.org/TR/webaudio/#WaveTable-section
+
     var SoundNodeModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');
@@ -18027,8 +18033,9 @@ define('lib/views/chordical/InstrumentEdit',[
     'core/core',
     'compiled-templates/chordical/instrumentEdit',
     'lib/widgets/chordical/SoundNode',
-    'lib/models/chordical/SoundNode'
-], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel) {
+    'lib/models/chordical/SoundNode',
+    'lib/widgets/chordical/keyboard'
+], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel, KeyboardWidget) {
     core.log('Instrument View module loaded');
 
     //NOTE: wonky - if you reset the model, make sure to call listenForChangesToSoundNodeModels
@@ -18040,6 +18047,13 @@ define('lib/views/chordical/InstrumentEdit',[
             core.mvc.View.prototype.initialize.apply(this, arguments);
             this.listenForChangesToSoundNodeModels();
             this.createSoundNodeWidgetsUsingModel();
+
+            //create a keyboard sampler
+            this.options = this.options || {};
+            this.options.widgets=[
+                {selector:'#sampleKeyboardContainer', widget: new KeyboardWidget({model:this.options.notesModel})}
+            ];
+
         },
         //cleanup model bindings for each soundNode in array
         remove:function(){
@@ -18343,7 +18357,13 @@ define('lib/models/chordical/Note',[
             this.oscillator.frequency.value = this.get('frequency');
             this.oscillator.connect(this.get('destination') || this.context.destination); // Connect our oscillator to the speakers.
             //this.oscillator.connect(this.get('destination'));
-            this.oscillator.noteOn(0);
+            //http://www.w3.org/TR/webaudio/#DeprecationNotes
+            if(this.oscillator.start){
+                this.oscillator.start(0);
+            }else{
+                this.oscillator.noteOn(0);
+            }
+
         },
 
         /**
@@ -18351,7 +18371,12 @@ define('lib/models/chordical/Note',[
          * @private
          */
         _stopOscillator:function(){
-            this.oscillator.noteOff(0);
+            if(this.oscillator.stop){
+                this.oscillator.stop(0);
+            }else{
+                this.oscillator.noteOff(0);
+            }
+
             this.oscillator.disconnect();
         },
         /**
@@ -18392,6 +18417,10 @@ define('lib/models/chordical/Instrument',[
 
         },
         defaults:{
+            //allow key for sampling
+            sampleNote:{
+
+            },
             //sounds to choose from for instrument
             soundOptions:{
                 'oscillator': {
@@ -18413,6 +18442,7 @@ define('lib/models/chordical/Instrument',[
                     },
                     uiId:0 //so the ui can have unique ids (soundNode0)
                 })
+
             ],
             soundNodeOptions:[
                 'gain'
@@ -18544,11 +18574,31 @@ define('lib/controllers/Chordical',[
                         }
                     }
                     return notesTriggeredByKeyCode;
+                },
+                findNoteByNoteSymbolAndOctave:function(noteSymbol, octave){
+                    var foundNote = null;
+                    for(var note in this.notes){
+                        var aNote = this.notes[note];
+                        if(aNote.octave === octave && aNote.noteSymbol === noteSymbol){
+                            foundNote = aNote;
+                        }
+                    }
+                    return foundNote;
                 }
             };
 
             //core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));  <-- todo: Instrument's init call to this.setDestinationsForSoundNodes(); caused this to always break.
             return this.notesModel;
+        },
+        getNotesModelForSampler:function(){
+            this.getNotesModel();
+            return {
+                notes: [
+                    this.notesModel.findNoteByNoteSymbolAndOctave('c', 3)
+                ],
+                instrument: this.instrumentModel,
+                findNotesTriggeredByKeyCode: this.notesModel.findNotesTriggeredByKeyCode
+            }
         },
         getInstrumentModel:function(){
             core.log('Chordical Controller createSoundsModel called');
@@ -18573,7 +18623,10 @@ define('lib/controllers/Chordical',[
         },
         instrumentPageAction:function(){
             this.getInstrumentModel();
-            this.instrumentEditView = new InstrumentEditView({model:this.instrumentModel});
+            this.instrumentEditView = new InstrumentEditView({
+                model:this.instrumentModel, //for the instrumentEditView
+                notesModel:this.getNotesModelForSampler()  //for the sample keyboard in instrument view (allow users to hear sample after changing sound node)
+            });
             core.log('selectedSoundOption: ' + this.instrumentModel.attributes.selectedSoundOption);
             this.instrumentEditView.render();
             core.ui.transitionPage(this.instrumentEditView);

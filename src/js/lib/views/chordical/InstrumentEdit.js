@@ -2,8 +2,9 @@ define([
     'core/core',
     'compiled-templates/chordical/instrumentEdit',
     'lib/widgets/chordical/SoundNode',
-    'lib/models/chordical/SoundNode'
-], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel) {
+    'lib/models/chordical/SoundNode',
+    'lib/widgets/chordical/keyboard'
+], function (core, instrumentEditTemplate, SoundNodeWidget, SoundNodeModel, KeyboardWidget) {
     core.log('Instrument View module loaded');
 
     //NOTE: wonky - if you reset the model, make sure to call listenForChangesToSoundNodeModels
@@ -15,6 +16,13 @@ define([
             core.mvc.View.prototype.initialize.apply(this, arguments);
             this.listenForChangesToSoundNodeModels();
             this.createSoundNodeWidgetsUsingModel();
+
+            //create a keyboard sampler
+            this.options = this.options || {};
+            this.options.widgets=[
+                {selector:'#sampleKeyboardContainer', widget: new KeyboardWidget({model:this.options.notesModel})}
+            ];
+
         },
         //cleanup model bindings for each soundNode in array
         remove:function(){

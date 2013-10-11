@@ -163,8 +163,11 @@ define([
             var $widgetContainer = this.$el.find(selector);
             $widgetContainer.html('');
             _.each(this.options.widgets, function(widgetMap){
-                $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
-                widgetMap.widget.delegateEvents(); //ensure widget events get fired
+                if(widgetMap.selector === selector){
+                    log('rerendering selector: ' + selector);
+                    $widgetContainer.append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
+                    widgetMap.widget.delegateEvents(); //ensure widget events get fired
+                }
             }, this);
         },
 

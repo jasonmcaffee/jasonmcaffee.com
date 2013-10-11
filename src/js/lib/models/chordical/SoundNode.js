@@ -3,6 +3,9 @@ define([
 ], function (core) {
     core.log('SoundNode Model module loaded.');
 
+    //https://developer.tizen.org/documentation/articles/advanced-web-audio-api-usage
+    //http://www.w3.org/TR/webaudio/#WaveTable-section
+
     var SoundNodeModel = core.mvc.Model.extend({
         initialize:function (attributes, options) {
             core.log('SoundNode Model initialize called');

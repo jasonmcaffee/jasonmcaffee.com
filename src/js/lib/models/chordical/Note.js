@@ -102,7 +102,13 @@ define([
             this.oscillator.frequency.value = this.get('frequency');
             this.oscillator.connect(this.get('destination') || this.context.destination); // Connect our oscillator to the speakers.
             //this.oscillator.connect(this.get('destination'));
-            this.oscillator.noteOn(0);
+            //http://www.w3.org/TR/webaudio/#DeprecationNotes
+            if(this.oscillator.start){
+                this.oscillator.start(0);
+            }else{
+                this.oscillator.noteOn(0);
+            }
+
         },
 
         /**
@@ -110,7 +116,12 @@ define([
          * @private
          */
         _stopOscillator:function(){
-            this.oscillator.noteOff(0);
+            if(this.oscillator.stop){
+                this.oscillator.stop(0);
+            }else{
+                this.oscillator.noteOff(0);
+            }
+
             this.oscillator.disconnect();
         },
         /**

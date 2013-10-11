@@ -72,11 +72,31 @@ define([
                         }
                     }
                     return notesTriggeredByKeyCode;
+                },
+                findNoteByNoteSymbolAndOctave:function(noteSymbol, octave){
+                    var foundNote = null;
+                    for(var note in this.notes){
+                        var aNote = this.notes[note];
+                        if(aNote.octave === octave && aNote.noteSymbol === noteSymbol){
+                            foundNote = aNote;
+                        }
+                    }
+                    return foundNote;
                 }
             };
 
             //core.log('notesModel is: \n' + JSON.stringify(this.notesModel, null, 2));  <-- todo: Instrument's init call to this.setDestinationsForSoundNodes(); caused this to always break.
             return this.notesModel;
+        },
+        getNotesModelForSampler:function(){
+            this.getNotesModel();
+            return {
+                notes: [
+                    this.notesModel.findNoteByNoteSymbolAndOctave('c', 3)
+                ],
+                instrument: this.instrumentModel,
+                findNotesTriggeredByKeyCode: this.notesModel.findNotesTriggeredByKeyCode
+            }
         },
         getInstrumentModel:function(){
             core.log('Chordical Controller createSoundsModel called');
@@ -101,7 +121,10 @@ define([
         },
         instrumentPageAction:function(){
             this.getInstrumentModel();
-            this.instrumentEditView = new InstrumentEditView({model:this.instrumentModel});
+            this.instrumentEditView = new InstrumentEditView({
+                model:this.instrumentModel, //for the instrumentEditView
+                notesModel:this.getNotesModelForSampler()  //for the sample keyboard in instrument view (allow users to hear sample after changing sound node)
+            });
             core.log('selectedSoundOption: ' + this.instrumentModel.attributes.selectedSoundOption);
             this.instrumentEditView.render();
             core.ui.transitionPage(this.instrumentEditView);
