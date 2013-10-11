@@ -18,10 +18,9 @@ define([
             this.createSoundNodeWidgetsUsingModel();
 
             //create a keyboard sampler
-            this.options = this.options || {};
-            this.options.widgets=[
+            this.options.widgets.push(
                 {selector:'#sampleKeyboardContainer', widget: new KeyboardWidget({model:this.options.notesModel})}
-            ];
+            );
 
         },
         //cleanup model bindings for each soundNode in array
