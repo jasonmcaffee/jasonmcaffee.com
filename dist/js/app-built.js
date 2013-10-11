@@ -17838,7 +17838,12 @@ function program8(depth0,data) {
   buffer += escapeExpression(stack1) + "\">\n        </div>\n    ";
   return buffer;}
 
-  buffer += "<div class=\"sound-node\">\n    <h4>sound node</h4>\n\n    <label>Node Type</label>\n    <select name=\"selectedNodeType\">\n        ";
+  buffer += "<div class=\"sound-node\">\n    <h4>";
+  foundHelper = helpers.selectedNodeType;
+  stack1 = foundHelper || depth0.selectedNodeType;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "selectedNodeType", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</h4>\n\n    <label>Node Type</label>\n    <select name=\"selectedNodeType\">\n        ";
   foundHelper = helpers.typeOptions;
   stack1 = foundHelper || depth0.typeOptions;
   stack2 = helpers.each;
@@ -18440,6 +18445,20 @@ define('lib/models/chordical/Instrument',[
                         amount:.9
                     },
                     uiId:0 //so the ui can have unique ids (soundNode0)
+                }),
+                new SoundNodeModel({
+                    selectedNodeType:'panner',
+                    pan:{
+                        amount:0
+                    },
+                    uiId:1 //so the ui can have unique ids (soundNode0)
+                }),
+                new SoundNodeModel({
+                    selectedNodeType:'delay',
+                    delay:{
+                        delayTime:0
+                    },
+                    uiId:2 //so the ui can have unique ids (soundNode0)
                 })
 
             ],

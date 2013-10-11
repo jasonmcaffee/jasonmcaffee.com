@@ -41,6 +41,20 @@ define([
                         amount:.9
                     },
                     uiId:0 //so the ui can have unique ids (soundNode0)
+                }),
+                new SoundNodeModel({
+                    selectedNodeType:'panner',
+                    pan:{
+                        amount:0
+                    },
+                    uiId:1 //so the ui can have unique ids (soundNode0)
+                }),
+                new SoundNodeModel({
+                    selectedNodeType:'delay',
+                    delay:{
+                        delayTime:0
+                    },
+                    uiId:2 //so the ui can have unique ids (soundNode0)
                 })
 
             ],
