@@ -26,7 +26,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-#chordical-page .menu, #sounds-page .menu, #chordical-page #keyboard, .inline-block-grid, .home-section-content, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
+#chordical-page header .menu, #sounds-page header .menu, #chordical-page #keyboard, .inline-block-grid, .home-section-content, .navigation, .navigation-links, #resume-page .header, #resume-page .download-and-contact ul, #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item dl, #imageTestPage #navigation {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -38,7 +38,7 @@
 .gridspacingissue .inline-block-grid, .gridspacingissue .home-section-content, .gridspacingissue .navigation, .gridspacingissue .navigation-links, .gridspacingissue #resume-page .header, #resume-page .gridspacingissue .header, .gridspacingissue #resume-page .download-and-contact ul, #resume-page .download-and-contact .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item ul, #resume-page .employment-section .employment-section-item .gridspacingissue ul, .gridspacingissue #resume-page .employment-section .employment-section-item dl, #resume-page .employment-section .employment-section-item .gridspacingissue dl, .gridspacingissue #imageTestPage #navigation, #imageTestPage .gridspacingissue #navigation {
   word-spacing: normal; }
 
-#chordical-page .menu .link, #sounds-page .menu .link, .sound-cell-container, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
+#chordical-page header .menu .link, #sounds-page header .menu .link, .sound-cell-container, .inline-block-grid-cell, .home-section-tile, .navigation > h1, .navigation .navigation-links, .navigation-links li, #resume-page .header div:first-child, #resume-page .header div:nth-child(2), #resume-page .download-and-contact ul li, #resume-page .employment-section .employment-section-item ul li, #resume-page .employment-section .employment-section-item dl dt, #imageTestPage #navigation a {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2413,24 +2413,6 @@ body::-webkit-scrollbar {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#baea52', endColorstr='#a5c956',GradientType=0 );
   /* IE6-9 */ }
 
-#chordical-page, #sounds-page {
-  background: #333333;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(10%, #333333), color-stop(90%, #3d3d3d), color-stop(100%, #3f3f3f));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
-  /* IE6-9 */ }
-
 .sound-cell {
   background: -webkit-linear-gradient(#fcfcfc, #a8a8a8);
   background: -moz-linear-gradient(#fcfcfc, #a8a8a8);
@@ -2475,13 +2457,15 @@ body::-webkit-scrollbar {
 
 #chordical-page, #sounds-page {
   width: 100%;
-  height: 100%; }
-  #chordical-page .logo, #sounds-page .logo {
+  height: 100%;
+  background: url("../images/chordical/wood1.jpg"); }
+  #chordical-page header .logo, #sounds-page header .logo {
     display: inline-block;
     width: 30%; }
-    #chordical-page .logo img, #sounds-page .logo img {
-      width: 100%; }
-  #chordical-page > h1, #sounds-page > h1 {
+    #chordical-page header .logo img, #sounds-page header .logo img {
+      width: 100%;
+      max-width: 250px; }
+  #chordical-page header > h1, #sounds-page header > h1 {
     display: inline-block;
     background-color: #CCCCCC;
     color: transparent;
@@ -2489,15 +2473,15 @@ body::-webkit-scrollbar {
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text; }
-  #chordical-page .menu, #sounds-page .menu {
+  #chordical-page header .menu, #sounds-page header .menu {
     display: inline-block; }
 
-#chordical-page .menu, #sounds-page .menu {
+#chordical-page header .menu, #sounds-page header .menu {
   vertical-align: top; }
 
-#chordical-page .menu .link, #sounds-page .menu .link {
+#chordical-page header .menu .link, #sounds-page header .menu .link {
   margin-left: 10px; }
-  #chordical-page .menu .link a, #sounds-page .menu .link a {
+  #chordical-page header .menu .link a, #sounds-page header .menu .link a {
     text-decoration: none;
     color: white;
     padding: 50% 0% 50% 0%; }
@@ -2612,24 +2596,6 @@ body::-webkit-scrollbar {
   background: linear-gradient(to bottom, #baea52 0%, #cdeb8e 46%, #a5c956 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#baea52', endColorstr='#a5c956',GradientType=0 );
-  /* IE6-9 */ }
-
-#chordical-page, #sounds-page {
-  background: #333333;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(10%, #333333), color-stop(90%, #3d3d3d), color-stop(100%, #3f3f3f));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #333333 0%, #333333 10%, #3d3d3d 90%, #3f3f3f 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#3f3f3f',GradientType=0 );
   /* IE6-9 */ }
 
 .sound-cell {

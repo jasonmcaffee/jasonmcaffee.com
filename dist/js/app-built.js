@@ -17504,7 +17504,7 @@ templates['chordical'] = template(function (Handlebars,depth0,helpers,partials,d
   var buffer = "", foundHelper, self=this;
 
 
-  buffer += "<link href=\"images/chordical/chordical-favicon.png\" rel=\"shortcut icon\" type=\"image/png\">\n\n<div id=\"chordical-page\">\n    <div class=\"logo\">\n        <img src=\"/images/chordical/logo.png\">\n    </div>\n\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/instrument\">instrument</a></div>\n    </div>\n\n\n    ";
+  buffer += "<link href=\"images/chordical/chordical-favicon.png\" rel=\"shortcut icon\" type=\"image/png\">\n\n<div id=\"chordical-page\">\n    <header>\n        <div class=\"logo\">\n            <img src=\"/images/chordical/logo.png\">\n        </div>\n\n        <div class=\"menu\">\n            <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/instrument\">instrument</a></div>\n        </div>\n    </header>\n\n\n\n    ";
   buffer += "\n    <div id=\"keyboardContainer\">\n    </div>\n\n\n</div>";
   return buffer;}); 
 Handlebars.registerPartial("chordical", templates["chordical"]); 
@@ -17680,7 +17680,7 @@ define('lib/views/Chordical',[
         id:'chordical', // each view needs a unique id for transitions.
         template:chordicalTemplate,
         title: 'Chordical',
-        faviconUrl: 'images/chordical/chordical-favicon2.png',
+        faviconUrl: 'images/chordical/chordical-favicon7.png',
         initialize:function(options){
             core.log('Chordical View initialize called.');
             if(!modernizr.webaudio){ setTimeout(function(){alert('web audio is not supported on your browser.');}, 2000); }
@@ -18720,7 +18720,7 @@ define('app',[
             if(Backbone.history.fragment == ""){
                 var hashPathToNavigateTo = 'Home';//default is jasonmcaffee.com home
                 //since a few urls can point here, go to the appropriate 'index' for the given host.
-                if(window.location.host && window.location.host.indexOf('chordical.com') > 0){
+                if(window.location.host && window.location.host.indexOf('chordical.com') >= 0){
                     hashPathToNavigateTo = 'chordical';
                 }
                 //load the appropriate 'index' page

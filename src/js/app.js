@@ -45,7 +45,7 @@ define([
             if(Backbone.history.fragment == ""){
                 var hashPathToNavigateTo = 'Home';//default is jasonmcaffee.com home
                 //since a few urls can point here, go to the appropriate 'index' for the given host.
-                if(window.location.host && window.location.host.indexOf('chordical.com') > 0){
+                if(window.location.host && window.location.host.indexOf('chordical.com') >= 0){
                     hashPathToNavigateTo = 'chordical';
                 }
                 //load the appropriate 'index' page
