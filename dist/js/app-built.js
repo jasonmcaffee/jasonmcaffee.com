@@ -12386,6 +12386,10 @@ define('core/mvc/View',[
      */
     var View = Backbone.View.extend({
         template: null, //you should define a template function
+        title: null, //if provided, will result in the page title getting updated on render.
+        $title: null, //jquery representation of the title. set during render (after post render)
+        faviconUrl: null, //if provided, will result in the favicon getting updated on render.
+        $favIcon: null, //jquery representation of link[rel='shortcut icon]  //<link href="" rel="shortcut icon" type="image/png">
         bindViewToModel:false, //set to true if you want all input changes to update bb model.
 //        attributes:{
 //            'class':'page'
@@ -12517,6 +12521,19 @@ define('core/mvc/View',[
 
             if(this.postRender){
                 this.postRender();
+            }
+
+            //update the title if it exists and hasn't already been updated.
+            if(this.title){
+                this.$title = this.$title || $('title');
+                if(this.$title.html() != this.title){
+                    this.$title.html(this.title);
+                }
+            }
+
+            if(this.faviconUrl){
+                this.$favIcon = this.$favIcon || $('link[rel="shortcut icon"]');
+                this.$favIcon.attr('href', this.faviconUrl);
             }
 
             return this;
@@ -17487,7 +17504,7 @@ templates['chordical'] = template(function (Handlebars,depth0,helpers,partials,d
   var buffer = "", foundHelper, self=this;
 
 
-  buffer += "<div id=\"chordical-page\">\n    <div class=\"logo\">\n        <img src=\"/images/chordical/logo.png\">\n    </div>\n\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/instrument\">instrument</a></div>\n    </div>\n\n\n    ";
+  buffer += "<link href=\"images/chordical/chordical-favicon.png\" rel=\"shortcut icon\" type=\"image/png\">\n\n<div id=\"chordical-page\">\n    <div class=\"logo\">\n        <img src=\"/images/chordical/logo.png\">\n    </div>\n\n\n    <div class=\"menu\">\n        <div class=\"link\"><a href=\"#chordical/edit\">edit</a></div><!--\n        --><div class=\"link\"><a href=\"#chordical/instrument\">instrument</a></div>\n    </div>\n\n\n    ";
   buffer += "\n    <div id=\"keyboardContainer\">\n    </div>\n\n\n</div>";
   return buffer;}); 
 Handlebars.registerPartial("chordical", templates["chordical"]); 
@@ -17662,6 +17679,8 @@ define('lib/views/Chordical',[
     var View = core.mvc.View.extend({
         id:'chordical', // each view needs a unique id for transitions.
         template:chordicalTemplate,
+        title: 'Chordical',
+        faviconUrl: 'images/chordical/chordical-favicon2.png',
         initialize:function(options){
             core.log('Chordical View initialize called.');
             if(!modernizr.webaudio){ setTimeout(function(){alert('web audio is not supported on your browser.');}, 2000); }
@@ -17730,7 +17749,7 @@ function program4(depth0,data) {
   
   return "selected";}
 
-  buffer += "<div id=\"sounds-page\">\n    <h1>Sounds </h1>\n\n    <!-- sampler -->\n    <div id=\"sampleKeyboardContainer\">\n    </div>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
+  buffer += "<div id=\"sounds-page\">\n    <h1>Instrument Edit </h1>\n\n    <!-- sampler -->\n    <div id=\"sampleKeyboardContainer\">\n    </div>\n\n    <form action=\"/instrument\" id=\"soundsForm\">\n\n        <select name=\"selectedSound\">\n            ";
   foundHelper = helpers.soundOptions;
   stack1 = foundHelper || depth0.soundOptions;
   foundHelper = helpers.each_property;
@@ -18699,8 +18718,13 @@ define('app',[
             //if there is no relative route, send them to the home page.
             core.log('current route is : ' + Backbone.history.fragment);
             if(Backbone.history.fragment == ""){
-                //load the home page
-                self.router.navigate('Home', {trigger:true});
+                var hashPathToNavigateTo = 'Home';//default is jasonmcaffee.com home
+                //since a few urls can point here, go to the appropriate 'index' for the given host.
+                if(window.location.host && window.location.host.indexOf('chordical.com') > 0){
+                    hashPathToNavigateTo = 'chordical';
+                }
+                //load the appropriate 'index' page
+                self.router.navigate(hashPathToNavigateTo, {trigger:true});
             }
         });
 

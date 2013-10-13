@@ -19,6 +19,10 @@ define([
      */
     var View = Backbone.View.extend({
         template: null, //you should define a template function
+        title: null, //if provided, will result in the page title getting updated on render.
+        $title: null, //jquery representation of the title. set during render (after post render)
+        faviconUrl: null, //if provided, will result in the favicon getting updated on render.
+        $favIcon: null, //jquery representation of link[rel='shortcut icon]  //<link href="" rel="shortcut icon" type="image/png">
         bindViewToModel:false, //set to true if you want all input changes to update bb model.
 //        attributes:{
 //            'class':'page'
@@ -150,6 +154,19 @@ define([
 
             if(this.postRender){
                 this.postRender();
+            }
+
+            //update the title if it exists and hasn't already been updated.
+            if(this.title){
+                this.$title = this.$title || $('title');
+                if(this.$title.html() != this.title){
+                    this.$title.html(this.title);
+                }
+            }
+
+            if(this.faviconUrl){
+                this.$favIcon = this.$favIcon || $('link[rel="shortcut icon"]');
+                this.$favIcon.attr('href', this.faviconUrl);
             }
 
             return this;

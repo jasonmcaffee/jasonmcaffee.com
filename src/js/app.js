@@ -43,8 +43,13 @@ define([
             //if there is no relative route, send them to the home page.
             core.log('current route is : ' + Backbone.history.fragment);
             if(Backbone.history.fragment == ""){
-                //load the home page
-                self.router.navigate('Home', {trigger:true});
+                var hashPathToNavigateTo = 'Home';//default is jasonmcaffee.com home
+                //since a few urls can point here, go to the appropriate 'index' for the given host.
+                if(window.location.host && window.location.host.indexOf('chordical.com') > 0){
+                    hashPathToNavigateTo = 'chordical';
+                }
+                //load the appropriate 'index' page
+                self.router.navigate(hashPathToNavigateTo, {trigger:true});
             }
         });
 

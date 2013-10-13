@@ -1,3 +1,15 @@
+
+#InstrumentPage{
+
+    .sound-node{
+        @extend %sound-node;
+    }
+
+    select{
+        @extend %select;
+    }
+}
+
 %sound-node{
     @extend %round-all-by-3;
     @extend %chordical-lime-green-gradient;
@@ -5,11 +17,4 @@
     margin: 2%;
     padding: 0% 1% .5% 1%;
     max-width:250px;
-}
-
-#InstrumentPage{
-
-    .sound-node{
-        @extend %sound-node;
-    }
 }

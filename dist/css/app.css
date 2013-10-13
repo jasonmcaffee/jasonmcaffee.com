@@ -399,6 +399,29 @@ h1 {
   -moz-box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7);
   box-shadow: -1px 0px 10px rgba(50, 50, 50, 0.7); }
 
+#InstrumentPage select {
+  width: 150px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  border-style: solid;
+  border-width: 0px 25px 0px 0px;
+  -moz-border-image: url(http://labs.jasonmcaffee.com/images/chordical/select-arrow.png) 0 143 0 0 stretch round;
+  -webkit-border-image: url(http://labs.jasonmcaffee.com/images/chordical/select-arrow.png) 0 143 0 0 stretch round;
+  -o-border-image: url(http://labs.jasonmcaffee.com/images/chordical/select-arrow.png) 0 143 0 0 stretch round;
+  border-image: url(http://labs.jasonmcaffee.com/images/chordical/select-arrow.png) 0 143 0 0 stretch round;
+  background: white;
+  background: -moz-radial-gradient(center, ellipse cover, white 0%, #dddddd 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #dddddd));
+  background: -webkit-radial-gradient(center, ellipse cover, white 0%, #dddddd 100%);
+  background: -o-radial-gradient(center, ellipse cover, white 0%, #dddddd 100%);
+  background: -ms-radial-gradient(center, ellipse cover, white 0%, #dddddd 100%);
+  background: radial-gradient(ellipse at center, white 0%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd',GradientType=1 );
+  box-shadow: inset 0px 0px 9px 0px rgba(0, 0, 0, 0.51); }
+
 /*!
  *  Font Awesome 3.0.2
  *  the iconic font designed for use with Twitter Bootstrap

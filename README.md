@@ -7,6 +7,34 @@ jasonlmcaffee@gmail.com
 
 #Chordical
 
+
+##To Do
+design instrument edit.
+- basic inputs should have some style
+-- select
+-- range
+
+- sound nodes should look different depending on type.
+
+saving instrument settings (sound nodes)
+
+sound cell assignment
+- each cell should be able to choose from:
+  - sub instrument
+    - chord press (eg. pick 3 notes from the sub inst and play them at the same time when parent inst cell clicked.
+    - sequence of notes (eg mini song)
+
+recording songs.
+-- multi track
+-- saving
+
+layout manager
+
+effects
+- arpegiator
+- delay
+
+
 ##Setup:
 git clone https://github.com/jasonmcaffee/jasonmcaffee.com.git
 

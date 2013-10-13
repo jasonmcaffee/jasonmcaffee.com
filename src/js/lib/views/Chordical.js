@@ -9,6 +9,8 @@ define([
     var View = core.mvc.View.extend({
         id:'chordical', // each view needs a unique id for transitions.
         template:chordicalTemplate,
+        title: 'Chordical',
+        faviconUrl: 'images/chordical/chordical-favicon2.png',
         initialize:function(options){
             core.log('Chordical View initialize called.');
             if(!modernizr.webaudio){ setTimeout(function(){alert('web audio is not supported on your browser.');}, 2000); }
