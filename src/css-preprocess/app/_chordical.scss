@@ -10,11 +10,20 @@
     height:100%;
     //@extend %chordical-dark-grey-slight-gradient;
     background: url('../images/chordical/wood1.jpg');
-    header{
 
+    header{
+        height:80px;
+        border-width: 0px 0px 1px 0px;
+        border-style: solid;
+        border-color: dimgrey;
+        //@extend %chordical-black-gradient;
+        //background: url('../images/chordical/wood1.jpg') repeat center center / 350px Auto;
         .logo{
             display:inline-block;
             width:30%;
+            height:100%;
+            background: url('../images/chordical/wood1.jpg');
+            vertical-align: middle;
             img{
                 width:100%;
                 max-width:250px;
@@ -34,6 +43,7 @@
 
         //menu with links, displayed left to right. placed to the right of the page title.
         .menu{
+            width:70%;
             display:inline-block;
             @extend %chordical-menu;
         }
@@ -42,24 +52,85 @@
 }
 
 %chordical-menu{
-    @extend %inline-block-grid;
     vertical-align: top;
-    //vertical-align: middle;  <- middle doesnt work. use margins
-    //margin: 50% 0% 0% 0%;
-    //padding: 50% 0% 50% 0%;
+     height: 100%;
+    //border-style: solid;
+    //border-width: 6px 6px 7px;
+    //-moz-border-image: url('../images/chordical/wood1.jpg') 5 5 5;
+    //-webkit-border-image: url('../images/chordical/wood1.jpg') 5 5 5;
+    //-o-border-image: url('../images/chordical/wood1.jpg') 5 5 5;
+    //border-image: url('../images/chordical/wood1.jpg') 5 5 5;
+    display:inline-block;
+    .menu-item{
+        @extend %chordical-menu-item;
 
-    .link{
-        @extend %chordical-link;
+    }
+    .menu-item-left{
+        display:none; //disable for now
+        background-color: transparent;
+        float:left;
+        height:100%;
+        width:10px;
+        -webkit-border-radius: 0px 0px 10px 0px;
+        border-radius: 0px 0px 10px 0px;
+        border-width:2px;
+        border-color: red;
+        border-style: solid;
+    }
+    .menu-item .active{
+        @extend %chordical-black-gradient;
     }
 }
 
-%chordical-link{
-    @extend %inline-block-grid-cell;
-    margin-left:10px;
+%chordical-menu-item{
+    height:100%;
+    display:inline-block;
+    text-align: center;
+    @extend %chordical-white-grey-slight-gradient;
+
+    border-color: #919191;//#0F0F0F;//white;//#444444;//#5B5B5B;//#9E9E9E;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+
+    //inset boxshadow for top white shading
+    -webkit-box-shadow: inset 0px 3px 1px 0px rgba(239, 239, 239, .5);
+    box-shadow: inset 0px 3px 1px 0px rgba(239, 239, 239, .5);
+
+
+    .link{
+        //background: url('../images/chordical/menu-icon-instrument.png');
+        //@extend %chordical-menu-item-icon;
+        @extend %chordical-menu-link;
+    }
+}
+
+%chordical-menu-item-icon{
+    width:80%;
+    //background-repeat: no-repeat;
+    //background-position: center;
+    //background-size: 80%;
+    text-align: center;
+    vertical-align: top;
+}
+
+%chordical-menu-link{
+    //@extend %inline-block-grid-cell;
+
+    padding: 5px;
+    width: 90px;
+    height: 100%;
+    //border: white solid;
+    //border-width: 1px;
     a{
+        //word-break: break-all;
         text-decoration: none;
-        color: white;
-        padding: 50% 0% 50% 0%;
+        color: #444444;
+
+        img{
+            @extend %chordical-menu-item-icon;
+        }
+
+
     }
 }
 
@@ -75,6 +146,7 @@
         border-width: 1px;
         border-style: solid;
 
+        @extend %round-all-but-top-left-by-3;
         //border-image: url('../images/chordical/wood1.jpg') 20 20;
         ////border-image-width: 200 200;
         //border-bottom:2%;
@@ -195,6 +267,8 @@
     @extend %gpu-acceleration;
     //border-bottom:14px;    <-- ios does not like this. ermygerd
     .sound-cell{
+
+
         //give the illusion of the key being pressed down
         //background-color: indianred !important;  //this works but doesn't look as cool as it should
 
@@ -254,10 +328,32 @@
     //gpu acceleration. huge improvement in ui responsiveness when sound-cell-active is added.
     @extend %gpu-acceleration;
 
+    //font
     text-transform: uppercase;
+    font-weight: bold;
     line-height:260%;
-    color: #B7B7B7;
+    color: #8E8E8E;//#B7B7B7;
     font-size:150%;
+    /* WebKit (Safari/Chrome) Only */
+    //-webkit-text-stroke: 1px grey;
+
+    /* If we weren't using text-shadow, we'd set a fallback color
+       and use this to set color instead
+      -webkit-text-fill-color: white; */
+
+    text-shadow: 1px 1px 0 #EDEDED,     //#E8E8E8;
+                 -1px -1px 0 #EDEDED;
+    //text-shadow:
+    //    2px 2px 0 rgba(182, 182, 182, .5),//red,
+    //    /* Simulated effect for Firefox and Opera
+    //       and nice enhancement for WebKit */
+    //        -1px -1px 0 rgba(209, 209, 209, .75),//green,
+    //        1px -1px 0 rgba(114, 114, 114, .75),//blue,
+    //        -1px  1px 0 rgba(114, 114, 114, .9),//orange,
+    //    1px  1px 0 rgba(114, 114, 114, .9);//yellow;
+
+
+
     //sizing
     height:100%;
     min-height:70px;
@@ -302,3 +398,40 @@
     //transition: all .01s linear;//ease-out;
 }
 
+
+//############################# Media Queries ######################
+//media queries should go at the end to ensure precedence (last rule has specificity)
+@include mq(small){
+
+    #chordical-page{
+        header{
+            height:180px;
+            .logo{
+                text-align:center;
+                height:50%;
+                width:100%;
+            }
+            .menu{
+                width:100%;
+                height: 50%;
+                .menu-item{
+
+                    width:25%;
+
+                    .link{
+
+                        width:100%;
+
+                        a{
+                            word-break: normal; //break-all causes misalignment in small size.
+                        }
+                    }
+                }
+            }
+        }
+
+        .sound-cell{
+            font-size:90%;
+        }
+    }
+}
