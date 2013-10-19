@@ -203,7 +203,8 @@ app.get('/', function(req,res){
     res.render(config.viewsDirectory + 'test.html', viewModel);
 });
 
-
+//other routes ====================================================================================================================
+require('./vsscrape/vsscrape')(app);
 
 // Start server ===================================================================================================================
 console.log('Starting jasonmcaffee.com server on port ' + config.port);

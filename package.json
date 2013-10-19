@@ -11,6 +11,8 @@
         "ejs": ">= 0.7.1",
         "requirejs" : ">= 2.0.6",
         "handlebars" : "1.0.5beta",
-        "gzippo": ">= 0.1.4"
+        "gzippo": ">= 0.1.4",
+        "jsdom": "0.8.6",
+        "request": "2.2.7"
     }
 }
