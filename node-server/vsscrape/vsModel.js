@@ -1,3 +1,4 @@
+//use phantomjs, jsdom, and http to scrape victoriassecret.com pages and services.
 module.exports = function(){
     var jsdom  = require('jsdom'); //used for simple, non-problematic queries (see vsRequestUsingJsdom notes)
     var request = require('request');//used to include http headers and getting page body (used with jsdom only)
@@ -53,7 +54,7 @@ module.exports = function(){
             if(this.collections){callback(this.collections); return;} //cache
             this.collections = [];
 
-            vsRequest("bras/all-collections", function(){
+            vsRequestUsingPhantomJs("bras/all-collections", function(){
                 var $navItems = $('#nav-secondary > ul.menu > li');
                 var collectionsResult = [];
                 console.log('$navItems length is: ' + $navItems.length);
@@ -139,7 +140,7 @@ module.exports = function(){
                 output += chunk;
             });
             res.on('end', function() {
-                console.log('response end. building json: ' + output);
+                console.log('response end. building json');//+ output
                 var obj = JSON.parse(output);
                 callback(obj);
             });
@@ -168,7 +169,7 @@ module.exports = function(){
      *     console.log('window title is: ' + title);
      *  }
     */
-    function vsRequest(path, evaluateFunction, callback){
+    function vsRequestUsingPhantomJs(path, evaluateFunction, callback){
         var uri = "http://www.victoriassecret.com/" + path;
         //http://snippets.aktagon.com/snippets/534-how-to-scrape-web-pages-with-phantomjs-and-jquery
         //http://net.tutsplus.com/tutorials/javascript-ajax/web-scraping-with-node-js/
@@ -202,7 +203,7 @@ module.exports = function(){
      * uses jsdom and executes callback once the requested path's body has been loaded and jQuery is ready to use.
      *
      * NOTE!: due to jsdom's strict html/xml parsing, sites with invalid html can lead to incorrect query results (e.g. getting 3 elements back instead of 9)
-     *      use vsRequest (phantomjs) when this function fails you.
+     *      use vsRequestUsingPhantomJs (phantomjs) when this function fails you.
      * @param path - eg. "bras" "bras/all-collections"... use "" for home
      * @param callback - function taking params ($, window, error)
      *
