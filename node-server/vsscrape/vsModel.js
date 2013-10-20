@@ -10,9 +10,8 @@ module.exports = function(){
     var chromeUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31";
 
     /**
-     * Model which uses jsdom or phantomjs to request vs pages, scrape/query using jquery, and return json data representations
-     * of the html.
-     *
+     * Model which uses jsdom or phantomjs to request vs pages, scrape/query using jquery, and return json data representations.
+     * Also calls existing vs services using http requests (useful when trying to get around cross origin issues)
      */
     var vsModel = {
 
