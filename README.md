@@ -46,6 +46,9 @@ grunt watch //watch for js or template changes
 
 grunt sass-watch //watch for scss changes
 
+//for phantomjs usage (screen scraping demos) ensure phantomjs is in your path
+sudo ln -s /Users/jason/dev/jasonmcaffee/node-server/bin/phantomjs /usr/local/bin
+
 ##Code:
 
 https://github.com/jasonmcaffee/jasonmcaffee.com/blob/master/src/js/lib/controllers/Chordical.js

@@ -13,6 +13,8 @@
         "handlebars" : "1.0.5beta",
         "gzippo": ">= 0.1.4",
         "jsdom": "0.8.6",
-        "request": "2.2.7"
+        "request": "2.2.7",
+        "cheerio": "0.12.3",
+        "phantom": "0.5.4"
     }
 }
