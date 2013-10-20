@@ -25,17 +25,18 @@ module.exports = function(){
                 $('#nav-primary > ul > li a').each(function(i, item){
                     var link = $(item).attr('href');
                     this.primaryNavigationLinks.push(link);
-                });
+                }.bind(this));
 
                 callback(this.primaryNavigationLinks);
-            });
+            }.bind(this));
         },
 
         /**
          * Returns an array of collection items gathered from the secondary navigation on bras/all-collections
          * @return - [
          *  {
-         *      name: "Fabulous by Victoria's Secret"
+         *      name: "Fabulous by Victoria's Secret",
+         *      href: "http://www.victoriassecret.com/bras/fabulous-by-victorias-secret-collection"
          *  }
          * ]
          *
@@ -77,7 +78,7 @@ module.exports = function(){
                 console.log('collectionsResult length: ' + collectionsResult ? collectionsResult.length : null);
                 this.collections = collectionsResult;
                 callback(this.collections);
-            });
+            }.bind(this));
 
         }
 
@@ -130,7 +131,7 @@ module.exports = function(){
         });
     }
     /**
-     * executes callback once the requested path's body has been loaded and jQuery is ready to use.
+     * uses jsdom and executes callback once the requested path's body has been loaded and jQuery is ready to use.
      * @param path - eg. "bras" "bras/all-collections"... use "" for home
      * @param callback - function taking params ($, window, error)
      *
@@ -153,7 +154,7 @@ module.exports = function(){
                 done: function(err, window){
                     var $ = window.jQuery;
                     console.log(error);
-                    console.log(body);
+                    //console.log(body);
                     //console.log("there have been", window.$("a").length, "nodejs releases!");
                     callback($, window, error);
                 }

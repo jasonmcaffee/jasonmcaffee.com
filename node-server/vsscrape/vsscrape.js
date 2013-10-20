@@ -5,6 +5,15 @@ module.exports = function(app){
     var request = require('request');
    // var jquery = fs.readFileSync("../src/js/lib-third-party/jquery.js").toString();
     var vsModel = require('./vsModel')();
+
+    /**
+     * Allow any site to cross site script our services.
+     */
+    app.get('/scrape/*',function(req,res,next){
+        res.header('Access-Control-Allow-Origin' , '*');
+        next(); // http://expressjs.com/guide.html#passing-route control
+    });
+
     /**
      * Returns a json object with primary navigation links, which are created by going to the home page and
      * parsing each anchor's href under #nav-primary > ul > li
@@ -16,7 +25,7 @@ module.exports = function(app){
      *      ]
      * }
      */
-    app.get('/vsscrape/navigation/primary', function(req, res){
+    app.get('/scrape/vs/navigation/primary/list', function(req, res){
         var result = {
             primaryNavigationLinks : []
         };
@@ -26,7 +35,8 @@ module.exports = function(app){
         });
     });
 
-    app.get('/vsscrape/collections/list', function(req, res){
+
+    app.get('/scrape/vs/collections/list', function(req, res){
         var result = {
             collections : []
         };
