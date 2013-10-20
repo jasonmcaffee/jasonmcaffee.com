@@ -131,8 +131,19 @@ module.exports = function(){
          * @return -
          *  {"products":[
          *      {
-         *          "name":" Perfect Shape Bra ",
-         *          "priceRange":"$48.50 - $58.50 ",
+         *          "name":"Perfect Shape Bra",
+         *          "priceRanges":[
+         *            {
+         *              lowText: '48.50',
+         *              highText: '58.50',
+         *              high: 58.5,
+         *              low: 48.5,
+         *              text: "$48.50 - $58.50",
+         *              isSpecial: false
+         *            },
+         *            ...
+         *          ],
+         *          "priceRangeText":"$48.50 - $58.50",
          *          "link":"/bras/all-collections/perfect-shape-bra-body-by-victoria?ProductID=149560&CatalogueType=OLS",
          *          "imgSrc":"//dm.victoriassecret.com/product/176x235/V378729_FC_BC_CROP1.jpg",
          *          "collectionName":"NEW! Body by Victoria",
