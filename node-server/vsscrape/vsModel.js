@@ -31,8 +31,17 @@ module.exports = function(){
             });
         },
 
+        /**
+         * Returns an array of collection items gathered from the secondary navigation on bras/all-collections
+         * @return - [
+         *  {
+         *      name: "Fabulous by Victoria's Secret"
+         *  }
+         * ]
+         *
+        */
         getCollections: function(callback){
-            //if(this.collections){callback(this.collections); return;}
+            if(this.collections){callback(this.collections); return;}
             this.collections = [];
 
             vsRequest("bras/all-collections", function(){
@@ -74,6 +83,18 @@ module.exports = function(){
 
     };
 
+    /**
+     * Requests the given path, executes the evaluateFunction, and calls the callback passing the return value of the evaluate function
+     * @param path - "bras/all-collections"
+     * @param evaluateFunction - the function to be executed
+     *  function(){
+     *      return window.document.title;
+     *  }
+     * @param callback - the function which will be executed, being passed the return value of the evaluateFunction
+     *  function(title){
+     *     console.log('window title is: ' + title);
+     *  }
+    */
     function vsRequest(path, evaluateFunction, callback){
         var uri = "http://www.victoriassecret.com/" + path;
         //var uri = "http://www.google.com"; //http://www.whatsmyuseragent.com/
