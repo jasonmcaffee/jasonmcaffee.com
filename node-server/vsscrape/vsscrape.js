@@ -66,7 +66,7 @@ module.exports = function(app){
      * @return -
      *  {"facets":{"Size":{"30A":{"displayValue":"30A","swatchName":null,"productCount":1},"30B":{"displayValue":"30B","swatchName":null,"productCount":2},...}
      */
-    app.get('/scrape/vs/collections/all/facets', function(req, res){
+    app.get('/scrape/vs/collections/all/facets/list', function(req, res){
         var result = {
             facets: {}
         };
@@ -76,7 +76,33 @@ module.exports = function(app){
         });
     });
 
-
+    /**
+     * Returns an array of products representing all the products found on http://www.victoriassecret.com/bras/all-collections.
+     * Filters out any special features (e.g. the ad at the beginning)
+     * @param callback
+     * @return -
+     *  {"products":[
+         *      {
+         *          "name":" Perfect Shape Bra ",
+         *          "priceRange":"$48.50 - $58.50 ",
+         *          "link":"/bras/all-collections/perfect-shape-bra-body-by-victoria?ProductID=149560&CatalogueType=OLS",
+         *          "imgSrc":"//dm.victoriassecret.com/product/176x235/V378729_FC_BC_CROP1.jpg",
+         *          "collectionName":"NEW! Body by Victoria",
+         *          "colors":"16 Colors"
+         *      },
+         *      ...
+         *    ]
+         *  }
+     */
+    app.get('/scrape/vs/collections/all/products/list', function(req, res){
+        var result = {
+            products: {}
+        };
+        vsModel.getAllCollectionProducts(function(products){
+            result.products = products;
+            res.json(result);
+        });
+    });
 
 
 };

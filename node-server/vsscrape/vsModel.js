@@ -4,7 +4,8 @@ module.exports = function(){
     var request = require('request');//used to include http headers and getting page body (used with jsdom only)
     var phantom = require('phantom');//used for queries jsdom is unable to handle. (a bit slower than jsdom)
     var http = require('http'); //used to make existing vs service requests.   e.g. bras/all-collections/facets
-    // var jquery = fs.readFileSync("../src/js/lib-third-party/jquery.js").toString();
+    var fs = require('fs');
+    var jquery = fs.readFileSync("../src/js/lib-third-party/jquery.js");//inject our jquery loaded from disk rather than make http call for it (jsdom)
 
     //constants
     //vs blows up when a user agent header is not sent.
@@ -46,7 +47,8 @@ module.exports = function(){
          *  {
          *      name: "Fabulous by Victoria's Secret",
          *      href: "http://www.victoriassecret.com/bras/fabulous-by-victorias-secret-collection"
-         *  }
+         *  },
+         *  ...
          * ]
          *
         */
@@ -62,7 +64,7 @@ module.exports = function(){
                     var $item = $(item);
                     var $navSections = $item.find('> h3 > span');
                     $navSections.each(function(x, navSectionTitle){
-                        var $navSectionTitle = $(navSectionTitle)
+                        var $navSectionTitle = $(navSectionTitle);
                         //console.log($navSectionTitle.text());
                         if($navSectionTitle.text().toLowerCase().indexOf("shop by collection") >= 0){
                             var $collections = $item.find('> ul > li a');
@@ -95,7 +97,21 @@ module.exports = function(){
          * Calls the vs webservice at www.victoriassecret.com/bras/all-collections/facet
          * @param callback - function which takes 1 param representing the facets for all collections
          * @return -
-         *  {"facets":{"Size":{"30A":{"displayValue":"30A","swatchName":null,"productCount":1},"30B":{"displayValue":"30B","swatchName":null,"productCount":2},...}
+         *  {"facets":
+         *      {
+         *          "Size":{
+         *              "30A":{
+         *                  "displayValue":"30A",
+         *                  "swatchName":null,
+         *                  "productCount":1
+         *              },
+         *              "30B":{
+         *                  "displayValue":"30B",
+         *                  "swatchName":null,
+         *                  "productCount":2
+         *              },
+         *              ...
+         *           }
          */
         getAllCollectionFacets: function(callback){
             if(this.facets){callback(this.facets); return;}
@@ -104,6 +120,141 @@ module.exports = function(){
                 if(error){ console.log('error in getAllCollectionFacets: ' + error); callback(error); return;}
                 this.facets = result;
                 callback(this.facets);
+            }.bind(this));
+        },
+
+        /**
+         * Returns an array of products representing all the products found on http://www.victoriassecret.com/bras/all-collections.
+         * Uses bras/all-collections/more to retrieve all products at the same time.
+         * Filters out any special features (e.g. the ad at the beginning)
+         * @param callback
+         * @return -
+         *  {"products":[
+         *      {
+         *          "name":" Perfect Shape Bra ",
+         *          "priceRange":"$48.50 - $58.50 ",
+         *          "link":"/bras/all-collections/perfect-shape-bra-body-by-victoria?ProductID=149560&CatalogueType=OLS",
+         *          "imgSrc":"//dm.victoriassecret.com/product/176x235/V378729_FC_BC_CROP1.jpg",
+         *          "collectionName":"NEW! Body by Victoria",
+         *          "colors":"16 Colors"
+         *      },
+         *      ...
+         *    ]
+         *  }
+         */
+        getAllCollectionProducts: function(callback){
+            if(this.collectionProducts){callback(this.collectionProducts); return;}//cache
+            this.collectionProducts = [];
+            //request all the products using the 'more' functionality.
+            vsRequestUsingJsdom("bras/all-collections/more?increment=280&location=0&sortby=REC", function($, window, error){
+                if(error){ callback(error); return;}
+
+                //@param rangeText -
+                //  "$48.50 - $58.50 & $12.50 - $14.50 or Special 3/$33"
+                //  "$48.50 - $58.50"
+                //@return [
+                // {
+                //   lowText: '48.50',
+                //   highText: '58.50',
+                //   high: 58.5,
+                //   low: 48.5,
+                //   text: "$48.50 - $58.50",
+                //   isSpecial: false
+                // },
+                // ...
+                //]
+                function parsePriceRanges(rangeText){
+                    var result = [];//e.g. [{low:0, high:0, text:rangeText}];
+                    var orSplit = rangeText.split("or");
+                    for(var x=0; x < orSplit.length; ++x){
+                        var orItem = orSplit[x];
+                        var andSplit = orItem.split("&");
+                        for(var i=0; i < andSplit.length; ++i){
+                            var andItem = andSplit[i];
+                            var parsedPriceRange = parsePriceRange(andItem);
+                            result.push(parsedPriceRange);
+                        }
+                    }
+                    return result;
+                }
+
+                //@param rangeText -
+                //  "$48.50 - $58.50"
+                //  "Special 3/$33"  <-- would return all nulls except text and isSpecial === true
+                //@return {
+                //  lowText: '48.50',
+                //  low: 48.5,
+                //  highText: '58.50',
+                //  high: 58.5,
+                //  text: '$48.50 - $58.50',
+                //  isSpecial: false
+                //}
+                function parsePriceRange(rangeText){
+                    var result = {low:null, high:null, lowText:null, highText:null, isSpecial: false, text:rangeText.trim()};
+                    var dashSplit = rangeText.split("-");
+                    if(dashSplit.length == 1){
+                        //dealing with text like 'Special 3/$33'
+                        result.isSpecial = true;
+                    }else if(dashSplit.length == 2){
+                        //dealing with low - high range.
+                        result.lowText = dashSplit[0].replace('$', '').trim();
+                        result.highText = dashSplit[1].replace('$', '').trim();
+                        result.low = parseFloat(result.lowText);
+                        result.high = parseFloat(result.highText);
+                    }else{
+                        //unknown
+                    }
+                    return result;
+                }
+
+                //@param link - "http://victoriassecret.com/bras/all-collections/push-up-bra-cotton-lingerie?ProductID=139732&CatalogueType=OLS"
+                //@result '139732'
+                function parseProductId(link){
+                    var result = null;
+                    var match = link.match(/\?ProductID=(.*?)\&/);
+                    if(match && match.length > 1){
+                        result = match[1];
+                    }
+                    return result;
+                }
+
+                //iterate over each li product in the body
+                $('body > li').each(function(i, product){
+                    var $product = $(product);
+                    var $productLink = $product.find('> a');
+
+                    //filter out features (e.g. the big ad at the beginning)
+                    var $productLink = $product.find('> a');
+                    var $linkName = $productLink.attr('name');
+                    if($linkName && $linkName.toLowerCase().indexOf(': feature') >= 0) {console.log('-filtered'); return;}
+
+                    var productLink = "http://victoriassecret.com" + $productLink.attr('href');
+                    var productImgSrc = $productLink.find('img').attr('data-lazy-asset');
+                    var productCollection = $productLink.find('> aside > hgroup > h2').text();
+                    var productName = $productLink.find('> aside > hgroup > h3').text();
+                    var productPriceRange = '';
+                    var productColors = '';
+                    $productLink.find('> aside > p').each(function(i, item){
+                        if(i == 0){ productPriceRange = $(item).text();}
+                        if(i == 1){ productColors = $(item).text();}
+                    });
+
+                    var parsedPriceRanges = parsePriceRanges(productPriceRange);
+                    var productId = parseProductId(productLink);
+                    var productResult={
+                        id: productId,
+                        name: productName.trim(),
+                        priceRanges: parsedPriceRanges,
+                        priceRangeText: productPriceRange.trim(),
+                        link: productLink,
+                        imgSrc: productImgSrc,
+                        collectionName: productCollection,
+                        colors: productColors
+                    };
+                    this.collectionProducts.push(productResult);
+                    //console.log(productColors);
+                }.bind(this));
+                callback(this.collectionProducts);
             }.bind(this));
         }
 
@@ -223,7 +374,8 @@ module.exports = function(){
         }, function (error, response, body) {
             jsdom.env({
                 html: body,
-                scripts: ['http://codeorigin.jquery.com/jquery-1.10.2.min.js'], //needed so we can query the dom.
+                src: [jquery], //use file read from disk rather than make a http request every time.
+                //scripts: ['http://codeorigin.jquery.com/jquery-1.10.2.min.js'], //needed so we can query the dom.
                 done: function(err, window){
                     var $ = window.jQuery;
                     console.log(error);
