@@ -140,14 +140,25 @@ module.exports = function(app){
      *       ...
      * ]
      */
+    var queryCache = {};
     app.get('/scrape/vs/product/search/:query', function(req, res){
         var query = req.params.query || 'PANTIES';
+        query = query.toLowerCase();
         console.log('query is: ' + query);
-        vsModel.searchProducts(query, function(products){
+        if(queryCache[query]){
             res.json({
-                products: products
-            });
-        });
+                products: queryCache[query]
+            })
+        }else{
+            vsModel.searchProducts(query, (function(q){
+                return function(products){
+                    res.json({
+                        products: products
+                    });
+                    queryCache[q] = products;
+                }
+            })(query));
+        }
     });
 
 
