@@ -267,6 +267,142 @@ module.exports = function(){
                 }.bind(this));
                 callback(this.collectionProducts);
             }.bind(this));
+        },
+
+        /**
+         * Searches realtime (no caching) using the search2.victoriassecret.com page to return an array of found products
+         * matching the query
+         * @param query - url encoded search query. e.g. "push%20up%20bra"
+         * @param callback - callback which takes as a parameter the return value (array of products)
+         * @return
+         * [
+         *       {
+         *         "href": "http://www.victoriassecret.com/bras/our-very-sexy-push-up/push-up-bra-very-sexy?ProductID=148147&CatalogueType=OLS",
+         *         "imgSrc": "http://dm.victoriassecret.com/product/220x294/V337174_333.jpg",
+         *         "name": "Push-Up Bra",
+         *         "priceRangeText": "$48 - $65",
+         *         "priceRanges": [
+         *           {
+         *             "low": 48,
+         *             "high": 65,
+         *             "lowText": "48",
+         *             "highText": "65",
+         *             "isSpecial": false,
+         *             "text": "$48 - $65"
+         *           }
+         *         ],
+         *         "colors": "More Colors",
+         *         "collectionName": "TODO"
+         *       },
+         *       ...
+         * ]
+         */
+        searchProducts: function(query, callback){
+            var url = "http://search2.victoriassecret.com/?all=0&i=1&q=" + query + "&view=desktop?search=true";
+            vsRequestUsingJsdom(url, function($, window, error){
+                if(error){ callback(error); return;}
+                var foundProductsResult = [];//our return value
+
+                //@param rangeText -
+                //  "$48.50 - $58.50 & $12.50 - $14.50 or Special 3/$33"
+                //  "$48.50 - $58.50"
+                //@return [
+                // {
+                //   lowText: '48.50',
+                //   highText: '58.50',
+                //   high: 58.5,
+                //   low: 48.5,
+                //   text: "$48.50 - $58.50",
+                //   isSpecial: false
+                // },
+                // ...
+                //]
+                function parsePriceRanges(rangeText){
+                    var result = [];//e.g. [{low:0, high:0, text:rangeText}];
+                    var orSplit = rangeText.split("or");
+                    for(var x=0; x < orSplit.length; ++x){
+                        var orItem = orSplit[x];
+                        var andSplit = orItem.split("&");
+                        for(var i=0; i < andSplit.length; ++i){
+                            var andItem = andSplit[i];
+                            var parsedPriceRange = parsePriceRange(andItem);
+                            result.push(parsedPriceRange);
+                        }
+                    }
+                    return result;
+                }
+
+                //@param rangeText -
+                //  "$48.50 - $58.50"
+                //  "Special 3/$33"  <-- would return all nulls except text and isSpecial === true
+                //@return {
+                //  lowText: '48.50',
+                //  low: 48.5,
+                //  highText: '58.50',
+                //  high: 58.5,
+                //  text: '$48.50 - $58.50',
+                //  isSpecial: false
+                //}
+                function parsePriceRange(rangeText){
+                    var result = {low:null, high:null, lowText:null, highText:null, isSpecial: false, text:rangeText.trim()};
+                    var dashSplit = rangeText.split("-");
+                    if(dashSplit.length == 1){
+                        //dealing with text like 'Special 3/$33'
+                        result.isSpecial = true;
+                    }else if(dashSplit.length == 2){
+                        //dealing with low - high range.
+                        result.lowText = dashSplit[0].replace('$', '').trim();
+                        result.highText = dashSplit[1].replace('$', '').trim();
+                        result.low = parseFloat(result.lowText);
+                        result.high = parseFloat(result.highText);
+                    }else{
+                        //unknown
+                    }
+                    return result;
+                }
+
+                //@param link - "http://victoriassecret.com/bras/all-collections/push-up-bra-cotton-lingerie?ProductID=139732&CatalogueType=OLS"
+                //@result '139732'
+                function parseProductId(link){
+                    var result = null;
+                    var match = link.match(/\?ProductID=(.*?)\&/);
+                    if(match && match.length > 1){
+                        result = match[1];
+                    }
+                    return result;
+                }
+
+                $('#features > ul > li > a').each(function(i, productLink){
+                    var $productLink = $(productLink);
+                    var productHref = $productLink.attr('href');
+                    var productImageSrc = $productLink.find('> span > img').attr('src');
+                    var productName = $productLink.find('> aside > hgroup > h2').text();
+                    var $priceAndColors = $productLink.find('> aside > p');
+                    var productPriceRangeText = '';
+                    var productColor = '';
+                    $priceAndColors.each(function(x, priceOrColor){
+                        var priceOrColorText = $(priceOrColor).text().trim();
+                        if(x == 0){ productPriceRangeText = priceOrColorText; }
+                        if(x == 1){ productColor = priceOrColorText; }
+                    });
+                    var parsedPriceRanges = parsePriceRanges(productPriceRangeText);
+
+                    var productResult = {
+                        href: productHref,
+                        imgSrc: productImageSrc,
+                        name: productName,
+                        priceRangeText: productPriceRangeText,
+                        priceRanges: parsedPriceRanges,
+                        colors: productColor,
+                        collectionName: "TODO"
+                    };
+
+                    foundProductsResult.push(productResult);
+
+                });
+
+                callback(foundProductsResult);
+            }, true);
         }
 
     };
@@ -368,11 +504,11 @@ module.exports = function(){
      *      use vsRequestUsingPhantomJs (phantomjs) when this function fails you.
      * @param path - eg. "bras" "bras/all-collections"... use "" for home
      * @param callback - function taking params ($, window, error)
-     *
+     * @param overrideUrl - if you need another base url than www.victoriassecret
      * TODO: use connection keep-alive
      */
-    function vsRequestUsingJsdom(path, callback){
-        var uri = "http://www.victoriassecret.com/" + path;
+    function vsRequestUsingJsdom(path, callback, overrideUrl){
+        var uri = overrideUrl ? path : "http://www.victoriassecret.com/" + path;
 
         request({
             uri : uri,

@@ -67,12 +67,11 @@ module.exports = function(app){
      *  {"facets":{"Size":{"30A":{"displayValue":"30A","swatchName":null,"productCount":1},"30B":{"displayValue":"30B","swatchName":null,"productCount":2},...}
      */
     app.get('/scrape/vs/collections/all/facets/list', function(req, res){
-        var result = {
-            facets: {}
-        };
         vsModel.getAllCollectionFacets(function(facets){
             result.facets = facets;
-            res.json(result);
+            res.json({
+                facets: facets
+            });
         });
     });
 
@@ -106,12 +105,48 @@ module.exports = function(app){
      *  }
      */
     app.get('/scrape/vs/collections/all/products/list', function(req, res){
-        var result = {
-            products: {}
-        };
         vsModel.getAllCollectionProducts(function(products){
-            result.products = products;
-            res.json(result);
+            res.json({
+                products: products
+            });
+        });
+    });
+
+    /**
+     * Searches realtime (no caching) using the search2.victoriassecret.com page to return an array of found products
+     * matching the query
+     * @param query - url encoded search query. e.g. "push%20up%20bra"
+     * @param callback - callback which takes as a parameter the return value (array of products)
+     * @return
+     * [
+     *       {
+     *         "href": "http://www.victoriassecret.com/bras/our-very-sexy-push-up/push-up-bra-very-sexy?ProductID=148147&CatalogueType=OLS",
+     *         "imgSrc": "http://dm.victoriassecret.com/product/220x294/V337174_333.jpg",
+     *         "name": "Push-Up Bra",
+     *         "priceRangeText": "$48 - $65",
+     *         "priceRanges": [
+     *           {
+     *             "low": 48,
+     *             "high": 65,
+     *             "lowText": "48",
+     *             "highText": "65",
+     *             "isSpecial": false,
+     *             "text": "$48 - $65"
+     *           }
+     *         ],
+     *         "colors": "More Colors",
+     *         "collectionName": "TODO"
+     *       },
+     *       ...
+     * ]
+     */
+    app.get('/scrape/vs/product/search/:query', function(req, res){
+        var query = req.params.query || 'PANTIES';
+        console.log('query is: ' + query);
+        vsModel.searchProducts(query, function(products){
+            res.json({
+                products: products
+            });
         });
     });
 
