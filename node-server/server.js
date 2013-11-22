@@ -203,6 +203,12 @@ app.get('/', function(req,res){
     res.render(config.viewsDirectory + 'test.html', viewModel);
 });
 
+//uncaught exceptions =========================
+process.on('uncaughtException', function(err) {
+    // handle the error safely
+    console.log(err);
+});
+
 //other routes ====================================================================================================================
 require('./vsscrape/vsscrape')(app);
 

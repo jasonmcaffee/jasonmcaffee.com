@@ -68,7 +68,6 @@ module.exports = function(app){
      */
     app.get('/scrape/vs/collections/all/facets/list', function(req, res){
         vsModel.getAllCollectionFacets(function(facets){
-            result.facets = facets;
             res.json({
                 facets: facets
             });
